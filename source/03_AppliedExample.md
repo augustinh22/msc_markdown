@@ -8,9 +8,9 @@
 
 ## Study area
 
-The study area is located in north-western Syria, along the border to Turkey and is comprised of three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA), covering an area of more than 30,000km2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in Figure 1. These three granules are provided in the same projection (UTM zone 37N, EPSG: 32637). All Sentinel-2 L1C data for these granules available on the Copernicus Open Access Hub are included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image (i.e. at the time of writing, January 31, 2018; 479 Sentinel-2 images). These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (see Figure ##).
+The study area used in this proof-of-concept implementation is located in north-western Syria, along the border to Turkey. Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in Figure 1, and ultimately define the exact extent of the study area. These three granules are provided in the same projection (UTM zone 37N, EPSG: 32637). All Sentinel-2 L1C data for these three granules that are available on the Copernicus Open Access Hub are continuously included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image. At the time of writing, data is included up to ##### ###, 2018, which results in ### Sentinel-2 images. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (see Figure ##).
 
-The study area’s data characteristics indicate suitability for optical time-series analyses. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east (Peel, Finlayson, & McMahon, 2007). The annual average cloud cover percentage, extracted from ESA’s L1C metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud cover percentage below 10%, while otherwise generally ranging between 20-40%.
+Data characteristics of the study area indicate suitability for optical time-series analyses. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east (Peel, Finlayson, & McMahon, 2007). The annual average cloud cover percentage, extracted from ESA’s L1C metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud cover percentage below 10%, while otherwise generally ranging between 20-40% from October to May.
 
 ![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple.](./figures/study_area_edit.png)
 
@@ -20,9 +20,13 @@ The study area’s data characteristics indicate suitability for optical time-se
 
 #### Specifications
 
-Copernicus is a European Earth observation program, previously known as Global Monitoring for Environment and Security (GMES). It owns the fleet of Sentinel satellites, currently which is connected to other sensors called “contribution missions” and operates downstream services. The Sentinel-2 satellites are equipped with a multi-spectral imager (MSI) observing 13 spectral bands (443 nm-2190 nm). Data is captured with a swath width (i.e. field of view) of approximately 290km and spatial resolution ranging from 10-60m: three visible bands and one near-infrared band at 10m; six red-edge/shortwave infrared bands at 20m; and three atmospheric correction bands at 60m.
+Copernicus is a European Earth observation program, previously known as Global Monitoring for Environment and Security (GMES). It owns the fleet of Sentinel satellites, currently which is connected to other sensors called “contribution missions” and operates downstream services. The Sentinel-2 satellites are equipped with a multi-spectral imager (MSI) observing 13 spectral bands (443 nm-2190 nm). Data is captured with a swath width (i.e. field of view) of approximately 290km and spatial resolution ranging from 10-60m: three visible bands and one near-infrared band at 10m; six red-edge/shortwave infrared bands at 20m; and three atmospheric correction bands at 60m (see Figure ##).
+
+![Spectral comparison of Landsat 7 and 8 bands with Sentinel-2 (retrieved on 25 April 2018 from https://landsat.gsfc.nasa.gov/sentinel-2a-launches-our-compliments-our-complements/)](./figures/landsat_sentinel2.png)
 
 Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuously and systematically collecting observations. They were launched on June 23, 2015 and March 7, 2017, respectively, with Sentinel-2C and -2D already planned in the future to extend the longevity of Sentinel-2 observations. Looking at observations from both satellites together, the nominal average revisit time at the equator is every 5 days, with more frequent data capture towards the poles. Data are processed and provided by the European Space Agency (ESA) as level-1C (L1C), which includes radiometric calibration to top-of-atmosphere (TOA) reflectance and geometric corrections (e.g. orthorectification, spatial registration). L1C scenes are available as granules (i.e. tiles). These granules each cover approximately 100km by 100km and contain around 600MB of data, including all spectral bands, metadata and some quality indicators generated by ESA.
+
+
 
 #### Data Used
 
@@ -124,7 +128,7 @@ symbolic variable; (3) ratio greenness index, i.e. (NIR / R) + (NIR / MIR1) – 
 
 #### Indexing images and information layers
 
-A product description needs to be defined in the ODC implementation database to index data. Indexing links to externally stored data and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product (Geoscience Australia, CSIRO, & NCI, 2017b) and only need to be defined once. 
+A product description needs to be defined in the ODC implementation database to index data. Indexing links to externally stored data and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product (Geoscience Australia, CSIRO, & NCI, 2017b) and only need to be defined once.
 
 Metadata necessary for indexing is automatically generated for each dataset. This has been implemented for Sentinel-2 and SIAM™ generated information layers by modifying existing Python scripts provided by ODC. This metadata includes spatio-temporal data extents, data format, projection, bands/layers, file paths relative to the metadata, and more. A copy of the source Sentinel-2 dataset’s metadata is included the information layer metadata to document provenance. Once metadata has been generated, indexing automatically follows using a Python script and the data cube’s API.
 
@@ -134,7 +138,7 @@ Once data has been indexed, it can be ingested, meaning automated tiling of an i
 
 In this implementation, automated ingestion of information layers in 100km2 tiles (10km by 10km by one time-step) occurs, keeping the original projection (i.e. UTM zone 37N, EPSG: 32637). At the time of writing, 58,477 tiles of ingested information layers have been created, a total of 144 GB.
 
-![Automated workflow overview from download to queries and indicator extraction, which utilises the Python API.](.\figures\Workflow_edit.png)
+![Automated workflow overview from download to queries and indicator extraction, which utilises the Python API.](.\figures\Workflow_helvetica.png)
 
 ### ODC Python API
 
@@ -148,4 +152,3 @@ Once data has been indexed and ingested, they can be accessed using a Python API
 ### Method of validation/agreement
 
 - random samples and an external dataset
-
