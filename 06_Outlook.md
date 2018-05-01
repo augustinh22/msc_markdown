@@ -1,12 +1,20 @@
 # Outlook
 
-Outlook/further considerations/prospects – other indicators
+- Outlook/further considerations/prospects – other indicators
 
 ## Data
 
-trend of free and open-access data
+- trend of free and open-access data
+- set-backs due to proprietary algorithms in "open" data
+- ARD
 
-set-backs due to proprietary algorithms in "open" data
+## Reproducible EO-analysis
+
+transferability
+
+repeatability
+
+
 
 ## Data Cubes
 
@@ -14,12 +22,13 @@ set-backs due to proprietary algorithms in "open" data
 
 ## Indicators
 
-big Earth data and SDGs
+- big Earth data and SDGs
 
 ## Privacy and monitoring
 
-at least something about spatial resolution, temporal frequency and public vs. private sector
+- at least something about spatial resolution, temporal frequency and public vs. private sector
+- what is privacy in terms of regular global EO data collection?
+- maybe reference other kinds of big spatial data (e.g. Strava)
 
-what is privacy in terms of regular global EO data collection?
 
-maybe reference other kinds of big spatial data (e.g. Strava)
+
