@@ -1,8 +1,9 @@
-# Theoretical Framework
+\cleardoublepage
+\pagestyle{scrheadings}
+\cleardoublepage
+\chapter{Theory}\label{ch:theory}
 
-
-
-## Definition of Terms
+# Definition of Terms
 
 - big data
 - big Earth data
@@ -14,7 +15,7 @@
 - indicator
 - livelihood
 
-## Indicators and evidence
+# Indicators and evidence
 
 - Indicators for "humanitarian crisis"
 - EO data and need for indicators
@@ -28,7 +29,7 @@ Indicator development is imperative to leveraging the potential of EO data and t
 
 
 
-## Livelihood-specific Evidence
+# Livelihood-specific Evidence
 
 - how can livelihood be addressed from an indicator perspective…
 - some non-EO livelihood security indicators (existing or envisioned in literature)
@@ -40,7 +41,7 @@ Indicator development is imperative to leveraging the potential of EO data and t
 GDP growth has been estimated through measuring light emissions from satellite images.
 
 
-## State-of-the-Art
+# State-of-the-Art
 
 
 
@@ -66,13 +67,13 @@ Array-database-based approaches usually come with properties, which are well-kno
 
 Most of the currently available technology implement the so-called datacube. For example, an array database might instantiate OGC-compliant datacubes, where the semantics of the axes are defined using coordinate reference systems (CRS), e.g., spatial coordinate reference systems, known by the harmonisation efforts by the EPSG. For example,in a three-dimensional datacube, a one-dimensional time CRS overlays the two-dimensional CRS. In total six characteristics have been identified in the publicly available datacube manifesto (<https://groups.google.com/forum/#!topic/rasdaman-users/Q3Zg7Tbc1_8>).  
 
-Besides the technology-driven strategies for performing searching and processing on the database level, user-driven requirements are leading to on-demand web-based online processing of big EO data. In the last years, several technologies and standards, which can be used for online processing of EO data, have been developed and made available to the community [Petcu et al. 2010]. Two OGC standards are the Web Coverage Processing Service (WCPS) and the Web Processing Service (WPS), while technology implementations are Google Earth Engine [Google Earth Engine Team2015] or the Jupyter notebooks. Other examples of web-based platforms, which have been explicitly designed for processing and analysing EO data, include the Amazon Cloud AWS (Amazon Web Service) for processing of Landsat-8 data, with a free access to the API [Amazon 2016]. The Australian Geoscience Data Cube(AGDC) is using the National Computational Infrastructure (NCI) to provide Landsat images in the petabyte scale together with processing capabilities over the internet [Evans et al. 2015]. The Austrian Earth Observation Data Centre for Water Resources Monitoring (EODC), a collaboration between the technical university of Vienna, the Austrian Meteorological Service (ZAMG) and other companies, pursues a similar approach [Wagner et al. 2014].Big Earth Data is characterised by the (at least three) “V’s”: Volume, Velocity, Variety, where sometimes Veracity is added as fourth “V”. Taking into account these characteristics, compared to traditional EO image processing pipelines, Big Earth Data-“ready” systems have to consider some additional constraints, which are imposed by the “any query, any time” requirement. The exploitation of the value of Big Earth Data involves automation, pre-processing, on-demand querying and compelling visualisation of the results. Massive processing power in the cloud and fast network connection is required, but not sufficient. Automation of intelligent workflows leading to pre-processing of data are important drivers for on-demand and ad-hoc querying to extract information in real time.Semantically enriched data allow also unexperienced users to formulate queries by means a high-level declarative language. Instead of having to translate an algorithm into software code manually, the query will be evaluated by the system and transformed into optimised physical access patterns. This approach can be realised by automatic (application independent) semantic enrichment of EO images in Big EO image databases, which are therefore “prepared” and “ready”for application specific queries in distributed array databases (with a declarative query language and a query optimiser). This approach avoids redundancy in data handling and repeated data (pre-) processing. The feasibility of this approach has been proven by Tiede et. al. [2016]. 
+Besides the technology-driven strategies for performing searching and processing on the database level, user-driven requirements are leading to on-demand web-based online processing of big EO data. In the last years, several technologies and standards, which can be used for online processing of EO data, have been developed and made available to the community [Petcu et al. 2010]. Two OGC standards are the Web Coverage Processing Service (WCPS) and the Web Processing Service (WPS), while technology implementations are Google Earth Engine [Google Earth Engine Team2015] or the Jupyter notebooks. Other examples of web-based platforms, which have been explicitly designed for processing and analysing EO data, include the Amazon Cloud AWS (Amazon Web Service) for processing of Landsat-8 data, with a free access to the API [Amazon 2016]. The Australian Geoscience Data Cube(AGDC) is using the National Computational Infrastructure (NCI) to provide Landsat images in the petabyte scale together with processing capabilities over the internet [Evans et al. 2015]. The Austrian Earth Observation Data Centre for Water Resources Monitoring (EODC), a collaboration between the technical university of Vienna, the Austrian Meteorological Service (ZAMG) and other companies, pursues a similar approach [Wagner et al. 2014].Big Earth Data is characterised by the (at least three) “V’s”: Volume, Velocity, Variety, where sometimes Veracity is added as fourth “V”. Taking into account these characteristics, compared to traditional EO image processing pipelines, Big Earth Data-“ready” systems have to consider some additional constraints, which are imposed by the “any query, any time” requirement. The exploitation of the value of Big Earth Data involves automation, pre-processing, on-demand querying and compelling visualisation of the results. Massive processing power in the cloud and fast network connection is required, but not sufficient. Automation of intelligent workflows leading to pre-processing of data are important drivers for on-demand and ad-hoc querying to extract information in real time.Semantically enriched data allow also unexperienced users to formulate queries by means a high-level declarative language. Instead of having to translate an algorithm into software code manually, the query will be evaluated by the system and transformed into optimised physical access patterns. This approach can be realised by automatic (application independent) semantic enrichment of EO images in Big EO image databases, which are therefore “prepared” and “ready”for application specific queries in distributed array databases (with a declarative query language and a query optimiser). This approach avoids redundancy in data handling and repeated data (pre-) processing. The feasibility of this approach has been proven by Tiede et. al. [2016].
 
 ![figure_IQ_18042016_300dpi](file:///C:/Users/b1041827/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif)
 
 [Figure ]()6: EO image data are semantically enriched and stored as information layers in datacubes. In combination with declarative querying in array databases, ad hoc information extraction is possible by means of semantic querying
 
- 
+
 
 [1.1.1      Global night-time lights monitoring]()
 
@@ -86,8 +87,4 @@ Free and open high resolution optical imagery (e.g. Sentinel-2, Landsat 5/7/8) l
 
 VHR data can be used to monitor and map changes, including: IDP, temporary and refugee settlements (Laneve, Santilli, & Lingenfelder, 2006); damaged or burnt urban or village structures; characterizing slums; border surveillance; and more detailed analysis of any land cover change. One critical issue in the optical data series processing is that preliminary cloud masking is required and also an accurate detection of haze conditions. In particular clouds make the optical data useless, while areas in the image affected by haze should be radiometrically corrected in order to avoid discarding of information. Change detection using optical data is usually a bigger challenge with respect to the SAR CD, depending on the information depth to be analysed.
 
-The years have also seen the birth of constellation with tens of micro EO satellites able to capture images of the Earth at an unprecedented pace. One image per day and maybe more is no more a chimera like it was in the early 2000 years. Constellation like Planet and Terra Bella/SkyBox (now merged[[1\]](#_ftn1))offers HR and VHR data commonly with a business model based on subscription which is exactly focused on monitoring purposes. As shown before in (Adam Van Etter, 2016), there are several efforts in order to exploit data coming from traditional VHR missions like DigitalGlobe ones and new space missions like Planet in order to extract automatically objects.
-
-------
-
-[[1\]](#_ftnref1) Planetto Acquire Terra Bella from Google, Sign Multi-Year Data Contract, <https://www.planet.com/pulse/planet-to-acquire-terra-bella-from-google/>
+The years have also seen the birth of constellation with tens of micro EO satellites able to capture images of the Earth at an unprecedented pace. One image per day and maybe more is no more a chimera like it was in the early 2000 years. Constellation like Planet and Terra Bella/SkyBox (now merged Planetto Acquire Terra Bella from Google, Sign Multi-Year Data Contract, <https://www.planet.com/pulse/planet-to-acquire-terra-bella-from-google/>)offers HR and VHR data commonly with a business model based on subscription which is exactly focused on monitoring purposes. As shown before in (Adam Van Etter, 2016), there are several efforts in order to exploit data coming from traditional VHR missions like DigitalGlobe ones and new space missions like Planet in order to extract automatically objects.

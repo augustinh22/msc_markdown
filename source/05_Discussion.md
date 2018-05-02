@@ -1,12 +1,15 @@
-# Discussion
+\cleardoublepage
+\pagestyle{scrheadings}
+\cleardoublepage
+\chapter{Discussion}\label{ch:discussion}
 
-## Interpretation of results
+# Interpretation of results
 
 - Discuss relevance of results
 
 
 
-## Discussion of Methods
+# Discussion of Methods
 
 - (incl. challenges, successes, reconsiderations and shortcomings)
 
@@ -18,7 +21,7 @@
 
 
 
-### GI_Forum Paper extract
+## GI_Forum Paper extract
 
 4.1 Semantic data cube
 
@@ -39,4 +42,4 @@ In the presented implementation, all of these application areas and many more ca
 One planned application of the approach presented here will complement and greatly extend an initial example based on Landsat data and SIAM™ semi-concepts by Tiede, Lüthje, & Baraldi (2014), which introduced an automated post-classification change detection related to vegetation. More specifically, it focused on irrigated agriculture in Syria following the beginning of the still on-going conflict as an
 indicator of conflict related changes. This particular example could greatly benefit from access to an automated, reproducible data cube infrastructure, moving away from bi-temporal change towards incorporating data in a temporally dense way over the period of interest, either within one year, or between multiple years. Such a shift inherently moves in the direction of developing indicators based on various sources of evidence to support decision-making.
 
-![Normalised water detection based on water semi-concepts in Syria near the border of Turkey, excluding no-data, cloud like and unclassified pixels from January 31, 2016 until January 31, 2018 (103 time observations). Method similar to Mueller et al. (2016).](.\figures\water_edit.png)
+![Normalised water detection based on water semi-concepts in Syria near the border of Turkey, excluding no-data, cloud like and unclassified pixels from January 31, 2016 until January 31, 2018 (103 time observations). Method similar to Mueller et al. (2016).](source/figures/water_edit.png)

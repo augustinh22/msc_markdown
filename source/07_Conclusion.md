@@ -1,4 +1,7 @@
-# Conclusion
+\cleardoublepage
+\pagestyle{scrheadings}
+\cleardoublepage
+\chapter{Conclusion}\label{ch:conclusion}
 
 - absolute distillation of achievements in max. 2 pages
 
@@ -6,7 +9,7 @@
 
 
 
-### GI_Forum extract
+## GI_Forum extract
 
 Data cubes are on the rise as a viable solution for remotely sensed big EO data storage and analysis. They allow users to access the same pre-processed data, supporting reproducible analysis, and facilitate analysis using dimensions beyond the spatial (e.g. time) as additional axes in the data cube.
 
