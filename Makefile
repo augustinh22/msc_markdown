@@ -1,4 +1,3 @@
-PY=python
 PANDOC=pandoc
 
 BASEDIR=$(CURDIR)
@@ -16,6 +15,7 @@ help:
 	@echo '                                                                       '
 	@echo 'Usage:                                                                 '
 	@echo '   make pdf                         generate a PDF file  			  '
+	@echo '   make tex                         generate a tex file  			  '
 	@echo '                                                                       '
 	@echo ' 																	  '
 	@echo ' 																	  '
@@ -29,7 +29,22 @@ pdf:
 	--template="$(STYLEDIR)/template_classicthesis.tex" \
 	--include-before-body "$(BEFOREDIR)"/00_00_coverpage.tex \
 	--include-before-body "$(BEFOREDIR)"/00_01_abstract.tex \
-  --include-before-body "$(BEFOREDIR)"/00_02_statements.tex \
+	--include-before-body "$(BEFOREDIR)"/00_02_statements.tex \
+	--include-before-body "$(BEFOREDIR)"/00_03_acknowledgements.tex \
+	--include-before-body "$(BEFOREDIR)"/00_04_toc.tex \
+	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl="$(STYLEDIR)/apa.csl" \
+	--verbose
+
+tex:
+	pandoc "$(INPUTDIR)"/*.md \
+	-f markdown \
+	-o "$(OUTPUTDIR)/thesis.latex" \
+	--template="$(STYLEDIR)/template_classicthesis.tex" \
+	--include-before-body "$(BEFOREDIR)"/00_00_coverpage.tex \
+	--include-before-body "$(BEFOREDIR)"/00_01_abstract.tex \
+	--include-before-body "$(BEFOREDIR)"/00_02_statements.tex \
 	--include-before-body "$(BEFOREDIR)"/00_03_acknowledgements.tex \
 	--include-before-body "$(BEFOREDIR)"/00_04_toc.tex \
 	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
@@ -38,4 +53,4 @@ pdf:
 	--verbose
 
 
-.PHONY: help pdf docx html tex
+.PHONY: help pdf tex
