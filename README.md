@@ -13,11 +13,11 @@ Assuming you have "make" installed...
 
 Using whatever shell you prefer, ```cd``` to the folder with the *Makefile* and  run the following command to compile a PDF:
 
-'''make pdf'''
+```make pdf```
 
 If fonts are giving you errors, complete the following command:
 
-'''initexmf --admin --mkmaps'''
+```initexmf --admin --mkmaps```
 
 
 ## Windows
@@ -31,9 +31,9 @@ For Windows-users, you can use Cygwin or whatever GNU shell of your likeing. Git
 
 In git bash, cd to the folder with the *Makefile* and run the following command to compile a PDF:
 
-'''make pdf'''
+```make pdf```
 
 If fonts are giving you errors, complete the following command:
 
-'''initexmf --admin --mkmaps'''
+```initexmf --admin --mkmaps```
 
