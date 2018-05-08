@@ -12,11 +12,17 @@
 
 - why is this relevant for monitoring/detecting spatially-explicit evidence of humanitarian crisis?
 
-# Study area
+# Use-Case Selection
+
+- Northern Syria
+- Justification for choice (Syrian conflict, weather/climate, Sentinel-2 data projection + overlap of swaths)
+- After-the-fact Turkish attack on/invasion of Afrin, Syria
+- Mention previous study with Landsat data
+
 
 The study area used in this proof-of-concept implementation is located in north-western Syria, along the border to Turkey. Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in Figure 1, and ultimately define the exact extent of the study area. These three granules are provided in the same projection (UTM zone 37N, EPSG: 32637). All Sentinel-2 L1C data for these three granules that are available on the Copernicus Open Access Hub are continuously included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image. At the time of writing, data is included up to ##### ###, 2018, which results in ### Sentinel-2 images. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (see Figure \ref{overview}).
 
-Data characteristics of the study area indicate suitability for optical time-series analyses. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east (Peel, Finlayson, & McMahon, 2007). The annual average cloud cover percentage, extracted from ESA’s L1C metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud cover percentage below 10%, while otherwise generally ranging between 20-40% from October to May.
+Data characteristics of the study area indicate suitability for optical time-series analyses. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east [@peelUpdatedWorldMap2007]. The annual average cloud cover percentage, extracted from ESA’s L1C metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud cover percentage below 10%, while otherwise generally ranging between 20-40% from October to May.
 
 ![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{overview}](source/figures/study_area_edit.png)
 
@@ -26,11 +32,16 @@ Data characteristics of the study area indicate suitability for optical time-ser
 
 ### Specifications
 
-Copernicus is a European Earth observation program, previously known as Global Monitoring for Environment and Security (GMES). It owns the fleet of Sentinel satellites, currently which is connected to other sensors called “contribution missions” and operates downstream services. The Sentinel-2 satellites are equipped with a multi-spectral imager (MSI) observing 13 spectral bands (443 nm-2190 nm). Data is captured with a swath width (i.e. field of view) of approximately 290km and spatial resolution ranging from 10-60m: three visible bands and one near-infrared band at 10m; six red-edge/shortwave infrared bands at 20m; and three atmospheric correction bands at 60m (see Figure \ref{spectral_bands}).
+Free and open \ac{HR} \ac{EO} data is currently collected primarily by Sentinel-2 and Landsat satellites, predominantly used for monitoring dynamics of surface water, vegetation, coastal areas, natural disasters and other events or processes on land.
+
+
+Copernicus is a European Earth observation program, previously known as \ac{GMES}. It owns the fleet of Sentinel satellites, currently which is connected to other sensors called “contribution missions” and operates downstream services. The Sentinel-2 satellites are equipped with a \ac{MSI} observing 13 spectral bands (443 nm-2190 nm). Data is captured with a swath width (i.e. field of view) of approximately 290\ac{km} and spatial resolution ranging from 10-60 \acp{m}: three visible bands and one near-infrared band at 10\ac{m}; six red-edge/shortwave infrared bands at 20\ac{m}; and three atmospheric correction bands at 60\ac{m} (see Figure \ref{spectral_bands}).
 
 ![Spectral comparison of Landsat 7 and 8 bands with Sentinel-2 (retrieved on 25 April 2018 from https://landsat.gsfc.nasa.gov/sentinel-2a-launches-our-compliments-our-complements/) \label{spectral_bands}](source/figures/landsat_sentinel2.png)
 
-Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuously and systematically collecting observations. They were launched on June 23, 2015 and March 7, 2017, respectively, with Sentinel-2C and -2D already planned in the future to extend the longevity of Sentinel-2 observations. Looking at observations from both satellites together, the nominal average revisit time at the equator is every 5 days, with more frequent data capture towards the poles. Data are processed and provided by the European Space Agency (ESA) as level-1C (L1C), which includes radiometric calibration to top-of-atmosphere (TOA) reflectance and geometric corrections (e.g. orthorectification, spatial registration). L1C scenes are available as granules (i.e. tiles). These granules each cover approximately 100km by 100km and contain around 600MB of data, including all spectral bands, metadata and some quality indicators generated by ESA.
+Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuously and systematically collecting observations. They were launched on June 23, 2015 and March 7, 2017, respectively, with Sentinel-2C and -2D already planned in the future to extend the longevity of Sentinel-2 observations. Looking at observations from both satellites together, the nominal average revisit time at the equator is every 5 days, with more frequent data capture towards the poles. Data are processed and provided by the \ac{ESA} as \ac{L1C}, which includes radiometric calibration to \ac{ToA} reflectance and geometric corrections (e.g. orthorectification, spatial registration). \ac{L1C} scenes are available as granules (i.e. tiles). These granules each cover approximately 100km by 100km and contain around 600MB of data, including all spectral bands, metadata and some quality indicators generated by \ac{ESA}.
+
+Even in the isolated case of Sentinel-2, automated workflows are necessary to handle approximately 3.4\ac{TB} of data captured every day [@esaSentinelHighLevel2017], not to mention fusion with other similar sensors (e.g. Landsat) or integration with different datasets (e.g. radar, digital elevation models, socio-economic data).
 
 
 
@@ -69,13 +80,13 @@ Semi-concepts are considered semi-symbolic in that they are an initial step in c
 
 ### SIAM(TM)
 
-This implementation uses multiple semantic semi-concept granularities generated by the Satellite Image Automatic Mapper™ (SIAM™, release 88v7) to enable semantic queries (Baraldi, 2018). Spectral-based image pre-classification, as implemented by SIAM™, divides the feature space of a multi-spectral image into semantic semi-concepts using a knowledge-based approach, in contrast to data-driven approaches (e.g. supervised classification) (Baraldi et al., 2010a; Baraldi, 2011, 2018). A physical model-based decision-tree using a priori knowledge of spectral profiles is the foundation applied to each pixel for the spectral categorisation. Assuming images are calibrated to a minimum of TOA reflectance, these semi-concepts are comparable and therefore transferable between multiple images and optical sensors without any additional user defined parametrisation (i.e. fully automatic).
+This implementation uses multiple semantic semi-concept granularities generated by the Satellite Image Automatic Mapper™ (SIAM™, release 88v7) to enable semantic queries (Baraldi, 2018). Spectral-based image pre-classification, as implemented by SIAM™, divides the feature space of a multi-spectral image into semantic semi-concepts using a knowledge-based approach, in contrast to data-driven approaches (e.g. supervised classification) (Baraldi et al., 2010a; Baraldi, 2011, 2018). A physical model-based decision-tree using a priori knowledge of spectral profiles is the foundation applied to each pixel for the spectral categorisation. Assuming images are calibrated to a minimum of \ac{ToA} reflectance, these semi-concepts are comparable and therefore transferable between multiple images and optical sensors without any additional user defined parametrisation (i.e. fully automatic).
 
 ## Hardware
 
 - describe server
 
-The hardware used for this implementation is a Red Hat Enterprise Linux 7 virtual machine, with 16 virtual central processing units (CPUs) at 2.5 GHz clocking, 31 GB random-access memory (RAM) and 3TB of generic, all-use storage.
+The hardware used for this implementation is a Red Hat Enterprise Linux 7 virtual machine, with 16 virtual central processing units (CPUs) at 2.5 GHz clocking, 31 GB \ac{RAM} and 3TB of generic, all-use storage.
 
 ## Software
 
@@ -94,6 +105,8 @@ Two reproducible virtual conda environments for Python are used. Data download t
 #### Git
 
 #### Open Data Cube (ODC)
+
+Current setups of reproducible research for \ac{EO} data cubes require significant time and financial investment and are limited to larger institutions, but this might change once appropriate technological development status is reached. The importance of reproducible, transferable, interoperable, automated and repeatable workflows to process, handle and analyse massive \ac{EO} data is becoming more apparent in a now data-rich world. With so much big data, it makes sense to avoid application-specific data (pre-)processing, which contradicts many big data principles. At the time of writing, three national-level \ac{ODC} implementations are operational, seven are in-development and twenty-nine are under review. The \ac{CEOS} has set a goal of twenty operational national-scale data cubes by 2022 [@opendatacubeodcOpendatacubeCEOS2017].
 
 The Open Data Cube (ODC) initiative evolved from the Australian Geoscience Data Cube (AGDC) with the objective to provide a means to store, manage and analyse large volumes of EO data. The initiative has three goals: (i) increase the impact of EO; (ii) build a community; and (iii) provide free and open software, including documentation (CEOS, 2017). Since CEOS is one of the founding members, the initiative seeks to align EO with overarching international agendas, such as the United Nations Sustainable Development Goals (SDGs). By fostering continental and global scale applications, the ODC initiative aims to improve the use of EO-based information by decision-makers.
 
@@ -121,11 +134,12 @@ polygon or granule name, the latter of which is based on an in-house API that re
 
 The structure of products and metadata has seen a few modifications since the first images offered to the public in 2015. Most notably, Sentinel-2 products were served in packages of multiple granules prior to December 6, 2016, with sizes sometimes exceeding 6 GB.
 
+#### Sentinel-2 Downloader
 
 
 ### Formatting data for SIAM™
 
-Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 image are automatically re-formatted. SIAM™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands, blue, green, red, near infrared and two medium infrared bands are used (i.e. 2, 3, 4, 8, 11, 12). Bands 11 and 12 are resampled from 20m pixels to 10m using SciPy. Sentinel-2's MSI does not collect a thermal band, so a constant is used to ignore thermal decision rules in SIAM™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0 (see discussion), a no-data mask is generated. Finally, the six Sentinel-2 bands of TOA reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the ENVI data format for SIAM™ using GDAL.
+Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 image are automatically re-formatted. SIAM™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands, blue, green, red, near infrared and two medium infrared bands are used (i.e. 2, 3, 4, 8, 11, 12). Bands 11 and 12 are resampled from 20m pixels to 10m using SciPy. Sentinel-2's MSI does not collect a thermal band, so a constant is used to ignore thermal decision rules in SIAM™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0 (see discussion), a no-data mask is generated. Finally, the six Sentinel-2 bands of \ac{ToA} reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the ENVI data format for SIAM™ using GDAL.
 
 ### Generating information layers with SIAM™
 
