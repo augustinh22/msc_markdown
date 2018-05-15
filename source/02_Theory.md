@@ -28,6 +28,13 @@
 
 Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information, especially as big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision\-makers. Since much \ac{EO}-data is independent of political boundaries, if not global in coverage, indicators derived from them will especially be useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
 
+The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis. Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
+
+
+The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*.
+
+
+
 For example, night-time light \ac{EO} data integrated with the \ac{JRC} \ac{GHSL} and disaggregated population data were used to assess the humanitarian impact of the Syrian conflict [@corbaneMonitoringSyrianHumanitarian2016]. Information extracted from big Earth data is a promising source of spatially-explicit evidence.
 
 # Livelihood-specific Evidence
