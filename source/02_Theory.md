@@ -3,39 +3,61 @@
 \cleardoublepage
 \chapter{Theory}\label{ch:theory}
 
-# Definition of Terms
+This section intends to lay the groundwork and context in which the applied example implemented for north-western Syria was conceived and its larger purpose clarified. Various terms will be explained or defined and the broader global initiatives in which this work is ideally relevant are described. While  
+
+# Defining Some Terms
+
+Before digging into anything further, a few terms need to be clarified based on definition or intended use throughout this thesis.
 
 - big data
 - big Earth data
 - data cube
+
 - \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
 - \ac{ESA} Level 1C - Level 2A
-- semantic enrichment
-- humanitarian "crisis"
-- indicator
-- livelihood
+
+- indicator vs. evidence
+While the term "indicator" refers to both spatially-explicit information derived from \ac{EO} data and statistical indicators to monitor targets of various international goals, they do not refer to information that can be used interchangeably. Indicators derived from \ac{EO} data are based on images that have been somehow semantically enriched or classified, which, even if automated and validated, always includes subjective decisions. They are categorically different from other statistical measures, such as population counts, disease prevalence rates, \ac{GDP}, etc.  \ac{EO}-based indicators can serve as spatially explicit evidence to support these already identified indicators.
+
+
 - spatially-explicit
+- semantic enrichment
+- livelihood
 
-# Indicators and evidence
 
-- Indicators for "humanitarian crisis"
+
+# International Initiatives
+
+\ac{EO}-derived information can contribute to many existing global priority initiatives. However, in order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the Sendai Framework for Disaster Risk and Reduction (Sendai Framework), both of which pertain to goals set in 2015 for 2030.
+
+Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
+
+## United Nations' Sustainable Development Goals
+
+The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. In contrast, the currently active \acp{SDG} are overarching ideals that all countries ought to make steps towards achieving. In order to support these efforts, 169 concrete targets for each goal as well as multiple indicators for monitoring progress towards each target have been identified.
+
+## Sendai Framework for Disaster Risk and Reduction
+
+The Sendai Framework is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and guiding principles.
+
+# \ac{EO}-based information for indicators
+
 - \ac{EO} data and need for indicators
-- Development of spatially-explicit indicators
 - Indicators vs. evidence
-- literature review of existing \ac{EO}-based indicators or sources of evidence
+- Development of spatially-explicit indicators
+
+- literature review of existing optical \ac{EO}-based indicators or sources of evidence
 
 
 
-Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information, especially as big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision\-makers. Since much \ac{EO}-data is independent of political boundaries, if not global in coverage, indicators derived from them will especially be useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
+Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information. As big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan, indicators transferable to multiple data sources will be increasingly useful for interpreting a variety of \ac{EO} data. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision-makers. Since free and open \ac{EO} data are independent of political boundaries, if not global in coverage, indicators derived from them will be especially useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
 
-The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis. Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
-
-
-The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*.
+The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
 
 
 
-For example, night-time light \ac{EO} data integrated with the \ac{JRC} \ac{GHSL} and disaggregated population data were used to assess the humanitarian impact of the Syrian conflict [@corbaneMonitoringSyrianHumanitarian2016]. Information extracted from big Earth data is a promising source of spatially-explicit evidence.
+**Relevant here:**
+"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups" [@mainiSendaiFrameworkDisaster2017]
 
 # Livelihood-specific Evidence
 
@@ -65,7 +87,6 @@ For example, night-time light \ac{EO} data integrated with the \ac{JRC} \ac{GHSL
 Cropping intensity (FAO)
 Amount cultivated land/land ownership (HKI)
 
-\ac{GDP} growth has been estimated through measuring light emissions from satellite images.
 
 ## Open-data
 
@@ -79,6 +100,10 @@ One existing transferable method for initial, generic semantic enrichment is aut
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification) into classes equal or inferior to land cover classes
 
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
+
+For example, night-time light \ac{EO} data integrated with the \ac{JRC} \ac{GHSL} and disaggregated population data were used to assess the humanitarian impact of the Syrian conflict [@corbaneMonitoringSyrianHumanitarian2016]. Information extracted from big Earth data is a promising source of spatially-explicit evidence.
+
+\ac{GDP} growth has been estimated through measuring light emissions from satellite images.
 
 
 ----------------------------
