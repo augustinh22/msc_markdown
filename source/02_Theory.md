@@ -3,15 +3,17 @@
 \cleardoublepage
 \chapter{Theory}\label{ch:theory}
 
-This section intends to lay the groundwork and context in which the applied example implemented for north-western Syria was conceived and its larger purpose clarified. Various terms will be explained or defined and the broader global initiatives in which this work is ideally relevant are described. While  
+This section aims to lay the groundwork and context in which the applied example implemented for north-western Syria was conceived, clarifying its larger purpose. Various terms relevant to this work will be explained or defined, and the broader, on-going global initiatives are described, for which this work is ideally relevant at the time of development.
 
 # Defining Some Terms
 
-Before digging into anything further, a few terms need to be clarified based on definition or intended use throughout this thesis.
+Before digging into anything further, a few terms need to be clarified based on intended use or definition throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established.
 
-- big data
-- big Earth data
+This thesis focuses on finding ways to utilise what is known as *big data*, but more specifically *big Earth data*, in service of global priority initiatives (see below). Remotely-sensed big Earth data could be analysed using methods applied to remotely-sensed imagery before Landsat opened its archive, but the majority of available data would never be used. Big Earth data pose different challenges to researchers due to their **volume, veracity, v v**, and demand different methods to leverage their potential, whether related to storage, access or analysis.
+
+Much analysis in remote sensing was previously limited to manually selected, hopefully representative images for the purpose of a study, or even relying on two images for bi-temporal analysis, due to the prohibitive costs of images, limited technological tools and hardware to handle, store and process large data, discrepancies in necessary pre-processing for users to routinely conduct before analysis, and more. The opening of the Landsat archive to the public in 2008 [@wulderOpeningArchiveHow2012] presented new challenges
 - data cube
+- ARD
 
 - \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
 - \ac{ESA} Level 1C - Level 2A
