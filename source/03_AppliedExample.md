@@ -8,7 +8,7 @@
 
 # Background
 
-- rationality
+Conflict has been present in Syria for many years now, which has impacted the livelihoods and threatened the physical safety of many people. Due to these imminent threats, data
 
 - why is this relevant for monitoring/detecting spatially-explicit evidence of humanitarian crisis?
 
@@ -59,6 +59,12 @@ Even in the isolated case of Sentinel-2, automated workflows are necessary to ha
 - Precipitation or drought data
 - mention acquisition/ingestion, etc. or reference below
 
+- INFORM, Index of Risk Management database
+- HDX, humanitarian data exchange https://data.hdx.rwlabs.org
+- Relief web
+- ACLED
+- GDELT
+
 
 
 # Methods
@@ -72,7 +78,7 @@ The automated workflow encompasses downloading Sentinel-2 data, re-formatting, p
 - reference water in Australia and apply/situate in framework referenced in section 2
 - describe two indicators (water, vegetation ...)
 
-## Automatic knowledge-based spectral categorisation
+## Semantic Enrichment: automatic knowledge-based spectral categorisation
 
 ### Theory
 
