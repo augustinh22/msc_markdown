@@ -3,28 +3,76 @@
 \cleardoublepage
 \chapter{Theory}\label{ch:theory}
 
-This section aims to lay the groundwork and context in which the applied example implemented for north-western Syria was conceived, clarifying its larger purpose. Various terms relevant to this work will be explained or defined, and the broader, on-going global initiatives are described, for which this work is ideally relevant at the time of development.
+This section aims to lay the groundwork and context in which the applied example, a semantic data cube implemented for north-western Syria, was conceived, clarifying its intended larger purpose. Various relevant terms are explained, if not defined, and the broader, on-going global initiatives are described, for which this work hopes to be relevant.
 
 # Defining Some Terms
 
-Before digging into anything further, a few terms need to be clarified based on intended use or definition throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established.
+Before digging into anything further, a few terms need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
 
-This thesis focuses on finding ways to utilise what is known as *big data*, but more specifically *big Earth data*, in service of global priority initiatives (see below). Remotely-sensed big Earth data could be analysed using methods applied to remotely-sensed imagery before Landsat opened its archive, but the majority of available data would never be used. Big Earth data pose different challenges to researchers due to their **volume, veracity, v v**, and demand different methods to leverage their potential, whether related to storage, access or analysis.
+## Open-data
+on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
 
-Much analysis in remote sensing was previously limited to manually selected, hopefully representative images for the purpose of a study, or even relying on two images for bi-temporal analysis, due to the prohibitive costs of images, limited technological tools and hardware to handle, store and process large data, discrepancies in necessary pre-processing for users to routinely conduct before analysis, and more. The opening of the Landsat archive to the public in 2008 [@wulderOpeningArchiveHow2012] presented new challenges
-- data cube
-- ARD
+One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
 
-- \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
-- \ac{ESA} Level 1C - Level 2A
+
+## Big Earth Data
+This thesis focuses on utilising what is referred to as *big Earth data*. The opening of the Landsat archive to the public in 2008 [@wulderOpeningArchiveHow2012] presented new opportunities for many researchers to access and use Landsat data, stretching back for 35 years, but it also presented many new challenges, which researchers are still grappling with. Remotely-sensed *big Earth data* could continue to be analysed using methods that were applied to remotely-sensed images before Landsat opened its archive in 2008 (i.e. before they became a big data source) but the majority of \ac{EO} data available would never be used.
+
+*Big Earth data* pose different challenges to researchers due to various unique qualities that define their "bigness", which apply to *big data* more generally. These qualities are discussed in literature any number of "V's", depending on the source. Here, we will refer to the 4 V's as **volume, variety, velocity and veracity** (data at scale [TB, PB, etc.], data in many forms [many dimensions], data in motion[streaming], data uncertainty[unstructured, untrusted, uncleaned]).
+
+Much analysis in remote sensing was previously limited to manually selected, hopefully representative images for the purpose of a given study. In terms of detecting changes, bi-temporal change analysis was commonly employed, due to the prohibitive cost of images, and limited technological tools and hardware to handle, store and process large data.
+
+Access to images is no longer a limiting factor, and transferability of existing methods to multiple images at the same place, different seasonal conditions, different geographic locations, etc. has become increasingly important. This was not only for the sake of efficiency, but for reliability and comparability of results.
+
+Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
+
+*Big Earth data* demand different and new methods to leverage their potential, whether related to storage, access or analysis.
+
+*Soille et al. (2016)*
+
+**Providing tools and applications for:
+- managing large EO datasets efficiently and with remote access for data analysis and exploitation, minimizing the transfer from or to remote data centers
+- adapt existing spatial and temporal analysis methods, and developing new methods that allow easier sharing, publishing, backup and reproduce big EO data;**
+
+
+## ARD
+
+
+### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
+
+
+## \ac{ESA} Level 1C - Level 2A
+
+
+## Semantic Enrichment
+
+
+## Data cube
+
+
+## Reproducibility
+
+
+
+# \ac{EO}-based information for indicators
+
+- \ac{EO} data and need for indicators
+- Indicators vs. evidence
+- Development of spatially-explicit indicators
+- spatially-explicit
+
+
+Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information. As big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan, indicators transferable to multiple data sources will be increasingly useful for interpreting a variety of \ac{EO} data. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision-makers. Since free and open \ac{EO} data are independent of political boundaries, if not global in coverage, indicators derived from them will be especially useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
+
+The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
+
 
 - indicator vs. evidence
-While the term "indicator" refers to both spatially-explicit information derived from \ac{EO} data and statistical indicators to monitor targets of various international goals, they do not refer to information that can be used interchangeably. Indicators derived from \ac{EO} data are based on images that have been somehow semantically enriched or classified, which, even if automated and validated, always includes subjective decisions. They are categorically different from other statistical measures, such as population counts, disease prevalence rates, \ac{GDP}, etc.  \ac{EO}-based indicators can serve as spatially explicit evidence to support these already identified indicators.
+Information derived from \ac{EO} data are based on images that have been somehow semantically enriched or classified, which, even if automated and validated, always includes subjective decisions. They are categorically different from other statistical measures, such as population counts, disease prevalence rates, \ac{GDP}, etc.  \ac{EO}-based indicators can serve as spatially explicit evidence to support these already identified indicators.
 
 
-- spatially-explicit
-- semantic enrichment
-- livelihood
+**Relevant here:**
+"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups" [@mainiSendaiFrameworkDisaster2017]
 
 
 
@@ -34,39 +82,32 @@ While the term "indicator" refers to both spatially-explicit information derived
 
 Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
 
+
 ## United Nations' Sustainable Development Goals
 
-The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. In contrast, the currently active \acp{SDG} are overarching ideals that all countries ought to make steps towards achieving. In order to support these efforts, 169 concrete targets for each goal as well as multiple indicators for monitoring progress towards each target have been identified.
+The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
 
 ## Sendai Framework for Disaster Risk and Reduction
 
-The Sendai Framework is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and guiding principles.
+The Sendai Framework is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and many guiding principles.
 
-# \ac{EO}-based information for indicators
+# Indicators Utilising \ac{EO}-Based Information
 
-- \ac{EO} data and need for indicators
-- Indicators vs. evidence
-- Development of spatially-explicit indicators
+- Talk theoretically about what is possible.
 
-- literature review of existing optical \ac{EO}-based indicators or sources of evidence
+## Indicators for International Initiatives
 
-
-
-Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information. As big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan, indicators transferable to multiple data sources will be increasingly useful for interpreting a variety of \ac{EO} data. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision-makers. Since free and open \ac{EO} data are independent of political boundaries, if not global in coverage, indicators derived from them will be especially useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
-
-The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
-
-
-
-**Relevant here:**
-"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups" [@mainiSendaiFrameworkDisaster2017]
-
-# Livelihood-specific Evidence
+## Livelihood-related Crisis Indicators
 
 - how can livelihood be addressed from an indicator perspective…
 - some non-\ac{EO} livelihood security indicators (existing or envisioned in literature)
 - existing or envisioned \ac{EO}-based livelihood indicators or sources of evidence
 
+\ac{EO} data is not only useful for monitoring longer-term international goals, but also for generating spatially-explicit evidence for assessing the impact of events producing rapid change, such as flooding, deforestation, wildfires, damage to irrigation infrastructure in the dry season, etc.
+
+Free and open \ac{EO} data are a reliable and objective global data source that can also serve humanitarian organisations and initiatives in moments of emergency or crisis, however defined. A handful of research with the purpose of developing what are known as *crisis indicators* exists, utilising \ac{EO}-based information. The term "crisis" is, however, very loosely defined and quite subjective, since the definition is related to what is being affected and who or what it impacts. Connecting detectible changes in land cover or land use as being caused or related to a defined crisis requires a lot of inference, and various additional data sources for validation, which may not be available at the time of analysis due to limitations and restrictions to data collection, access, etc. associated with the identified crisis.
+
+Livelihood-specific Evidence
 
 1. economic size, growth and distribution (using luminosity)
 2. population size, growth and distribution
@@ -81,6 +122,11 @@ The challenge with \ac{EO} data is their necessity to be classified or interpret
 11. illegal crops (e.g. drugs)
 12. reconstruction activity after conflict (e.g. build up of infrastructure)
 
+Land degradation -- Long-term multi-temporal vegetation analyses (large scale analysis using Sentinel-2 data,
+Loss of agricultural areas -- Long-term multi-temporal vegetation analyses (Hot spot analysis using Sentinel-2 data
+Flood impact -- Long term probability of flooding impact on agriculture areas, accessibility
+Power shortage -- Night-time light detection.
+
 
 - crop cycles (measure periods of seasonal stress -- low harvest)
 - contribute spatially explicit information to existing vulnerability/risk/hazard assessment methods
@@ -90,29 +136,98 @@ Cropping intensity (FAO)
 Amount cultivated land/land ownership (HKI)
 
 
-## Open-data
 
-on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
-
-One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
 
 # State-of-the-Art
+
+
+## Automated Semantic Enrichment
+
+- focus on existing algorithms
 
 
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification) into classes equal or inferior to land cover classes
 
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
 
+## Selected existing \ac{EO}-based Indicators
+
+- literature review of existing optical \ac{EO}-based indicators or sources of evidence
+
+
+### Sentinel-1
+
+### \ac{MODIS}
+
+### Night-time Lights Data
+
 For example, night-time light \ac{EO} data integrated with the \ac{JRC} \ac{GHSL} and disaggregated population data were used to assess the humanitarian impact of the Syrian conflict [@corbaneMonitoringSyrianHumanitarian2016]. Information extracted from big Earth data is a promising source of spatially-explicit evidence.
 
 \ac{GDP} growth has been estimated through measuring light emissions from satellite images.
+
+### Landsat and Sentinel-2
+
+### \ac{VHR} Data
+
+
+
+## Relevant data cube implementations
+
+- focus on Landsat and Sentinel-2 use
+
+
+
 
 
 ----------------------------
 
 # Taken from elsewhere...
 
-Big Earth data holds high potential for migration and emergency preparedness and response, especially due to its inherent independence from national or other human-imposed borders. Development of large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of data is the current trend in the field. This information can be used to improve situational awareness as well as regular, temporal monitoring and identification of changes. Data with lower spatial resolutions can be exploited by moving away from "direct" information extraction towards indicator-based approaches, whereas \ac{VHR} data can be exploited using multi-scale approaches. Analysis of night-time lights data for various purposes related to conflicts, as well as using \ac{VHR} data for visual monitoring of areas (e.g. \ac{IDP} camps, borders) are application fields with considerable research that is also relevant for migration monitoring, but methods based on other data sources exist or are being actively explored (e.g. crisis indicator development). Particularly, methods to monitor phenomena or events that have historically resulted in migration would be a means to shift from measures reacting to migration to more prevention or preparedness measures.
+Topics concern the security of livelihoods in large scale crisis situations and the assessment/or indications of damages based on HR EO-sensors of a high temporal resolution (e.g. Sentinel 2/3). The civil war in Syria, for example, has been raging for several years now. Conflict-induced changes regarding the agricultural production can serve as an indicator to assess the overall situation in the area. During on-going conflicts indicators for large-scale damage assessment such as the damage of infrastructure and buildings, etc. can serve as additional information on severity and the evolution of the conflict. These EO-based indicators are able to improve existing risk assessments by adding a dynamic and regionalized component. Starting from large scale assessment C-CRISIS aims also to cover a range of different sub-themes on the regional and local level, such as the assessment of the environmental impact of refugee/internally displaced person (IDP) camps on the surrounding. The sudden influx of large numbers of IDPs or refugees into a spatially limited area can place severe pressure on the local environment and existing natural resources.
+
+... comprehensive approach: Large-scale, automated (repeatable and reliable) extraction of EO-based indicators/indicator classes, which requires a combination of deductive (rule/expertbased) and inductive methods. Challenges are – beyond the automatization – the large data amounts (improved processing methods), the high repetition rates, different sensor types (radar/optical, HR/MR) and the identification of significant indicators (advanced information extraction).
+
+Processing and classification time series of super-spectral image stacks requires dedicated multi-dimensional methods robust to redundant information. Reduction of dimensionality of the data should be utilized by using indicator-specific vegetation indexes or aggregative statistics computed over temporal stack
+
+Mubareka and Ehrlich (2010) combined Landsat data and field data to derive environmental indicators of conflictinduced changes in land use such as conversion of agricultural land to grassland or harvesting of woodland. They suggest further improving the risk assessment by integrating political and social factors. The capabilities of Landsat to detect burnt villages in Darfur have been shown by Prins (2008). Machado (2015) investigated the potential of Landsat time series analyses in combination with additional data sources to derive geospatial patterns of Syrian refugee flows in south-eastern Turkey. Within the G-SEXTANT project, fully automated analysis of Landsat time series data showed the development of irrigated agricultural areas for northern Syria which was used as an indicator for crisis related changes (Tiede et al. 2014), transferability of the approach to Sentinel-2 and -3 data is envisaged within C-CRISIS, as a fully automated indicator extraction approach.
+
+Machado, Daniel Carlos dos Santos. 2015. "Analyzing Geospatial patterns of syrian refugee flows in southeastern Turkey by use of remote sensing and complementary data".
+Mubareka, Sarah, and Daniele Ehrlich. 2010. "Identifying and modelling environmental indicators for assessing population vulnerability to conflict using ground and satellite data." Review of. Ecological indicators 10 (2):493-503.
+Prins, E. 2008. "Use of low cost Landsat ETM+ to spot burnt villages in Darfur, Sudan." Review of. International Journal of Remote Sensing 29 (4):1207-14.
+
+Langer et al., 2015, who employ prior-knowledge based classification of multi-temporal Landsat imagery for the long-term characterization of environmental change around a refugee camp over a time span of 21 years, and Hagenlocher et al 2015, who use the same technology to support semi-automated classification of VHR and HR data of refugee/IDP camps.
+
+An application for land cover change using already newest Sentinel-2 data in parameter free and fully automated workflows could be shown by Tiede et al. (2016)
+
+Lower spatial, but higher temporal and spectral resolution and the larger areas covered require a higher degree of automation in information extraction using automated-prior-knowledge based classification procedures ready for Big Earth Data as well as a shift from "direct" information extraction to indicator approaches
+
+Highly automated large-scale indicator extraction from HR/MR Sentinel2/3 data addressing the large amount of data as well as the high temporal resolution. Combination of prior-knowledge based parameter free classification procedures in combination with automatic change detection methods – aiming for fully automated workflows (ready for big data).
+
+
+With regards to Earth Observation, the “free, full and open data” policy promoted by Copernicus and GEOSS, has enabled the emergence of the “Big Earth Observation Data” era, whereby large volumes of data received each day from different sensors on-board satellites (especially Sentinel and Landsat constellations) can be exploited towards the delivery of timely information in support of decision making and operations for users requiring fast responses. The challenge in the case of this unprecedented opportunity is no longer related to accessing the data but rather to the effective and efficient extraction of the wealth of available information it offers.
+- supporting situational awareness for emergency responders and other actors on the ground;
+- analysing indirect impacts of global trends such as demographic changes, environmental degradation, climate change, and land issues related to conflicts;
+- monitoring the state and vulnerability of natural strategic assets and critical infrastructures as a given crisis develops;
+
+
+By definition satellite-based Earth Observation provides the most flexible and comprehensive tools to generate such indicators with access to any area of the world.
+Moreover, new EO missions (constellation of satellites) and instruments (e.g. imaging radars) are contributing in mitigating the main limitation of remote sensing: the sampling intervals, which are severely limited by both technological and environmental factors (e.g. orbits, cloud coverage).
+In such a way EO is now providing stacks of observations, providing persistent monitoring over a region (persistent meant as continuing in time with suitable sampling to detect variability patterns); such datasets represent a big challenge in terms of analysis, demanding for the application of automated analytic technologies to derive meaningful information (Big Space Data).
+The Big Earth Observation data revolution started into 2008, when the US Geological Survey (UGS) decided to open the archive of Landsat satellite imagery collected over forty years, after years of changing charging policies, bringing to an exponential growth in data demand and related cartographic services. The Free and Open Data Policy was applied also the by European Flagship Programme Copernicus, that thanks to the Sentinel Missions operated by the European Space Agency and complemented by the so called Third Party missions, provides estimated data volumes of 10 TB per Day [RD7], leading to imminent challenges related to the storing, transferring and extracting valued added information from the available huge amount of data.
+
+
+Big EO data is a challenge for efficient and intelligent storage, analysis and distribution. While for other big data domains the main challenge is the sheer amount of data, satellite data needs conversion into information to unfold their potential as a source for relevant multi-temporal geoinformation. The free-access policy of the Landsat and Copernicus Sentinel archives, the increased storage capacity and availability of increasing computational power allow large-scale analysis of Earth observation (EO) images especially also in the high-temporal-resolution domain, which is important for monitoring purposes. However, the temporal information is currently not readily exploitable in the EO image databases such as the USGS Earth Explorer or the Sentinels Scientific Data Hub itself. Extracting information from time series is difficult due to the volume, velocity and variety of EO images. For each new image, which is part of the temporal analysis, the volume of the whole stack is increasing linearly. Different sensors, different acquisition times or dates and the variety of characteristics of natural phenomena adds additional complexity. Therefore,the volume and variety require the approaching of efficient analysis of long EO image time series regarding algorithms and data models. The development of new methods, which are going beyond traditional change detection, are on its way: Usually change detection is conducted as a pairwise comparison of EO images (Singh 1989, Petitjean et al. (2012), Guyet and Nicolas (2016)). In contrast, long EO image time series analyses – needed for constant monitoring purposes - aim at classifying and analysing the trajectory of radiation at a location on the Earth (Petitjean et al. 2012). Both have in common that they require significant change of detectable radiance values between images that are due to real and actual changes on the Earth’s surface (Singh 1989). In addition, algorithms for big EO data analysis need near full automation to be applicable and usable on the large amount of data sets. Today techniques, methods, and tools, for automated data analysis are often insufficient for the automated analysis and information extraction from big EO data sources, but interesting approaches to tackle processing and new data storage solutions are proposed. Recent developments are the EarthServer (Baumann et al. 2015) based on a Rasdaman database, the Australian Geoscience Data Cube (Purss et al. 2015), which is currently implemented in a high performance computing (HPC) environment (Evans et al. 2015) or EarthDB (Planthaber, Stonebraker, and Frew 2012) based on a SciDB database (Stonebraker et al. 2013). A combination of fully automatic semantic enrichment of EO data and time series analysis in 3D data cubes are presented by Tiede et al. (2016). [RD8-16]. Regarding the EO analysis and processing techniques, it can be difficult to extract useful information in case of phenomena that are not really predictable in terms of “what” to search. Anyway, the paradigm of object-based image analysis (OBIA) extends the traditional per-pixel based image classification approaches that rely only on the spectral information per single pixel. OBIA enables the incorporation of geometry and expert knowledge on top of traditional spectral values and this allow to improve for example classification by using existing knowledge available for example as OSINT. One main point is the aspect that current high-resolution sensors “significantly increase the within-class spectral variability and, therefore, decrease the potential accuracy of a purely pixel-based approach to classification” (Blaschke et al., 2014, RD44). This point is even more valid for the task of analyzing large amounts of remotely sensed data incorporating information from a variety of other sources into the analysis which is the case of the study of migration where EO is not the only source of information. This issues can be mitigated by considering time-series as the starting point. In fact, time-series analysis and especially the detection of changes can be very useful as a source of information to be used in spatial analysis models used to detects possible hot spots from EO data especially from SAR time series and VHR time series. Some examples are shown later using SAR EO data but the same approach is applicable to VHR data and HR. In the case of VHR optical imagery, time-series analysis can be combined with deep learning (and in general machine learning and computer vision techniques). Similar to the way our brains learn to recognize faces, deep learning algorithms learn to recognize patterns, such as road-building in previously untouched areas or such as modification from forested areas to crops areas. Many researchers use these findings to monitor forests and agriculture. The potential for such a capability is tremendous. For example, in case of migration, food security and in general food production estimation can be really useful for the anticipation of migration flows variation. Also HR multi-spectral imagery, particular indexes such as NDVI can be monitored over long time-series (using historical data) in various ways in order to assess food security at scales which can be useful to analyze local or small scale migration phenomena. This information can be added to common large scale reports provided normally by organisations like FAO (e.g. http://www.fao.org/hunger/en/).
+Detection of changes occurred in the observed scene is one of the most important information that can be extracted from a SAR data series (at least two).
+Change detection from SAR images is particular effective if interferometric data are considered, i.e. acquired with the same geometry. It is proved that the exploitation of the statistical model underlying the SAR amplitude signals by maximum likelihood approaches allows to characterize sharp time variation of the backscattering (step patterns) as well as other types of changes.
+In the following figure, an example of fully automatic data fusion (multi sensor segmentation) and change detection performed using 16 SAR data and one VHR optical image of the same scene is shown. The optical data is exploited in a pre-processing data fusion jointly with the SAR data stack to achieve a base segmentation map for the following change detection processing.
+Change detection maps of an area of interest can be used to trigger further, more in-depth analysis. A first screening of potential anomalous changes is needed to focus more expensive and time-consuming actions, e.g. analysis with restricted-access data and in-situ monitoring. Based on optical data series, change detection in the scene can be still semi-automatically performed. In this case, robust approaches are needed for the modelling of the disturbance affecting the radiances/reflectances between different acquisition times due to calibration, residual solar contributions, surfaces not fully Lambertian, and geolocation or coregistration errors. Many of these disturbance can be overpassed by considering the new Sentinel-2 mission which guarantees the acquisition over a scene with similar illumination conditions and geometrical line lie of sight.
+One critical issue in the optical data series processing is that preliminary cloud masking is required and also an accurate detection of haze conditions. In particular clouds make the optical data useless, while areas in the image affected by haze should be radiometrically corrected in order to avoid discarding of information. The Optical change detection is usually less automatable with respect to the SAR CD.
+
+The following example shows a fully automatic change analysis between August 2010 and 2014 in the north-western part of the Syrian-Turkish border region, focusing on irrigated agricultural areas. The information was part of a preliminary impact assessment to analyse and monitor the consequences of the Syrian conflict and is used to estimate post-conflict needs in support of reconstruction and rehabilitation.
+
+
+improve situational awareness as well as regular, temporal monitoring and identification of changes.
+Data with lower spatial resolutions can be exploited by moving away from "direct" information extraction towards indicator-based approaches.
 
 Sentinel’s multi-spectral satellites, 2A and 2B, run as part of the Copernicus programme (formerly known as \ac{GMES}) led by the \ac{EU}, together at full operational capacity have a revisit time of 5 days over equatorial areas and a relatively high spatial resolution (10-60m) with 13 spectral bands. Offering data already calibrated to \ac{ToA} reflectance, with a collective total of around one \ac{TB} of data daily, the Sentinel-2 satellites are predominantly used to monitor water cover, vegetation, coastal areas, soils, natural disasters and other features of interest for land services. Landsat 5/7/8 are other multi-spectral instruments with relatively lower spatial resolutions, less frequent re-visit times and without pre-processed \ac{ToA} reflectance, that can be exploited in similar ways, especially where historical data are relevant for comparison.
 
