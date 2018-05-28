@@ -10,6 +10,8 @@ This section aims to lay the groundwork and context in which the applied example
 Before digging into anything further, a few terms need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
 
 ## Open-data
+- Landsat's free and open data policy.
+
 on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
 
 One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
@@ -26,7 +28,8 @@ Access to images is no longer a limiting factor, and transferability of existing
 
 Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
 
-*Big Earth data* demand different and new methods to leverage their potential, whether related to storage, access or analysis.
+
+They are the only source of data that can continuously provide consistent information about the current and past state of the Earth's surface. That means global coverage that is, theoretically, the same everywhere.
 
 *Soille et al. (2016)*
 
@@ -34,6 +37,7 @@ Developing large-scale, automated (repeatable and reliable) methods for extracti
 - managing large EO datasets efficiently and with remote access for data analysis and exploitation, minimizing the transfer from or to remote data centers
 - adapt existing spatial and temporal analysis methods, and developing new methods that allow easier sharing, publishing, backup and reproduce big EO data;**
 
+*Big Earth data* demand different and new methods to leverage their potential, whether related to storage, access or analysis. This means moving beyond file-based analysis, where each analyst must download each scene one by one. This means that larger-scale analysis, whether larger in spatial coverage, over many observations in time, or both, require many (i.e. hundreds to thousands) of individual scene downloads.
 
 ## ARD
 
@@ -115,7 +119,7 @@ Livelihood-specific Evidence
 4. size and growth of cities, their legal and illegal parts, slums, disribution of infrastructure and economic activity, etc.
 5. density and quality of road networks
 6. size, quality and change of land plots
-7. weather, climate, droughts, crop failurse, food shortages, etc. potential disasters
+7. weather, climate, droughts, crop failures, food shortages, etc. potential disasters
 8. infrastructure that could prevent natural disasters
 9. forced displacement, razed villages, mass graves
 10. humanitarian responses to disasters and conflicts
