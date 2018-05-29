@@ -6,29 +6,42 @@
 \cleardoublepage
 \chapter{Implementation}\label{ch:implementation}
 
-# Background
 
-The conflict in Syria has been going on since March-April 2011 [@SyriaCivilWar]. Tunisian and Egyptian uprisings in 2011, now referred to as the Arab Spring, inspired pro-democracy Syrian activists to organise peaceful protests. A harsh response to these protests by the Syrian government, led by Bashar al-Assad, resulted in hundreds of dead or imprisoned demonstrators. This violent response, paired with existing social unrest, motivated the establishment of the Free Syrian Army in July 2011, whose overall aim is to overthrow the Assad-led government. It was at this point that the conflict began shifting into the realm of civil war.
-
-Syria experienced a drought from 2007 until at least 2010 [@SyriaCivilWara], which, while by no means the cause of Syria's civil war, some claim it contributed to social unrest and an increased number of internally displaced people, fuelling the source of the conflict.
-
-of the  have impacted the livelihood and physical safety of many people, leading to widespread displacement within Syria, but also outside.
-
-[@abdoImpactsWarSyria2018]
+**Insert summarising paragraph**
 
 - why is this relevant for monitoring/detecting spatially-explicit evidence of humanitarian crisis?
 
 # Use-Case Selection
 
-- Northern Syria
+An area located in what is currently known as north-western Syria was chosen as the use-case location and is covered by three adjacent Sentinel-2 granules with observations from June 2015 to June 2018.
+
+
+## Background
+
 - Justification for choice (Syrian conflict, weather/climate, Sentinel-2 data projection + overlap of swaths)
 - After-the-fact Turkish attack on/invasion of Afrin, Syria
 - Mention previous study with Landsat data
 
+The conflict in Syria has been going on since March-April 2011 [@SyriaCivilWar]. Tunisian and Egyptian uprisings in 2011, now referred to as the Arab Spring, inspired pro-democracy Syrian activists to organise protests. A harsh response to these protests by the Syrian government, led by Bashar al-Assad, resulted in hundreds of dead or imprisoned demonstrators. This violent response, paired with existing social unrest, motivated the establishment of the Free Syrian Army later in 2011, whose overall aim is to overthrow the Assad-led government. It was at this point that the conflict began shifting towards civil war.
 
-This proof-of-concept implementation focused on an area located in north-western Syria, along the border to Turkey. The on-going crisis in this area for the duration of Sentinel-2's data collection presented an opportunity to potentially detect land cover changes that may or may not be related to crisis-related events, such as damage to agricultural irrigation infrastructure.
+Syria experienced a drought from around 2007 until at least 2010 [@SyriaCivilWara, @fountainResearchersLinkSyrian2018]. While by no means the cause of Syria's civil war, some claim that the drought contributed to social unrest, a loss of livelihood security and an increased number of internally displaced people, fuelling the conflict. According to [@cookSpatiotemporalDroughtVariability], there is a 98% likelihood that this drought was drier than any comparable period in the last 500 years, if not the last 900 years (89% likelihood). This drought event contributed to already existing water and agricultural insecurity, situated in a century-long trend towards drier, warmer conditions on average, and was a factor in motivating some of the estimated 1.5 million Syrian people to relocate from rural areas to urban centres and peripheries [@kelleyClimateChangeFertile2015].
 
-Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in Figure \ref{overview}, and ultimately define the exact extent of the study area. These three granules are provided in the same projection (\ac{UTM} zone 37N, \ac{EPSG}: 32637), which meant that data did not require re-projection. All Sentinel-2 \ac{L1C} data for these three granules that are available on the Copernicus Open Access Hub are continuously included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image. At the time of writing, data is included up to *##### ###, 2018*, which results in *###* Sentinel-2 images. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (see Figure \ref{overview}).
+As of December 2015, an estimated 11 million Syrians were displaced by the on-going civil war or events leading up to it, where 4.6 million were refugees and 6.6 million internally displaced [@corbaneMonitoringSyrianHumanitarian2016]. The \ac{UNHCR} estimates from May 2018 identify around 5.6 million registered Syrian refugees and still 6.6 million internally displaced persons [@SituationSyriaRegional, @refugeesSyriaEmergency].
+
+- list current relevant indicators/studies
+- lack of data or lack of data reliability
+- development of situational awareness for conflict documentation but also assessment of conflict impacts and various global initiatives
+
+[@corbaneMonitoringSyrianHumanitarian2016] - impacted population estimate
+[@liIntercalibrationDMSPOLS2017] - intercalibration
+[@abdoImpactsWarSyria2018]
+
+
+## Location
+
+This proof-of-concept implementation focuses on an area located in north-western Syria, along the border to Turkey from June 2015 until June 2018, the entire duration of Sentinel-2 observations at the time of writing.  The on-going conflict in this area for the duration of Sentinel-2's data collection presented an opportunity to potentially detect land cover changes that may or may not be related to conflict-related events, such as damage to agricultural irrigation infrastructure, internal displacement of people or changes to visible surface water bodies (e.g. lakes, dams).
+
+Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in Figure \ref{overview}, and ultimately define the exact extent of the study area. Based on maps referring to Syria before the start of the civil war, this area covers the entire northern stretch of the Aleppo Governorate, north western Raqqa and northern Idlib, in addition to parts of the following Turkish provinces bordering Syria: Hatay, Kilis, Gaziantep and Şanlıurfa. These three Sentinel-2 granules are provided in the same projection (\ac{UTM} zone 37N, \ac{EPSG}: 32637), which meant that data did not require re-projection. All Sentinel-2 \ac{L1C} data for these three granules that are available on the Copernicus Open Access Hub are continuously included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image. At the time of writing, data is included up to *##### ###, 2018*, which results in *###* Sentinel-2 images. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (see Figure \ref{overview}).
 
 Data characteristics of the study area indicate suitability for optical time-series analyses, primarily due to the low average annual cloud-cover reflected in the Sentinel-2 archive for the area. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east [@peelUpdatedWorldMap2007]. The annual average cloud-cover percentage, extracted from \ac{ESA}’s \ac{L1C} metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud-cover percentage below 10%, while otherwise generally ranging between 20% and 40% from October to May.
 

@@ -31,6 +31,8 @@
 - Python environments
 - Jupyter Notebooks
 
+[@corbaneMonitoringSyrianHumanitarian2016] conducted analysis using Google Earth Engine in order to ensure reproducibility. *Called GEE an open-source platform*
+
 
 ## Transferability
 - can similar evidence be generated in other parts of the world?

@@ -44,12 +44,13 @@ More specifically, this thesis was motivated by a few broad objectives. They can
 
 The following body of work aims towards answering the following questions:
 
-1) What indicators exist in the realm of humanitarian-related monitoring or detection and which of these are spatially explicit?
+- What indicators exist in the realm of humanitarian-related monitoring or detection and which of these are spatially explicit?
 
-2) What are some ways that \ac{EO} contributes or can be envisioned as contributing towards spatially-explicit evidence for indicators?
+- What are some ways that \ac{EO} contributes or can be envisioned as contributing towards spatially-explicit evidence for indicators?
 
-3) Is it possible to download Sentinel-2 data and to automatically enrich it semantically?
+- Is it possible to download Sentinel-2 data and to automatically enrich it semantically?
+- Can all Sentinel-2 data available for a region be incorporated? Should it?
+-
+- Are semi-concepts sufficient for semi-automated monitoring in a humanitarian domain, where time is of the essence and sample-based algorithms applicability to various climates/ geographic locations might be limited?
 
-4) Are semi-concepts sufficient for semi-automated monitoring in a humanitarian domain, where time is of the essence and sample-based algorithms applicability to various climates/ geographic locations might be limited?
-
-5) How can such spatially-explicit evidence be validated?
+- How can such spatially-explicit evidence be validated?
