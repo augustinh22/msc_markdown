@@ -59,6 +59,20 @@ They are the only source of data that can continuously provide consistent inform
 
 ## Reproducibility
 
+Reproducibility is one of the fundamental meta-concepts in science, the basis of the "scientific method". It is not just about reproducing an experiment or a result, but also increasing the transparency of the process leading to its outcome. Scientific reproducibility in \ac{EO} data analytics has not been comprehensively studied.
+
+Across various scientific disciplines and in everyday language, there has long been confusion about what reproducibility means. [@plesserReproducibilityVsReplicability2018] and [@nustReproducibleResearchGIScience] recently compared a few definitions from different fields. In the context of \ac{EO} data analytics, the following terms are understood in the context of this thesis:
+
+**replicability**: ability for a *different team* to obtain the *same results* through an array of *different methods* using *independently collected data*
+**reproducibility**: ability for a *different team* to obtain the *same results* through the *same methods* using the *same data*
+**repeatability**: ability for the *same team* to obtain the *same results* through the *same methods* using the *same data*
+**transferability**: ability for *any team* to obtain *comparable results* through the *same methods* using *different data*
+
+[@goodmanWhatDoesResearch2016clarified] reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be independently collected at any time or place given the necessary materials and knowledge. Here is how we understand specific kinds of reproducibility in \ac{EO} data analytics based on [@goodmanWhatDoesResearch2016clarified], recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
+
+**methods reproducibility**: ability to exactly repeat the *same methods* by providing sufficient detail about procedures and data
+**results reproducibility**: ability to obtain the *same results* through the *same methods* using the *same data*
+**inferential reproducibility**: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
 
 
 # \ac{EO}-based information for indicators
@@ -73,19 +87,20 @@ Indicator development is imperative to leveraging the potential of \ac{EO} data 
 
 The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
 
+A first step is often to reduce the dimensionality of the data in a meaningful way, this can be done by employing various classification techniques, calculating indexes (e.g. greenness index, \ac{NDVI}, \ac{NDWI}, \ac{NDSI}, \ac{NDBI}}), or computing aggregative statistics over the temporal stack.
+
 
 - indicator vs. evidence
 Information derived from \ac{EO} data are based on images that have been somehow semantically enriched or classified, which, even if automated and validated, always includes subjective decisions. They are categorically different from other statistical measures, such as population counts, disease prevalence rates, \ac{GDP}, etc.  \ac{EO}-based indicators can serve as spatially explicit evidence to support these already identified indicators.
 
 
 **Relevant here:**
-"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups" [@mainiSendaiFrameworkDisaster2017]
-
+*"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups"* [@mainiSendaiFrameworkDisaster2017]
 
 
 # International Initiatives
 
-\ac{EO}-derived information can contribute to many existing global priority initiatives. However, in order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
+\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods, assuming suitable \ac{EO} data quality and automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
 
 Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
 
@@ -103,6 +118,11 @@ The \ac{DRR} is framed by one overarching goal and expected outcome, which is re
 - Talk theoretically about what is possible.
 
 development of automated methods for pro-longed monitoring of areas
+
+The cause of visible changes in agricultural production cannot be derived from images, but paired with additional information about the area, can serve as a spatially-explicit indicator to assess the overall situation in a given area. For example, a reduction in agricultural production could be determined by comparing data from various years about the area, and could assess the potential effects of a known factor, such as an ongoing drought, damage to irrigation infrastructure, a seed shortage or re-location of people due to a conflict.
+
+\ac{EO}-based information can add a dynamic and regionalised component to improve existing risk assessments.
+
 
 ## Indicators for International Initiatives
 
@@ -154,18 +174,22 @@ Amount cultivated land/land ownership (HKI)
 - focus on existing algorithms
 
 
-Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification) into classes equal or inferior to land cover classes
+
+Multi-dimensional methods, robust to redundant information, are required to process and classify a time-series of multi-spectral scenes. Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification) into classes equal or inferior to land cover classes, reduces the dimensionality of data in a repeatable way.
 
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
 
-## Selected existing free and open \ac{EO}-based Indicators
+## Some existing indicators using free and open \ac{EO} data
 
 - literature review of existing optical \ac{EO}-based indicators or sources of evidence
+
+Automated, repeatable and reliable \ac{EO} information extraction can theoretically be conducted over large areas and time-spans (assuming adequate hardware), but requires a combination of deductive (i.e. rule/expert-based) and inductive methods that are multi-dimensional and robust to redundant information. Many challenges exist beyond automatisation and improving processes (e.g. efficiency), including large data volumes, high repetition rates, and identifying significant indicators (e.g. advanced information extraction) for a given purpose.
 
 
 ### Sentinel-1
 
 - flood assessment or visible changes to water bodies
+- SAR based index similar to that used on Landsat data
 
 ### \ac{MODIS}
 
@@ -196,7 +220,12 @@ One critical issue is that preliminary cloud masking and an accurate detection o
 
 The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 until 2013-2014 [@pesaresiOperatingProcedureProduction2016].
 
-In the scope of the \ac{EC} \ac{FP7} project, \ac{G-SEXTANT}, [@tiedeAutomaticPostclassificationLand2014] demonstrated an automatic post-classification land cover change detection method based on Landsat imagery, focusing on changes in agricultural areas in at the Syrian-Turkish border as a potential indicator for livelihood security and ultimately regional stability in areas where the regional climate mandates irrigation to support crops.
+In the scope of the \ac{EC} \ac{FP7} project, \ac{G-SEXTANT}, [@tiedeAutomaticPostclassificationLand2014] demonstrated a fully automated, parameter-free post-classification land cover change detection method based on a Landsat time-series. The focus was on changes to agricultural areas at the Syrian-Turkish border as a potential indicator for livelihood security, conflict-related changes or regional stability in areas where the regional climate mandates irrigation to support crops. The thesis being presented here utilises the same data preparation for the land cover change detection used by [@tiedeAutomaticPostclassificationLand2014], including the prior-knowledge-based classification, and transfers it to Sentinel-2 imagery.
+
+Two additional studies have used the same prior-knowledge-based classification to detect or characterise changes to land cover. [@langerLongtermMonitoringEnvironmental2015employ] also used the same method on multi-temporal Landsat scenes from 1994 until 2015 as input to an object-based, post-classification change comparison. This analysis was used to characterise environmental changes occurring around a refugee camp. [@hagenlocherEarthObservationbasedApproach2015] used the technology to support semi-automated classification of refugee and \ac{IDP} camps using \ac{VHR} and Landsat data.
+
+ImageQuerying -- parameter free and fully automated workflows [@tiedeIMAGEQUERYINGEARTHOBSERVATION]
+
 
 ## Relevant data cube implementations
 
@@ -205,26 +234,22 @@ In the scope of the \ac{EC} \ac{FP7} project, \ac{G-SEXTANT}, [@tiedeAutomaticPo
 
 (IQ image stack) \ac{EO} image data are semantically enriched and stored as information layers in datacubes. In combination with declarative querying in array databases, ad hoc information extraction is possible by means of semantic querying
 
+One notable framework for monitoring the Earth's surface using a multi-dimensional data cube is \ac{LiMES}, proposed by [@giulianiLiveMonitoringEarth2017] who are involved with the \ac{SDC} [@giulianiBuildingEarthObservations2017], an operational national implementation of the \ac{ODC} [@lewisAustralianGeoscienceData2017]. \ac{LiMES} identified various challenges building a monitoring framework, one of which was turning data into understandable information products.
+
 
 ----------------------------
 
 # Taken from elsewhere...
 
-Conflict-induced changes regarding the agricultural production can serve as an indicator to assess the overall situation in the area. During on-going conflicts indicators for large-scale damage assessment such as the damage of infrastructure and buildings, etc. can serve as additional information on severity and the evolution of the conflict. These EO-based indicators are able to improve existing risk assessments by adding a dynamic and regionalized component. Starting from large scale assessment C-CRISIS aims also to cover a range of different sub-themes on the regional and local level, such as the assessment of the environmental impact of refugee/internally displaced person (IDP) camps on the surrounding. The sudden influx of large numbers of IDPs or refugees into a spatially limited area can place severe pressure on the local environment and existing natural resources.
 
-... comprehensive approach: Large-scale, automated (repeatable and reliable) extraction of EO-based indicators/indicator classes, which requires a combination of deductive (rule/expert-based) and inductive methods. Challenges are – beyond the automatization – the large data amounts (improved processing methods), the high repetition rates, and the identification of significant indicators (advanced information extraction).
-
-Processing and classification time series of super-spectral image stacks requires dedicated multi-dimensional methods robust to redundant information. Reduction of dimensionality of the data should be utilized by using indicator-specific vegetation indexes or aggregative statistics computed over temporal stack
-
-Mubareka and Ehrlich (2010) combined Landsat data and field data to derive environmental indicators of conflict-induced changes in land use such as conversion of agricultural land to grassland or harvesting of woodland. They suggest further improving the risk assessment by integrating political and social factors. The capabilities of Landsat to detect burnt villages in Darfur have been shown by Prins (2008). Machado (2015) investigated the potential of Landsat time series analyses in combination with additional data sources to derive geospatial patterns of Syrian refugee flows in south-eastern Turkey. Within the G-SEXTANT project, fully automated analysis of Landsat time series data showed the development of irrigated agricultural areas for northern Syria which was used as an indicator for crisis related changes (Tiede et al. 2014), transferability of the approach to Sentinel-2 and -3 data is envisaged within C-CRISIS, as a fully automated indicator extraction approach.
+Mubareka and Ehrlich (2010) combined Landsat data and field data to derive environmental indicators of conflict-induced changes in land use such as conversion of agricultural land to grassland or harvesting of woodland. They suggest further improving the risk assessment by integrating political and social factors. The capabilities of Landsat to detect burnt villages in Darfur have been shown by Prins (2008). Machado (2015) investigated the potential of Landsat time series analyses in combination with additional data sources to derive geospatial patterns of Syrian refugee flows in south-eastern Turkey.
 
 Machado, Daniel Carlos dos Santos. 2015. "Analyzing Geospatial patterns of syrian refugee flows in southeastern Turkey by use of remote sensing and complementary data".
 Mubareka, Sarah, and Daniele Ehrlich. 2010. "Identifying and modelling environmental indicators for assessing population vulnerability to conflict using ground and satellite data." Review of. Ecological indicators 10 (2):493-503.
 Prins, E. 2008. "Use of low cost Landsat ETM+ to spot burnt villages in Darfur, Sudan." Review of. International Journal of Remote Sensing 29 (4):1207-14.
 
-Langer et al., 2015, who employ prior-knowledge based classification of multi-temporal Landsat imagery for the long-term characterization of environmental change around a refugee camp over a time span of 21 years, and Hagenlocher et al 2015, who use the same technology to support semi-automated classification of VHR and HR data of refugee/IDP camps.
+---
 
-An application for land cover change using already newest Sentinel-2 data in parameter free and fully automated workflows could be shown by Tiede et al. (2016)
 
 Lower spatial, but higher temporal and spectral resolution and the larger areas covered require a higher degree of automation in information extraction using automated-prior-knowledge based classification procedures ready for Big Earth Data as well as a shift from "direct" information extraction to indicator approaches
 
