@@ -3,26 +3,30 @@
 \cleardoublepage
 \chapter{Theory}\label{ch:theory}
 
-This section aims to lay the groundwork and context in which the applied example, a semantic data cube implemented for north-western Syria, was conceived, clarifying its intended larger purpose. Various relevant terms are explained, if not defined, and the broader, on-going global initiatives are described, for which this work hopes to be relevant.
+This section aims to lay the groundwork and context in which the applied example, a semantic data cube implemented for north-western Syria, was conceived, clarifying its intended purpose. Various relevant terms are explained, if not defined, and broader, on-going global initiatives are described, for which this work hopes to be relevant.
 
 # Defining Some Terms
 
-Before digging into anything further, a few terms need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
+Before digging into anything further, a few terms and concepts need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
 
-## Open-data
+## Open Data
 
-- Landsat's free and open data policy.
+The \ac{OKF} defines knowledge as being open when anyone is able to freely access, use, modify, and share it [@OpenDefinitionOpen, @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
 
-on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
+"Open data" as a term does not merely refer to data that are free for anyone to access, use, modify and share, but also encompasses a philosophy for predominantly public organisations in our increasingly knowledge- and service-based global economy [@hossainStateoftheartOpenData2016]. Data that are produced by publicly funded institutions or initiatives ought to be made available at no additional cost to facilitate greater returns from what is a public investment [@janssenBenefitsAdoptionBarriers2012]. This, however, only applies to data that cannot be traced back to specific individuals. Opening data to the public can increase accountability, reproducibility and transparency of the research and decisions made based on them and foster innovation in domains where a lack of data was previously a limiting factor. This assumes that the data are, however, actively being used towards increasing these factors.
 
-One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
+There is no intrinsic value in open data, rather the value of open data is created by using them [@janssenBenefitsAdoptionBarriers2012]. Public institutions create and collect a lot of data. Opening the ones to the public not linked to individuals has the potential to increase benefits for society, the economy and environment. For example, \ac{EO} images from the publicly funded Landsat mission have no intrinsic value, but a drastic increase in their use is precisely what happened when the archive was opened, leading to much research, information extraction, innovation and applications relevant to many domains [@wulderOpeningArchiveHow2012].
+
+The Copernicus programme offers a plethora of free and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. This includes services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes such as \ac{RUS} and \ac{DIAS}. The more that Copernicus' open data is not only being downloaded, but used, the higher the value and greater the benefit.
+
+Initiatives promoting data cube infrastructures and "analysis ready data" (see sections ###) are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. Open data is a concept fundamental to this thesis.
 
 
 ## Big Earth Data
 
 This thesis focuses on utilising what is referred to as *big Earth data*. The opening of the Landsat archive to the public in 2008 [@wulderOpeningArchiveHow2012] presented new opportunities for many researchers to access and use Landsat data, stretching back for 35 years, but it also presented many new challenges, which researchers are still grappling with. Remotely-sensed *big Earth data* could continue to be analysed using methods that were applied to remotely-sensed images before Landsat opened its archive in 2008 (i.e. before they became a big data source) but the majority of \ac{EO} data available would never be used.
 
-*Big Earth data* pose different challenges to researchers due to various unique qualities that define their "bigness", which apply to *big data* more generally. These qualities are discussed in literature any number of "V's", depending on the source. Here, we will refer to the 4 V's as **volume, variety, velocity and veracity** (data at scale [TB, PB, etc.], data in many forms [many dimensions], data in motion[streaming], data uncertainty[unstructured, untrusted, uncleaned]).
+*Big Earth data* pose different challenges to researchers due to various unique qualities that define their "bigness", which apply to *big data* more generally. These qualities are discussed in literature often using any number of "V's", depending on the source. Here, we will refer to the 4 V's as **volume, variety, velocity and veracity** (data at scale [TB, PB, etc.], data in many forms [many dimensions], data in motion[streaming], data uncertainty[unstructured, untrusted, uncleaned]).
 
 Much analysis in remote sensing was previously limited to manually selected, hopefully representative images for the purpose of a given study. In terms of detecting changes, bi-temporal change analysis was commonly employed, due to the prohibitive cost of images, and limited technological tools and hardware to handle, store and process large data.
 
@@ -42,40 +46,74 @@ They are the only source of data that can continuously provide consistent inform
 
 *Big Earth data* demand different and new methods to leverage their potential, whether related to storage, access or analysis. This means moving beyond file-based analysis, where each analyst must download each scene one by one. This means that larger-scale analysis, whether larger in spatial coverage, over many observations in time, or both, require many (i.e. hundreds to thousands) of individual scene downloads.
 
+
+on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
+
 ## ARD
 
+-- lack of definition -- can include calibration, semantic enrichment, etc...
+
+- connection to open data
+
+examples of in the \ac{EO} domain -- Landsat ARD for the USA
 
 ### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
+
+-- importance for analysis -- comparability
 
 
 ## \ac{ESA} Level 1C - Level 2A
 
+While still considered open, it is important to note that the pre-processing algorithms applied to the \ac{EO} data provided by the Copernicus programme are not open, but proprietary. -- implications for transparency, re-processing, reproducibility...
+
+At the time of writing, ESA intends to start offering world-wide Level-2A products. Can these be included in a similar implementation?
 
 ## Semantic Enrichment
 
+What does this term mean?
+
 
 ## Data cube
+
+-- manifesto -- what is the difference between a database and a data cube?
+-- standards
 
 
 ## Reproducibility
 
 Reproducibility is one of the fundamental meta-concepts in science, the basis of the "scientific method". It is not just about reproducing an experiment or a result, but also increasing the transparency of the process leading to its outcome. Scientific reproducibility in \ac{EO} data analytics has not been comprehensively studied.
 
-Across various scientific disciplines and in everyday language, there has long been confusion about what reproducibility means. [@plesserReproducibilityVsReplicability2018] and [@nustReproducibleResearchGIScience] recently compared a few definitions from different fields. In the context of \ac{EO} data analytics, the following terms are understood in the context of this thesis:
+Across various scientific disciplines and in everyday language, there has long been confusion about what reproducibility means as well as varying definitions. [@plesserReproducibilityVsReplicability2018] and [@nustReproducibleResearchGIScience] recently compared a few definitions from different domains. In the context of \ac{EO} data analytics, the following terms are understood in the context of this thesis:
 
 **replicability**: ability for a *different team* to obtain the *same results* through an array of *different methods* using *independently collected data*
 **reproducibility**: ability for a *different team* to obtain the *same results* through the *same methods* using the *same data*
 **repeatability**: ability for the *same team* to obtain the *same results* through the *same methods* using the *same data*
 **transferability**: ability for *any team* to obtain *comparable results* through the *same methods* using *different data*
 
-[@goodmanWhatDoesResearch2016clarified] reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be independently collected at any time or place given the necessary materials and knowledge. Here is how we understand specific kinds of reproducibility in \ac{EO} data analytics based on [@goodmanWhatDoesResearch2016clarified], recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
+[@goodmanWhatDoesResearch2016] clarified reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be assumed to be independently collected at any time or place given the necessary materials and knowledge (e.g. testing the law of gravity). Listed below is how specific kinds of reproducibility in \ac{EO} data analytics based on [@goodmanWhatDoesResearch2016] are understood in this work, recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
 
 **methods reproducibility**: ability to exactly repeat the *same methods* by providing sufficient detail about procedures and data
 **results reproducibility**: ability to obtain the *same results* through the *same methods* using the *same data*
 **inferential reproducibility**: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
 
 
-# \ac{EO}-based information for indicators
+# International Initiatives
+
+\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods. This is true assuming the \ac{EO} data have sufficient quality, are suitable for the intended purpose and given automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
+
+Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not necessarily spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
+
+
+## United Nations' Sustainable Development Goals
+
+The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education. In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
+
+## Sendai Framework for Disaster Risk and Reduction
+
+The \ac{DRR} is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and many guiding principles.
+
+
+# \ac{EO}-based Information for Indicators
 
 - \ac{EO} data and need for indicators
 - Indicators vs. evidence
@@ -87,6 +125,8 @@ Indicator development is imperative to leveraging the potential of \ac{EO} data 
 
 The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
 
+"complexity, increasing volume, lack of efficient processing capabilities"
+
 A first step is often to reduce the dimensionality of the data in a meaningful way, this can be done by employing various classification techniques, calculating indexes (e.g. greenness index, \ac{NDVI}, \ac{NDWI}, \ac{NDSI}, \ac{NDBI}}), or computing aggregative statistics over the temporal stack.
 
 
@@ -97,24 +137,6 @@ Information derived from \ac{EO} data are based on images that have been somehow
 **Relevant here:**
 *"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups"* [@mainiSendaiFrameworkDisaster2017]
 
-
-# International Initiatives
-
-\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods, assuming suitable \ac{EO} data quality and automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
-
-Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
-
-
-## United Nations' Sustainable Development Goals
-
-The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
-
-## Sendai Framework for Disaster Risk and Reduction
-
-The \ac{DRR} is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and many guiding principles.
-
-# Indicators Utilising \ac{EO}-Based Information
-
 - Talk theoretically about what is possible.
 
 development of automated methods for pro-longed monitoring of areas
@@ -123,14 +145,33 @@ The cause of visible changes in agricultural production cannot be derived from i
 
 \ac{EO}-based information can add a dynamic and regionalised component to improve existing risk assessments.
 
+improve accountability
+
+analyse and model conditions
+
+create maps and other visualisations
+
+evaluate impacts across sectors and regions, independent of existing borders
+
+monitor change over time in a consistent and standardised manner
+
+contribute towards achieving the \acp{SDG} by offering information for nations, organisations and other stakeholders to plan, monitor identified targets, track progress towards their achievement
+
 
 ## Indicators for International Initiatives
+
+- identify which existing indicators from the two initiatives could benefit from \ac{EO}-based Information
+
+suggest any additional indicators that may be relevant for specific targets, or goals
+
+- use this to lead into a concept of more time-sensitive analysis than monitoring long-term goals
 
 ## Livelihood-related Crisis Indicators
 
 - how can livelihood be addressed from an indicator perspective…
 - some non-\ac{EO} livelihood security indicators (existing or envisioned in literature)
 - existing or envisioned \ac{EO}-based livelihood indicators or sources of evidence
+- lack of definition for crisis -- links to emergency management in a changing climate or more immediate changes/impacts
 
 \ac{EO} data is not only useful for monitoring longer-term international goals, but also for generating spatially-explicit evidence for assessing the impact of events producing rapid change, such as flooding, deforestation, wildfires, damage to irrigation infrastructure in the dry season, etc.
 
@@ -164,10 +205,14 @@ Power shortage -- Night-time light detection.
 Cropping intensity (FAO)
 Amount cultivated land/land ownership (HKI)
 
-
+pressures on natural Resources
+growing population
+environmental variability
 
 
 # State-of-the-Art
+
+\ac{EO} data are highly complex, are rapidly increasing in volume and variety, and are unfortunately underutilised in terms of extracting their information potential. A lack of data can no longer be considered a limiting factor to generating meaningful information, rather a lack of reproducible, reliable and transferable methods. There have been many strides in technology, methods and analysis towards better utilising the potential of free and open big \ac{EO} data.
 
 ## Automated Semantic Enrichment
 
@@ -179,7 +224,12 @@ Multi-dimensional methods, robust to redundant information, are required to proc
 
 Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
 
+
+One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
+
 ## Some existing indicators using free and open \ac{EO} data
+
+**(Some Indicators Utilising \ac{EO}-Based Information)**
 
 - literature review of existing optical \ac{EO}-based indicators or sources of evidence
 
@@ -195,11 +245,11 @@ Automated, repeatable and reliable \ac{EO} information extraction can theoretica
 
 ### Night-time Light Data
 
-Global \acp{NTL} data show the locations and brightness of light escaping into space. Most of these lights are electric and originate from human settlements, making \ac{NTL} a useful data source for bridging social science and remote sensing. \ac{NTL} data has been used as an indicator for various socio-economic factors, including energy consumption, distribution of economic activity, *...GDP*. They have also been used for crisis-related applications, such as estimating the number of affected or displaced people in the case of a crisis [@corbaneMonitoringSyrianHumanitarian2016] or early damaged area estimation [@kohiyamaEarlyDamagedArea2004]. Most \ac{NTL} studies up to now have been based on a few dates or annual image composites. Further research in this field would include focusing more on temporal dynamics in \ac{NTL}, taking seasonal or hourly changes into consideration to better inform interpretations of results.
+Global \acp{NTL} data show the locations and brightness of light escaping into space. Most of these lights are electric and originate from human settlements, making \ac{NTL} a useful data source for bridging social science and remote sensing. \ac{NTL} data has been used as an indicator for various socio-economic factors, including energy consumption, distribution of economic activity, *...GDP*. They have also been used for crisis-related applications, such as estimating the number of affected or displaced people in the case of a crisis [@corbaneMonitoringSyrianHumanitarian2016] or early damaged area estimation [@kohiyamaEarlyDamagedArea2004]. Most \ac{NTL} studies up to now have been based on a few dates or annual image composites. Further research in this field would include focusing more on temporal dynamics in \ac{NTL}, taking seasonal or hourly changes into consideration to better inform interpretations of results. For example, areas with limited electricity are sometimes limited to certain hours in the day/night or days of the week, which could impact interpretation of results regionally.
 
 For 40 years, data was collected using the \acp{DMSP} \ac{OLS}. Since 2011, \ac{NTL} data are being captured by the \ac{VIIRS} \ac{DNB}. Methods exist for inter-calibrating \ac{DMSP} with \ac{VIIRS} data in order to gain longer time-series of images for detecting changes before \ac{VIIRS} became operational in late 2011. [@liIntercalibrationDMSPOLS2017] inter-calibrated \ac{DMSP}/\ac{OLS} and \ac{VIIRS} night-time light images in order to retrospectively analyse changes that occurred to human settlement areas during the course of the Syrian civil war.  Pre-processing requires removal of background noise and solar or lunar light contamination, cloud cover screening and exclusion of non-electric light sources (e.g. volcanoes, fires) [@elvidgeVIIRSNighttimeLights2017].
 
-[@corbaneMonitoringSyrianHumanitarian2016] integrated \ac{NTL} \ac{EO} data from the \ac{VIIRS} with the \ac{JRC}'s \ac{GHSL} to assess the humanitarian impact of the Syrian conflict in a timely manner by estimating the number of people impacted. The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 until 2013-2014 [@pesaresiOperatingProcedureProduction2016]. This study developed and tested a method to estimate the number of people affected by the Syrian conflict in a timely, consistent and objective manner. \ac{VIIRS} data from January 2013 until December 2015 have a spatial resolution of 750m and were masked using the \ac{GHSL} built-up layer in order to separate city lights from other night-light emissions (e.g. oil and gas wells). Differences in the detected light intensities between each two consecutives months was calculated and used as a proxy for detecting affected or damaged areas. The number of affected people for the identified areas was calculated using the \ac{GHSL} and disaggregated population data, which the \ac{JRC} used to produce depictions of global population distribution and densities in space and time (\acs{GHS-POP}). Estimated numbers of affected people per month were aggregated by administrative region, or governorate, for reporting.
+[@corbaneMonitoringSyrianHumanitarian2016] integrated \ac{NTL} \ac{EO} data from the \ac{VIIRS} with the \ac{JRC}'s \ac{GHSL} to assess the humanitarian impact of the Syrian conflict in a timely manner by estimating the number of people impacted. The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 until 2013-2014 [@pesaresiOperatingProcedureProduction2016]. This study developed and tested a method to estimate the number of people affected by the Syrian conflict in a timely, consistent and objective manner. \ac{VIIRS} data from January 2013 until December 2015 have a spatial resolution of 750m and were masked using the \ac{GHSL} built-up layer in order to separate city lights from other night-light emissions (e.g. oil and gas wells). Differences in the detected light intensities between each two consecutives months was calculated and used as a proxy for detecting affected or damaged areas. The \ac{GHSL} built-up layer is based on Landsat data. The number of affected people for the identified areas was calculated using the \ac{GHSL} and disaggregated population data, which the \ac{JRC} used to produce depictions of global population distribution and densities in space and time (\acs{GHS-POP}). Estimated numbers of affected people per month were aggregated by administrative region, or governorate, for reporting.
 
 \ac{GDP} growth has been estimated through measuring light emissions from satellite images.
 
@@ -231,10 +281,22 @@ ImageQuerying -- parameter free and fully automated workflows [@tiedeIMAGEQUERYI
 
 - focus on Landsat and Sentinel-2 use
 
+Current, existing data cube implementations are geared towards providing access to analysis ready data.
+
+Generic semantic enrichment.
 
 (IQ image stack) \ac{EO} image data are semantically enriched and stored as information layers in datacubes. In combination with declarative querying in array databases, ad hoc information extraction is possible by means of semantic querying
 
+ODC
+
 One notable framework for monitoring the Earth's surface using a multi-dimensional data cube is \ac{LiMES}, proposed by [@giulianiLiveMonitoringEarth2017] who are involved with the \ac{SDC} [@giulianiBuildingEarthObservations2017], an operational national implementation of the \ac{ODC} [@lewisAustralianGeoscienceData2017]. \ac{LiMES} identified various challenges building a monitoring framework, one of which was turning data into understandable information products.
+
+Australian implementations
+
+google earth engine
+
+
+
 
 
 ----------------------------
