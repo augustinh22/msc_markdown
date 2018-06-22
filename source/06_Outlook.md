@@ -20,13 +20,15 @@
 
 - intercalibration of Landsat and Sentinel-2 data for longer-term dynamics
 
+- Cubesats @mccabeFutureEarthObservation2017
+
 # Reproducible EO-analysis
 
 transferability
 
 repeatability
 
-
+- spurious correlation in big earth data analysis -- archive characteristics, etc.
 
 # Data Cubes
 
