@@ -64,7 +64,7 @@ Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuou
 
 Even in the isolated case of Sentinel-2, automated workflows are necessary to handle approximately 3.4\ac{TB} of data captured every day [@esaSentinelHighLevel2017], not to mention fusion with other similar sensors (e.g. Landsat) or integration with different datasets (e.g. radar, digital elevation models, socio-economic data).
 
-
+*insert image of data structure*
 
 ### Data Used
 
@@ -97,6 +97,10 @@ The automated workflow encompasses downloading Sentinel-2 data, re-formatting, p
 - reference water in Australia and apply/situate in framework referenced in section 2
 - describe two indicators (water, vegetation ...)
 
+Based on the work of @muellerWaterObservationsSpace2016 and @tulbureSurfaceWaterExtent2016 .
+
+
+
 ## Semantic Enrichment: automatic knowledge-based spectral categorisation
 
 ### Theory
@@ -125,9 +129,11 @@ The hardware used for this implementation is a Red Hat Enterprise Linux 7 virtua
 
 #### Linux
 
+Red Hat Enterprise
+
 #### Python
 
-Two reproducible virtual conda environments for Python are used. Data download to processing with SIAM™ is automated using cron, Python scripts and a conda environment with Python 2.7.x, Scipy, Geospatial Data Abstraction Library (GDAL) and requests. Data cube indexing, ingestion, Python API access and resulting analysis are conducted with a conda environment recommended for ODC installations (Geoscience Australia, CSIRO, & NCI, 2017d). This Python 3.5.x environment includes the datacube, jupyter, matplotlib, Scipy, basemap and basemap-data-hires packages for working with existing Jupyter notebooks (CEOS-SEO, 2016/2017) and ones created by the authors.
+Two reproducible virtual conda environments for Python are used in the workflow. Data download to processing with SIAM™ is automated using cron on Linux which run Python scripts within a Python 2.7.x conda environment. The environment is equipped with Scipy for resampling the 20m Sentinel-2 bands to 10m, the Geospatial Data Abstraction Library (GDAL) for various tasks and requests for handling downloads. Data cube indexing, ingestion, Python API access and resulting analysis are conducted with a Python 3.5.x conda environment recommended for ODC installations [@geoscienceaustraliaMinicondaRecommendedOpen2017]. This environment includes the datacube, jupyter, matplotlib, Scipy, basemap and basemap-data-hires packages for enabling access to data in the \ac{ODC} implementation via the Python API and interactive analysis within Jupyter notebooks [@ceos-seoDataCubeNotebooks2017].
 
 #### Git
 

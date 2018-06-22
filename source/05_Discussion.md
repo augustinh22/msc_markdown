@@ -8,6 +8,13 @@
 - Discuss relevance of results in context of validation/validity
 
 
+# Discuss situation of implementation in larger Framework
+- SDGs
+- open data
+- big earth data
+- data cubes and ARD
+- Reproducibility
+
 # Discussion of Methods
 
 - (incl. challenges, successes, reconsiderations and shortcomings)
@@ -37,7 +44,7 @@
 ## Transferability
 - can similar evidence be generated in other parts of the world?
 - with other data/sensors?
-- other spatial resolutions or temporal acqusition frequencies?
+- other spatial resolutions or temporal acquisition frequencies?
 - other kinds of semantic enrichment?
 - knowledge-based vs. sample-based algorithms
 
@@ -47,6 +54,12 @@
 
 ### Processing Limitations
 One challenge is that processing using the Python API occurs predominantly using in-memory data. This complicates implementation on the current hardware as it requires to load the complete dataset prior to analysis and is a limitation for smaller institutions. Even if many processes can be chunked, not all processes lend themselves to be divided as such, or may produce similar but differing results (e.g. in the case of data-dependency in image-wide analyses).
+
+### Limitations of analysis
+What semi-concepts are difficult?
+What doesn't work?
+(Less arid areas)
+(conflation of shadows and water in mountainous regions -- lack of thermal band)
 
 ### Data
 - Sentinel-2 problem with pixel alignment
