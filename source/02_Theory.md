@@ -5,21 +5,19 @@
 
 This section aims to lay the groundwork and context in which the applied example, a semantic data cube implemented for north-western Syria, was conceived, clarifying its intended purpose. Various relevant terms are explained, if not defined, and broader, on-going global initiatives are described, for which this work hopes to be relevant.
 
-# Defining Some Terms
+# Framing Terms
 
 Before digging into anything further, a few terms and concepts need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
 
 ## Open Data
 
-The \ac{OKF} defines knowledge as being *open* when anyone is able to freely access, use, modify, and share it [@openknowledgefoundationOpenDefinitionOpen; @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
+The \acf{OKF} defines knowledge as being *open* when anyone is able to freely access, use, modify, and share it [@openknowledgefoundationOpenDefinitionOpen; @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
 
 "Open data" as a term does not merely refer to data that are free for anyone to access, use, modify and share, but also encompasses a philosophy for predominantly public organisations in our increasingly knowledge- and service-based global economy [@hossainStateoftheartOpenData2016]. Data that are produced by publicly funded institutions or initiatives ought to be made available at no additional cost to facilitate greater returns from what is a public investment [@janssenBenefitsAdoptionBarriers2012]. This, however, only applies to data that cannot be traced back to specific individuals. Opening data to the public can increase accountability, reproducibility and transparency of the research and decisions made based on them and foster innovation in domains where a lack of data was previously a limiting factor. This assumes that the data are, however, actively being used towards increasing these factors.
 
 There is no intrinsic value in open data, rather the value of open data is created by using them [@janssenBenefitsAdoptionBarriers2012]. Public institutions create and collect a lot of data. Opening the ones to the public not linked to individuals has the potential to increase benefits for society, the economy and environment. For example, \ac{EO} images from the publicly funded Landsat mission have no intrinsic value, but a drastic increase in their use is precisely what happened when the archive was opened, leading to much research, information extraction, innovation and applications relevant to many domains [@wulderOpeningArchiveHow2012].
 
-The Copernicus programme offers a plethora of free and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. This includes services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes such as \ac{RUS} and \ac{DIAS}. The more that Copernicus' open data is not only being downloaded, but used, the higher the value and greater the benefit.
-
-Initiatives promoting data cube infrastructures and analysis-ready data (see sections \ref{sec:ARD}, \ref{sec:datacube}) are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. Open data is a concept fundamental to this thesis.
+The Copernicus programme offers a plethora of free, full and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. Efforts include the development of operational services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes geared towards users, such as \ac{RUS} and \ac{DIAS}. The more that Copernicus' open data is not only being downloaded, but used, the higher the value and greater the benefit. Open data is a concept fundamental to this thesis.
 
 
 ## Big Earth Data
@@ -54,6 +52,8 @@ on the other hand, allows the rapid generation of large-scale and small-scale ma
 -- lack of definition -- can include calibration, semantic enrichment, etc...
 
 - connection to open data
+
+Initiatives currently promoting data cube infrastructures (***see*** section \ref{sec:datacube}) and analysis-ready data are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. On example is 
 
 examples of in the \ac{EO} domain -- Landsat ARD for the USA
 
