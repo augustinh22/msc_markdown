@@ -24,9 +24,9 @@ An area located in what is currently known as north-western Syria was chosen as 
 
 The conflict in Syria has been going on since March-April 2011 [@SyriaCivilWar]. Tunisian and Egyptian uprisings in 2011, now referred to as the Arab Spring, inspired pro-democracy Syrian activists to organise protests. A harsh response to these protests by the Syrian government, led by Bashar al-Assad, resulted in hundreds of dead or imprisoned demonstrators. This violent response, paired with existing social unrest, motivated the establishment of the Free Syrian Army later in 2011, whose overall aim is to overthrow the Assad-led government. It was at this point that the conflict began shifting towards civil war.
 
-Syria experienced a drought from around 2007 until at least 2010 [@SyriaCivilWara, @fountainResearchersLinkSyrian2018]. While by no means the cause of Syria's civil war, some claim that the drought contributed to social unrest, a loss of livelihood security and an increased number of internally displaced people, fuelling the conflict. According to [@cookSpatiotemporalDroughtVariability], there is a 98% likelihood that this drought was drier than any comparable period in the last 500 years, if not the last 900 years (89% likelihood). This drought event contributed to already existing water and agricultural insecurity, situated in a century-long trend towards drier, warmer conditions on average, and was a factor in motivating some of the estimated 1.5 million Syrian people to relocate from rural areas to urban centres and peripheries [@kelleyClimateChangeFertile2015].
+Syria experienced a drought from around 2007 until at least 2010 [@SyriaCivilWar; @fountainResearchersLinkSyrian2018]. While by no means the cause of Syria's civil war, some claim that the drought contributed to social unrest, a loss of livelihood security and an increased number of internally displaced people, fuelling the conflict. According to [@cookSpatiotemporalDroughtVariability], there is a 98% likelihood that this drought was drier than any comparable period in the last 500 years, if not the last 900 years (89% likelihood). This drought event contributed to already existing water and agricultural insecurity, situated in a century-long trend towards drier, warmer conditions on average, and was a factor in motivating some of the estimated 1.5 million Syrian people to relocate from rural areas to urban centres and peripheries [@kelleyClimateChangeFertile2015].
 
-As of December 2015, an estimated 11 million Syrians were displaced by the on-going civil war or events leading up to it, where 4.6 million were refugees and 6.6 million internally displaced [@corbaneMonitoringSyrianHumanitarian2016]. The \ac{UNHCR} estimates from May 2018 identify around 5.6 million registered Syrian refugees and still 6.6 million internally displaced persons [@SituationSyriaRegional, @refugeesSyriaEmergency].
+As of December 2015, an estimated 11 million Syrians were displaced by the on-going civil war or events leading up to it, where 4.6 million were refugees and 6.6 million internally displaced [@corbaneMonitoringSyrianHumanitarian2016]. The \ac{UNHCR} estimates from May 2018 identify around 5.6 million registered Syrian refugees and still 6.6 million internally displaced persons [@SituationSyriaRegional; @refugeesSyriaEmergency].
 
 - list current relevant indicators/studies
 - lack of data or lack of data reliability
@@ -45,7 +45,7 @@ Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more t
 
 Data characteristics of the study area indicate suitability for optical time-series analyses, primarily due to the low average annual cloud-cover reflected in the Sentinel-2 archive for the area. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east [@peelUpdatedWorldMap2007]. The annual average cloud-cover percentage, extracted from \ac{ESA}’s \ac{L1C} metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud-cover percentage below 10%, while otherwise generally ranging between 20% and 40% from October to May.
 
-![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{overview}](source/figures/study_area_edit.png)
+![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{fig:overview}](source/figures/study_area_edit.png)
 
 # Data
 
@@ -58,7 +58,7 @@ Free and open \ac{HR} \ac{EO} data is currently collected primarily by Sentinel-
 
 Copernicus is a European Earth observation program, previously known as \ac{GMES}. It owns the fleet of Sentinel satellites, currently which is connected to other sensors called “contribution missions” and operates downstream services. The Sentinel-2 satellites are equipped with a \ac{MSI} observing 13 spectral bands (443\ac{nm}-2190\ac{nm}). Data is captured with a swath width (i.e. field of view) of approximately 290\ac{km} and spatial resolution ranging from 10-60\acp{m}: three visible bands and one near-infrared band (10\ac{m}); six red-edge/shortwave infrared bands (20\ac{m}); and three atmospheric correction bands (60\ac{m}) (see Figure \ref{spectral_bands}).
 
-![Spectral comparison of Landsat 7 and 8 bands with Sentinel-2 (retrieved on 25 April 2018 from https://landsat.gsfc.nasa.gov/sentinel-2a-launches-our-compliments-our-complements/) \label{spectral_bands}](source/figures/landsat_sentinel2.png)
+![Spectral comparison of Landsat 7 and 8 bands with Sentinel-2 (retrieved on 25 April 2018 from https://landsat.gsfc.nasa.gov/sentinel-2a-launches-our-compliments-our-complements/) \label{fig:spectral_bands}](source/figures/landsat_sentinel2.png)
 
 Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuously and systematically collecting observations globally. They were launched on June 23, 2015 and March 7, 2017, respectively, with Sentinel-2C and -2D already planned in the future to extend the longevity of Sentinel-2 observations. Looking at observations from both satellites together, the nominal average revisit time at the equator is every 5 days, with more frequent data capture towards the poles. Data are processed and provided by the \ac{ESA} as \ac{L1C}, which includes radiometric calibration to \ac{ToA} reflectance and geometric corrections (e.g. orthorectification, spatial registration). \ac{L1C} scenes are available as granules (i.e. tiles). These granules each cover approximately 100km by 100km and contain around 600MB of data, including all spectral bands, metadata and some quality indicators generated by \ac{ESA}.
 
@@ -79,7 +79,7 @@ Even in the isolated case of Sentinel-2, automated workflows are necessary to ha
 - mention acquisition/ingestion, etc. or reference below
 
 - INFORM, Index of Risk Management database
-- HDX, humanitarian data exchange https://data.hdx.rwlabs.org
+- HDX, humanitarian data exchange <https://data.hdx.rwlabs.org>
 - Relief web
 - ACLED
 - GDELT

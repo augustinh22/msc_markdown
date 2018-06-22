@@ -11,7 +11,7 @@ Before digging into anything further, a few terms and concepts need to be clarif
 
 ## Open Data
 
-The \ac{OKF} defines knowledge as being open when anyone is able to freely access, use, modify, and share it [@OpenDefinitionOpen, @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
+The \ac{OKF} defines knowledge as being *open* when anyone is able to freely access, use, modify, and share it [@openknowledgefoundationOpenDefinitionOpen; @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
 
 "Open data" as a term does not merely refer to data that are free for anyone to access, use, modify and share, but also encompasses a philosophy for predominantly public organisations in our increasingly knowledge- and service-based global economy [@hossainStateoftheartOpenData2016]. Data that are produced by publicly funded institutions or initiatives ought to be made available at no additional cost to facilitate greater returns from what is a public investment [@janssenBenefitsAdoptionBarriers2012]. This, however, only applies to data that cannot be traced back to specific individuals. Opening data to the public can increase accountability, reproducibility and transparency of the research and decisions made based on them and foster innovation in domains where a lack of data was previously a limiting factor. This assumes that the data are, however, actively being used towards increasing these factors.
 
@@ -19,7 +19,7 @@ There is no intrinsic value in open data, rather the value of open data is creat
 
 The Copernicus programme offers a plethora of free and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. This includes services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes such as \ac{RUS} and \ac{DIAS}. The more that Copernicus' open data is not only being downloaded, but used, the higher the value and greater the benefit.
 
-Initiatives promoting data cube infrastructures and "analysis ready data" (see sections ###) are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. Open data is a concept fundamental to this thesis.
+Initiatives promoting data cube infrastructures and analysis-ready data (see sections \ref{sec:ARD}, \ref{sec:datacube}) are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. Open data is a concept fundamental to this thesis.
 
 
 ## Big Earth Data
@@ -49,7 +49,7 @@ They are the only source of data that can continuously provide consistent inform
 
 on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
 
-## ARD
+## ARD \label{sec:ARD}
 
 -- lack of definition -- can include calibration, semantic enrichment, etc...
 
@@ -62,7 +62,7 @@ examples of in the \ac{EO} domain -- Landsat ARD for the USA
 -- importance for analysis -- comparability
 
 
-## \ac{ESA} Level 1C - Level 2A
+## European Space Agency Level 1C - Level 2A
 
 While still considered open, it is important to note that the pre-processing algorithms applied to the \ac{EO} data provided by the Copernicus programme are not open, but proprietary. -- implications for transparency, re-processing, reproducibility...
 
@@ -73,7 +73,7 @@ At the time of writing, ESA intends to start offering world-wide Level-2A produc
 What does this term mean?
 
 
-## Data cube
+## Data Cube \label{sec:datacube}
 
 -- manifesto -- what is the difference between a database and a data cube?
 -- standards
@@ -83,37 +83,44 @@ What does this term mean?
 
 Reproducibility is one of the fundamental meta-concepts in science, the basis of the "scientific method". It is not just about reproducing an experiment or a result, but also increasing the transparency of the process leading to its outcome. Scientific reproducibility in \ac{EO} data analytics has not been comprehensively studied.
 
-Across various scientific disciplines and in everyday language, there has long been confusion about what reproducibility means as well as varying definitions. [@plesserReproducibilityVsReplicability2018] and [@nustReproducibleResearchGIScience] recently compared a few definitions from different domains. In the context of \ac{EO} data analytics, the following terms are understood in the context of this thesis:
+Across various scientific disciplines and in everyday language, there has long been confusion about what reproducibility means as well as varying definitions. @plesserReproducibilityVsReplicability2018 and @nustReproducibleResearchGIScience recently compared a few definitions from different domains. In the context of \ac{EO} data analytics, the following terms are understood in the context of this thesis:
 
-**replicability**: ability for a *different team* to obtain the *same results* through an array of *different methods* using *independently collected data*
-**reproducibility**: ability for a *different team* to obtain the *same results* through the *same methods* using the *same data*
-**repeatability**: ability for the *same team* to obtain the *same results* through the *same methods* using the *same data*
-**transferability**: ability for *any team* to obtain *comparable results* through the *same methods* using *different data*
+\spacedlowsmallcaps{replicability}: ability for a *different team* to obtain the *same results* through an array of *different methods* using *independently collected data*
 
-[@goodmanWhatDoesResearch2016] clarified reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be assumed to be independently collected at any time or place given the necessary materials and knowledge (e.g. testing the law of gravity). Listed below is how specific kinds of reproducibility in \ac{EO} data analytics based on [@goodmanWhatDoesResearch2016] are understood in this work, recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
+\spacedlowsmallcaps{reproducibility}: ability for a *different team* to obtain the *same results* through the *same methods* using the *same data*
 
-**methods reproducibility**: ability to exactly repeat the *same methods* by providing sufficient detail about procedures and data
-**results reproducibility**: ability to obtain the *same results* through the *same methods* using the *same data*
-**inferential reproducibility**: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
+\spacedlowsmallcaps{repeatability}: ability for the *same team* to obtain the *same results* through the *same methods* using the *same data*
+
+\spacedlowsmallcaps{transferability}: ability for *any team* to obtain *comparable results* through the *same methods* using *different data*
+
+@goodmanWhatDoesResearch2016 clarified reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be assumed to be independently collected at any time or place given the necessary materials and knowledge (e.g. testing the law of gravity). Listed below is how specific kinds of reproducibility in \ac{EO} data analytics based on [@goodmanWhatDoesResearch2016] are understood in this work, recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
+
+\spacedlowsmallcaps{methods reproducibility}: ability to exactly repeat the *same methods* by providing sufficient detail about procedures and data
+
+\spacedlowsmallcaps{results reproducibility}: ability to obtain the *same results* through the *same methods* using the *same data*
+
+\spacedlowsmallcaps{inferential reproducibility}: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
 
 
 # International Initiatives
 
-\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods. This is true assuming the \ac{EO} data have sufficient quality, are suitable for the intended purpose and given automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
-
 Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not necessarily spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
+
+\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods. This is true assuming the \ac{EO} data have sufficient quality, are suitable for the intended purpose and given automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
 
 
 ## United Nations' Sustainable Development Goals
 
-The \ac{UN} has identified 17 goals with many targets and related indicators for the 2030 Agenda for Sustainable Development. These goals are known as the \acp{SDG} *INSERT FIGURE*, and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education. In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
+The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 interconnected goals with many targets and related indicators for the 2030 Agenda for Sustainable Development [@resolution2015res]. These goals are known as the \acp{SDG} (Fig. \ref{fig:SDGs}), and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education. In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
+
+![United Nations Sustainable Development Goals (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:SDGs}](source/figures/E_2018_SDG_Poster_without_UN_emblem_Letter US.png)
 
 ## Sendai Framework for Disaster Risk and Reduction
 
 The \ac{DRR} is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and many guiding principles.
 
 
-# \ac{EO}-based Information for Indicators
+# Earth-Observation-based Information for Indicators
 
 - \ac{EO} data and need for indicators
 - Indicators vs. evidence
@@ -133,6 +140,8 @@ A first step is often to reduce the dimensionality of the data in a meaningful w
 - indicator vs. evidence
 Information derived from \ac{EO} data are based on images that have been somehow semantically enriched or classified, which, even if automated and validated, always includes subjective decisions. They are categorically different from other statistical measures, such as population counts, disease prevalence rates, \ac{GDP}, etc.  \ac{EO}-based indicators can serve as spatially explicit evidence to support these already identified indicators.
 
+
+[@hakSustainableDevelopmentGoals2016] -- a need for relevant indicators
 
 **Relevant here:**
 *"indicators have the potential to be misleading, if the data, assumptions, or analyses behind them are incorrect. Aggregated data, for example, may mask inequalities within vulnerable groups that, unless disaggregated, will remain hidden to policymakers. In the extreme, this can lead to a phenomenon known as Simpson’s paradox, where a body of data displays a trend, yet when the data are broken into subgroups, the opposite trend is apparent for different subgroups"* [@mainiSendaiFrameworkDisaster2017]
@@ -272,7 +281,7 @@ The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 u
 
 In the scope of the \ac{EC} \ac{FP7} project, \ac{G-SEXTANT}, [@tiedeAutomaticPostclassificationLand2014] demonstrated a fully automated, parameter-free post-classification land cover change detection method based on a Landsat time-series. The focus was on changes to agricultural areas at the Syrian-Turkish border as a potential indicator for livelihood security, conflict-related changes or regional stability in areas where the regional climate mandates irrigation to support crops. The thesis being presented here utilises the same data preparation for the land cover change detection used by [@tiedeAutomaticPostclassificationLand2014], including the prior-knowledge-based classification, and transfers it to Sentinel-2 imagery.
 
-Two additional studies have used the same prior-knowledge-based classification to detect or characterise changes to land cover. [@langerLongtermMonitoringEnvironmental2015employ] also used the same method on multi-temporal Landsat scenes from 1994 until 2015 as input to an object-based, post-classification change comparison. This analysis was used to characterise environmental changes occurring around a refugee camp. [@hagenlocherEarthObservationbasedApproach2015] used the technology to support semi-automated classification of refugee and \ac{IDP} camps using \ac{VHR} and Landsat data.
+Two additional studies have used the same prior-knowledge-based classification to detect or characterise changes to land cover. [@langerLongtermMonitoringEnvironmental2015] also used the same method on multi-temporal Landsat scenes from 1994 until 2015 as input to an object-based, post-classification change comparison. This analysis was used to characterise environmental changes occurring around a refugee camp. [@hagenlocherEarthObservationbasedApproach2015] used the technology to support semi-automated classification of refugee and \ac{IDP} camps using \ac{VHR} and Landsat data.
 
 ImageQuerying -- parameter free and fully automated workflows [@tiedeIMAGEQUERYINGEARTHOBSERVATION]
 
