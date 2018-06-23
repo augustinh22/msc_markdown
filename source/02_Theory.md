@@ -76,6 +76,12 @@ on the other hand, allows the rapid generation of large-scale and small-scale ma
 
 - connection to open data
 
+https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815
+
+https://medium.com/planet-stories/towards-on-demand-analysis-ready-data-f94d6eb226fc
+
+
+
 Initiatives currently promoting data cube infrastructures (***see*** section \ref{sec:datacube}) and analysis-ready data are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. On example is
 
 examples of in the \ac{EO} domain -- Landsat ARD for the USA
