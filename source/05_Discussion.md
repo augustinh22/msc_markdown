@@ -8,6 +8,34 @@
 - Discuss relevance of results in context of validation/validity
 
 
+## Auxiliary data
+
+- Irrigated Areas (GMIA or Irrmap)
+- Syria Refugee Sites (<https://data.humdata.org/dataset/syria-refugee-sites>)
+- Precipitation or drought data
+- mention acquisition/ingestion, etc. or reference below
+
+- INFORM, Index of Risk Management database
+- HDX, humanitarian data exchange <https://data.hdx.rwlabs.org>
+- Relief web
+- ACLED
+- GDELT
+
+world-weather.online.com
+unma.go
+
+
+### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
+
+-- importance for analysis -- comparability
+
+
+## European Space Agency Level 1C - Level 2A
+
+While still considered open, it is important to note that the pre-processing algorithms applied to the \ac{EO} data provided by the Copernicus programme are not open, but proprietary. -- implications for transparency, re-processing, reproducibility...
+
+At the time of writing, ESA intends to start offering world-wide Level-2A products. Can these be included in a similar implementation?
+
 # Discuss situation of implementation in larger Framework
 - SDGs
 - open data
@@ -81,9 +109,6 @@ What doesn't work?
 
 ### Pixel-based Analysis
 - pixel-based vs. OBIA
-
-
-
 
 
 

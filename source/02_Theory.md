@@ -11,6 +11,7 @@ Before digging into anything further, a few terms and concepts need to be clarif
 
 ## Open Data \label{sec:opendata}
 
+\graffito{One definition}
 The \acf{OKF} defines knowledge as being *open* when anyone is able to freely access, use, modify, and share it [@openknowledgefoundationOpenDefinitionOpen; @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
 
 "Open data" as a term does not merely refer to data that are free for anyone to access, use, modify and share, but also encompasses a philosophy for predominantly public organisations in our increasingly knowledge- and service-based global economy [@hossainStateoftheartOpenData2016]. Data that are produced by publicly funded institutions or initiatives ought to be made available at no additional cost to facilitate greater returns from what is a public investment [@janssenBenefitsAdoptionBarriers2012]. This, however, only applies to data that cannot be traced back to specific individuals. Opening data to the public can increase accountability, reproducibility and transparency of the research and decisions made based on them and foster innovation in domains where a lack of data was previously a limiting factor. This assumes that the data are, however, actively being used towards increasing these factors.
@@ -23,6 +24,8 @@ The Copernicus programme offers a plethora of free, full and open data, but the 
 ## Big Earth Data
 
 Big data is an abstract, dynamic concept that poses different challenges to researchers, and is defined by various unique qualities that define the "bigness" of big data in comparison to more traditional data sources. Typically, big data refers to a massive amount of unstructured data that cannot be handled, stored or processed by traditional IT, software or hardware within a reasonable time or scope, generally requiring analysis in (near-)real-time [@chenBigDataSurvey2014]. These qualities are discussed in literature often using any number of "V" terms, depending on the source. What is considered big data will differ between application domains and will change over time as technology advances and storage, management, processing and analysis methods and strategies are developed to better handle complex, big data sources.
+
+\graffito{Vs of big data}
 
 The 3 V's, *volume, velocity and variety*, were first mentioned by @laney3DDataManagement2001 and later applied to characterising big data. Additional Vs have been used to describe big data over the years, including *veracity, variability,* and *value* [@gandomiHypeBigData2015].
 
@@ -38,6 +41,8 @@ The 3 V's, *volume, velocity and variety*, were first mentioned by @laney3DDataM
 
 \spacedlowsmallcaps{Value} references the potential information that can be extracted from big data, transforming data to information for decision-making.
 
+\graffito{Big Earth Data}
+
 Big data related to Earth sciences, including data about the Earth's atmosphere, surface and interior, are considered big Earth data, but they are more than just \ac{EO} data. Big Earth data as a concept stems from integrating the concept of big data and the vision of digital Earth proposed by @goreDigitalEarthUnderstanding1998. @guoBigDataDrives2017 characterises big Earth data as being "massive, multi-source, heterogeneous, multi-temporal, multi-scalar, highly dimensional, highly complex, non-stationary and unstructured." Observations are also generally not repeatable, depending on the object or process being observed.
 
 As of 7 November 2017, there are an estimated 1,738 active, operating satellites are in orbit with around 25% dedicated to Earth observation, regardless if government, military, commercial or civilian [@UCSSatelliteDatabase2017]. Up until now, the majority of \ac{EO} satellites have been operated by national governments, but the expected future trend is an increase in civilian and commercial satellites [@mccabeFutureEarthObservation2017].
@@ -48,9 +53,13 @@ The Landsat-1 mission, launched in 1972, carried the first digital multi-spectra
 
 The \acp{EC} Copernicus programme is now providing \ac{EO} data comprised of multiple Sentinel satellite missions and in situ observations with global coverage at unprecedented frequency and spatial resolution for being free, full and open. There has never been so much \ac{EO} data freely and openly available to the public. Daily data volumes from the Sentinel missions alone are expected to exceed 10\acs{TB} (Fig. \ref{fig:dataestimates}).
 
+\graffito{Need for automated methods}
+
 Remotely-sensed big Earth data could continue to be analysed using methods that were applied to remotely-sensed images before Landsat opened its archive in 2008 (i.e. before they became a big open data source) but most \ac{EO} data available would never be accessed, much less used. This means moving beyond file-based analysis, where each analyst must download each scene one by one, and minimising the transfer of data between data archives/stores and users.
 
-\ac{EO} images are considered unstructured data, since they generally lack necessary structural organisation for machine-readability and automated analysis. They demand new and different automated methods to leverage their potential, whether related to storage, processing, access or analysis -- algorithms that can handle many images, multiple sensors and many geographical areas and moments in time with heterogeneous conditions (e.g. cloud cover, climate, land cover). Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
+Many other spatial analysis routines can be chained together and automated to a large degree, yet analysis of \ac{EO} images often requires more user interaction to produce meaningful results. \ac{EO} images are considered unstructured data, since they generally lack necessary structural organisation for machine-readability and automated analysis. They demand new and different automated methods to leverage their potential, whether related to storage, processing, access or analysis -- algorithms that can handle many images, multiple sensors and many geographical areas and moments in time with heterogeneous conditions (e.g. cloud cover, climate, land cover). Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
+
+\graffito{Big Earth data is basically destined to serve international initiatives!}
 
 The benefits of big Earth data transcend the domain of Earth sciences @guoBigDataDrives2017. Free and open \ac{EO} data are the only sources that can continuously provide consistent information about the current and past state of the Earth's surface with global coverage that is, theoretically, the same everywhere. However, the quality and fitness of data for analysis may be unevenly distributed and differ depending on sensor and the geo-spatio-temporal location. Nevertheless, information extracted from big Earth data is a promising source of spatially-explicit evidence.
 
@@ -63,14 +72,24 @@ Providers of satellite imagery are much better equipped to conduct routine pre-p
 
 Removing the user from pre-processing removes many design decisions making data use simpler, but obscures the assumptions made by routine processes that may have an impact on analysis results. Many of these pre-processing algorithms, including those used to process open \ac{EO} data, are proprietary and closed to scientists, providing a barrier to understanding the data being analysed. Even if it is convenient to have data pre-processed to a certain level and may improve comparability of analysis conducted by different people, as long as closed algorithms are used, scientific research will be negatively affected.
 
+\graffito{Initiatives providing their definition of ARD}
+
 Data provided under the name \ac{ARD} seems to attempt to close the gaps between data availability, access and use. Three current examples of \ac{EO} data currently being provided as \ac{ARD} include products provided by the \ac{USGS}, \ac{AGDC} and \ac{SDC}. The \ac{AGDC}, which has evolved into the \ac{ODC}, provides Landsat data calibrated to surface reflectance and in regular grids projected to suit Australia [@lewisAustralianGeoscienceData2017]. Using similar technology now known as the \ac{ODC}, the \ac{SDC} is offering Landsat \ac{ARD} for Switzerland [@giulianiBuildingEarthObservations2017]. Landsat \ac{ARD} are provided by the \ac{USGS} for the conterminous United States in a common tiling scheme different from the traditional path and row system of the Landsat mission [@usgsLandsatAnalysisReady2018]. Multiple pre-processing levels and products are provided by the \ac{USGS}, including data calibrated to \ac{ToA} reflectance, \ac{ToA} brightness temperature, surface reflectance (i.e. atmospherically corrected), and a sort of pixel quality assessment.
+
+\graffito{Semantic enrichment, information, on-demand access...}
 
 While \ac{ARD} may not yet have a cohesive definition, in the near future, it is likely to encompass much more. Some suggestions include: cross-sensor and cross-provider standardisation to improve use of various data sources in analysis; improved unusable data masks and data quality metrics; methods to take into account that different sensors use different atmospheric models for atmospheric correction; on-demand, user-defined data selection, projection and gridding; semantic content-based image retrieval; user-defined composites and mosaics; and cross-sensor alignment [@holmesAnalysisReadyData2018; @holmesOnDemandAnalysisReady2018]. The term might include not only data, but also automated and routinely generated information products that can be used as inputs for further analysis, monitoring, or even on-demand Web-based online processing. These could include information layers or products such as land cover, land cover change, burned areas, dynamic surface water extents and fractional snow covered areas [@usgsLandsatAnalysisReady2018]. Provision of cloud processing for users to conduct their own algorithms on data predominantly considered analysis-ready exist or are being developed, such as \ac{GEE} [@gorelickGoogleEarthEngine2017] and at least three Copernicus \acp{DIAS} [@copernicusUpcomingCopernicusData2017].
 
 
 ## Semantic Enrichment
 
-Applied to satellite imagery, generic semantic enrichment is about transforming pixel values into meaningful information. Generic semantic information is a prerequisite for content-based image and information retrieval and semantic queries, and enables comparison of different images based on their content and fitness for a given analysis rather than relying on general characteristics already provided in the metadata (e.g. acquisition time, geographic extent).
+Applied to satellite imagery, semantic enrichment is about transforming pixel values into meaningful information. Generic semantic information is a prerequisite for content-based image and information retrieval and semantic queries, and enables comparison of different images based on their content and fitness for given analysis rather than relying on general characteristics already provided in the metadata (e.g. acquisition time, geographic extent) [@tiedeArchitecturePrototypicalImplementation2017].
+
+\graffito{automatic knowledge-based spectral categorisation}
+
+In the context of the applied example, semantic enrichment refers to automatic knowledge-based spectral categorisation, otherwise known as preliminary classification. Image pre-classification is an initial classification of remotely-sensed images for use in image understanding workflows. According to @marrVisionComputationalInvestigation1982, human vision begins with a pre-attentive first stage. The output of this pre-attentive first stage is a symbolic primal sketch, including both a raw and final version. The raw primal sketch is made of pure spectral differentiation of grey shades and colour tones, and the final primal sketch groups similar shades and tones. Pre-classification is a primal sketch in the Marr sense, where semi-concepts are groups of spectrally similar pixels.
+
+Pre-classification is the assignment of each pixel to a spectral category based on *a priori* knowledge-based spectral rules (i.e. a physical model) according to the pixel's spectral signature. Semi-concepts are considered semi-symbolic in that they are an initial step in connecting sensory data (i.e. pixel values) to symbolic, semantic classes [@baraldiOperationalAutomaticRemote2012a]. They require further context, analysis, or additional information to classify pixels into symbolic classes, such as land cover classes. For example, the spectral category AVHNIR stands for *Average Vegetation with High  Near-Infrared* values, which could be a mixed forest, vegetated cropland, an urban park or something else entirely. More general to more detailed semi-concepts may be considered a sort of multi-scale segmentation [@baraldiOperationalAutomaticRemote2012a].
 
 
 ## Data Cube \label{sec:datacube}
@@ -81,7 +100,11 @@ Data cubes have recently been gaining more traction, especially in the \ac{EO} d
 
 Exactly what constitutes a data cube and related standards are currently under development. A manifesto was created by @baumannDatacubeManifesto2017 in response to recent attention in the realm of big Earth data in order to clarify principles of data cube service requirements. They recognise that axes all need to be treated alike, irrespective of having spatial, temporal or other semantics, and that extraction, processing, filtering and fusion must be possible in an ad-hoc way. A data cube as defined by @baumannDatacubeManifesto2017 is:
 
+\graffito{One definition}
+
 > a massive multi-dimensional array, also called "raster data" or "gridded data"; "massive" entails that we talk about sizes significantly beyond the main memory resources of the server hardware. Data values, all of the same data type, sit at grid points as defined by the *d* axes of the *d*-dimensional datacube. Coordinates along these axes allow addressing data values unambiguously.
+
+\graffito{Data cubes support ARD}
 
 @baumannDatacubeManifesto2017 claim that by following their identified requirements, massive gridded spatio-temporal data stored in data cubes becomes analysis-ready. In the case of \ac{EO} data, this also requires necessary pre-processing, as mentioned in section \ref{sec:ARD}, but data cubes might be the future of \ac{EO} data storage, access and analysis.
 
@@ -102,6 +125,8 @@ Across various scientific disciplines and in everyday language, there has long b
 
 @goodmanWhatDoesResearch2016 clarified reproducibility by breaking down different aspects within research. Space and time are fundamental to \ac{EO}, since every spatio-temporal location of an observation is unique and cannot be repeated. This differs from some other scientific disciplines, where data to test a hypothesis can generally be assumed to be independently collected at any time or place given the necessary materials and knowledge (e.g. testing the law of gravity). Listed below is how specific kinds of reproducibility in \ac{EO} data analytics based on @goodmanWhatDoesResearch2016 are understood in this work, recognising that independent \ac{EO} data collection to test hypotheses is often not possible (e.g. historical land cover change detection), depending on the spatio-temporal location, scale and context of the events, processes, states, objects, etc. in question:
 
+\graffito{Different dimensions of reproducibility}
+
 \spacedlowsmallcaps{methods reproducibility}: ability to exactly repeat the *same methods* by providing sufficient detail about procedures and data
 
 \spacedlowsmallcaps{results reproducibility}: ability to obtain the *same results* through the *same methods* using the *same data*
@@ -109,12 +134,11 @@ Across various scientific disciplines and in everyday language, there has long b
 \spacedlowsmallcaps{inferential reproducibility}: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
 
 
-# International Initiatives
-
-Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time using increasingly standardised and reproducible methods. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not necessarily spatially explicit. Incorporating information derived from an objective base of constantly and continuously collected free and open \ac{EO} data with existing indicators can offer spatially explicit evidence to inform future actions towards achieving identified goals.
-
-
 ## United Nations' Sustainable Development Goals
+
+Many goals have been identified in the scope of various international agreements, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time using increasingly standardised and reproducible methods. Many of the developed indicators are based on official statistics at a regional, national or provincial level, but are not necessarily spatially explicit. In order to keep the scope manageable, the focus here is looking more closely at the \ac{UN} \acp{SDG}, which pertain to goals set in 2015 for 2030.[^1]
+
+[^1]: Other international agreements with identified indicators that \ac{EO} data could serve include the \acf{DRR} [@Resolution692832015], the Paris Agreement on Climate Change, the New Urban agenda [@corbaneBigEarthData2017].
 
 The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 interconnected goals with many targets and related indicators for the 2030 Agenda for Sustainable Development [@Resolution70Transforming2015]. These goals are known as the \acp{SDG} (Fig. \ref{fig:SDGs}), and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015.
 
@@ -122,31 +146,31 @@ The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 in
 
 The \acp{SDG} are different from the \acp{MDG} not only in their content, but also in how they were conceived and to whom they apply. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education.
 
-In order to support these efforts, targets have been identified for each goal, resulting in a total of 169 targets [@Resolution713132017]. Multiple, measurable indicators for monitoring progress towards each target have also been identified.
+In order to encourage support towards reaching these goals, concrete targets have been identified to track progress of each goal, resulting in a total of 169 targets [@Resolution713132017]. Multiple, measurable indicators for monitoring progress towards each target have been identified, and are intended to be as standardised as possible .
 
 
-
-## Sendai Framework for Disaster Risk and Reduction
-
-
-The \ac{DRR} is framed by one overarching goal and expected outcome, which is refined by seven targets, four priorities for action and many guiding principles.
-
-[@Resolution692832015]
-[@mainiSendaiFrameworkDisaster2017]
-
-
-
-# Earth-Observation-based Information for Indicators
+# Earth-Observation-based Information for Global Indicators
 
 - \ac{EO} data and need for indicators
 - Indicators vs. evidence
 - Development of spatially-explicit indicators
 - spatially-explicit
 
-\ac{EO}-derived information can contribute to many existing global priority initiatives. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods. This is true assuming the \ac{EO} data have sufficient quality, are suitable for the intended purpose and given automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways \ac{EO}-derived information can contribute to the \ac{UN} \acp{SDG} and the \ac{DRR}, both of which pertain to goals set in 2015 for 2030.
-
-
 Indicator development is imperative to leveraging the potential of \ac{EO} data and transforming them into meaningful and actionable information. As big, open and free data sources, such as provided by the Sentinel-2 satellites, are collected over a longer timespan, indicators transferable to multiple data sources will be increasingly useful for interpreting a variety of \ac{EO} data. Indicator extraction is necessary because the reflectance observed by a sensor is only a proxy for detecting, identifying and monitoring objects and processes, since pixels representing similar reflectance values can represent different objects, surfaces, etc. Optical \ac{EO} data does not contain direct measurements of most objects or events on Earth (i.e. mixed pixels or relatively slow events). Non-physical entities (e.g. political boundaries) also cannot be directly measured. Replicable extraction of generic \ac{EO}-based indicators can complement indicators or reports from other in-situ sources as evidence for consilience to support decision-makers. Since free and open \ac{EO} data are independent of political boundaries, if not global in coverage, indicators derived from them will be especially useful in supporting international initiatives in various thematic domains, such as the \ac{UN}' \acp{SDG}.
+
+\ac{EO}-derived information can contribute to many existing global priority initiatives. Incorporating information derived from an objective base of constantly and continuously collected \ac{EO} data with existing indicators can offer spatially explicit evidence in a timely manner to inform actions towards achieving identified goals. Utilising information based on free and open \ac{EO} data can reduce costs for monitoring some of an initiatives goals and offer dynamic, regionalised information that can be generated more frequently than traditional statistical survey methods. This is true assuming the \ac{EO} data have sufficient quality, are suitable for the intended purpose or indicator, and are generated using automated information extraction methods. In order to keep the scope manageable, the focus here is looking at ways that information derived from Sentinel-2 imagery can contribute to the \ac{UN} \acp{SDG}.
+
+The \ac{GEO} and \ac{UN-GGIM} have evaluated the \acp{SDG} targets and indicator framework summarised in \autoref{fig:EOSDGs}. Having reviewed the goals, targets and indicators previously to accessing the results of this \ac{GEO} evaluation, it seems to be quite comprehensive. It is also clear that \ac{EO} data can in some way contribute information to assist decision-makers and actions towards each and every one of the \acp{SDG}.
+
+![\ac{SDG} targets and indicators that can be supported by \ac{EO} data according to the \ac{GEO} (Source: @grouponearthobservationsEarthObservationsGeospatial2017) \label{fig:EOSDGs}](source/figures/201704_geo_unggim_4pager-4.png)
+
+reliable and unbiased
+
+timeliness
+
+facilitate and inform
+
+harness benefits
 
 The challenge with \ac{EO} data is their necessity to be classified or interpreted in order to support meaningful analysis.
 
@@ -189,12 +213,8 @@ monitor change over time in a consistent and standardised manner
 
 contribute towards achieving the \acp{SDG} by offering information for nations, organisations and other stakeholders to plan, monitor identified targets, track progress towards their achievement
 
-- image from UN group looking at EO-based indicators for sustainable development
 
-
-## Indicators for International Initiatives
-
-- identify which existing indicators from the two initiatives could benefit from \ac{EO}-based Information
+## \ac{SDG} Indicators Where Sentinel-2 can Contribute
 
 suggest any additional indicators that may be relevant for specific targets, or goals
 
@@ -219,14 +239,14 @@ suggest any additional indicators that may be relevant for specific targets, or 
 
 Multi-dimensional methods, robust to redundant information, are required to process and classify a time-series of multi-spectral scenes. Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification) into classes equal or inferior to land cover classes, reduces the dimensionality of data in a repeatable way.
 
-Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
+Initial, generic semantic enrichment, e.g. automatic spectral categorisation (i.e. preliminary classification), increases automation of \ac{EO}-based indicator extraction. Applying generic, semantic enrichment moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Complete, automated remotely-sensed image understanding is something for the future, Pre-classification can be understood as a first, fully automated step towards image understanding, which is envisioned to include land cover classification [@baraldiOperationalAutomaticRemote2012]. Automatically generated semantic enrichment transforms \ac{EO} images into meaningful information in an automated way.
 
 
-One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
+One existing transferable method for initial, generic semantic enrichment is automatic spectral categorisation of \ac{EO} data (i.e. preliminary classification). This moves away from application-based algorithms (e.g. water classifiers) and sample-based classifiers, which are often not transferable among multiple images at different spatio-temporal locations. Completely automated understanding of remotely-sensed images is something for the future, but pre-classification can be understood as a first, fully automated step towards automated land cover classification [@baraldiOperationalAutomaticRemote2012].
 
-## Some existing indicators using free and open \ac{EO} data
 
-**(Some Indicators Utilising \ac{EO}-Based Information)**
+## Free and open \ac{EO}-derived Information as Evidence
+
 
 - literature review of existing optical \ac{EO}-based indicators or sources of evidence
 
@@ -239,6 +259,8 @@ Automated, repeatable and reliable \ac{EO} information extraction can theoretica
 - SAR based index similar to that used on Landsat data
 
 @corbaneBigEarthData2017 used Sentinel-1 data to generate more up-to-date information on human settlements than available in the first multi-temporal \ac{GHSL} based on Landsat [@pesaresiOperatingProcedureProduction2016]. They used the results from the analysis of Sentinel-1 data to mitigate commission and omission errors produced by @pesaresiOperatingProcedureProduction2016 by applying an \ac{SML} classifier designed for remote sensing big data analytics. The \ac{SML} classifier used training sets derived from existing global land cover products in order to classify built-up areas from Sentinel-1 data.
+
+Mangrove mapping FCCC REDD+
 
 ### Night-time Light Data
 
@@ -283,6 +305,13 @@ ImageQuerying -- parameter free and fully automated workflows [@tiedeIMAGEQUERYI
 @tiedeArchitecturePrototypicalImplementation2017
 
 
+### Other
+
+Reducing Emissions from Deforestation and forest Degradation (REDD+
+
+GEOGLAM
+
+
 ## Relevant data cube implementations
 
 - focus on Landsat and Sentinel-2 use
@@ -293,6 +322,9 @@ Generic semantic enrichment.
 
 @nativiViewbasedModelDatacube2017
 \ac{ODC}
+
+[@sudmannsArrayDatenbankenFurSemantische2016]
+
 
 The people behind the data cube manifesto [@baumannDatacubeManifesto2017] are also behind what is known as EarthServer.
 

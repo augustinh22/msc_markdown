@@ -15,6 +15,10 @@
 - ARD
 - better spatial resolutions and more frequent observations
 
+- incorporation of additional cloud masks, such as Fmask [@zhuObjectbasedCloudCloud2012], as long as they work well with Sentinel-2 data, which lacks thermal bands.
+
+- incorporation of other sensors, such as Landsat
+
 It would be fantastic to have automated workflows that provide a generic data cube containing all existing and up-to-date data ready for the analysis of defined indicators, but not limited to that purpose.
 
 
