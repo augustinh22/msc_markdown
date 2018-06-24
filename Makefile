@@ -35,7 +35,8 @@ pdf:
 	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa.csl" \
-	--verbose
+	--verbose \
+	--latex-engine=pdflatex
 
 tex:
 	pandoc "$(INPUTDIR)"/*.md \

@@ -7,9 +7,9 @@ This section aims to lay the groundwork and context in which the applied example
 
 # Framing Terms
 
-Before digging into anything further, a few terms and concepts need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage here needs to be established, but is not necessarily definitive.
+Before digging into anything further, a few terms and concepts need to be clarified based on intended use throughout this thesis. Some of these terms are still evolving, so the baseline for their usage needs to be established, but it is by no means definitive.
 
-## Open Data
+## Open Data \label{sec:opendata}
 
 The \acf{OKF} defines knowledge as being *open* when anyone is able to freely access, use, modify, and share it [@openknowledgefoundationOpenDefinitionOpen; @molloyOpenKnowledgeFoundation2011]. This definition of openness is also applied to data, as long as they have an open license, are provided in a machine-readable way including necessary metadata, are user-friendly and provided in an open format. Simply publishing data on the Web and making them available at no financial cost is not sufficient for them to be considered open.
 
@@ -17,97 +17,73 @@ The \acf{OKF} defines knowledge as being *open* when anyone is able to freely ac
 
 There is no intrinsic value in open data, rather the value of open data is created by using them [@janssenBenefitsAdoptionBarriers2012]. Public institutions create and collect a lot of data. Opening data sources to the public that are not linked to individuals has the potential to increase benefits for society, the economy and environment. For example, \ac{EO} images from the publicly funded Landsat mission have no intrinsic value, but a drastic increase in their use is precisely what happened when the archive was opened, leading to much research, information extraction, innovation and applications relevant to many domains [@wulderOpeningArchiveHow2012].
 
-The Copernicus programme offers a plethora of free, full and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. Efforts include the development of operational services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes geared towards users and scalable computing environments, such as \ac{RUS} and \ac{DIAS}. The more that Copernicus' open data is not only being downloaded, but used, the higher the value and greater the benefit.
+The Copernicus programme offers a plethora of free, full and open data, but the openness of these data can be challenged if they are not being used, which is why the \ac{EC} has established many programs to utilise the data and encourage user uptake. Efforts include the development of operational services for monitoring the atmosphere (\acs{CAMS}), marine environment (\acs{CMEMS}), land (\acs{CLMS}), climate change (\acs{C3S}), emergency management (\acs{EMS}) and security, as well as programmes geared towards users and scalable computing environments, such as \ac{RUS} [@copernicusResearchUserSupport2017] and \ac{DIAS} [@copernicusUpcomingCopernicusData2017]. The more that Copernicus' open data, or any data, is not only being downloaded, but used, the higher the value and greater the benefit, hopefully for all.
 
 
 ## Big Earth Data
 
-Big data that stems from or deals with Earth sciences is considered big Earth data. [@guoBigDataDrives2017]
+Big data is an abstract, dynamic concept that poses different challenges to researchers, and is defined by various unique qualities that define the "bigness" of big data in comparison to more traditional data sources. Typically, big data refers to a massive amount of unstructured data that cannot be handled, stored or processed by traditional IT, software or hardware within a reasonable time or scope, generally requiring analysis in (near-)real-time [@chenBigDataSurvey2014]. These qualities are discussed in literature often using any number of "V" terms, depending on the source. What is considered big data will differ between application domains and will change over time as technology advances and storage, management, processing and analysis methods and strategies are developed to better handle complex, big data sources.
 
-- define big data in terms of V's [@laney3DDataManagement2001] [@gandomiHypeBigData2015]
-- make it clear it is not only \ac{EO} data
+The 3 V's, *volume, velocity and variety*, were first mentioned by @laney3DDataManagement2001 and later applied to characterising big data. Additional Vs have been used to describe big data over the years, including *veracity, variability,* and *value* [@gandomiHypeBigData2015].
 
+\spacedlowsmallcaps{Volume} relates not only to the overall space that data take up on hardware -- size and scale -- but also the notion that the more data that is collected, the less valuable each individual observation becomes. Inferential statistics were intended to make inferences about a larger population of phenomenon based on sample observations, whereas big data sources generally encompass significantly more than a random sample of what they represent [@gandomiHypeBigData2015]. There are limited methods that can utilise so much data in a meaningful way, while also avoiding redundancy and the threat of spurious correlations.
 
+\spacedlowsmallcaps{Velocity} speaks to the rate at which data is generated -- timeliness -- in that data generation outpaces the speed at which data can be managed from acquisition to storage and utilised in a meaningful way. Big data are in motion (e.g. constant stream) and dynamic, therefore require high-velocity capture, storage, discovery and analysis [@chenBigDataSurvey2014].
 
-As of 7 November 2017, there are an estimated 1,738 active, operating satellites are in orbit with around 25% dedicated to Earth observation, regardless if government, military, commercial or civilian [@UCSSatelliteDatabase2017]. Up until now, the majority of \ac{EO} satellites have been operated by national governments, but the expected future trend is an increase in civilian and commercial satellites [@mccabeFutureEarthObservation2017]. The Landsat-1 mission, launched in 1972, carried the first digital multi-spectral sensors intended for civilian use.
+\spacedlowsmallcaps{Variety} has to do with the numerous formats and structures, differing semantics and many dimensions that data can take. This includes data originating from multiple, heterogeneous sources. Different types of data require different handling thus may apply to different definitions of being big.
 
-The opening of the Landsat archive and all new data to the public in 2008 under a free and open data policy [@wulderOpeningArchiveHow2012] presented new opportunities for many researchers to access and use Landsat data, stretching back until 1972. The \acp{EC} Copernicus programme is now providing \ac{EO} data comprised of multiple Sentinel satellite missions and in situ observations with global coverage at unprecedented frequency and spatial resolution for being free, full and open. There has never been so much \ac{EO} data freely and openly available to the public. Daily data volumes from the Sentinel missions alone are expected to exceed 10\ac{TB} (Fig. \ref{fig:dataestimates}).
+\spacedlowsmallcaps{Veracity} of data addresses the aspect of uncertainty and unreliability that accompanies unstructured, often untrusted and messy data sources.
 
-![Estimates of annual data volumes from open and free data from Landsat, \ac{MODIS} (Terra and Aqua units) and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg)
+\spacedlowsmallcaps{Variability} and was introduced by \acs{SAS} as an additional dimension of big data [@gandomiHypeBigData2015], and refers to dynamic generation of data, meaning inconsistent flow with peaks and lulls.
 
-- link to \ac{EO} and some specific challenges
+\spacedlowsmallcaps{Value} references the potential information that can be extracted from big data, transforming data to information for decision-making.
 
-"the challenges of big earth data" @boultonChallengesBigData2018
+Big data related to Earth sciences, including data about the Earth's atmosphere, surface and interior, are considered big Earth data, but they are more than just \ac{EO} data. Big Earth data as a concept stems from integrating the concept of big data and the vision of digital Earth proposed by @goreDigitalEarthUnderstanding1998. @guoBigDataDrives2017 characterises big Earth data as being "massive, multi-source, heterogeneous, multi-temporal, multi-scalar, highly dimensional, highly complex, non-stationary and unstructured." Observations are also generally not repeatable, depending on the object or process being observed.
 
+As of 7 November 2017, there are an estimated 1,738 active, operating satellites are in orbit with around 25% dedicated to Earth observation, regardless if government, military, commercial or civilian [@UCSSatelliteDatabase2017]. Up until now, the majority of \ac{EO} satellites have been operated by national governments, but the expected future trend is an increase in civilian and commercial satellites [@mccabeFutureEarthObservation2017].
 
-- require algorithms that can handle big data/many images, multiple sensors, many geographical areas with heterogeneous levels of fitness / conditions
+The Landsat-1 mission, launched in 1972, carried the first digital multi-spectral sensors intended for civilian use. Big \ac{EO} data is a subset of big Earth data that really came into existence through the opening of the Landsat archive and all new Landsat data to the public in 2008 under a free and open policy [@wulderOpeningArchiveHow2012]. This presented new opportunities for many researchers to access and use Landsat data, stretching back until 1972.
 
-More generally, big data pose different challenges to researchers due to various unique qualities that define their "bigness". These qualities are discussed in literature often using any number of "V's", depending on the source. Here, big data will be defined by referring to the following 4 V's as *volume, variety, velocity and veracity* (data at scale [TB, PB, etc.], data in many forms [many dimensions], data in motion[streaming], data uncertainty[unstructured, untrusted, uncleaned]).
+![Estimates of annual data volumes from open and free data from Landsat, \ac{MODIS} (Terra and Aqua units) and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg){ width=80% }
 
-Expected data *volumes* from the Sentinel missions alone are estimated to exceed 10 TB daily at full operational capacity, a relatively high *velocity* due to global coverage on average every six, five and two days at the equator for Sentinel-1, -2 and -3 respectively, and quite a data *variety* due to multiple sensors, both optical and radar, having various spatial, spectral and temporal resolutions [@soilleVersatileDataintensiveComputing2018]
+The \acp{EC} Copernicus programme is now providing \ac{EO} data comprised of multiple Sentinel satellite missions and in situ observations with global coverage at unprecedented frequency and spatial resolution for being free, full and open. There has never been so much \ac{EO} data freely and openly available to the public. Daily data volumes from the Sentinel missions alone are expected to exceed 10\acs{TB} (Fig. \ref{fig:dataestimates}).
 
-Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
+Remotely-sensed big Earth data could continue to be analysed using methods that were applied to remotely-sensed images before Landsat opened its archive in 2008 (i.e. before they became a big open data source) but most \ac{EO} data available would never be accessed, much less used. This means moving beyond file-based analysis, where each analyst must download each scene one by one, and minimising the transfer of data between data archives/stores and users.
 
-Information extracted from big Earth data is a promising source of spatially-explicit evidence.
+\ac{EO} images are considered unstructured data, since they generally lack necessary structural organisation for machine-readability and automated analysis. They demand new and different automated methods to leverage their potential, whether related to storage, processing, access or analysis -- algorithms that can handle many images, multiple sensors and many geographical areas and moments in time with heterogeneous conditions (e.g. cloud cover, climate, land cover). Developing large-scale, automated (repeatable and reliable) methods for extracting information from huge amounts of \ac{EO} data is not only the current trend, but the only foreseeable way to derive meaning from a rapidly growing, global data source.
 
-They are the only source of data that can continuously provide consistent information about the current and past state of the Earth's surface. That means global coverage that is, theoretically, the same everywhere.
-
-
-Remotely-sensed big Earth data could continue to be analysed using methods that were applied to remotely-sensed images before Landsat opened its archive in 2008 (i.e. before they became a big open data source) but the majority of \ac{EO} data available would never be used.
-
-- current inferential statistical models were conceived as tools to infer from sample data -- big data is different [@gandomiHypeBigData2015]
-- [@gandomiHypeBigData2015] discuss text, audio, video and social media data, yet ignore images as part of their exploration of big data
-
-images are considered unstructured data, since they generally lack necessary structural organisation for machine-readability and automated analysis.
-
-
-Providing tools and applications for:
-- managing large EO datasets efficiently and with remote access for data analysis and exploitation, minimizing the transfer from or to remote data centers
-- adapt existing spatial and temporal analysis methods, and developing new methods that allow easier sharing, publishing, backup and reproduce big EO data;
-
-*Big Earth data* demand different and new methods to leverage their potential, whether related to storage, access or analysis. This means moving beyond file-based analysis, where each analyst must download each scene one by one. This means that larger-scale analysis, whether larger in spatial coverage, over many observations in time, or both, require many (i.e. hundreds to thousands) of individual scene downloads.
-
-on the other hand, allows the rapid generation of large-scale and small-scale maps that do not include only “static” geophysical parameters (such as terrain height and vegetal cover), but also dynamic ones (such as likely positions of icebergs in the Arctic Ocean) and man-made artefacts.
+The benefits of big Earth data transcend the domain of Earth sciences @guoBigDataDrives2017. Free and open \ac{EO} data are the only sources that can continuously provide consistent information about the current and past state of the Earth's surface with global coverage that is, theoretically, the same everywhere. However, the quality and fitness of data for analysis may be unevenly distributed and differ depending on sensor and the geo-spatio-temporal location. Nevertheless, information extracted from big Earth data is a promising source of spatially-explicit evidence.
 
 
 ## Analysis Ready Data \label{sec:ARD}
 
--- lack of definition -- can include calibration, semantic enrichment, etc...
+There has been a lot of hype recently around the term \acf{ARD}, but it lacks a common, widespread definition. \ac{ARD} has mostly been used in the realm of satellite imagery and seems to be related to concepts of openness (see \ref{sec:opendata}), in that the intention is to make data more user-friendly, removing necessary pre-processing steps [@holmesAnalysisReadyData2018]. Data preparation can include re-projection, organisation of data into a regular grid, co-registration, atmospheric correction, various kinds of calibration (e.g. \ac{ToA}, \ac{BoA}), cloud detection or masking, image stacking to create a time-series for analysis, and more. However, data that is "analysis-ready" depends on the intended analysis, and can mean different things to different people, depending on the purpose or application.
 
-- connection to open data
+Providers of satellite imagery are much better equipped to conduct routine pre-processing than most users. Until recently, satellite data was pre-processed by users, which often led to different pre-processing results even before analysis was conducted. These differences in initial data for analysis, even when using the same fundamental datasets, has made comparability and reproducibility of analysis and results challenging.
 
-https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815
+Removing the user from pre-processing removes many design decisions making data use simpler, but obscures the assumptions made by routine processes that may have an impact on analysis results. Many of these pre-processing algorithms, including those used to process open \ac{EO} data, are proprietary and closed to scientists, providing a barrier to understanding the data being analysed. Even if it is convenient to have data pre-processed to a certain level and may improve comparability of analysis conducted by different people, as long as closed algorithms are used, scientific research will be negatively affected.
 
-https://medium.com/planet-stories/towards-on-demand-analysis-ready-data-f94d6eb226fc
+Data provided under the name \ac{ARD} seems to attempt to close the gaps between data availability, access and use. Three current examples of \ac{EO} data currently being provided as \ac{ARD} include products provided by the \ac{USGS}, \ac{AGDC} and \ac{SDC}. The \ac{AGDC}, which has evolved into the \ac{ODC}, provides Landsat data calibrated to surface reflectance and in regular grids projected to suit Australia [@lewisAustralianGeoscienceData2017]. Using similar technology now known as the \ac{ODC}, the \ac{SDC} is offering Landsat \ac{ARD} for Switzerland [@giulianiBuildingEarthObservations2017]. Landsat \ac{ARD} are provided by the \ac{USGS} for the conterminous United States in a common tiling scheme different from the traditional path and row system of the Landsat mission [@usgsLandsatAnalysisReady2018]. Multiple pre-processing levels and products are provided by the \ac{USGS}, including data calibrated to \ac{ToA} reflectance, \ac{ToA} brightness temperature, surface reflectance (i.e. atmospherically corrected), and a sort of pixel quality assessment.
 
+While \ac{ARD} may not yet have a cohesive definition, in the near future, it is likely to encompass much more. Some suggestions include: cross-sensor and cross-provider standardisation to improve use of various data sources in analysis; improved unusable data masks and data quality metrics; methods to take into account that different sensors use different atmospheric models for atmospheric correction; on-demand, user-defined data selection, projection and gridding; semantic content-based image retrieval; user-defined composites and mosaics; and cross-sensor alignment [@holmesAnalysisReadyData2018; @holmesOnDemandAnalysisReady2018]. The term might include not only data, but also automated and routinely generated information products that can be used as inputs for further analysis, monitoring, or even on-demand Web-based online processing. These could include information layers or products such as land cover, land cover change, burned areas, dynamic surface water extents and fractional snow covered areas [@usgsLandsatAnalysisReady2018]. Provision of cloud processing for users to conduct their own algorithms on data predominantly considered analysis-ready exist or are being developed, such as \ac{GEE} [@gorelickGoogleEarthEngine2017] and at least three Copernicus \acp{DIAS} [@copernicusUpcomingCopernicusData2017].
 
-
-Initiatives currently promoting data cube infrastructures (***see*** section \ref{sec:datacube}) and analysis-ready data are driven by the concept of open data. Most of them aim to offer tools, services and pre-processed data that hope to close the gaps between data availability, access and use. On example is
-
-examples of in the \ac{EO} domain -- Landsat ARD for the USA
-
-### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
-
--- importance for analysis -- comparability
-
-
-## European Space Agency Level 1C - Level 2A
-
-While still considered open, it is important to note that the pre-processing algorithms applied to the \ac{EO} data provided by the Copernicus programme are not open, but proprietary. -- implications for transparency, re-processing, reproducibility...
-
-At the time of writing, ESA intends to start offering world-wide Level-2A products. Can these be included in a similar implementation?
 
 ## Semantic Enrichment
 
-What does this term mean?
+Applied to satellite imagery, generic semantic enrichment is about transforming pixel values into meaningful information. Generic semantic information is a prerequisite for content-based image and information retrieval and semantic queries, and enables comparison of different images based on their content and fitness for a given analysis rather than relying on general characteristics already provided in the metadata (e.g. acquisition time, geographic extent).
 
 
 ## Data Cube \label{sec:datacube}
 
--- manifesto -- what is the difference between a database and a data cube?
--- standards
+The data cube concept and technologies were developed independent of the \ac{EO} domain [@nativiViewbasedModelDatacube2017]. Also known as data hyper-cubes, they were originally designed to analyse statistics and business data using \ac{OLAP} [@stroblsix].
 
-@baumannDatacubeManifesto2017
+Data cubes have recently been gaining more traction, especially in the \ac{EO} domain, in order to provide access to \ac{ARD}, however defined, and enable multi-dimensional analysis. Advances in cloud processing environments expand many opportunities for multi-dimensional analysis using data cube infrastructures, which is one way to bring users directly to data, rather than data to users.
+
+Exactly what constitutes a data cube and related standards are currently under development. A manifesto was created by @baumannDatacubeManifesto2017 in response to recent attention in the realm of big Earth data in order to clarify principles of data cube service requirements. They recognise that axes all need to be treated alike, irrespective of having spatial, temporal or other semantics, and that extraction, processing, filtering and fusion must be possible in an ad-hoc way. A data cube as defined by @baumannDatacubeManifesto2017 is:
+
+> a massive multi-dimensional array, also called "raster data" or "gridded data"; "massive" entails that we talk about sizes significantly beyond the main memory resources of the server hardware. Data values, all of the same data type, sit at grid points as defined by the *d* axes of the *d*-dimensional datacube. Coordinates along these axes allow addressing data values unambiguously.
+
+@baumannDatacubeManifesto2017 claim that by following their identified requirements, massive gridded spatio-temporal data stored in data cubes becomes analysis-ready. In the case of \ac{EO} data, this also requires necessary pre-processing, as mentioned in section \ref{sec:ARD}, but data cubes might be the future of \ac{EO} data storage, access and analysis.
 
 
 ## Reproducibility
@@ -135,7 +111,7 @@ Across various scientific disciplines and in everyday language, there has long b
 
 # International Initiatives
 
-Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not necessarily spatially explicit. Incorporating information derived from an objective base of constantly collected \ac{EO} data with existing indicators can offer spatially explicit evidence that informs future actions towards identified goals.
+Goals have been identified in the scope of various global initiatives, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time using increasingly standardised and reproducible methods. Many of the developed indicators are based on official statistics on a regional, national or provincial level, but are not necessarily spatially explicit. Incorporating information derived from an objective base of constantly and continuously collected free and open \ac{EO} data with existing indicators can offer spatially explicit evidence to inform future actions towards achieving identified goals.
 
 
 ## United Nations' Sustainable Development Goals
@@ -229,49 +205,6 @@ suggest any additional indicators that may be relevant for specific targets, or 
 
 - use this to lead into a concept of more time-sensitive analysis than monitoring long-term goals
 
-## Livelihood-related Crisis Indicators
-
-- how can livelihood be addressed from an indicator perspective…
-- some non-\ac{EO} livelihood security indicators (existing or envisioned in literature)
-- existing or envisioned \ac{EO}-based livelihood indicators or sources of evidence
-- lack of definition for crisis -- links to emergency management in a changing climate or more immediate changes/impacts
-
-\ac{EO} data is not only useful for monitoring longer-term international goals, but also for generating spatially-explicit evidence for assessing the impact of events producing rapid change, such as flooding, deforestation, wildfires, damage to irrigation infrastructure in the dry season, etc.
-
-Free and open \ac{EO} data are a reliable and objective global data source that can also serve humanitarian organisations and initiatives in moments of emergency or crisis, however defined. A handful of research with the purpose of developing what are known as *crisis indicators* exists, utilising \ac{EO}-based information. The term "crisis" is, however, very loosely defined and quite subjective, since the definition is related to what is being affected and who or what it impacts. Connecting detectible changes in land cover or land use as being caused or related to a defined crisis requires a lot of inference, and various additional data sources for validation, which may not be available at the time of analysis due to limitations and restrictions to data collection, access, etc. associated with the identified crisis.
-
-Livelihood-specific Evidence
-
-1. economic size, growth and distribution (using luminosity)
-2. population size, growth and distribution
-3. differences in geographic endowments (water, farmland, natural resources, etc.) -- affect on supply of public goods
-4. size and growth of cities, their legal and illegal parts, slums, distribution of infrastructure and economic activity, etc.
-5. density and quality of road networks
-6. size, quality and change of land plots
-7. weather, climate, droughts, crop failures, food shortages, etc. potential disasters
-8. infrastructure that could prevent natural disasters
-9. forced displacement, razed villages, mass graves
-10. humanitarian responses to disasters and conflicts
-11. illegal crops (e.g. drugs)
-12. reconstruction activity after conflict (e.g. build up of infrastructure)
-
-Land degradation -- Long-term multi-temporal vegetation analyses (large scale analysis using Sentinel-2 data,
-Loss of agricultural areas -- Long-term multi-temporal vegetation analyses (Hot spot analysis using Sentinel-2 data
-Flood impact -- Long term probability of flooding impact on agriculture areas, accessibility
-Power shortage -- Night-time light detection.
-
-
-- crop cycles (measure periods of seasonal stress -- low harvest)
-- contribute spatially explicit information to existing vulnerability/risk/hazard assessment methods
-
-
-Cropping intensity (FAO)
-Amount cultivated land/land ownership (HKI)
-
-pressures on natural Resources
-growing population
-environmental variability
-
 
 # State-of-the-Art
 
@@ -307,8 +240,6 @@ Automated, repeatable and reliable \ac{EO} information extraction can theoretica
 
 @corbaneBigEarthData2017 used Sentinel-1 data to generate more up-to-date information on human settlements than available in the first multi-temporal \ac{GHSL} based on Landsat [@pesaresiOperatingProcedureProduction2016]. They used the results from the analysis of Sentinel-1 data to mitigate commission and omission errors produced by @pesaresiOperatingProcedureProduction2016 by applying an \ac{SML} classifier designed for remote sensing big data analytics. The \ac{SML} classifier used training sets derived from existing global land cover products in order to classify built-up areas from Sentinel-1 data.
 
-### \ac{MODIS}
-
 ### Night-time Light Data
 
 Global \acp{NTL} data show the locations and brightness of light escaping into space. Most of these lights are electric and originate from human settlements, making \ac{NTL} a useful data source for bridging social science and remote sensing. \ac{NTL} data has been used as an indicator for various socio-economic factors, including energy consumption, distribution of economic activity, and estimations of \ac{GDP} [@zhangNighttimeLightRemote2015]. They have also been used for crisis-related applications, such as estimating the number of affected or displaced people in the case of a crisis [@corbaneMonitoringSyrianHumanitarian2016] or early damaged area estimation [@kohiyamaEarlyDamagedArea2004]. Most \ac{NTL} studies up to now have been based on a few dates or annual image composites. Further research in this field would include focusing more on temporal dynamics in \ac{NTL}, taking seasonal or hourly changes into consideration to better inform interpretations of results. For example, areas with limited electricity are sometimes limited to certain hours in the day/night or days of the week, which could impact interpretation of results regionally.
@@ -317,7 +248,6 @@ For 40 years, data was collected using the \acp{DMSP} \ac{OLS}. Since 2011, \ac{
 
 [@corbaneMonitoringSyrianHumanitarian2016] integrated \ac{NTL} \ac{EO} data from the \ac{VIIRS} with the \ac{JRC}'s \ac{GHSL} to assess the humanitarian impact of the Syrian conflict in a timely manner by estimating the number of people impacted. The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 until 2013-2014 [@pesaresiOperatingProcedureProduction2016]. This study developed and tested a method to estimate the number of people affected by the Syrian conflict in a timely, consistent and objective manner. \ac{VIIRS} data from January 2013 until December 2015 have a spatial resolution of 750m and were masked using the \ac{GHSL} built-up layer in order to separate city lights from other night-light emissions (e.g. oil and gas wells). Differences in the detected light intensities between each two consecutives months was calculated and used as a proxy for detecting affected or damaged areas. The \ac{GHSL} built-up layer is based on Landsat data. The number of affected people for the identified areas was calculated using the \ac{GHSL} and disaggregated population data, which the \ac{JRC} used to produce depictions of global population distribution and densities in space and time (\acs{GHS-POP}). Estimated numbers of affected people per month were aggregated by administrative region, or governorate, for reporting.
 
-\ac{GDP} growth has been estimated through measuring light emissions from satellite images.
 
 ### Landsat and Sentinel-2
 
@@ -344,9 +274,13 @@ The \ac{GHSL} built-up layer is based on analysis of Landsat imagery from 1975 u
 
 In the scope of the \ac{EC} \ac{FP7} project, \ac{G-SEXTANT}, [@tiedeAutomaticPostclassificationLand2014] demonstrated a fully automated, parameter-free post-classification land cover change detection method based on a Landsat time-series. The focus was on changes to agricultural areas at the Syrian-Turkish border as a potential indicator for livelihood security, conflict-related changes or regional stability in areas where the regional climate mandates irrigation to support crops. The thesis being presented here utilises the same data preparation for the land cover change detection used by [@tiedeAutomaticPostclassificationLand2014], including the prior-knowledge-based classification, and transfers it to Sentinel-2 imagery.
 
+@sudmannsAutomaticExpostFlood2017
+
 Two additional studies have used the same prior-knowledge-based classification to detect or characterise changes to land cover. @langerLongtermMonitoringEnvironmental2015 also used the same method on multi-temporal Landsat scenes from 1994 until 2015 as input to an object-based, post-classification change comparison. This analysis was used to characterise environmental changes occurring around a refugee camp. @hagenlocherEarthObservationbasedApproach2015 used the technology to support semi-automated classification of refugee and \ac{IDP} camps using \ac{VHR} and Landsat data.
 
 ImageQuerying -- parameter free and fully automated workflows [@tiedeIMAGEQUERYINGEARTHOBSERVATION]
+
+@tiedeArchitecturePrototypicalImplementation2017
 
 
 ## Relevant data cube implementations
@@ -357,19 +291,38 @@ Current, existing data cube implementations are geared towards providing access 
 
 Generic semantic enrichment.
 
-(IQ image stack) \ac{EO} image data are semantically enriched and stored as information layers in datacubes. In combination with declarative querying in array databases, ad hoc information extraction is possible by means of semantic querying
+@nativiViewbasedModelDatacube2017
+\ac{ODC}
 
-ODC
+The people behind the data cube manifesto [@baumannDatacubeManifesto2017] are also behind what is known as EarthServer.
+
+\ac{JEODPP}
+
+(IQ image stack) \ac{EO} image data are semantically enriched and stored as information layers in datacubes. In combination with declarative querying in array databases, ad hoc information extraction is possible by means of semantic querying
 
 One notable framework for monitoring the Earth's surface using a multi-dimensional data cube is \ac{LiMES}, proposed by [@giulianiLiveMonitoringEarth2017] who are involved with the \ac{SDC} [@giulianiBuildingEarthObservations2017], an operational national implementation of the \ac{ODC} [@lewisAustralianGeoscienceData2017]. \ac{LiMES} identified various challenges building a monitoring framework, one of which was turning data into understandable information products.
 
-Australian implementations
 
-google earth engine
+# Framing the Applied Example
+
+Open Data
+
+Big \ac{EO} data
+Expected data *volumes* from the Sentinel-2 missions alone are estimated to exceed 10\acs{TB} daily at full operational capacity, a relatively high *velocity* due to global coverage on average every six, five and two days at the equator for Sentinel-1, -2 and -3 respectively, and quite a data *variety* due to multiple sensors, both optical and radar, having various spatial, spectral and temporal resolutions [@soilleVersatileDataintensiveComputing2018]
 
 
+Even in the isolated case of Sentinel-2, automated workflows are necessary to handle approximately 3.4\acs{TB} of data captured every day [@esaSentinelHighLevel2017], not to mention fusion with other similar sensors (e.g. Landsat) or integration with different datasets (e.g. radar, digital elevation models, socio-economic data). *variety* in terms of consistency and quality levels (e.g. cloud coverage)
 
+\ac{ARD}
 
+generic semantic Enrichment
+
+data cubes
+
+automated workflows
+interactive, ad-hoc analysis -- users do not need to download any data, only results of analysis they want to keep.
+
+\acp{SDG}
 
 ----------------------------
 
@@ -415,7 +368,7 @@ The following example shows a fully automatic change analysis between August 201
 improve situational awareness as well as regular, temporal monitoring and identification of changes.
 Data with lower spatial resolutions can be exploited by moving away from "direct" information extraction towards indicator-based approaches.
 
-Sentinel’s multi-spectral satellites, 2A and 2B, run as part of the Copernicus programme (formerly known as \ac{GMES}) led by the \ac{EU}, together at full operational capacity have a revisit time of 5 days over equatorial areas and a relatively high spatial resolution (10-60m) with 13 spectral bands. Offering data already calibrated to \ac{ToA} reflectance, with a collective total of around one \ac{TB} of data daily, the Sentinel-2 satellites are predominantly used to monitor water cover, vegetation, coastal areas, soils, natural disasters and other features of interest for land services. Landsat 5/7/8 are other multi-spectral instruments with relatively lower spatial resolutions, less frequent re-visit times and without pre-processed \ac{ToA} reflectance, that can be exploited in similar ways, especially where historical data are relevant for comparison.
+Sentinel’s multi-spectral satellites, 2A and 2B, run as part of the Copernicus programme (formerly known as \ac{GMES}) led by the \ac{EU}, together at full operational capacity have a revisit time of 5 days over equatorial areas and a relatively high spatial resolution (10-60m) with 13 spectral bands. Offering data already calibrated to \ac{ToA} reflectance, with a collective total of around one \acs{TB} of data daily, the Sentinel-2 satellites are predominantly used to monitor water cover, vegetation, coastal areas, soils, natural disasters and other features of interest for land services. Landsat 5/7/8 are other multi-spectral instruments with relatively lower spatial resolutions, less frequent re-visit times and without pre-processed \ac{ToA} reflectance, that can be exploited in similar ways, especially where historical data are relevant for comparison.
 
 The \ac{JPSS} from \ac{NASA} and the \ac{NOAA}. The \ac{JPSS} includes the \ac{VIIRS}, meant to replace the \ac{MODIS} and \ac{AVHRR} sensors for tasks such as night-time light analysis, active fire detection and climate change monitoring. These data are accessible to the general public, often via online archives (e.g. Sentinels Scientific Data Hub, \ac{USGS} Landsat archive).
 

@@ -15,9 +15,14 @@
 - data cubes and ARD
 - Reproducibility
 
+
+The concept of \ac{ARD} (***see*** section \ref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
+
 # Discussion of Methods
 
 - (incl. challenges, successes, reconsiderations and shortcomings)
+
+- no thermal band -- difficulty with clouds and bare-soil sometimes -- low impact on aggregated dynamics analysis in environments with low average cloud cover
 
 ## Benchmarks
 - Report time of daily updates, and estimate average time needed per granule.
@@ -28,6 +33,9 @@
   - ingestion
 - estimate time needed to rebuild data cube at time of writing including all new downloads...)
 - query times for results
+
+
+
 
 ## Ingestion Tiling Scheme
 

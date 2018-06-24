@@ -149,6 +149,7 @@
 % ****************************************************************************************************
 % 5. Setup code listings
 % ****************************************************************************************************
+\usepackage{inconsolata}
 \usepackage{listings}
 %\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % for special keywords
 \lstset{language=[LaTeX]Tex,%C++,
@@ -169,6 +170,37 @@
   belowcaptionskip=.75\baselineskip
   %frame=L
 }
+
+% Custom Python Syntax
+\lstset
+{
+    basicstyle=\fontfamily{zi4}\selectfont\scriptsize,
+    commentstyle=\color{Green},
+    frame=single,
+    %title=\lstname,
+    keepspaces=true,
+    language=Python,
+    breaklines=false,
+    numbers=left,
+    numbersep=10pt,
+    numberstyle=\scriptsize\color{Gray},
+    showstringspaces=false,
+    stringstyle=\color{Mulberry},
+    tabsize=2,
+    % the more interesting/new bits
+    classoffset=1,% starting a new class
+    morekeywords={True},
+    keywordstyle=\color{WildStrawberry},
+    classoffset=2,% starting another class
+    morekeywords={False},
+    keywordstyle=\color{LimeGreen},
+    classoffset=0,% restore to default class if more customisations...
+}
+
+\lstdefinestyle{customc}{
+    xleftmargin=-.1\textwidth,
+}
+
 % ****************************************************************************************************
 
 
