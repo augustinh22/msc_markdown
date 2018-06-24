@@ -34,39 +34,39 @@ mea. There is also a useless Pascal listing below: \autoref{lst:download}.
 
 \clearpage
 \graffito{This script handles http downloads of a given granule from the Copernicus Open Access Hub. It also enables more complex queries of the archive and batch downloads from the CLI.}
-\lstinputlisting[language=Python, frame=tb, caption={Download data from Copernicus Open Access Hub (\texttt{download\_linux.py})}, label=lst:download]{source/code/download_linux.py}
+\lstinputlisting[language=Python, frame=tb, caption={[Python script to download data] Download data from the Copernicus Open Access Hub (\texttt{download\_linux.py})}, label=lst:download]{source/code/download_linux.py}
 
 \clearpage
 \graffito{This script stacks the 6 Sentinel-2 bands required from SIAM, but first resamples bands 11 and 12 to 10m, identifies pixels with a value of 0 to create a no-data mask, converts to 8-bit and saves in ENVI format.}
-\lstinputlisting[language=Python, frame=tb, caption={Convert data structure and format for SIAM (\texttt{conversion\_linux.py})}, label=lst:conversion]{source/code/conversion_linux.py}
+\lstinputlisting[language=Python, frame=tb, caption={[Python script to re-format for SIAM]Convert data structure and format for SIAM (\texttt{conversion\_linux.py})}, label=lst:conversion]{source/code/conversion_linux.py}
 
 \clearpage
 \graffito{This script searches for Sentinel-2 product folders missing SIAM output and uses them to create a batch file to run SIAM so that they can be processed.}
-\lstinputlisting[language=Python, frame=tb, caption={Generate SIAM batch script (\texttt{batch\_linux.py})}, label=lst:batch]{source/code/batch_linux.py}
+\lstinputlisting[language=Python, frame=tb, caption={[Python script creating SIAM batch script]Generate SIAM batch script (\texttt{batch\_linux.py})}, label=lst:batch]{source/code/batch_linux.py}
 
 \clearpage
 \graffito{This shell script runs the Python scripts shown in Listing \ref{lst:download}, \ref{lst:conversion} and \ref{lst:batch} for each desired granule (37SBA, 37SCA, 37ADA) and is tasked to run once a day on the server, ultimately automating data acquisition to pre-classification.}
-\lstinputlisting[language=bash, breaklines=true, frame=tb, caption={Automate acquisition to pre-classification (\texttt{automate\_downloads.sh})}, label=lst:autodownload]{source/code/automate_downloads.sh}
+\lstinputlisting[language=bash, breaklines=true, frame=tb, caption={[Shell script automating processing] Automate acquisition to pre-classification (\texttt{automate\_downloads.sh})}, label=lst:autodownload]{source/code/automate_downloads.sh}
 
 \clearpage
 \graffito{This is the SIAM information layer product definition for the ODC. A similar definition exists for Sentinel-2 data, but is not displayed here.}
-\lstinputlisting[language=XML, breaklines=true, frame=tb, caption={Prepare SIAM product (\texttt{siam\_il.yaml})}, label=lst:siamIL]{source/code/ingestion/siam_il.yaml}
+\lstinputlisting[language=XML, breaklines=true, frame=tb, caption={[YAML inital SIAM product definition] Prepare SIAM product within the ODC. This only needs to be defined once (\texttt{siam\_il.yaml})}, label=lst:siamIL]{source/code/ingestion/siam_il.yaml}
 
 \clearpage
 \graffito{This script prepares metadata for SIAM required for indexing. A similar script exists for Sentinel-2 data, but is not displayed here.}
-\lstinputlisting[language=Python, frame=tb, caption={Prepare SIAM data (\texttt{prep\_siam.py})}, label=lst:prepSIAM]{source/code/ingestion/prep_siam.py}
+\lstinputlisting[language=Python, frame=tb, caption={[Python script preparing ODC metadata] Prepare SIAM metadata for indexing. (\texttt{prep\_siam.py})}, label=lst:prepSIAM]{source/code/ingestion/prep_siam.py}
 
 \clearpage
 \graffito{This script indexes the SIAM information layers based on the product defined in \autoref{lst:siamIL}. A similar script exists for Sentinel-2 data, but is not displayed here.}
-\lstinputlisting[language=Python, frame=tb, caption={Index SIAM data (\texttt{index\_siam.py})}, label=lst:indexSIAM]{source/code/ingestion/index_siam.py}
+\lstinputlisting[language=Python, frame=tb, caption={[Python script indexing SIAM layers] Index SIAM information layers in the ODC (\texttt{index\_siam.py})}, label=lst:indexSIAM]{source/code/ingestion/index_siam.py}
 
 \clearpage
 \graffito{This is the SIAM information layer product definition for ingesting into the ODC.}
-\lstinputlisting[language=XML, breaklines=true, frame=tb, caption={Prepare SIAM product (\texttt{s2\_siam\_epsg32637\_syria\_10km.yaml})}, label=lst:siam10km]{source/code/ingestion/s2_siam_epsg32637_syria_10km.yaml}
+\lstinputlisting[language=XML, breaklines=true, frame=tb, caption={[YAML product definition for ingestion] Defines SIAM product with chunks of 10km by 10km by 1 time-step for ingestion (\texttt{s2\_siam\_epsg32637\_syria\_10km.yaml})}, label=lst:siam10km]{source/code/ingestion/s2_siam_epsg32637_syria_10km.yaml}
 
 \clearpage
 \graffito{This shell script runs the scripts shown in Listing \ref{lst:prepSIAM} and \ref{lst:indexSIAM} and ingests data into the product defined by \autoref{lst:siam10km} and is tasked to run once a day on the server, ultimately automating indexing the original Sentinel-2 data and SIAM-generated information layers into the ODC implementation, and then ingesting the SIAM layers as a product for analysis.}
-\lstinputlisting[language=bash, breaklines=true, frame=tb, caption={Automate indexation and ingestion (\texttt{automate\_ODC.sh})}, label=lst:autoODC]{source/code/ingestion/automate_ODC.sh}
+\lstinputlisting[language=bash, breaklines=true, frame=tb, caption={[Shell script automating indexation and ingestion] Automate creation of necessary metadata, as well as indexation and ingestion in the ODC (\texttt{automate\_ODC.sh})}, label=lst:autoODC]{source/code/ingestion/automate_ODC.sh}
 
 
 

@@ -1,7 +1,7 @@
 \cleardoublepage
 \pagestyle{scrheadings}
 \cleardoublepage
-\chapter{Theory}\label{ch:theory}
+\chapter{Theory \& Practice}\label{ch:theory}
 
 This section aims to lay the groundwork and context in which the applied example, a semantic data cube implemented for north-western Syria, was conceived, clarifying its intended purpose. Various relevant terms are explained, if not defined, and broader, on-going global initiatives are described, for which this work hopes to be relevant.
 

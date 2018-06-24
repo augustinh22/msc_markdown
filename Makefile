@@ -33,6 +33,7 @@ pdf:
 	--include-before-body "$(BEFOREDIR)"/00_03_acknowledgements.tex \
 	--include-before-body "$(BEFOREDIR)"/00_04_toc.tex \
 	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
+	--include-after-body "$(AFTERDIR)"/10_colophon.tex \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa.csl" \
 	--verbose \
@@ -49,6 +50,7 @@ tex:
 	--include-before-body "$(BEFOREDIR)"/00_03_acknowledgements.tex \
 	--include-before-body "$(BEFOREDIR)"/00_04_toc.tex \
 	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
+    --include-after-body "$(AFTERDIR)"/10_colophon.tex \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
 	--csl="$(STYLEDIR)/apa.csl" \
 	--verbose
