@@ -149,7 +149,9 @@
 % ****************************************************************************************************
 % 5. Setup code listings
 % ****************************************************************************************************
-\usepackage{inconsolata}
+\usepackage[mono]{zi4}
+\usepackage[11pt]{moresize}
+\usepackage{setspace}
 \usepackage{listings}
 %\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % for special keywords
 %\lstset{language=[LaTeX]Tex,%C++,
@@ -174,7 +176,7 @@
 % Custom Python Syntax
 \lstset
 {
-    basicstyle=\fontfamily{zi4}\selectfont\scriptsize,
+    basicstyle=\fontfamily{zi4}\selectfont\ssmall\setstretch{1},
     commentstyle=\color{Green},
     frame=single,
     %title=\lstname,
@@ -183,7 +185,7 @@
     breaklines=false,
     numbers=left,
     numbersep=8pt,
-    numberstyle=\scriptsize\color{Gray},
+    numberstyle=\ssmall\color{Gray},
     showstringspaces=false,
     stringstyle=\color{Mulberry},
     tabsize=2,

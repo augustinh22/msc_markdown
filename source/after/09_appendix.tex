@@ -44,7 +44,7 @@ mea. There is also a useless Pascal listing below: \autoref{lst:download}.
 
 \clearpage
 \graffito{This shell script runs the Python scripts shown in Listing \ref{lst:download}, \ref{lst:conversion} and \ref{lst:batch} for each desired granule (37SBA, 37SCA, 37ADA) and is tasked to run once a day on the server, ultimately automating data acquisition to pre-classification.}
-\lstinputlisting[language=bash, frame=tb, caption={Automate acquisition to pre-classification (\texttt{automate\_downloads.sh})}, label=lst:autodownload]{source/code/automate_downloads.sh}
+\lstinputlisting[language=bash, breaklines=true, frame=tb, caption={Automate acquisition to pre-classification (\texttt{automate\_downloads.sh})}, label=lst:autodownload]{source/code/automate_downloads.sh}
 
 \clearpage
 \graffito{This is the SIAM information layer product definition for the ODC. A similar definition exists for Sentinel-2 data, but is not displayed here.}
@@ -52,7 +52,7 @@ mea. There is also a useless Pascal listing below: \autoref{lst:download}.
 
 \clearpage
 \graffito{This script prepares metadata for SIAM required for indexing. A similar script exists for Sentinel-2 data, but is not displayed here.}
-\lstinputlisting[language=Python, frame=tb, caption={Prepare SIAM data (\texttt{prep\_siam.py})}, label=lst:prepS2]{source/code/ingestion/prep_siam.py}
+\lstinputlisting[language=Python, frame=tb, caption={Prepare SIAM data (\texttt{prep\_siam.py})}, label=lst:prepSIAM]{source/code/ingestion/prep_siam.py}
 
 \clearpage
 \graffito{This script indexes the SIAM information layers based on the product defined in \autoref{lst:siamIL}. A similar script exists for Sentinel-2 data, but is not displayed here.}
