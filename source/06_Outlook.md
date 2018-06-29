@@ -8,6 +8,10 @@
 
 - Outlook/further considerations/prospects – other indicators
 
+- computing power is expensive, both energy efficiency of data centres [@whiteheadAssessingEnvironmentalImpact2014]
+
+- optimising data used for anaylsis, e.g. selecting only relevant Sentinel-2 images and not the whole stack [@kempeneersOptimizingSentinel2Image2017]
+
 # Data
 
 - trend of free and open-access data

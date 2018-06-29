@@ -57,3 +57,4 @@ This thesis aims towards answering the following questions:
 - Are semi-concepts sufficient for ad-hoc semi-automated monitoring of vegetation and water dynamics over time?
 - Can information generated from querying vegetation or water semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
 - How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?
+- What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?
