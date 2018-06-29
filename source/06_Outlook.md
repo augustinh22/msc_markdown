@@ -28,6 +28,8 @@ It would be fantastic to have automated workflows that provide a generic data cu
 
 - Cubesats @mccabeFutureEarthObservation2017
 
+- Level-2 Scene classification maps
+
 # Reproducible EO-analysis
 
 transferability

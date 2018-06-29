@@ -3,6 +3,7 @@
 \cleardoublepage
 \chapter{Discussion}\label{ch:discussion}
 
+
 # Interpretation of Results
 
 - Discuss relevance of results in context of validation/validity
@@ -23,6 +24,9 @@
 
 world-weather.online.com
 unma.go
+
+
+
 
 
 ### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
@@ -51,6 +55,13 @@ The concept of \ac{ARD} (***see*** section \ref{sec:ARD}) is relevant in the con
 - (incl. challenges, successes, reconsiderations and shortcomings)
 
 - no thermal band -- difficulty with clouds and bare-soil sometimes -- low impact on aggregated dynamics analysis in environments with low average cloud cover
+
+- cloud or cloud shadow problem
+
+SRTM DSM inclusion for indicating terrain shadows (e.g. problems with water in the mountains).
+
+- difficulties with shallow water due to high spectral variability [@tulbureSurfaceWaterExtent2016] -- also sometimes shallow water or smaller waterways may not be visible (e.g. under vegetation)
+
 
 ## Benchmarks
 - Report time of daily updates, and estimate average time needed per granule.
@@ -97,6 +108,8 @@ What doesn't work?
 (Less arid areas)
 (conflation of shadows and water in mountainous regions -- lack of thermal band)
 
+sampling intervals, which are severely limited by both technological and environmental factors (e.g. orbits, cloud coverage).
+
 ### Data
 - Sentinel-2 problem with pixel alignment
 - swaths vs. granules
@@ -106,6 +119,7 @@ What doesn't work?
 
 ### Pre-Classification
 
+Multi-dimensional methods that are robust to redundant information are required to process and classify a time-series of multi-spectral scenes.
 
 ### Pixel-based Analysis
 - pixel-based vs. OBIA
