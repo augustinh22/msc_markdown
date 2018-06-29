@@ -55,6 +55,7 @@ This thesis aims towards answering the following questions:
 - Can all Sentinel-2 data available for a region be automatically incorporated in a semantically enriched data cube?
 - Is the current hardware sufficient for such an automated workflow and queries?
 - Are semi-concepts sufficient for ad-hoc semi-automated monitoring of vegetation and water dynamics over time?
+- Is the \ac{ODC} software conducive to handling relatively simple semantic queries based on semi-concepts?
 - Can information generated from querying vegetation or water semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
 - How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?
 - What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?
