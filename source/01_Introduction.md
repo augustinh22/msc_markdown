@@ -59,3 +59,7 @@ This thesis aims towards answering the following questions:
 - Can information generated from querying vegetation or water semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
 - How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?
 - What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?
+
+## Results
+
+- Can differences in vegetation dynamics in agricultural areas be detected between Syria and Turkey using this implementation?
