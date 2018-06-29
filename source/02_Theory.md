@@ -282,6 +282,8 @@ Due to the generic nature of the semantic enrichment implemented here, informati
 
 ---
 
+![\ac{SDG} Goal 2 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal2}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-02.png)
+
 \spacedlowsmallcaps{Goal 2} end hunger, archive food security and improved nutrition and promote sustainable agriculture
 
 \spacedlowsmallcaps{Target 2.4} by 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaption to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality.
@@ -290,6 +292,8 @@ Due to the generic nature of the semantic enrichment implemented here, informati
 
 ---
 
+![\ac{SDG} Goal 6 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal6}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-06.png)
+
 \spacedlowsmallcaps{Goal 6} to ensure availability and sustainable management of water and sanitation for all.
 
 \spacedlowsmallcaps{Target 6.6} by 2020, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes.
@@ -297,6 +301,8 @@ Due to the generic nature of the semantic enrichment implemented here, informati
 \spacedlowsmallcaps{Indicator 6.6.1} change in the extent of water-related ecosystems over time
 
 ---
+
+![\ac{SDG} Goal 15 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal15}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-15.png)
 
 \spacedlowsmallcaps{Goal 15} protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt the reverse land degradation and halt biodiversity loss
 
