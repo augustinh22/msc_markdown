@@ -268,7 +268,7 @@ Most current data cube implementations intend to provide their definition of \ac
 One existing example combining fully automatic semantic enrichment of \ac{EO} data in 3-dimensional data cube is the \ac{IQ} system described in \autoref{sec:landsat_sentinel}, which uses a Rasdaman array database [@tiedeImageQueryingEarthObservation2016]. This sort of system allows ad-hoc information extraction by combining declarative querying in array databases with access to generic semantic information layers, then known as semantic querying [@sudmannsArrayDatenbankenFurSemantische2016]. The applied example in this thesis applies a different sort of implementation using Sentinel-2 data in some ways similar to \ac{IQ}, but without a sophisticated query language or user interface.
 
 
-# Framing the Applied Example
+# Framing the Applied Example \label{sec:framing}
 
 Given all of this information at the current moment in time, it makes sense to situate the applied example (\autoref{ch:implementation}) within it. In general, big \ac{EO} data are highly complex, increasing in volume and lack efficient processing capabilities and indicators of quality for workflows, methods and results. This thesis deals with free and open Sentinel-2 data, a big Earth data source, that is provided to users already calibrated to \ac{ToA} reflectance. Automated workflows are necessary for handling the Sentinel-2 mission's expected 3.4\acs{TB} of daily data *volume* [@esaSentinelHighLevel2017]. The data has a relatively high *velocity* due to global coverage on average every five days at the equator, and quite a data *variety* in terms of consistency and quality levels (e.g. cloud coverage) [@soilleVersatileDataintensiveComputing2018].
 
