@@ -18,6 +18,13 @@
 
 - existing water indicator -- [http://eo4sdg.org/wp-content/uploads/2017/07/SDG6.6.1\_brief\_GEO\_Week\_2017-2.pdf]this implementation offers a way to use Sentinel-2 images to extract water extent at 10m spatial resolution and higher temporal frequencey, which may be necessary for certain applications in comparison to extraction with Landsat-8 imagery.
 
+is this relevant for monitoring/detecting spatially-explicit evidence of humanitarian crisis?
+
+
+Sentinel-2 data is only available starting June 2015, so comparison to pre-conflict images are only available from Landsat, which is beyond the scope of this thesis, even if methods for intercalibration exist [@liIntercalibrationDMSPOLS2017]. However, as previously mentioned, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 definitely caused land cover change, but limits the ability to attribute changes to possibly being related to conflict.
+
+- contrast to results produced in the I3 project -- simple change between two images. These analysis methods open the door to being able to characterise temporal variability.
+
 ## Auxiliary data
 
 - Irrigated Areas (GMIA or Irrmap)
@@ -84,6 +91,11 @@ SRTM DSM inclusion for indicating terrain shadows (e.g. problems with water in t
 - difficulties with shallow water due to high spectral variability [@tulbureSurfaceWaterExtent2016] -- also sometimes shallow water or smaller waterways may not be visible (e.g. under vegetation)
 
 
+- big EO data
+- scalable -- perhaps add some sort of benchmark
+
+Current setups of reproducible research for \ac{EO} data cubes require significant time and financial investment, which generally limits them to larger institutions. The importance of reproducible, transferable, interoperable, automated and repeatable workflows to process, handle and analyse massive \ac{EO} data is becoming more apparent in a now data-rich world. With so much big data, it makes sense to avoid application-specific data (pre-)processing, which contradicts many big data principles.
+
 ## Benchmarks
 - Report time of daily updates, and estimate average time needed per granule.
   - download
@@ -95,6 +107,11 @@ SRTM DSM inclusion for indicating terrain shadows (e.g. problems with water in t
 - query times for results
 
 
+
+a few years after  particularly irrigated agriculture, might provide insight
+- list current relevant indicators/studies
+- lack of data or lack of data reliability
+- development of situational awareness for conflict documentation but also assessment of conflict impacts and various global initiatives
 
 
 ## Ingestion Tiling Scheme
@@ -147,6 +164,9 @@ Multi-dimensional methods that are robust to redundant information are required 
 
 
 
+intercalibration with Landsat exist [@liIntercalibrationDMSPOLS2017]
+
+
 ## GI_Forum Paper extract
 
 4.1 Semantic data cube
@@ -163,6 +183,8 @@ Many new applications exist or are being envisioned for EO data cubes. These app
 More specifically, it focused on irrigated agriculture in Syria following the beginning of the still on-going conflict as an
 indicator of conflict related changes. This particular example could greatly benefit from access to an automated, reproducible data cube infrastructure, moving away from bi-temporal change towards incorporating data in a temporally dense way over the period of interest, either within one year, or between multiple years. Such a shift inherently moves in the direction of developing indicators based on various sources of evidence to support decision-making.
 
+
+-- open documentation in a framework such as OSF
 
 #### Taken from elsewhere...
 

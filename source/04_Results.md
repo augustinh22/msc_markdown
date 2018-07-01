@@ -3,6 +3,10 @@
 \cleardoublepage
 \chapter{Results}\label{ch:results}
 
+The main result of this work is a continuously up-to-date semantically enriched data cube implementation for north-western Syria. This cube may continue to be used for research of individual observations in time, monthly or seasonal analysis, all the way up to the entire temporal extent of the growing data cube for the entire geospatial extent.
+
+In order to demonstrate its potential utility, a few initial efforts at automated information about water and vegetation extent and dynamics are provided, including a few additional layers providing insight to the quality of the result to aid in their interpretation. Such aggregated results produced from big Earth data currently have few methods or metrics available for meaningful interpretation. This kind of automated information extraction may be relevant to \ac{SDG} targets 2.4, 6.6 and 15.1  (*see* \autoref{sec:framing}).
+
 # Maps and Charts
 
 - display and describe
@@ -13,7 +17,7 @@
 
 ![Normalised water detection based on water semi-concepts in Syria near the border of Turkey, excluding no-data, cloud like and unclassified pixels from January 31, 2016 until January 31, 2018 (103 time observations). Method similar to Mueller et al. (2016). \label{fig:water_old}](source/figures/water_edit.png)
 
-# Validation results using EO/non-EO sources
+# Checking plausibility
 
 - (FAO food security services, statistics from Syria…)
 
