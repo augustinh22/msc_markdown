@@ -137,6 +137,11 @@ a few years after  particularly irrigated agriculture, might provide insight
 ## Challenges
 
 
+## Method of validation/agreement
+
+- random samples and an external dataset
+
+
 ### Processing Limitations
 One challenge is that processing using the Python API occurs predominantly using in-memory data. This complicates implementation on the current hardware as it requires to load the complete dataset prior to analysis and is a limitation for smaller institutions. Even if many processes can be chunked, not all processes lend themselves to be divided as such, or may produce similar but differing results (e.g. in the case of data-dependency in image-wide analyses).
 

@@ -51,7 +51,7 @@ As of 7 November 2017, there are an estimated 1,738 active, operating satellites
 
 The Landsat-1 mission, launched in 1972, carried the first digital multi-spectral sensors intended for civilian use. Big \ac{EO} data is a subset of big Earth data that really came into existence through the \acs{USGS}'s decision to open the Landsat archive and all new Landsat data to the public in 2008 under a free and open policy [@wulderOpeningArchiveHow2012]. This presented new opportunities for many researchers to access and use Landsat data, stretching back until 1972. Before the archive was opened, a mere 53 Landsat scenes were downloaded on average per day, but now daily averages are around 5,700 scenes [@andersonEarthObservationService2017].
 
-![Estimates of annual data volumes from open and free data from Landsat, \acs{MODIS} (Terra and Aqua units) and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg){ width=80% }
+![Estimates of annual data volumes from open and free data from Landsat, \acs{MODIS} (Terra and Aqua units) and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg){ width=100% }
 
 The \acp{EC} Copernicus programme has decided to follow a similar free and open data policy and is now providing \ac{EO} data comprised of multiple Sentinel satellite missions operated by \ac{ESA} and in situ observations with global coverage. These data are being provided at an unprecedented frequency and spatial resolution for free, full and open data. There has never been so much \ac{EO} data freely and openly available to the public. Daily data volumes from the Sentinel missions alone are expected to exceed 10\acs{TB} (\autoref{fig:dataestimates}) [@soilleVersatileDataintensiveComputing2018].
 
@@ -136,7 +136,7 @@ Across various scientific disciplines and in everyday language, there has long b
 \spacedlowsmallcaps{inferential reproducibility}: ability to draw qualitatively *similar conclusions* from results obtained by using *different methods*, *different or independently collected data* or by reproducing the original study
 
 
-## United Nations' Sustainable Development Goals
+## UN Sustainable Development Goals
 
 Many goals have been identified in the scope of various international agreements, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time using increasingly standardised and reproducible methods. Many of the developed indicators are based on official statistics at a regional, national or provincial level, but are not necessarily spatially explicit. In order to keep the scope manageable, the focus here is looking more closely at the \ac{UN} \acp{SDG}, which pertain to goals set in 2015 for 2030.[^1]
 
@@ -201,7 +201,7 @@ In 2015, \ac{GEO} launched the initiative \ac{EO4SD}. More generally, \ac{UN-GGI
 \ac{EO} data are highly complex, are rapidly increasing in volume and variety, and are unfortunately underutilised in terms of extracting their information potential. A lack of data can no longer be considered a limiting factor to generating meaningful information, rather a lack of reproducible, reliable and transferable methods. There have been many strides in technology, methods and analysis towards better utilising the potential of free and open big \ac{EO} data. They can offer long time-series with continuity, consistency and comparability that can be utilised complementarily with other existing, more traditional statistical methods.
 
 
-## Free and open \ac{EO}-derived Information as Evidence
+## Free and open EO-derived Information as Evidence
 
 Automated, repeatable and reliable \ac{EO} information extraction can theoretically be conducted over large areas and time-spans (assuming adequate hardware), but requires a combination of deductive (i.e. rule/expert-based) and inductive methods that are multi-dimensional and robust to redundant information. Many challenges exist beyond automatisation and improving processes (e.g. efficiency), including large data volumes, high repetition rates, and identifying significant indicators (e.g. advanced information extraction) for a given purpose. Here are a few examples of transforming free and open \ac{EO} images into information that may be relevant for the \acp{SDG}. To keep this scope manageable, the focus will be on Sentinel-2 and Landsat, including some \ac{MODIS} and night-time light data applications, meaning predominantly optical multi-spectral instruments.
 
@@ -279,7 +279,7 @@ Incorporating all of the Sentinel-2 data available for an area including informa
 
 Reproducibility was a strong driver behind this implementation. The reproducibility of information extraction in this case is highly linked to the level of automation of information production, which is quite high. The methods and results ought to be reproducible, given access to the same Sentinel-2 data, versions of \ac{SIAM} and \ac{ODC} software, Python computing environments, code and queries.
 
-The applied example presented here utilises similar automated data preparation as demonstrated by @tiedeAutomaticPostclassificationLand2014 and @sudmannsAutomaticExpostFlood2017, including the pre-classification, but transfers it to Sentinel-2 imagery in an implementation of the \ac{ODC}. It is inspired by analysis capabilities of \ac{IQ}, the prototypical implementation described by @tiedeArchitecturePrototypicalImplementation2017 and the rest of the work conducted within the SemEO project at \ac{Z\_GIS}. The SemEO project was funded by the \acf{BMVIT} under the program "ICT of the Future" (contract no: 855467).
+The applied example presented here utilises similar automated data preparation as demonstrated by @tiedeAutomaticPostclassificationLand2014 and @sudmannsAutomaticExpostFlood2017, including the pre-classification, but transfers it to Sentinel-2 imagery in an implementation of the \ac{ODC}. It is inspired by analysis capabilities of \ac{IQ}, the prototypical implementation described by @tiedeArchitecturePrototypicalImplementation2017 and the rest of the work conducted within the SemEO project at \acs{ZGIS}. The SemEO project was funded by the \acf{BMVIT} under the program "ICT of the Future" (contract no: 855467).
 
 Multiple application areas can be covered based on user-generated queries without requiring re-processing the original data. The generic initial semantic enrichment in conjunction with flexible queries through time allows inferring new information layers or higher semantic levels. This aims toward supporting interactive, ad-hoc analysis where users are not required to download any data, rather only the results they would like to keep.
 
@@ -289,7 +289,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 2 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal2}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-02.png)
+![\acs{SDG} Goal 2 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal2}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-02.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 2} end hunger, archive food security and improved nutrition and promote sustainable agriculture
 
@@ -299,7 +299,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 6 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal6}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-06.png)
+![\acs{SDG} Goal 6 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal6}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-06.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 6} to ensure availability and sustainable management of water and sanitation for all.
 
@@ -309,7 +309,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 15 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal15}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-15.png)
+![\acs{SDG} Goal 15 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal15}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-15.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 15} protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt the reverse land degradation and halt biodiversity loss
 
