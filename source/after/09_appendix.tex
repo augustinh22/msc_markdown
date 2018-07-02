@@ -18,9 +18,9 @@
 
 \subsection{Data availability statement}
 
-The data that this thesis is based on are publicly available for download from the Copernicus Open Access Hub (\url{https://scihub.copernicus.eu/}).
+The data that this thesis is based on are publicly available for download from the Copernicus Open Access Hub (\url{https://scihub.copernicus.eu/}), and if not, hopefully from a mirror intended to archive data for a longer time period.
 
-Due to the relatively large amount of data and the location on a server at the University of Salzburg, the availability of the processed data cannot be guaranteed.
+Due to the relatively large amount of data and the location on a virtual machine on the University of Salzburg network, the availability of the processed data cannot be guaranteed following thesis submission.
 However, if the processed data is still available and I still have access to where they are stored, I will kindly pass them along upon reasonable request.
 
 \subsection{Sentinel-2 Products Used} \label{lst:metadata}
@@ -633,7 +633,7 @@ However, if the processed data is still available and I still have access to whe
 
 \normalsize % set back
 
-\clearpage
+
 \section{Code}
 
 \subsection{License Information for Code}
@@ -652,7 +652,7 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \clearpage
 \subsection{Actual Code} \label{app:code}
 
-\graffito{This file defines a conda environment, which can be reproduced using this file and the following command \texttt{conda env create --file=FILE.yaml}}
+\graffito{This file defines a conda environment, which can be reproduced using this file and the following command: \texttt{conda env create --file=FILE.yaml}}
 \lstinputlisting[language=XML, frame=tb, caption={[Python 2.7x conda environment] Conda environment definition for download to processing with SIAM™ (\texttt{aiq27\_environment.yaml})}, label=lst:aiq27env]{source/code/aiq27_environment.yaml}
 
 \clearpage
@@ -672,7 +672,7 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \lstinputlisting[language=bash, breaklines=true, frame=tb, caption={[Shell script automating processing] Automate acquisition to pre-classification (\texttt{automate\_downloads.sh})}, label=lst:autodownload]{source/code/automate_downloads.sh}
 
 \clearpage
-\graffito{This file defines a virtualenv environment for Python version 3.4.5, which should be able to be reproduced using this file and the following command \texttt{pip install -r FILE.txt}}
+\graffito{This file defines a virtualenv environment for Python version 3.4.5, which should be able to be reproduced using this file and the following command: \texttt{pip install -r FILE.txt}}
 \lstinputlisting[language=XML, frame=tb, caption={[Python 3.4.5 virtual environment] \textit{virtualenv} environment definition for indexing, ingesting and analysing data (\texttt{datacube\_environment.txt})}, label=lst:datacubeenv]{source/code/ingestion/datacube_environment.txt}
 
 \clearpage
