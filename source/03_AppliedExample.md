@@ -212,7 +212,9 @@ Once data has been indexed and ingested, they can be accessed using a Python \ac
 The Jupyter notebook used to query the cube and produce results is largely based on code blocks that exist in other \ac{ODC} Jupyter notebook examples, freely and openly available from **thing** at **http://github**.
 
 
-## Output
+## Aggregated Time-series Output
+
+While other queries (e.g. post-classification change) could have been conducted, a conscious choice was made to produce results aggregated over time. This was decided in order to better explore some of the challenges in generation, but more importantly interpretation.
 
 - reference water in Australia and apply/situate in framework referenced in section 2
 - describe two indicators (water, vegetation ...)
