@@ -197,14 +197,14 @@ The processing of indexing datasets requires that a product already be defined, 
 
 ### ODC: ingesting information layers
 
-Once data has been indexed, it can be ingested, meaning automated tiling of an indexed product into NetCDF files for more efficient access, creating a gridded time-series data cube (Geoscience Australia, CSIRO, & NCI, 2017c). The data cube API automatically creates a new product description, re-projects the data if necessary, tiles them accordingly, creates the necessary metadata and indexes them, with automatic checks to avoid duplication.
+Data that has been indexed, can be ingested, if so desired, meaning an automated tiling of an indexed product into NetCDF files for more efficient access, creating a gridded time-series data cube [@geoscienceaustraliaIngestingDataOpen2017]. The user needs to select a successfully indexed product (e.g. indexed \acs{SIAM}™ information layers) and the \ac{ODC} software takes care of the rest. It automatically creates a new product description, re-projects the data if necessary, tiles them accordingly, creates the necessary metadata and indexes them, with automatic checks to avoid duplication. This ingestion command simply needs to be run whenever new data is added to an indexed product that ought to be ingested.
 
-In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, 72,672 tiles of ingested information layers have been created, a total of approximately 180\acs{GB}.
+In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, 72,672 tiles of ingested information layers have been created, a total of approximately 180\acs{GB}. An evaluation of a more efficient tiling scheme is a much larger issue, and is outside the scope of this thesis.
 
 
 ## ODC: Python API
 
-Once data has been indexed and ingested, they can be accessed using a Python \ac{API} (Geoscience Australia, CSIRO, & NCI, 2017a). This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional, in memory, array with dimension names and is used for further analysis (e.g. in Jupyter notebooks).
+Once data has been indexed and ingested, they can be accessed using a Python \ac{API} [@geoscienceaustraliaDataAccessAPI2017]. This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional, in memory, array with dimension names and is used for further analysis (e.g. in Jupyter notebooks).
 
 
 ## Jupyter notebook: ad-hoc queries
@@ -219,6 +219,6 @@ While other queries (e.g. post-classification change) could have been conducted,
 - reference water in Australia and apply/situate in framework referenced in section 2
 - describe two indicators (water, vegetation ...)
 
-explain time-stack, total clean, total observations and total valid pixels (i.e. images per pixel).
+Explain time-stack, total clean, total observations and total valid pixels (i.e. images per pixel).
 
 Based on the work of @muellerWaterObservationsSpace2016 and @tulbureSurfaceWaterExtent2016 .
