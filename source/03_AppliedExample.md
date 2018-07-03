@@ -32,7 +32,7 @@ The framing of the illustrated results in the context of this thesis do not dire
 
 This proof-of-concept implementation focuses on an area located in north-western Syria, along the border to Turkey from June 2015 until June 2018, the entire duration of Sentinel-2 observations at the time of writing. In this case, the focus is on generating information in support of the \acp{SDG}. However, the on-going conflict in this area for the duration of Sentinel-2's data collection presented an opportunity to potentially detect land cover changes and impacts that may or may not be linked to conflict-related events, such as damage to agricultural irrigation infrastructure, internal displacement of people or changes to visible surface water bodies (e.g. lakes, dams).
 
-Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km^2 (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in \autoref{fig:overview}, and ultimately define the extent of the study area. Based on maps referring to Syria before the start of the civil war, this area covers the entire northern stretch of the Aleppo Governorate, northwestern Raqqa and northern Idlib, in addition to parts of the following Turkish provinces bordering Syria: Hatay, Kilis, Gaziantep and Şanlıurfa.
+Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km² (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in \autoref{fig:overview}, and ultimately define the spatio-temporal extent of the study area. Based on maps referring to Syria before the start of the civil war, this area covers the entire northern stretch of the Aleppo Governorate, northwestern Raqqa and northern Idlib, in addition to parts of the following Turkish provinces bordering Syria: Hatay, Kilis, Gaziantep and Şanlıurfa.
 
 ![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{fig:overview}](source/figures/study_area_edit.png)
 
@@ -56,14 +56,14 @@ Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuou
 
 All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for these three granules are continuously included in the data cube, resulting in a dense time-series beginning June 28, 2015 until the most recent image. All of the data used were acquired using the download script as part of the automated workflow described in \autoref{sec:acquisition}.
 
-At the time of writing, data is included up to June 22, 2018, which comes down to 591 Sentinel-2 granule-size scenes, resulting in a range of approximately 127 to 258 observations at different moments in time throughout the study area [^2]. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (*see* Figure \autoref{fig:overview} for an estimation of the orbits). These three Sentinel-2 granules are provided by Copernicus in the same projection (\acs{UTM} zone 37N, \acs{EPSG}: 32637), which means that the data do not require re-projection for collective storage or analysis.
+At the time of writing, data is included up to June 22, 2018, which comes down to 591 Sentinel-2 granule-size scenes. This results in a range of approximately 127 to 258 observations at different moments in time throughout the study area for the temporal extent of all scenes [^2]. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (*see* \autoref{fig:overview} for an estimation of the orbits). These three Sentinel-2 granules are provided by Copernicus in the same projection (\acs{UTM} zone 37N, \acs{EPSG}: 32637), which means that the data do not require re-projection for collective storage or analysis.
 
-[^2]: All of the Sentinel-2 products already ingested into the data cube implementation, thus used in the showcased results, are documented in \autoref{tab:s2products}.
+[^2]: All of the Sentinel-2 products already indexed in the data cube implementation, whose ingested information layers are used in the showcased results, are documented in \autoref{tab:s2products}.
 
 
 # Methods
 
-The workflow implemented here focuses on automation and big data, encompassing downloading Sentinel-2 data, re-formatting them, preliminarily classifying them with \acs{SIAM}™ (i.e. generating multiple information layers), indexing Sentinel-2 images and information layers into an implementation of the \ac{ODC} and ingesting information layers (\autoref{fig:workflow}). This process runs automatically every day for each of the three study area granules. The result is daily incorporation of the most recently available data ready for analysis, including semantic queries based on the automated generic semantic enrichment. Queries are facilitated using Jupyter notebooks by accessing the information layers produced by \acs{SIAM}™ in the data cube via a Python \acs{API}.
+The workflow implemented here focuses on automation and big data, encompassing downloading Sentinel-2 data, re-formatting them, preliminarily classifying them with \acs{SIAM}™ (i.e. generating multiple information layers), indexing Sentinel-2 images and information layers into an implementation of the \ac{ODC} and ingesting information layers (\autoref{fig:workflow}). This process runs automatically every day for each of the three study area granules. The result is daily incorporation of the most recently available data ready for analysis, including semantic queries based on automated generic semantic enrichment. Queries are facilitated using Jupyter notebooks by accessing the ingested information layers produced by \acs{SIAM}™ via a Python \acs{API}.
 
 ![Automated workflow overview from download to queries and indicator extraction, which utilises the Python \acs{API}. Author's illustration. \label{fig:workflow}](source/figures/Workflow_helvetica.png)
 
@@ -80,12 +80,14 @@ The hardware used for this implementation is a Red Hat Enterprise Linux 7 virtua
 
 ### SIAM™
 
-This implementation incorporates multiple semantic semi-concept granularities generated by the Satellite Image Automatic Mapper™ (\acs{SIAM}™, release 88v7), thus enabling semantic queries [@baraldiSatelliteImageAutomatic2018]. Spectral-based image pre-classification, as implemented by \acs{SIAM}™, divides the feature space of a multi-spectral image into semantic semi-concepts using a knowledge-based approach, in contrast to data-driven approaches (e.g. supervised classification) [@baraldiAutomaticSpectralRuleBasedPreliminary2010; @baraldiSatelliteImageAutomatic2011; @baraldiSatelliteImageAutomatic2018]. Assuming images are calibrated to a minimum of \ac{ToA} reflectance, these semi-concepts are comparable and therefore transferable between multiple images and optical sensors without any additional user-defined parameterisation (i.e. fully automatic). This is the only software used in the workflow that is closed-source. Refer to \autoref{sec:semantic_enrichment} for a bit more information.
+This implementation incorporates multiple semantic semi-concept granularities generated by the Satellite Image Automatic Mapper™ (\acs{SIAM}™, release 88v7), thus enabling semantic queries [@baraldiSatelliteImageAutomatic2018]. Spectral-based image pre-classification, as implemented by \acs{SIAM}™, divides the feature space of a multi-spectral image into semantic semi-concepts using a knowledge-based approach, in contrast to data-driven approaches (e.g. supervised classification) [@baraldiAutomaticSpectralRuleBasedPreliminary2010; @baraldiSatelliteImageAutomatic2011; @baraldiSatelliteImageAutomatic2018]. It could also be called colour naming, as the resulting semi-categories describe the spectral information a pixel can offer.
+
+Assuming images are calibrated to a minimum of \ac{ToA} reflectance, semi-concepts generated by \acs{SIAM}™ are comparable and therefore transferable between multiple images and optical sensors without any additional user-defined parameterisation (i.e. fully automatic). This is the only software used in the workflow that is closed-source. Refer to \autoref{sec:semantic_enrichment} for a bit more information.
 
 
 ### Open-Source Software
 
-This implementation had the overarching goal of using as much open-source software and tools as possible. This included working exclusively with Linux, Python, conda environments, git for versioning, the \ac{ODC}, PostgreSQL, Jupyter notebooks for interactive analysis, \acs{GDAL} for creating a mosaic of tiled results and \acs{QGIS} for any additional, basic calculations, visualisation outside the Jupyter notebooks and cartographic layouts.
+This implementation had the overarching goal of using as much open-source software and tools as possible. This included working exclusively with Linux, Python, conda and virtual environments, git for versioning, the \ac{ODC}, PostgreSQL, Jupyter notebooks for interactive analysis, \acs{GDAL} for creating a mosaic of tiled results and \acs{QGIS} for any additional, basic calculations, visualisation outside the Jupyter notebooks and cartographic layouts.
 
 
 #### Linux
@@ -99,19 +101,19 @@ Two reproducible environments for Python are used in the workflow. The first is 
 
 \graffito{Never again hear: "Well, it works on *my* machine just fine..."}
 
-Searching the Copernicus Open Access Hub and downloading data to processing them with \acs{SIAM}™ is automated using cron on Linux to manage daily tasks. These crontabs run Python scripts within a Python 2.7.x conda environment. The environment is equipped with *Scipy* used for resampling the required Sentinel-2 bands with a 20\acs{m} spatial resolution (i.e. bands 11 and 12) to 10\acs{m}. \acf{GDAL} is used for various tasks and the Python package *requests* is used for handling \acs{http} downloads. The complete environment file is available at \autoref{lst:aiq27env}.
+Searching the Copernicus Open Access Hub and downloading data to processing them with \acs{SIAM}™ occurs in a Python 2.7 conda environment. The environment is equipped with *Scipy* used for resampling the required Sentinel-2 bands with a 20\acs{m} spatial resolution (i.e. bands 11 and 12) to 10\acs{m}. \acf{GDAL} is used for various tasks and the Python package *requests* is used for handling \acs{http} downloads. The complete environment file is available at \autoref{lst:aiq27env}.
 
 Indexing and ingesting datasets, Python \ac{API} access and resulting analysis within the Jupyter notebooks are conducted with a Python 3.4.5 virtual environment recommended for \ac{ODC} installations by  @ceosDataCubeInstallation2018. A conda environment could also be used [@geoscienceaustraliaMinicondaRecommendedOpen2017]. This virtual environment includes the *datacube*, *jupyter*, *matplotlib*, *Scipy*, *xarray*, *basemap*, *basemap-data-hires* and more for enabling access to data in the \ac{ODC} implementation via the Python \ac{API} and interactive analysis within Jupyter notebooks [@ceos-seoDataCubeNotebooks2017]. A list of the package requirements, according to the command ```pip freeze```, is available at \autoref{lst:datacubeenv}.
 
 
 #### Git
 
-While not of influence to the outcome of project development, the open-source versioning software, git, was used to document changes to the code base for the entirety of the project's conception. All code relevant to the automated workflow implementation (excluding \ac{ODC} and other software) is public and freely and openly available under http://github.com/augustinh22/AIQ in the "thesis" directory.
+While not of influence to the outcome of project development, the open-source versioning software, git, was used to document changes to the code base for the entirety of the project's conception. All code relevant to the automated workflow implementation (excluding \ac{ODC} and other software) is public and freely and openly available under <http://github.com/augustinh22/AIQ> in the "thesis" directory.
 
 
 #### Open Data Cube
 
-The \acf{ODC} is much more than software. It is an international initiative based on software initially developed by \ac{AGDC}, which is now managed by \ac{CEOS}. The objective is to increase the impact of \ac{EO}, build a community of users, and provide free and open software as a means to store, manage and analyse large volumes of \ac{EO} data by providing an integrated gridded data
+The \acf{ODC} is much more than software. It is an international initiative based on software initially developed by \ac{AGDC}, now managed by \ac{CEOS}. The objective is to increase the impact of \ac{EO}, build a community of users, and provide free and open software as a means to store, manage and analyse large volumes of \ac{EO} data by providing an integrated gridded data
 analysis environment, including documentation [@ceosCEOSOpenData2017]. \ac{CEOS} is also aligned with overarching international agendas, including the \acp{SDG}, and has a mandate to improve the use of \ac{EO}-derived information.
 
 This implementation uses the \ac{ODC} version 1.5.1, known as Purpler Unicorn (13 July 2017), with access to data provided by a Python \ac{API}. The \ac{ODC} was chosen because it functions within the data cube paradigm, has been proven to be robust and scalable, and allows for transferable approaches through its open-source license.
@@ -119,27 +121,22 @@ This implementation uses the \ac{ODC} version 1.5.1, known as Purpler Unicorn (1
 
 #### PostgreSQL
 
-The backend of the \ac{ODC} implementation is PostgreSQL v9.2.21, **an open-source relational database management system**. This version is a bit out-of-date from the recommended version (i.e. 9.5+), but it has seemed to hold up fine. There are multiple backend solutions that could have been employed, but this one was chosen also for its open-source license.
+The backend of the \ac{ODC} implementation is PostgreSQL v9.2.21, an open-source relational database. This version is a bit out-of-date from the version recommended by the \ac{ODC} installation (i.e. 9.5+), but it has seemed to hold up fine. There are multiple backend solutions that could have been employed, but this one was chosen also for its open-source license.
 
 
-#### Jupyter Notebooks
+#### Jupyter notebooks
 
-
+An open-source server-client Web-application, Jupyter notebooks allow interactive analysis, as well as a means to create, document and share code, visualisations, results, and more. The app is installed on the server where the data cube is located, allowing fairly simple access via the Web. notebooks contain live code blocks that can be run sequentially, or not, depending on user needs. Output from each code block is printed below after execution, so output from analysis can be saved, if desired. Any code run in the Jupyter notebook occurs in the Python 3.4.2 data cube virtual environment.
 
 
 #### QGIS
 
-Version 2.18 this open-source \acs{GIS} software was used to create cartographic representations of results generated through interactive analysis in the Jupyter notebooks. Again, this software was chosen due to its open-source license.
+Version 2.18 of this open-source \acs{GIS} software was used to create cartographic representations of results generated through interactive analysis in the Jupyter notebooks. Again, this software was chosen due to its open-source license.
 
 
-#### Open Science Framework
+## Automated Workflow
 
-Although used very limitedly, this online
-
-
-## Automated Workflow: Sentinel-2 Data Acquisition to ODC Ingestion
-
-Various scripts were developed to automate this workflow. The majority of necessary scripts are located in the appendix (*see* Listings \ref{lst:download}, \ref{lst:conversion}, \ref{lst:batch}, \ref{lst:autodownload}, \ref{lst:prepSIAM}, \ref{lst:indexSIAM}, and \ref{lst:autoODC}), but are also freely, publicly and openly available at: <http://github.com/augustinh22/AIQ> **switch for OSF DOI?**
+Various scripts were developed to automate this workflow. The majority of the following tasks are automated on a daily basis using cron, a job scheduler on Linux, and bash scripts to run the Python scripts in their necessary environments with proper parameters. The majority of necessary scripts developed in the scope of this thesis are located in the appendix (*see* Listings \ref{lst:download}, \ref{lst:conversion}, \ref{lst:batch}, \ref{lst:autodownload}, \ref{lst:prepSIAM}, \ref{lst:indexSIAM}, and \ref{lst:autoODC}), but are also freely, publicly and openly available at: <http://github.com/augustinh22/AIQ>
 
 
 ### Accessing and Acquiring Sentinel-2 data \label{sec:acquisition}
@@ -161,46 +158,65 @@ For those large package products on the hub prior to December 6, 2016, the file 
 
 During the course of this work, some individuals at \acs{ZGIS} expressed interest in a \ac{GUI} for using this download script. The decision was made to implement the script as a \acs{QGIS} plugin with an interface designed using Qt (*see* \autoref{fig:s2_downloader}). The download script used in this thesis was modified to search and download Sentinel-1 and -2 data from multiple hubs, allow manual manipulation of search results from the hub and enable individual granule extraction from older Sentinel-2 product file structures. At the time of writing, the current hubs include: Copernicus Open Access Hub; **list more**.
 
-The intention is to keep improving the code base, as well as integrating Sentinel-3 search and downloads. The actual code is not provided here, but it is based on the code in \autoref{lst:download}. The code is, however, freely and openly available at: <https://github.com/augustinh22/SentinelDownloader>
+The intention is to keep improving the code base, as well as integrating Sentinel-3 searches and downloads. The actual code is not provided here, but it is based on the code in \autoref{lst:download}. The code is, however, freely and openly available at: <https://github.com/augustinh22/SentinelDownloader>
 
 ![The query user-interface for the \acs{QGIS} plugin to search and download Sentinel-1 and -2 data from multiple hubs. Author's illustration. \label{fig:s2_downloader}](source/figures/sentineldownloader_gui.png)
 
 
 ### Formatting data for SIAM™
 
-Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 image are automatically re-formatted. \acs{SIAM}™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands, blue, green, red, near infrared and two medium infrared bands are used (i.e. 2, 3, 4, 8, 11, 12). Bands 11 and 12 are resampled from 20m pixels to 10m using SciPy. Sentinel-2's MSI does not collect a thermal band, so a constant is used to ignore thermal decision rules in \acs{SIAM}™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0 (see discussion), a no-data mask is generated. Finally, the six Sentinel-2 bands of \ac{ToA} reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the ENVI data format for \acs{SIAM}™ using \acs{GDAL}.
+\graffito{Resample, convert 8-bit and stack.}
+
+Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 scene are automatically re-formatted. \acs{SIAM}™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands (blue, green, red, near infrared and two medium infrared bands) are used (i.e. 2, 3, 4, 8, 11, 12). Scipy resamples bands 11 and 12 from 20\acs{m} pixels to 10\ac{m}. Sentinel-2's \acs{MSI} does not capture any thermal band, so a constant is used to ignore thermal decision rules in \acs{SIAM}™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0 (see discussion), a no-data mask is generated. Finally, using \acs{GDAL}, the six Sentinel-2 bands of \ac{ToA} reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the \acs{ENVI} software data format required for \acs{SIAM}™.
+
 
 ### SIAM™: generating information layers
 
-Automated generation of four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers has been implemented. The additional layers are: (1) binary vegetation mask based on vegetation-related semi-concepts; (2) pentanary haze mask, a discretised continuous sub192
-symbolic variable; (3) ratio greenness index, i.e. (NIR / R) + (NIR / MIR1) – (Vis / MIR1) (Baraldi et al., 2010b; Baraldi, 2018); and (4) panchromatic brightness image, a linear combination of all multi-spectral input bands. Processing of each Sentinel-2 image takes approximately 5-6 minutes.
+Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. The additional informations layers included in the applied example include a:
+
+  (1) binary vegetation mask based on vegetation-related semi-concepts;
+  (2) pentanary haze mask, a discretised continuous symbolic variable;
+  (3) ratio greenness index, i.e. (\acs{NIR} / red) + (\acs{NIR} / \acs{MIR}1) – (red / \acs{MIR}1) [@baraldiAutomaticSpectralRuleBasedPreliminary2010; @baraldiSatelliteImageAutomatic2018];
+  (4) panchromatic brightness image, a linear combination of all multi-spectral input bands.
+
+Processing of each Sentinel-2 scene takes approximately 4-5 minutes.
+
+**include screenshot**
+
 
 ### ODC: indexing images and information layers
 
-A product description needs to be defined in the ODC implementation database to index data. Indexing links to externally stored data and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product (Geoscience Australia, CSIRO, & NCI, 2017b) and only need to be defined once.
+**include workflow diagram from https://datacube-core.readthedocs.io/en/latest/ops/overview.html**
 
-Metadata necessary for indexing is automatically generated for each dataset. This has been implemented for Sentinel-2 and \acs{SIAM}™ generated information layers by modifying existing Python scripts provided by ODC. This metadata includes spatio-temporal data extents, data format, projection, bands/layers, file paths relative to the metadata, and more. A copy of the source Sentinel-2 dataset’s metadata is included the information layer metadata to document provenance. Once metadata has been generated, indexing automatically follows using a Python script and the data cube’s API.
+A product description needs to be defined in the \ac{ODC} implementation database to index data. Indexing links to externally stored data and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product (Geoscience Australia, CSIRO, & NCI, 2017b) and only need to be defined once.
+
+Metadata necessary for indexing is automatically generated for each dataset. This has been implemented for Sentinel-2 and \acs{SIAM}™ generated information layers by modifying existing Python scripts provided by the \ac{ODC} initiative. This metadata includes spatio-temporal data extents, data format, projection, bands/layers, file paths relative to the metadata, and more. A copy of the source Sentinel-2 dataset’s metadata is included the information layer metadata to document provenance. Once metadata has been generated, indexing automatically follows using a Python script and the data cube’s \ac{API}.
 
 The processing of indexing datasets requires that a product already be defined, which only needs to happen once. Then, metadata is automatically generated using a Python script, which includes the location and properties of the \ac{EO} data. While ingestion generates its own data storage as NetCDF files. In both cases, the logical view offered to the user is a multi-dimensional data cube
 
-### ODC: Ingesting information layers
+
+### ODC: ingesting information layers
 
 Once data has been indexed, it can be ingested, meaning automated tiling of an indexed product into NetCDF files for more efficient access, creating a gridded time-series data cube (Geoscience Australia, CSIRO, & NCI, 2017c). The data cube API automatically creates a new product description, re-projects the data if necessary, tiles them accordingly, creates the necessary metadata and indexes them, with automatic checks to avoid duplication.
 
-In this implementation, automated ingestion of information layers in 100km2 tiles (10km by 10km by one time-step) occurs, keeping the original projection (i.e. UTM zone 37N, EPSG: 32637). At the time of writing, 58,477 tiles of ingested information layers have been created, a total of 144 GB.
+In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, **58,477** tiles of ingested information layers have been created, a total of approximately 144\acs{GB}.
 
 
 ## ODC: Python API
 
-Once data has been indexed and ingested, they can be accessed using a Python API (Geoscience Australia, CSIRO, & NCI, 2017a). This API retrieves data from a given indexed or ingested product for a defined spatio-temporal extent as a Dataset object from the xarray Python package. This Python object is a multi-dimensional, in memory, array with dimension names and is used for further analysis (e.g. in Jupyter notebooks).
+Once data has been indexed and ingested, they can be accessed using a Python \ac{API} (Geoscience Australia, CSIRO, & NCI, 2017a). This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional, in memory, array with dimension names and is used for further analysis (e.g. in Jupyter notebooks).
 
-## Jupyter Notebook: ad-hoc queries
 
-- Include screenshots
+## Jupyter notebook: ad-hoc queries
 
-## Indicator development
+The Jupyter notebook used to query the cube and produce results is largely based on code blocks that exist in other \ac{ODC} Jupyter notebook examples, freely and openly available from **thing** at **http://github**.
+
+
+## Output
 
 - reference water in Australia and apply/situate in framework referenced in section 2
 - describe two indicators (water, vegetation ...)
+
+explain time-stack, total clean, total observations and total valid pixels (i.e. images per pixel).
 
 Based on the work of @muellerWaterObservationsSpace2016 and @tulbureSurfaceWaterExtent2016 .
