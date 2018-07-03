@@ -186,20 +186,20 @@ Processing of each Sentinel-2 scene takes approximately 4-5 minutes.
 
 ### ODC: indexing images and information layers
 
-**include workflow diagram from https://datacube-core.readthedocs.io/en/latest/ops/overview.html**
-
 A product description needs to be defined in the \ac{ODC} implementation database to index data. Indexing links to externally stored data and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product (Geoscience Australia, CSIRO, & NCI, 2017b) and only need to be defined once.
 
 Metadata necessary for indexing is automatically generated for each dataset. This has been implemented for Sentinel-2 and \acs{SIAM}™ generated information layers by modifying existing Python scripts provided by the \ac{ODC} initiative. This metadata includes spatio-temporal data extents, data format, projection, bands/layers, file paths relative to the metadata, and more. A copy of the source Sentinel-2 dataset’s metadata is included the information layer metadata to document provenance. Once metadata has been generated, indexing automatically follows using a Python script and the data cube’s \ac{API}.
 
 The processing of indexing datasets requires that a product already be defined, which only needs to happen once. Then, metadata is automatically generated using a Python script, which includes the location and properties of the \ac{EO} data. While ingestion generates its own data storage as NetCDF files. In both cases, the logical view offered to the user is a multi-dimensional data cube
 
+![Workflow for working with the \acs{ODC}. (Source: <https://datacube-core.readthedocs.io/en/latest/ops/overview.html>) \label{fig:ODC_workflow}](source/figures/ODC_workflow.png)
+
 
 ### ODC: ingesting information layers
 
 Once data has been indexed, it can be ingested, meaning automated tiling of an indexed product into NetCDF files for more efficient access, creating a gridded time-series data cube (Geoscience Australia, CSIRO, & NCI, 2017c). The data cube API automatically creates a new product description, re-projects the data if necessary, tiles them accordingly, creates the necessary metadata and indexes them, with automatic checks to avoid duplication.
 
-In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, **58,477** tiles of ingested information layers have been created, a total of approximately 144\acs{GB}.
+In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, 72,672 tiles of ingested information layers have been created, a total of approximately 180\acs{GB}.
 
 
 ## ODC: Python API
