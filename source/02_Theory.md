@@ -144,7 +144,7 @@ Many goals have been identified in the scope of various international agreements
 
 The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 interconnected goals with many targets and a related indicator framework for the 2030 Agenda for Sustainable Development [@Resolution70Transforming2015]. These goals are known as the \acp{SDG} (\autoref{fig:SDGs}), and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. Development is a charged concept (e.g. what does it mean to be "developed" as a country?), with many different connotations. That is beyond the scope of this work and will not be discussed, but any reference to development refers to how it is characterised through the \acp{SDG}.
 
-![United Nations Sustainable Development Goals (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:SDGs}](source/figures/E_2018_SDG_Poster_without_UN_emblem_Letter US.png)
+![United Nations Sustainable Development Goals [@unitednationsCommunicationsMaterials2018] \label{fig:SDGs}](source/figures/E_2018_SDG_Poster_without_UN_emblem_Letter US.png)
 
 The \acp{SDG} are different from the \acp{MDG} not only in their content, but also in how they were conceived and to whom they apply. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education.
 
@@ -201,7 +201,7 @@ In 2015, \ac{GEO} launched the initiative \ac{EO4SD}. More generally, \ac{UN-GGI
 \ac{EO} data are highly complex, are rapidly increasing in volume and variety, and are unfortunately underutilised in terms of extracting their information potential. A lack of data can no longer be considered a limiting factor to generating meaningful information, rather a lack of reproducible, reliable and transferable methods. There have been many strides in technology, methods and analysis towards better utilising the potential of free and open big \ac{EO} data. They can offer long time-series with continuity, consistency and comparability that can be utilised complementarily with other existing, more traditional statistical methods.
 
 
-## Free and open EO-derived Information as Evidence
+## Free and open EO-derived Information
 
 Automated, repeatable and reliable \ac{EO} information extraction can theoretically be conducted over large areas and time-spans (assuming adequate hardware), but requires a combination of deductive (i.e. rule/expert-based) and inductive methods that are multi-dimensional and robust to redundant information. Many challenges exist beyond automatisation and improving processes (e.g. efficiency), including large data volumes, high repetition rates, and identifying significant indicators (e.g. advanced information extraction) for a given purpose. Here are a few examples of transforming free and open \ac{EO} images into information that may be relevant for the \acp{SDG}. To keep this scope manageable, the focus will be on Sentinel-2 and Landsat, including some \ac{MODIS} and night-time light data applications, meaning predominantly optical multi-spectral instruments.
 
@@ -289,7 +289,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 2 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal2}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-02.png){ width="30%" }
+![\acs{SDG} Goal 2 icon [@unitednationsCommunicationsMaterials2018] \label{fig:goal2}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-02.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 2} end hunger, archive food security and improved nutrition and promote sustainable agriculture
 
@@ -299,7 +299,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 6 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal6}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-06.png){ width="30%" }
+![\acs{SDG} Goal 6 icon [@unitednationsCommunicationsMaterials2018] \label{fig:goal6}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-06.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 6} to ensure availability and sustainable management of water and sanitation for all.
 
@@ -309,7 +309,7 @@ The example results showcased in the scope of this thesis are intended to provid
 
 ---
 
-![\acs{SDG} Goal 15 icon (Source: <https://www.un.org/sustainabledevelopment/news/communications-material/>) \label{fig:goal15}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-15.png){ width="30%" }
+![\acs{SDG} Goal 15 icon [@unitednationsCommunicationsMaterials2018] \label{fig:goal15}](source/figures/SDG_icons/E_INVERTED SDG goals_icons-individual-RGB-15.png){ width="30%" }
 
 \spacedlowsmallcaps{Goal 15} protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt the reverse land degradation and halt biodiversity loss
 

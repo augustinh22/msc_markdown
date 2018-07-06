@@ -50,6 +50,9 @@ repeatability
 
 - big Earth data and SDGs
 
+-- using semi-concepts in other ways
+Many new applications exist or are being envisioned for EO data cubes. These applications range from creating custom mosaics or composites (i.e. most recent cloud free over a user defined time span, seasonal composites), to various time-series analyses. Much research has been invested in looking at the dynamics of water. Surface water is a feature that can be relatively well discerned from other types of land cover, whether using radar or optical data sources.
+
 # Privacy and monitoring
 
 - at least something about spatial resolution, temporal frequency and public vs. private sector
@@ -57,7 +60,10 @@ repeatability
 - maybe reference other kinds of big spatial data (e.g. Strava)
 
 
-## Livelihood-related Crisis Indicators
+## Livelihood-related Crisis Indicators \label{sec:livelihood}
+
+Further exploration into indicators for crisis, whether natural disasters or man-made conflicts, is an expanding field of research, including the development of automated methods for pro-longed monitoring of areas. Indicators based on high resolution data have been envisioned for detecting or monitoring burnt villages; informal urban growth; the development or growth of refugee or \ac{IDP} camps (Wang et al. 2015) and their impact on the surrounding environment; changes in activity (e.g. new infrastructures such as roads or air fields); illicit crop establishment and growth (e.g. opium cultivation in Afghanistan); environment degradation; flood assessment or visible changes to water bodies; changes or loss of agricultural areas; deforestation or reforestation; and visible climate change or extreme weather event artefacts.
+
 
 - how can livelihood be addressed from an indicator perspective…
 - some non-\ac{EO} livelihood security indicators (existing or envisioned in literature)
@@ -99,3 +105,35 @@ Amount cultivated land/land ownership (HKI)
 pressures on natural Resources
 growing population
 environmental variability
+
+
+#### Taken from elsewhere...
+
+Lower spatial, but higher temporal and spectral resolution and the larger areas covered require a higher degree of automation in information extraction using automated-prior-knowledge based classification procedures ready for Big Earth Data as well as a shift from "direct" information extraction to indicator approaches
+
+Highly automated large-scale indicator extraction
+Combination of prior-knowledge based parameter free classification procedures in combination with automatic change detection methods – aiming for fully automated workflows ready for big data.
+
+With regards to Earth Observation, the “free, full and open data” policy promoted by Copernicus and GEOSS, has enabled the emergence of the “Big Earth Observation Data” era, whereby large volumes of data received each day from different sensors on-board satellites (especially Sentinel and Landsat constellations) can be exploited towards the delivery of timely information in support of decision making and operations for users requiring fast responses. The challenge in the case of this unprecedented opportunity is no longer related to accessing the data but rather to the effective and efficient extraction of the wealth of available information it offers.
+- supporting situational awareness for emergency responders and other actors on the ground;
+- analysing indirect impacts of global trends such as demographic changes, environmental degradation, climate change, and land issues related to conflicts;
+- monitoring the state and vulnerability of natural strategic assets and critical infrastructures as a given crisis develops;
+
+In such a way EO is now providing stacks of observations, providing persistent monitoring over a region (persistent meant as continuing in time with suitable sampling to detect variability patterns); such datasets represent a big challenge in terms of analysis, demanding for the application of automated analytic technologies to derive meaningful information (Big Space Data).
+
+Extracting information from time series is difficult due to the volume, velocity and variety of EO images.
+
+Different sensors, different acquisition times or dates and the variety of characteristics of natural phenomena adds additional complexity.
+
+The development of new methods, which are going beyond traditional change detection, are on its way: Usually change detection is conducted as a pairwise comparison of EO images (Singh 1989, Petitjean et al. (2012), Guyet and Nicolas (2016)). In contrast, long EO image time series analyses – needed for constant monitoring purposes - aim at classifying and analysing the trajectory of radiation at a location on the Earth (Petitjean et al. 2012). Both have in common that they require significant change of detectable radiance values between images that are due to real and actual changes on the Earth’s surface (Singh 1989). In addition, algorithms for big EO data analysis need near full automation to be applicable and usable on the large amount of data sets. Today techniques, methods, and tools, for automated data analysis are often insufficient for the automated analysis and information extraction from big EO data sources, but interesting approaches to tackle processing and new data storage solutions are proposed.
+
+Anyway, the paradigm of object-based image analysis (OBIA) extends the traditional per-pixel based image classification approaches that rely only on the spectral information per single pixel. OBIA enables the incorporation of geometry and expert knowledge on top of traditional spectral values and this allow to improve for example classification by using existing knowledge available for example as OSINT.
+
+One main point is the aspect that current high-resolution sensors “significantly increase the within-class spectral variability and, therefore, decrease the potential accuracy of a purely pixel-based approach to classification” (Blaschke et al., 2014, RD44). This point is even more valid for the task of analyzing large amounts of remotely sensed data incorporating information from a variety of other sources into the analysis which is the case of the study of migration where EO is not the only source of information. This issues can be mitigated by considering time-series as the starting point. In fact, time-series analysis and especially the detection of changes can be very useful as a source of information to be used in spatial analysis models used to detects possible hot spots from EO data especially from SAR time series and VHR time series.
+
+Also HR multi-spectral imagery, particular indexes such as NDVI can be monitored over long time-series (using historical data) in various ways in order to assess food security at scales which can be useful to analyze local or small scale migration phenomena. This information can be added to common large scale reports provided normally by organisations like FAO (e.g. http://www.fao.org/hunger/en/).
+
+Change detection maps of an area of interest can be used to trigger further, more in-depth analysis. A first screening of potential anomalous changes is needed to focus more expensive and time-consuming actions, e.g. analysis with restricted-access data and in-situ monitoring. Based on optical data series, change detection in the scene can be still semi-automatically performed. In this case, robust approaches are needed for the modelling of the disturbance affecting the radiances/reflectances between different acquisition times due to calibration, residual solar contributions, surfaces not fully Lambertian, and geolocation or coregistration errors. Many of these disturbance can be overpassed by considering the new Sentinel-2 mission which guarantees the acquisition over a scene with similar illumination conditions and geometrical line lie of sight.
+
+improve situational awareness as well as regular, temporal monitoring and identification of changes.
+Data with lower spatial resolutions can be exploited by moving away from "direct" information extraction towards indicator-based approaches.

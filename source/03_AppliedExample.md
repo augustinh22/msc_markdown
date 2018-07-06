@@ -54,7 +54,7 @@ Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuou
 
 ### Data Used
 
-All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for these three granules are continuously included in the data cube, resulting in a dense time-series beginning 28 June 2015 until the most recent image. All of the data used were acquired using the download script as part of the automated workflow described in \autoref{sec:acquisition}. Including Sentinel-2 scenes, re-formatted Sentinel-2 data (which are redundant and could be deleted after generating information layers in the future) and generated information layers, there is approximately 1.6\ac{TB} of data at the time of writing.
+All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for these three granules are continuously included in the data cube, resulting in a dense time-series beginning 28 June 2015 until the most recent image. All of the data used were acquired using the download script as part of the automated workflow described in \autoref{sec:acquisition}. Including Sentinel-2 scenes, re-formatted Sentinel-2 data (which are redundant and could be deleted after generating information layers in the future) and generated information layers, there is approximately 1.6\acs{TB} of data at the time of writing.
 
 As of 22 June 2018, 591 Sentinel-2 granule-size scenes are incorporated in the data cube. This results in a range of approximately 127 to 258 observations at different moments in time throughout the study area for the temporal extent of all scenes [^2]. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (*see* \autoref{fig:overview} for an estimation of the orbits). These three Sentinel-2 granules are provided by Copernicus in the same projection (\acs{UTM} zone 37N, \acs{EPSG}: 32637), which means that the data do not require re-projection for collective storage or analysis.
 
@@ -155,7 +155,7 @@ The structure of products and metadata has seen a few modifications since the fi
 
 For those large package products on the hub prior to December 6, 2016, the file structure is generated and each file related to a specific granule is iteratively extracted and downloaded. This contrasts to granule-specific products offered after 6 December 2016, which can be downloaded in the compressed format provided natively on the hub. It has since been announced that products provided prior to 6 December 2016 will be reprocessed to fit the current "Complete Single Tile" (i.e. single granule) format, but when this re-processing will be completed by the hub for the entire archive before 6 December 2016 is still unknown [@europeanspaceagencyPublication3rdBatch2018].
 
-\graffito{time to download each scene download varies}
+\graffito{time to download each scene varies}
 
 The speed of downloads is highly dependent upon the Copernicus Open Access Hub and Internet connection related variables, and can take anywhere from a few minutes per scene to upwards of 20 minutes. Based on operation during the month of June 2018, it took around 10 minutes on average per scene.
 
@@ -171,11 +171,11 @@ Any hub that uses a similar \ac{API} and metadata structure as the Copernicus hu
 The intention is to keep improving the code base, as well as integrating Sentinel-3 searches and downloads. The actual code is not provided here, but it is based on the code in \autoref{lst:download}. The code is, however, freely and openly available at: <https://github.com/augustinh22/SentinelDownloader>
 
 
-### Formatting data for SIAM™
+### Formatting data for SIAM™ \label{sec:format_siam}
 
 \graffito{Generate no-data mask, resample, convert to 8-bit and stack.}
 
-Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 scene are automatically re-formatted. \acs{SIAM}™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands (blue, green, red, near infrared and two medium infrared bands) are used (i.e. bands 2, 3, 4, 8, 11, 12). Scipy resamples bands 11 and 12 from 20\acs{m} pixels to 10\ac{m}. Sentinel-2's \acs{MSI} does not capture any thermal bands, so a constant is used to ignore thermal decision rules in \acs{SIAM}™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0 (see discussion), a no-data mask is generated. Finally, using \acs{GDAL}, the six Sentinel-2 bands of \ac{ToA} reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the \acs{ENVI} data format required as input for \acs{SIAM}™.
+Following complete and successful download, the necessary bands from each newly acquired Sentinel-2 scene are automatically re-formatted. \acs{SIAM}™ is sensor independent, but input data format requirements are based on Landsat for high-resolution data. Six bands (blue, green, red, near infrared and two medium infrared bands) are used (i.e. bands 2, 3, 4, 8, 11, 12). Scipy resamples bands 11 and 12 from 20\acs{m} pixels to 10\acs{m}. Sentinel-2's \acs{MSI} does not capture any thermal bands, so a constant is used to ignore thermal decision rules in \acs{SIAM}™. Based on the assumption that pixels with a value of 0 in any of the input bands contain no data and not a measured value of 0, a no-data mask is generated (*see* \autoref{sec:nodata_mask} for further discussion). Finally, using \acs{GDAL}, the six Sentinel-2 bands of \ac{ToA} reflectance values are converted to an 8-bit range, stacked in ascending order and saved in the \acs{ENVI} data format required as input for \acs{SIAM}™.
 
 \graffito{~1 minute per scene}
 
@@ -186,7 +186,7 @@ Re-formatting each Sentinel-2 scene on the current set-up takes roughly 1 minute
 
 A batch script to run \ac{SIAM}™ is automatically generated all newly acquired, re-formatted scenes. Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. An older example of 61 semi-concepts and broad descriptions can be seen in \autoref{fig:siam_61}.
 
-![Semi-concept example with a granularity of 61, represented by pseudo-colours \label{fig:siam_61}](source/figures/siam61.png)
+![Semi-concept example with a granularity of 61, represented by pseudo-colours [@baraldiSatelliteImageAutomatic2018] \label{fig:siam_61}](source/figures/siam61.png)
 
 The additional information layers included in the applied example include a:
 
@@ -201,6 +201,10 @@ Processing of each Sentinel-2 scene takes roughly 4-5 minutes on the current set
 
 
 ### ODC: indexing images and information layers
+
+Before getting into the specific of indexing, the complete workflow for working with the \ac{ODC} software can be seen in \autoref{fig:ODC_workflow}.
+
+![Workflow for working with the \acs{ODC}. (Source: <https://datacube-core.readthedocs.io/en/latest/ops/overview.html> accessed on 22 June 2018) \label{fig:ODC_workflow}](source/figures/ODC_workflow.png)
 
 In order to index data, a product description first needs to be defined. Indexing establishes links to externally stored data in a format defined in the product description and is backed by PostgreSQL. Product descriptions identify metadata common to all datasets of that product [@geoscienceaustraliaIndexingDataOpen2017] and only need to be defined once. Both Sentinel-2 data and \acs{SIAM}™ information layers have been defined as products by modifying existing scripts provided by the \ac{ODC} initiative. The product definition for information layers can be seen in \autoref{lst:siamIL}.
 
@@ -217,28 +221,28 @@ Data that has been indexed can also be ingested, resulting in automated tiling o
 
 [^4]: It is important to note that the logical view offered to the user is a multi-dimensional data cube regardless of whether or not a product has been ingested.
 
-The complete workflow for working with the \ac{ODC} software can be seen in \autoref{fig:ODC_workflow}.
-
-![Workflow for working with the \acs{ODC}. (Source: <https://datacube-core.readthedocs.io/en/latest/ops/overview.html>) \label{fig:ODC_workflow}](source/figures/ODC_workflow.png)
-
-In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \ac{EPSG}: 32637). At the time of writing, 72,672 tiles of ingested information layers have been created, a total of approximately 180\acs{GB}. An evaluation of a more efficient tiling scheme is a much larger issue, and is outside the scope of this thesis.
+In this implementation, automated ingestion of information layers in 100\acs{km}² tiles (10\acs{km} by 10\acs{km} by one time-step) occurs, keeping the original projection (i.e. \acs{UTM} zone 37N, \acs{EPSG}: 32637). At the time of writing, 72,672 tiles of ingested information layers have been created, a total of approximately 180\acs{GB}. An evaluation of a more efficient tiling scheme is a much larger issue, and is outside the scope of this thesis.
 
 \graffito{~1 minute per scene}
 
 Ingestion takes more computing power and time than indexing, because a bunch of netCDF tiles need to be generated. Based on the ingestion of 450 scenes in January 2018, this process takes around 1 minute per scene.
 
 
-## ODC: Python API
+## Ad-hoc Queries
+
+Querying the data cube occurs using a Python \ac{API}, which I have chosen to access using a Jupyter notebook for interactive manipulation of data cube output.
+
+### ODC: Python API
 
 Once data has been indexed and ingested, they can be accessed using a Python \ac{API} [@geoscienceaustraliaDataAccessAPI2017]. This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent and returns it to the user as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional in-memory array with dimension names, and is used for further analysis (e.g. in Jupyter notebooks).
 
 Any queries that might exceed memory ought to be run using the Gridworkflow class of the \ac{API} to access and process data in smaller chunks [@geoscienceaustraliaDatacubeApiGridWorkflow2017]. This may not be desirable or even possible for certain types of queries or processes.
 
 
-## Jupyter notebook: ad-hoc queries
+### Jupyter notebook: ad-hoc queries
 
 The Jupyter notebook (\autoref{fig:jupyter_screen}) used to query the cube and produce output is largely based on code blocks that exist in other \ac{ODC} Jupyter notebook examples, freely and openly available from @ceos-seoDataCubeNotebooks2017.
 
-![Screen shot of the Jupyter notebook, including some of the functions primarily developed by @ceos-seoDataCubeNotebooks2017. Author's illustration. \label{fig:jupyter_screen}](source/figures/jupyter_screenshot.tiff)
+![Screenshot of the Jupyter notebook, including some of the functions primarily developed by @ceos-seoDataCubeNotebooks2017. This shows the spatio-temporal extent of the data cube in the metadata report, as well as the spatial extent in the small map. Author's illustration. \label{fig:jupyter_screen}](source/figures/jupyter_screenshot.tiff)
 
 Within the notebook, it takes around 90 seconds to connect to the ingested \ac{SIAM}™ information layer product, but following that connection, it all depends on what the user would like to do with the data and information within the data cube.
