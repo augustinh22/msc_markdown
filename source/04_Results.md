@@ -1,11 +1,26 @@
 \cleardoublepage
 \pagestyle{scrheadings}
 \cleardoublepage
-\chapter{Results}\label{ch:results}
+\chapter{Proof-of-Concept}\label{ch:proof}
 
-The main result of this work is a continuously up-to-date semantically enriched data cube implementation for north-western Syria. This cube may continue to be used for research of individual observations in time, monthly or seasonal analysis, up to the entire temporal extent of the growing data cube for the entire geospatial extent.
+The main result of this work is a constantly up-to-date semantically enriched data cube implementation for north-western Syria. This cube may continue to be used for research of individual observations in time, monthly or seasonal analysis, up to the entire temporal extent of the growing data cube for the entire geospatial extent. In addition to the ingested semantically enriched layers, the original Sentinel-2 data and information layers can be accessed in a similar manner. Access to the original Sentinel-2 data that the information layers are generated from may be very useful for certain applications and questions.
 
-In order to demonstrate its potential utility, a few proof-of-concept demonstrations of automated information extraction about water and vegetation extent and dynamics over time are provided. Each of these queries is also accompanied by a few additional layers to better provide insight about the quality of the result, and to aid in their interpretation. Such aggregated results produced from big Earth data currently have few methods or metrics available to assess quality for meaningful interpretation. This kind of automated information extraction may be relevant to \ac{SDG} targets 2.4, 6.6 and 15.1  (*see* \autoref{sec:framing}), which is the main focus here, but also for indicators for \acs{DRR} or livelihood security (*see* **Discussion section**).
+In order to demonstrate its potential utility, a few proof-of-concept demonstrations of automated information extraction about water and vegetation extent and dynamics over time are provided. Each of these queries is also accompanied by a few additional layers to better provide insight about the quality of the result, and to aid in their interpretation. Such aggregated analysis produced from big Earth data currently have few methods or metrics available to assess quality for meaningful interpretation. This kind of automated information extraction may be relevant to \ac{SDG} targets 2.4, 6.6 and 15.1  (*see* \autoref{sec:framing}), which is the main focus here, but also for indicators for \acs{DRR} or livelihood security (*see* **Discussion section**).
+
+
+# Aggregated Time-series Output
+
+While other queries (e.g. post-classification change) could have been conducted, a conscious choice was made to produce results aggregated over time. This was decided in order to better explore some of the challenges in generation, but more importantly interpretation.
+
+![How vegetation semi-concept occurrence over time is calculated. \label{fig:veg_index_diagram}](source/figures/vegetation_normindex_example.png)
+
+- reference water in Australia and apply/situate in framework referenced in section 2
+- describe two indicators (water, vegetation ...)
+
+Explain time-stack, total clean, total observations and total valid pixels (i.e. images per pixel).
+
+Based on the work of @muellerWaterObservationsSpace2016 and @tulbureSurfaceWaterExtent2016 .
+
 
 # Maps
 
