@@ -3,7 +3,7 @@
 \cleardoublepage
 \chapter{Discussion}\label{ch:discussion}
 
-This section attempts to look more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discuss finer details pertaining to the data, design decisions and methods used, including challenges faced along the way.
+This section attempts to look more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discuss finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the data and implementation methods.
 
 
 # Interpretation of Maps
@@ -54,10 +54,12 @@ unma.go
 
 The concept of \ac{ARD} (***see*** section \ref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
 
+## Challenges
+
 
 # Discussion of Data
 
-### \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
+## \ac{ToA} vs. \ac{BoA} vs. \ac{SURF} calibration
 
 -- importance for analysis -- comparability
 
@@ -68,11 +70,13 @@ While still considered open, it is important to note that the pre-processing alg
 
 At the time of writing, ESA intends to start offering world-wide Level-2A products. Can these be included in a similar implementation?
 
-### Data
+## Data
 - Sentinel-2 problem with pixel alignment
 - swaths vs. granules
 - projections if used in other areas
 - data redundancy (keeping own copy) and size
+
+
 
 
 # Discussion of Methods
