@@ -140,15 +140,15 @@ Across various scientific disciplines and in everyday language, there has long b
 
 Many goals have been identified in the scope of various international agreements, with the expressed purpose of improving the lives of people across the world and mitigating potential or inevitable risks and vulnerabilities. Multiple targets have been identified for each of these goals. In this context, indicators exist or are being developed in order to monitor targets and report on progress over time using increasingly standardised and reproducible methods. Many of the developed indicators are based on official statistics at a regional, national or provincial level, but are not necessarily spatially explicit. In order to keep the scope manageable, the focus here is looking more closely at the \ac{UN} \acp{SDG}, which pertain to goals set in 2015 for 2030.[^1]
 
-[^1]: Other international agreements with identified indicators that \ac{EO} data could serve include the \acf{DRR} [@Resolution692832015], the Paris Agreement on Climate Change, and the New Urban agenda [@corbaneBigEarthData2017].
+[^1]: Other international agreements with identified indicators that \ac{EO} data could serve include the \acf{DRR} [@unitednationsResolution692832015], the Paris Agreement on Climate Change, and the New Urban agenda [@corbaneBigEarthData2017].
 
-The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 interconnected goals with many targets and a related indicator framework for the 2030 Agenda for Sustainable Development [@Resolution70Transforming2015]. These goals are known as the \acp{SDG} (\autoref{fig:SDGs}), and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. Development is a charged concept (e.g. what does it mean to be "developed" as a country?), with many different connotations. That is beyond the scope of this work and will not be discussed, but any reference to development refers to how it is characterised through the \acp{SDG}.
+The \ac{UN}'s 193 Member States have identified and agreed to work towards 17 interconnected goals with many targets and a related indicator framework for the 2030 Agenda for Sustainable Development [@unitednationsResolution70Transforming2015]. These goals are known as the \acp{SDG} (\autoref{fig:SDGs}), and replace what were the eight \acp{MDG}, presented by the \ac{UN} to be achieved by 2015. Development is a charged concept (e.g. what does it mean to be "developed" as a country?), with many different connotations. That is beyond the scope of this work and will not be discussed, but any reference to development refers to how it is characterised through the \acp{SDG}.
 
 ![United Nations Sustainable Development Goals [@unitednationsCommunicationsMaterials2018] \label{fig:SDGs}](source/figures/E_2018_SDG_Poster_without_UN_emblem_Letter US.png)
 
 The \acp{SDG} are different from the \acp{MDG} not only in their content, but also in how they were conceived and to whom they apply. The \acp{MDG} were specifically and unfairly geared towards poorer countries, developed primarily by stakeholders from the United States, Europe and Japan, and co-sponsored by financially motivated international stakeholders including the \ac{IMF}, World Bank and \ac{OECD} [@fehlingLimitationsMillenniumDevelopment2013]. A distinction between "developed" and "developing" countries was made in the creation and implementation of the \acp{MDG} framework. In contrast, the currently active \acp{SDG} are more expansive, overarching ideals that all countries ought to make steps towards achieving. These goals are interrelated, including mitigating climate change, reducing poverty and hunger, improving gender equality and education.
 
-In order to encourage support towards reaching these goals, concrete targets have been identified to track progress of each goal, resulting in a total of 169 targets [@Resolution713132017]. Multiple, measurable indicators for monitoring progress towards each target have been identified, and are intended to be as standardised as possible.
+In order to encourage support towards reaching these goals, concrete targets have been identified to track progress of each goal, resulting in a total of 169 targets [@unitednationsResolution713132017]. Multiple, measurable indicators for monitoring progress towards each target have been identified, and are intended to be as standardised as possible.
 
 
 # EO-based Indicators
@@ -174,7 +174,7 @@ Information alone will not enact changes, nor further progress towards achieving
 
 ## SDG Indicators and EO
 
-The concept of having global goals with accompanying indicator-based approaches to support efforts was first proposed by Guatemalan and Columbian governments and introduced at the Rio+20 Earth Summit (\ac{UN} Conference on Sustainable Development) in 2012 [@hakSustainableDevelopmentGoals2016]. In @Resolution662882012 (p. 47), it was stated that:
+The concept of having global goals with accompanying indicator-based approaches to support efforts was first proposed by Guatemalan and Columbian governments and introduced at the Rio+20 Earth Summit (\ac{UN} Conference on Sustainable Development) in 2012 [@hakSustainableDevelopmentGoals2016]. In @unitednationsResolution662882012 (p. 47), it was stated that:
 
 >We recognize that progress towards the achievement of the goals needs to be assessed and accompanied by targets and indicators, while taking into account different national circumstances, capacities and levels of development.
 
@@ -186,14 +186,13 @@ A collection of standardised, quantitative indicators for each of the identified
 
 ![\acs{SDG} targets and indicators that can be supported by \acs{EO} data according to the \acf{GEO} (Source: @grouponearthobservationsEarthObservationsGeospatial2017) \label{fig:EOSDGs}](source/figures/201704_geo_unggim_4pager-4.png)
 
-Some have decided to turn to free and open \ac{EO} data to realise regular and timely information for some indicators. In the last few years, multiple initiatives have surfaced evaluating the potential for free and open \ac{EO} data to support monitoring and information generation for the \acp{SDG}. These initiatives should not come as a surprise, since, as @andersonEarthObservationService2017 points out, Article 76 of @Resolution70Transforming2015 (p. 32) explicitly states:
+Some have decided to turn to free and open \ac{EO} data to realise regular and timely information for some indicators. In the last few years, multiple initiatives have surfaced evaluating the potential for free and open \ac{EO} data to support monitoring and information generation for the \acp{SDG}. These initiatives should not come as a surprise, since, as @andersonEarthObservationService2017 points out, Article 76 of @unitednationsResolution70Transforming2015 (p. 32) explicitly states:
 
 >We will promote transparent and accountable scaling-up of appropriate public-private cooperation to exploit the contribution to be made by a wide range of data, including earth observation and geospatial information, while ensuring national ownership in supporting and tracking progress.
 
 The \acf{GEO} is explicitly linked to efforts towards sustainable development. It was first described at the 2002 World summit on the Sustainable Development Implementation Plan, and launched in 2005 [@andersonEarthObservationService2017]. It's purpose is to coordinate observations globally that have to do with the state of the Earth, but also has a strong focus on how \ac{EO} and geospatial information can serve international agreements and initiatives.
 
 In 2015, \ac{GEO} launched the initiative \ac{EO4SD}. More generally, \ac{UN-GGIM} and \ac{GEO} work closely with the statistical community and have evaluated the \acp{SDG} targets and indicator framework summarised in \autoref{fig:EOSDGs}.  The identified targets in \autoref{fig:EOSDGs} can benefit from \ac{EO}-derived information towards progress, but not necessarily provide an indicator, whereas the identified indicators can be served by a direct measure or indirect support from \ac{EO}. Having reviewed the goals, targets and indicators previously to accessing the results of this \ac{GEO} evaluation, it seems to be quite comprehensive. It is also clear that \ac{EO}-derived information can in some way contribute to assist decision-makers, nations, organisations and other stakeholders to better plan, monitor targets and track progress towards achieving nearly each and every one of the \acp{SDG} [@committeeonearthobservationsatellitesSatelliteEarthObservations2018].
-
 
 
 # State-of-the-Art
@@ -285,7 +284,7 @@ Multiple application areas can be covered based on user-generated queries withou
 
 Validation of the pre-classification information layers or information generated by this implementation is not part of this thesis, though comparison to some existing, externally generated information is made to verify the plausibility of results. It is intended to be viewed as a proof-of-concept and a spring-board for further research leading towards more time-sensitive analysis as well as monitoring long-term goals like the \acp{SDG}.
 
-The example results showcased in the scope of this thesis are intended to provide \ac{EO}-based information that might eventually serve some \acp{SDG}, targets and indicators [@Resolution70Transforming2015]. Targets and indicators pertaining to 3 goals are considered. Two of the indicators (2.4.1 and 6.6.1) are labeled as "tier 3", meaning that there is no internationally agreed methodology that exists for calculating them [@committeeonearthobservationsatellitesSatelliteEarthObservations2018]. The last indicator (15.1.1) is considered "tier 1", meaning that established and acceptable methodology exists and data are already widely available:
+The example results showcased in the scope of this thesis are intended to provide \ac{EO}-based information that might eventually serve some \acp{SDG}, targets and indicators [@unitednationsResolution70Transforming2015]. Targets and indicators pertaining to 3 goals are considered. Two of the indicators (2.4.1 and 6.6.1) are labeled as "tier 3", meaning that there is no internationally agreed methodology that exists for calculating them [@committeeonearthobservationsatellitesSatelliteEarthObservations2018]. The last indicator (15.1.1) is considered "tier 1", meaning that established and acceptable methodology exists and data are already widely available:
 
 ---
 

@@ -58,7 +58,7 @@ All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for the
 
 As of 22 June 2018, 591 Sentinel-2 granule-size scenes are incorporated in the data cube. This results in a range of approximately 127 to 258 observations at different moments in time throughout the study area for the temporal extent of all scenes [^2]. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (*see* \autoref{fig:overview} for an estimation of the orbits). These three Sentinel-2 granules are provided by Copernicus in the same projection (\acs{UTM} zone 37N, \acs{EPSG}: 32637), which means that the data do not require re-projection for collective storage or analysis.
 
-[^2]: All of the Sentinel-2 products already indexed in the data cube implementation, whose ingested information layers are used in the showcased proof-of-concept results, are documented in \autoref{tab:s2products}.
+[^2]: All of the Sentinel-2 products already indexed in the data cube implementation, whose ingested information layers are used in the showcased proof-of-concept results, are documented in \autoref{tab:s2products}. This table is perhaps unnecessary or considered overkill to include, but I think it is important to offer some feeling of how much data is actually being handled here.
 
 
 # Methods
