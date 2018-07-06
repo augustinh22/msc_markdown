@@ -7,6 +7,22 @@ The main result of this work is a continuously up-to-date semantically enriched 
 
 In order to demonstrate its potential utility, a few proof-of-concept demonstrations of automated information extraction about water and vegetation extent and dynamics over time are provided. Each of these queries is also accompanied by a few additional layers to better provide insight about the quality of the result, and to aid in their interpretation. Such aggregated results produced from big Earth data currently have few methods or metrics available to assess quality for meaningful interpretation. This kind of automated information extraction may be relevant to \ac{SDG} targets 2.4, 6.6 and 15.1  (*see* \autoref{sec:framing}), which is the main focus here, but also for indicators for \acs{DRR} or livelihood security (*see* **Discussion section**).
 
+
+
+# Aggregated Time-series Output
+
+While other queries (e.g. post-classification change) could have been conducted, a conscious choice was made to produce results aggregated over time. This was decided in order to better explore some of the challenges in generation, but more importantly interpretation.
+
+![How vegetation semi-concept occurrence over time is calculated. \label{fig:veg_index_diagram}](source/figures/vegetation_normindex_example.png)
+
+- reference water in Australia and apply/situate in framework referenced in section 2
+- describe two indicators (water, vegetation ...)
+
+Explain time-stack, total clean, total observations and total valid pixels (i.e. images per pixel).
+
+Based on the work of @muellerWaterObservationsSpace2016 and @tulbureSurfaceWaterExtent2016 .
+
+
 # Maps
 
 - display and describe

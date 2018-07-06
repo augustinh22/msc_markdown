@@ -653,7 +653,7 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \subsection{Actual Code} \label{app:code}
 
 \graffito{This file defines a conda environment, which can be reproduced using this file and the following command: \texttt{conda env create --file=FILE.yaml}}
-\lstinputlisting[language=XML, frame=tb, caption={[Python 2.7x conda environment] Conda environment definition for download to processing with SIAM™ (\texttt{aiq27\_environment.yaml})}, label=lst:aiq27env]{source/code/aiq27_environment.yaml}
+\lstinputlisting[language=XML, frame=tb, caption={[Python 2.7x conda environment] conda environment definition for download to processing with SIAM™ (\texttt{aiq27\_environment.yaml})}, label=lst:aiq27env]{source/code/aiq27_environment.yaml}
 
 \clearpage
 \graffito{This script handles http downloads of a given granule from the Copernicus Open Access Hub. It also enables more complex queries of the archive and batch downloads from the CLI.}
@@ -694,6 +694,11 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \clearpage
 \graffito{This shell script runs the scripts shown in Listing \ref{lst:prepSIAM} and \ref{lst:indexSIAM} and ingests data into the product defined by \autoref{lst:siam10km} and is tasked to run once a day on the server, ultimately automating indexing the original Sentinel-2 data and SIAM™-generated information layers into the ODC implementation, and then ingesting the SIAM™ layers as a product for analysis.}
 \lstinputlisting[language=bash, breaklines=true, frame=tb, caption={[Shell script automating indexation and ingestion] Automate creation of necessary metadata, as well as indexation and ingestion in the ODC (\texttt{automate\_ODC.sh})}, label=lst:autoODC]{source/code/ingestion/automate_ODC.sh}
+
+\clearpage
+\graffito{This file defines a conda environment for Python version 3.5.4, which should be able to be reproduced using this file and the following command: \texttt{conda env create --file=FILE.yaml}}
+\lstinputlisting[language=XML, frame=tb, caption={[Python 3.5.4 conda environment] \textit{conda} environment definition for analysis (\texttt{cubeenv\_2\_environment.yaml})}, label=lst:cubeenv2env]{source/code/ingestion/cubeenv_2_environment.yaml}
+
 
 % Example Table.
 %\begin{table}[h]
