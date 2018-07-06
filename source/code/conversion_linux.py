@@ -1,10 +1,10 @@
 # ------------------------------------------------------------------------------
 # Name:        Sentinel2 'Conversion' for SIAM.
-# Purpose:     Use NumPy, GDAL and SciPy to convert all Sentinel2 bands to
+# Purpose:     Use NumPy, GDAL and SciPy to convert 6 Sentinel2 bands to
 #              8-bit, resample bands 11 and 12 to 10m pixels and build a 6-band
 #              stack in the ENVI format (i.e. including .hdr). It also creates
 #              a single band ENVI .dat/.hdr file with a constant value of 110
-#              as a fake thermal band for SIAM.
+#              as to avoid thermal rules in SIAM.
 #              This script is based on an ArcPy Python toolbox developed by
 #              Dirk Tiede.
 #
@@ -127,6 +127,7 @@ def nodata_array(tile_bands, PROC_DATA):
     noData = gdal.Open(tile_bands[0], gdal.GA_ReadOnly)
     noData_array = (noData.GetRasterBand(1)).ReadAsArray()
     noData_array = numpy.where((noData_array > 0), (1), noData_array)
+    
     #
     # Establish size of raster from B02 for nodata output file.
     #
@@ -330,11 +331,8 @@ def check_imgFolders(options_in):
             ins = raw_input('Answer [y/n]: ')
 
             if ins == 'y' or ins == 'n':
-
                 break
-
             else:
-
                 print 'Your input should indicate yes [y] or no [n].'
 
     if ins == 'y' or ins == 'Y' or ins == 'yes' or ins == 'Yes':
@@ -498,7 +496,6 @@ def convert_imgs(root_folder, imgFolders):
         # Create file to save stack to -- there is probably a better way to do
         # this! Also create fake thermal band file.
         #
-
         print tile_bands
         noData_array = None
         noData_array = nodata_array(tile_bands, PROC_DATA)
@@ -532,10 +529,6 @@ def convert_imgs(root_folder, imgFolders):
                 #
                 projection = img.GetProjection()
                 transform = img.GetGeoTransform()
-                # xOrigin = transform[0]
-                # yOrigin = transform[3]
-                # pixelWidth = transform[1]
-                # pixelHeight = transform[5]
 
                 #
                 # Establish size of raster from B02 for stacked output file.
@@ -617,7 +610,6 @@ def convert_imgs(root_folder, imgFolders):
                 # Flush data to disk and set the NoData value.
                 #
                 outBand.FlushCache()
-                # outBand.SetNoDataValue(-99)
 
                 #
                 # Calculate statistics.
@@ -647,7 +639,6 @@ def convert_imgs(root_folder, imgFolders):
             #
             # Keep track of which band we are writing to in the stacked file.
             #
-
             band_in_stack = None
 
             if band.endswith('_B02.jp2'):
@@ -694,8 +685,6 @@ def convert_imgs(root_folder, imgFolders):
                 #
                 img_array = img_band.ReadAsArray(0, 0, img_cols, img_rows)
                 print 'Original shape: {}'.format(img_array.shape)
-                # print 'Original max: {}'.format(numpy.amax(img_array))
-                # print 'Original min: {}'.format(numpy.amin(img_array))
 
                 #
                 # Adjust outliers (very high reflectance and negative).
@@ -703,16 +692,6 @@ def convert_imgs(root_folder, imgFolders):
                 outData = img_array / 10000.0
                 outData = numpy.where((outData > 1), (1), outData)
                 outData = numpy.where((outData < 0), (0), outData)
-
-                #
-                # Old, slow method for reference.
-                #
-                # for i in range(0, img_rows):
-                #     for j in range(0, img_cols):
-                #         if outData[i,j] > 1:
-                #             outData[i,j] = 1
-                #         elif outData[i,j] < 0:
-                #             outData[i,j] = 0
 
                 img_array = None
 
@@ -744,7 +723,6 @@ def convert_imgs(root_folder, imgFolders):
                 # Flush data to disk and set the NoData value.
                 #
                 outBand.FlushCache()
-                # outBand.SetNoDataValue(-99)
 
                 #
                 # Calculate statistics.

@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Name:        SIAM batch creator
-# Purpose:     This script uses a Tkinter GUI to create a SIAM
-#              batch file based on SIAM compatible files located in a target
+# Purpose:     This script creates a SIAM batch file based
+#              on SIAM compatible files located in a target
 #              directory.
 #
 # Author:      h.Augustin
@@ -23,9 +23,6 @@ import logging
 from time import strftime as date
 
 import gdal
-
-# Set GDAL environment variable for translating grib to tiff.
-# os.environ['GDAL_DATA'] = r'C:\Program Files\GDAL\gdal-data'
 
 
 def get_args():
@@ -166,11 +163,9 @@ def check_procFolders(options):
         for dirname in dirnames:
 
             if dirname == 'PROC_DATA':
-
                 procFolders.append(os.path.join(dirpath, dirname))
 
             elif dirname == 'siamoutput':
-
                 siamFolders.append(os.path.join(dirpath, dirname))
     #
     # Determine which tile folders have no siamoutput folder.
@@ -267,11 +262,8 @@ def check_procFolders(options):
             ins = raw_input('Answer [y/n]: ')
 
             if ins == 'y' or ins == 'n':
-
                 break
-
             else:
-
                 print 'Your input should indicate yes [y] or no [n].'
 
     if ins == 'y' or ins == 'Y' or ins == 'yes' or ins == 'Yes':
@@ -447,7 +439,6 @@ if __name__ == '__main__':
     # Parse command line to get global arguments.
     #
     options = get_args()
-
     bool_answer, unprocFolders = check_procFolders(options)
 
     if bool_answer:
@@ -457,7 +448,6 @@ if __name__ == '__main__':
     else:
 
         print '\nNo SIAM batch file created.\n'
-
         sys.exit()
 
 
@@ -465,23 +455,31 @@ if __name__ == '__main__':
 #                Parameters from Example batch file explained.                 #
 #------------------------------------------------------------------------------#
 
-# (0) C:\SIAM\SIAM_r88v7\SIAM_License_Executables\SIAM_r88v7_Windows.exe   [SIAM executable]
-# (1) E:\Temp_ha\S2A_OPER_MSI_L1C_TL_MTI__20150813T201603_A000734_T33TUN_N01.03   [location of calibrated files]
-# (2) S2A_OPER_MSI_L1C_TL_MTI__20150813T201603_A000734_T33TUN_calrefbyt_lndstlk.dat   [calibrated file]
+# (0) C:\SIAM\SIAM_r88v7\SIAM_License_Executables\SIAM_r88v7_Windows.exe
+#                                                             [SIAM executable]
+# (1) E:\S2A_L1C_TL_MTI__20150813T201603_A000734_T33TUN_N01.03
+#                                                [location of calibrated files]
+# (2) S2A_L1C_TL_MTI__20150813T201603_A000734_T33TUN_calrefbyt_lndstlk.dat
+#                                                             [calibrated file]
 # (3) 0  [Use a binary mask for processing]
 # (4) 10980  [rows]
 # (5) 10980  [columns]
-# (6) 1  [image type: ("LANDSAT_LIKE","1")("SPOT_LIKE","2")("AVHRR_LIKE","3")("VHR_LIKE","4")]
+# (6) 1  [image type:
+#                     ("LANDSAT_LIKE","1")
+#                     ("SPOT_LIKE","2")
+#                     ("AVHRR_LIKE","3")
+#                     ("VHR_LIKE","4")]
 # (7) 1  [Select crisp or fuzzy classification]
-# (8) E:\Temp_ha\S2A_OPER_MSI_L1C_TL_MTI__20150813T201603_A000734_T33TUN_N01.03\siamoutput  [output folder]
-# (9) 0  [Smoke-Plume mask]
+# (8) E:\S2A_L1C_TL_MTI__20150813T201603_A000734_T33TUN_N01.03\siamoutput
+#                                                               [output folder]
+# (9) 0   [Smoke-Plume mask]
 # (10) 0  [Cloud Mask]
 # (11) 0  [Burnt area mask]
 # (12) 1  [Vegetation Binary mask]
 # (13) 0  [Vegetation Trinary mask]
-# (14) 0 [Baresoil Builtup Trinary mask]
-# (15) 0 [Cloud Trinary mask]
-# (16) 0 [Water Trinary mask]
-# (17) 0 [Shadow Trinary mask]
-# (18) 1 [Urban area binary mask]
-# (19) 0 [SHAPE???]
+# (14) 0  [Baresoil Builtup Trinary mask]
+# (15) 0  [Cloud Trinary mask]
+# (16) 0  [Water Trinary mask]
+# (17) 0  [Shadow Trinary mask]
+# (18) 1  [Urban area binary mask]
+# (19) 0  [SHAPE???]

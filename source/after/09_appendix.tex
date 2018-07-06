@@ -656,15 +656,15 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \lstinputlisting[language=XML, frame=tb, caption={[Python 2.7x conda environment] conda environment definition for download to processing with SIAM™ (\texttt{aiq27\_environment.yaml})}, label=lst:aiq27env]{source/code/aiq27_environment.yaml}
 
 \clearpage
-\graffito{This script handles http downloads of a given granule from the Copernicus Open Access Hub. It also enables more complex queries of the archive and batch downloads from the CLI.}
+\graffito{This script handles http downloads of a given granule from the Copernicus Open Access Hub. It also enables more complex queries of the archive and batch downloads from the CLI. While most lines fit within the 179 character style guideline, a few longer lines were broken without testing for this printed version. Unnecessary spaces between lines were also removed.}
 \lstinputlisting[language=Python, frame=tb, caption={[Python script to download data] Download data from the Copernicus Open Access Hub (\texttt{download\_linux.py})}, label=lst:download]{source/code/download_linux.py}
 
 \clearpage
-\graffito{This script stacks the 6 Sentinel-2 bands required from SIAM™, but first resamples bands 11 and 12 to 10m, identifies pixels with a value of 0 to create a no-data mask, converts to 8-bit and saves in ENVI format.}
+\graffito{This script stacks the 6 Sentinel-2 bands required from SIAM™, but first resamples bands 11 and 12 to 10m, identifies pixels with a value of 0 to create a no-data mask, converts to 8-bit and saves in ENVI format. While most lines fit within the 179 character style guideline, a few longer lines were broken without testing for this printed version. Unnecessary spaces between lines were also removed.}
 \lstinputlisting[language=Python, frame=tb, caption={[Python script to re-format for SIAM™] Convert data structure and format for SIAM™ (\texttt{conversion\_linux.py})}, label=lst:conversion]{source/code/conversion_linux.py}
 
 \clearpage
-\graffito{This script searches for Sentinel-2 product folders missing SIAM™ output and uses them to create a batch file to run SIAM™ so that they can be processed.}
+\graffito{This script searches for Sentinel-2 product folders missing SIAM™ output and uses them to create a batch file to run SIAM™ so that they can be processed. While most lines fit within the 179 character style guideline, a few longer lines were broken without testing for this printed version. Unnecessary spaces between lines were also removed.}
 \lstinputlisting[language=Python, frame=tb, caption={[Python script creating SIAM™ batch script]Generate SIAM™ batch script (\texttt{batch\_linux.py})}, label=lst:batch]{source/code/batch_linux.py}
 
 \clearpage
@@ -680,11 +680,11 @@ GNU General Public License for more details, which can be accessed at: \url{http
 \lstinputlisting[language=XML, breaklines=true, frame=tb, caption={[YAML inital SIAM™ product definition] Prepare SIAM™ product within the ODC. This only needs to be defined once (\texttt{siam\_il.yaml})}, label=lst:siamIL]{source/code/ingestion/siam_il.yaml}
 
 \clearpage
-\graffito{This script prepares metadata for SIAM™ required for indexing. A similar script exists for Sentinel-2 data, but is not displayed here.}
+\graffito{This script prepares metadata for SIAM™ required for indexing. A similar script exists for Sentinel-2 data, but is not displayed here. While most lines fit within the 179 character style guideline, a few longer lines were broken without testing for this printed version. Unnecessary spaces between lines were also removed.}
 \lstinputlisting[language=Python, frame=tb, caption={[Python script preparing ODC metadata] Prepare SIAM™ metadata for indexing. (\texttt{prep\_siam.py})}, label=lst:prepSIAM]{source/code/ingestion/prep_siam.py}
 
 \clearpage
-\graffito{This script indexes the SIAM™ information layers based on the product defined in \autoref{lst:siamIL}. A similar script exists for Sentinel-2 data, but is not displayed here.}
+\graffito{This script indexes the SIAM™ information layers based on the product defined in \autoref{lst:siamIL}. A similar script exists for Sentinel-2 data, but is not displayed here.  While most lines fit within the 179 character style guideline, a few longer lines were broken without testing for this printed version. Unnecessary spaces between lines were also removed.}
 \lstinputlisting[language=Python, frame=tb, caption={[Python script indexing SIAM™ layers] Index SIAM™ information layers in the ODC (\texttt{index\_siam.py})}, label=lst:indexSIAM]{source/code/ingestion/index_siam.py}
 
 \clearpage

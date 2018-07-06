@@ -32,7 +32,7 @@ The framing of the illustrated proof-of-concept results in the context of this t
 
 This proof-of-concept implementation focuses on an area located in north-western Syria, along the border to Turkey from June 2015 until June 2018, the entire duration of Sentinel-2 observations at the time of writing. In this case, the focus is on generating information in support of the \acp{SDG}. However, the on-going conflict in this area for the duration of Sentinel-2's data collection presented an opportunity to potentially detect land cover changes and impacts that may or may not be linked to conflict-related events, such as damage to agricultural irrigation infrastructure, internal displacement of people or changes to visible surface water bodies (e.g. lakes, dams).
 
-Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000km² (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in \autoref{fig:overview}, and ultimately define the spatio-temporal extent of the study area. Based on maps referring to Syria before the start of the civil war, this area covers the entire northern stretch of the Aleppo Governorate, northwestern Raqqa and northern Idlib, in addition to parts of the following Turkish provinces bordering Syria: Hatay, Kilis, Gaziantep and Şanlıurfa.
+Three adjacent Sentinel-2 granules (37SBA, 37SCA, 37SDA) cover an area of more than 30,000\acs{km}² (latitudes 36.01°-37.05°N; longitudes 35.67°-39.11°E), as depicted in \autoref{fig:overview}, and ultimately define the spatio-temporal extent of the study area. Based on maps referring to Syria before the start of the civil war, this area covers the entire northern stretch of the Aleppo Governorate, northwestern Raqqa and northern Idlib, in addition to parts of the following Turkish provinces bordering Syria: Hatay, Kilis, Gaziantep and Şanlıurfa.
 
 ![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{fig:overview}](source/figures/study_area_edit.png)
 
@@ -241,7 +241,7 @@ Any queries that might exceed memory ought to be run using the Gridworkflow clas
 
 ### Jupyter notebook: ad-hoc queries
 
-The Jupyter notebook (\autoref{fig:jupyter_screen}) used to query the cube and produce output is largely based on code blocks that exist in other \ac{ODC} Jupyter notebook examples, freely and openly available from @ceos-seoDataCubeNotebooks2017.
+The Jupyter notebook used to query the cube and produce output is largely based on code blocks that exist in other \ac{ODC} Jupyter notebook examples, freely and openly available from @ceos-seoDataCubeNotebooks2017. See \autoref{fig:jupyter_screen} for a rough idea of what one looks like.
 
 ![Screenshot of the Jupyter notebook, including some of the functions primarily developed by @ceos-seoDataCubeNotebooks2017. This shows the spatio-temporal extent of the data cube in the metadata report, as well as the spatial extent in the small map. Author's illustration. \label{fig:jupyter_screen}](source/figures/jupyter_screenshot.tiff)
 

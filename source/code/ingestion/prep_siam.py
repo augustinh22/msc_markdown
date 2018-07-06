@@ -52,7 +52,8 @@ def valid_region(images, mask_value=None):
                 mask |= new_mask
 
     shapes = rasterio.features.shapes(mask.astype('uint8'), mask=mask)
-    shape = shapely.ops.unary_union([shapely.geometry.shape(shape) for shape, val in shapes if val == 1])
+    shape = shapely.ops.unary_union(
+        [shapely.geometry.shape(shape) for shape, val in shapes if val == 1])
     type(shapes)
     # convex hull
     geom = shape.convex_hull
@@ -64,11 +65,14 @@ def valid_region(images, mask_value=None):
     geom = geom.simplify(1)
 
     # intersect with image bounding box
-    geom = geom.intersection(shapely.geometry.box(0, 0, mask.shape[1], mask.shape[0]))
+    geom = geom.intersection(shapely.geometry.box(
+        0, 0, mask.shape[1], mask.shape[0]))
 
     # transform from pixel space into CRS space
-    geom = shapely.affinity.affine_transform(geom, (transform.a, transform.b, transform.d,
-                                                    transform.e, transform.xoff, transform.yoff))
+    geom = shapely.affinity.affine_transform(geom, (
+        transform.a, transform.b,
+        transform.d, transform.e,
+        transform.xoff, transform.yoff))
 
     output = shapely.geometry.mapping(geom)
 
@@ -88,14 +92,20 @@ def _to_lists(x):
 
 
 def get_geo_ref_points(root):
-    nrows = int(root.findall('./*/Tile_Geocoding/Size[@resolution="10"]/NROWS')[0].text)
-    ncols = int(root.findall('./*/Tile_Geocoding/Size[@resolution="10"]/NCOLS')[0].text)
+    nrows = int(root.findall(
+        './*/Tile_Geocoding/Size[@resolution="10"]/NROWS')[0].text)
+    ncols = int(root.findall(
+        './*/Tile_Geocoding/Size[@resolution="10"]/NCOLS')[0].text)
 
-    ulx = int(root.findall('./*/Tile_Geocoding/Geoposition[@resolution="10"]/ULX')[0].text)
-    uly = int(root.findall('./*/Tile_Geocoding/Geoposition[@resolution="10"]/ULY')[0].text)
+    ulx = int(root.findall(
+        './*/Tile_Geocoding/Geoposition[@resolution="10"]/ULX')[0].text)
+    uly = int(root.findall(
+        './*/Tile_Geocoding/Geoposition[@resolution="10"]/ULY')[0].text)
 
-    xdim = int(root.findall('./*/Tile_Geocoding/Geoposition[@resolution="10"]/XDIM')[0].text)
-    ydim = int(root.findall('./*/Tile_Geocoding/Geoposition[@resolution="10"]/YDIM')[0].text)
+    xdim = int(root.findall(
+        './*/Tile_Geocoding/Geoposition[@resolution="10"]/XDIM')[0].text)
+    ydim = int(root.findall(
+        './*/Tile_Geocoding/Geoposition[@resolution="10"]/YDIM')[0].text)
 
     return {
         'ul': {'x': ulx, 'y': uly},
@@ -135,8 +145,10 @@ def get_PROC_DATA(path):
     return PROC_DATA
 
 def get_siamlayers(path):
-    
-    layers = ['18SpCt', '33SharedSpCt', '48SpCt', '96SpCt', 'HazePentarnaryMask', 'VegBinaryMask', 'fRatioGreennessIndex', 'cBrightness']
+
+    layers = ['18SpCt', '33SharedSpCt', '48SpCt', '96SpCt',
+              'HazePentarnaryMask', 'VegBinaryMask',
+              'fRatioGreennessIndex', 'cBrightness']
     siam_dict = {}
     print(path)
     for item in os.listdir(path):
@@ -156,19 +168,26 @@ def prepare_dataset(path):
     siamoutput_path, datacubeYAML_path = get_relevantpaths(path)
     siam_dict = get_siamlayers(siamoutput_path)
 
-    siamoutput_file = os.path.join(siamoutput_path, (os.listdir(siamoutput_path))[0])
-    ct_time = (datetime.datetime.fromtimestamp(os.path.getmtime(siamoutput_file)).strftime('%Y-%m-%dT%H:%M:%SZ'))
+    siamoutput_file = os.path.join(siamoutput_path, (
+        os.listdir(siamoutput_path))[0])
+    ct_time = (datetime.datetime.fromtimestamp(
+        os.path.getmtime(siamoutput_file)).strftime('%Y-%m-%dT%H:%M:%SZ'))
     del siamoutput_file
 
-    with open(datacubeYAML_path, 'r') as f: 
+    with open(datacubeYAML_path, 'r') as f:
         datacube_YAML = yaml.load(f.read())
 
-    granules = {granule.get('granuleIdentifier'): [imid.text for imid in granule.findall('IMAGE_ID')]
-                for granule in root.findall('./*/Product_Info/Product_Organisation/Granule_List/Granules')}
+    granules = {granule.get('granuleIdentifier'): [
+                imid.text for imid in granule.findall('IMAGE_ID')]
+                for granule in root.findall(
+                    './*/Product_Info/Product_Organisation/'
+                    'Granule_List/Granules')}
 
     if not granules:
-        granules = {granule.get('granuleIdentifier'): [imid.text for imid in granule.findall('IMAGE_ID')]
-            for granule in root.findall('./*/Product_Info/Product_Organisation/Granule_List/Granule')}
+        granules = {granule.get('granuleIdentifier'): [
+            imid.text for imid in granule.findall('IMAGE_ID')]
+            for granule in root.findall(
+                './*/Product_Info/Product_Organisation/Granule_List/Granule')}
 
     for key, value in granules.items():
         found_IMAGE_IDs = value
@@ -177,12 +196,15 @@ def prepare_dataset(path):
 
         documents = []
         for granule_id, images in granules.items():
-            gran_path = str(path.parent.joinpath('GRANULE', granule_id, granule_id[:-7].replace('MSI', 'MTD') + '.xml'))
+            gran_path = str(path.parent.joinpath(
+                'GRANULE', granule_id, granule_id[:-7].replace(
+                    'MSI', 'MTD') + '.xml'))
             if os.path.exists(gran_path):
                 root = ElementTree.parse(gran_path).getroot()
 
                 sensing_time = root.findall('./*/SENSING_TIME')[0].text
-                cs_code = root.findall('./*/Tile_Geocoding/HORIZONTAL_CS_CODE')[0].text
+                cs_code = root.findall(
+                    './*/Tile_Geocoding/HORIZONTAL_CS_CODE')[0].text
                 spatial_ref = osr.SpatialReference()
                 spatial_ref.SetFromUserInput(cs_code)
                 geo_ref_points = get_geo_ref_points(root)
@@ -221,17 +243,22 @@ def prepare_dataset(path):
             })
 
     else:
-        granules = {granule.get('granuleIdentifier'): [imid.text for imid in granule.findall('IMAGE_FILE')]
-                    for granule in root.findall('./*/Product_Info/Product_Organisation/Granule_List/Granule')}
+        granules = {granule.get('granuleIdentifier'): [
+                    imid.text for imid in granule.findall('IMAGE_FILE')]
+                    for granule in root.findall(
+                        './*/Product_Info/Product_Organisation/'
+                        'Granule_List/Granule')}
 
         documents = []
         for granule_id, images in granules.items():
 
-            gran_path = str(path.parent.joinpath((os.path.dirname(os.path.dirname(images[0]))), 'MTD_TL.xml'))
+            gran_path = str(path.parent.joinpath((
+                os.path.dirname(os.path.dirname(images[0]))), 'MTD_TL.xml'))
             root = ElementTree.parse(gran_path).getroot()
 
             sensing_time = root.findall('./*/SENSING_TIME')[0].text
-            cs_code = root.findall('./*/Tile_Geocoding/HORIZONTAL_CS_CODE')[0].text
+            cs_code = root.findall(
+                './*/Tile_Geocoding/HORIZONTAL_CS_CODE')[0].text
             spatial_ref = osr.SpatialReference()
             spatial_ref.SetFromUserInput(cs_code)
             geo_ref_points = get_geo_ref_points(root)
@@ -271,19 +298,21 @@ def prepare_dataset(path):
     return documents
 
 
-@click.command(help="Prepare Sentinel 2 dataset for ingestion into the Data Cube.")
+@click.command(help="Prepare Sentinel 2 dataset for ingestion into Data Cube.")
 @click.argument('datasets',
                 type=click.Path(exists=True, readable=True, writable=True),
                 nargs=-1)
 def main(datasets):
-    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level=logging.INFO)
+    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
+        level=logging.INFO)
 
     for dataset in datasets:
         path = Path(dataset)
 
         if path.is_dir():
             print(path)
-            xml_path = Path(path.joinpath(path.stem.replace('PRD_MSIL1C', 'MTD_SAFL1C') + '.xml'))
+            xml_path = Path(path.joinpath(path.stem.replace(
+                'PRD_MSIL1C', 'MTD_SAFL1C') + '.xml'))
             if not xml_path.exists():
                 xml_path = Path(path.joinpath('MTD_MSIL1C' + '.xml'))
                 print (xml_path)
@@ -302,7 +331,8 @@ def main(datasets):
         PROC_DATA = get_PROC_DATA(dataset)
         if documents:
             yaml_path = os.path.join(PROC_DATA, 'siam-metadata.yaml')
-            logging.info("Writing %s dataset(s) into %s", len(documents), yaml_path)
+            logging.info("Writing %s dataset(s) into %s",
+                len(documents), yaml_path)
             with open(yaml_path, 'w') as stream:
                 yaml.dump_all(documents, stream)
         else:
@@ -321,6 +351,4 @@ if __name__ == "__main__":
             yaml_test = Path(os.path.join(test_path, 'siam-metadata.yaml'))
             if not yaml_test.exists():
                 datasets.append(dataset)
-    # datasets = ['/data/s2/37SBA/S2A_OPER_PRD_MSIL1C_PDMC_20160714T041913_R021_V20150902T083049_20150902T083049.SAFE/']
-    # datasets = ['/data/s2/37SBA/S2A_OPER_PRD_MSIL1C_PDMC_20161007T104254_R121_V20150830T082006_20150830T082754.SAFE']
     main(datasets)

@@ -18,11 +18,11 @@ def main(datasets):
             logger.debug("[*] {0}".format(line))
 
 if __name__ == "__main__":
-
     #
     # Set-up logger.
     #
-    log_dir = os.path.join('/home/odci/Datacube/agdc-v2/ingest/prepare_scripts/siam/', 'log')
+    log_dir = os.path.join(
+        '/home/odci/Datacube/agdc-v2/ingest/prepare_scripts/siam/', 'log')
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
 
@@ -33,7 +33,6 @@ if __name__ == "__main__":
                         level=logging.DEBUG)
     logger = logging.getLogger('index_siam')
 
-    # datasets = ['/data/s2/37SBA/S2A_OPER_PRD_MSIL1C_PDMC_20161007T104254_R121_V20150830T082006_20150830T082754.SAFE/datacube-metadata.yaml']
     datasets = []
     for dirpath, dirnames, filenames in os.walk('/data/s2/', topdown=True):
         for filename in filenames:
@@ -42,7 +41,8 @@ if __name__ == "__main__":
                 # Only adds files older than 5 days.
                 #
                 test_path = os.path.join(dirpath, filename)
-                creation_time = (datetime.datetime.fromtimestamp(os.path.getmtime(test_path)))
+                creation_time = (datetime.datetime.fromtimestamp(
+                    os.path.getmtime(test_path)))
                 now = datetime.datetime.now()
                 diff = (now-creation_time).days
                 if diff <= 6:
