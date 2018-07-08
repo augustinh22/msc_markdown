@@ -7,14 +7,20 @@
 
 Extracting information from \ac{EO}-time-series is a challenging task due to the volume, velocity and variety of \ac{EO} images. The largest benefit of the semantic data cube implemented here is that it fully automates data acquisition, semantic enrichment and access to data ready for analysis. The generic, application-independent semantic enrichment utilised enables queries and \ac{EO}-based indicator extraction for many thematic tasks. Since the information layers (i.e. basis for semantic queries and analysis) continue to exist in the data cube and are stable concepts, given solid documentation on methods applied to data cube output, reproducible results and repeatable analysis ought to be possible.
 
+- answer research questions?
+
 
 ##### TODO
 . edit scripts for print
 - update colour syntax for different languages
 - check all sources for formatting
+  - especially news references in applied example
+- cite EO-compass
 . reorganise acronymns
 - fix figure short titles
 - adjust funding to bottom of statement page
+- make sure SIAM always has a [TM]
+- time-series or "time series" ?
 
 - PAAV meeting entries
 

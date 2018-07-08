@@ -8,9 +8,6 @@
 
 - Outlook/further considerations/prospects – other indicators
 
-- computing power is expensive, both energy efficiency of data centres [@whiteheadAssessingEnvironmentalImpact2014]
-
-- optimising data used for anaylsis, e.g. selecting only relevant Sentinel-2 images and not the whole stack [@kempeneersOptimizingSentinel2Image2017]
 
 # Data
 
@@ -26,13 +23,16 @@
 It would be fantastic to have automated workflows that provide a generic data cube containing all existing and up-to-date data ready for the analysis of defined indicators, but not limited to that purpose.
 
 
-*The years have also seen the birth of constellation with tens of micro EO satellites able to capture images of the Earth at an unprecedented pace. One image per day and maybe more is no more a chimera like it was in the early 2000 years. Constellation like Planet and Terra Bella/SkyBox (now merged Planetto Acquire Terra Bella from Google, Sign Multi-Year Data Contract, <https://www.planet.com/pulse/planet-to-acquire-terra-bella-from-google/>)offers HR and VHR data commonly with a business model based on subscription which is exactly focused on monitoring purposes. As shown before in (Adam Van Etter, 2016), there are several efforts in order to exploit data coming from traditional VHR missions like DigitalGlobe ones and new space missions like Planet in order to extract automatically objects.*
-
 - intercalibration of Landsat and Sentinel-2 data for longer-term dynamics
 
 - Cubesats @mccabeFutureEarthObservation2017
+*The years have also seen the birth of constellation with tens of micro EO satellites able to capture images of the Earth at an unprecedented pace. One image per day and maybe more is no more a chimera like it was in the early 2000 years. Constellation like Planet and Terra Bella/SkyBox (now merged Planetto Acquire Terra Bella from Google, Sign Multi-Year Data Contract, <https://www.planet.com/pulse/planet-to-acquire-terra-bella-from-google/>)offers HR and VHR data commonly with a business model based on subscription which is exactly focused on monitoring purposes. As shown before in (Adam Van Etter, 2016), there are several efforts in order to exploit data coming from traditional VHR missions like DigitalGlobe ones and new space missions like Planet in order to extract automatically objects.*
 
-- Level-2 Scene classification maps
+- \acs{L2A} \acf{SCM}
+
+
+It is important to find meaningful, comprehensive and standardised methods to characterise uneven distribution, variability and differences in data quality and spatio-temporal coverage for different \ac{EO} data sources and archives.
+
 
 # Reproducible EO-analysis
 
@@ -42,9 +42,26 @@ repeatability
 
 - spurious correlation in big earth data analysis -- archive characteristics, etc.
 
+
 # Data Cubes
 
+
 # Semantics
+
+
+# Privacy and monitoring
+
+- at least something about spatial resolution, temporal frequency and public vs. private sector
+- what is privacy in terms of regular global EO data collection?
+- maybe reference other kinds of big spatial data (e.g. Strava)
+
+
+# Energy Consumption
+
+There has been very little consideration concerning the computing power required for storage, handling and analysis of big Earth data, and where the energy comes to support such work. Some algorithms are considerably more computationally expensive, and the energy efficiency of different data centres is something that also is not taken into account [@whiteheadAssessingEnvironmentalImpact2014]. It is important to keep in mind that even if analysis is automated, happening in the cloud, on servers located somewhere else, that it is still consuming energy on infrastructure taking up physical space somewhere in the world. If the hope is to generate information to support initiatives such as the \acp{SDG}, looking more closely into the sustainability of various methods makes even more sense, perhaps even as a sort of metric to compare processes and algorithms that produce similar output.
+
+- optimising data used for anaylsis, e.g. selecting only relevant Sentinel-2 images and not the whole stack [@kempeneersOptimizingSentinel2Image2017]
+
 
 # Indicators
 
@@ -52,12 +69,6 @@ repeatability
 
 -- using semi-concepts in other ways
 Many new applications exist or are being envisioned for EO data cubes. These applications range from creating custom mosaics or composites (i.e. most recent cloud free over a user defined time span, seasonal composites), to various time-series analyses. Much research has been invested in looking at the dynamics of water. Surface water is a feature that can be relatively well discerned from other types of land cover, whether using radar or optical data sources.
-
-# Privacy and monitoring
-
-- at least something about spatial resolution, temporal frequency and public vs. private sector
-- what is privacy in terms of regular global EO data collection?
-- maybe reference other kinds of big spatial data (e.g. Strava)
 
 
 ## Livelihood-related Crisis Indicators \label{sec:livelihood}
@@ -105,6 +116,12 @@ Amount cultivated land/land ownership (HKI)
 pressures on natural Resources
 growing population
 environmental variability
+
+# Further Research Questions
+
+- What are some ways that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?
+
+- Development of methods that take into account the complexity for analysis, but more importantly, interpretation, based on the Vs of big data.
 
 
 #### Taken from elsewhere...

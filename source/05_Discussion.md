@@ -3,7 +3,7 @@
 \cleardoublepage
 \chapter{Discussion}\label{ch:discussion}
 
-This section attempts to look more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discusses finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the data and implementation methods.
+This section looks more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discusses finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the data and implementation methods.
 
 
 # Interpretation of Maps
@@ -48,7 +48,13 @@ world-weather.online.com
 unma.go
 
 
-## Discuss situation of implementation in larger Framework
+## Potential Connection to SDGs
+
+Aggregated time-series output was generated in the hopes of moving towards an automated workflow to supply information in the scope of the \acp{SDG} mentioned in \autoref{sec:framing}.
+
+Detection of visible surface water based on water-like semi-concepts.
+
+Detection of vegetation based on vegetion-like semi-concepts, that, with more complex queries or additional analysis methods (e.g. object-based image analysis), might be automatically categorised as being related to agriculture or a certain definition of a forest.
 - SDGs
 - open data
 - big earth data
@@ -56,10 +62,16 @@ unma.go
 - Reproducibility
 
 
-The concept of \ac{ARD} (***see*** section \ref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
+The concept of \ac{ARD} (*see* \autoref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
+
 
 ## Challenges
 
+- interpretation taking variability through time into account
+- calculating differences between seasons or years based on aggregated output (i.e. are they even comparable?)
+- periodicity (**draw graphics**) -- finding ways to characterise it or take it into account
+  - ability to give information about seasonality and dynamics (e.g. type of crop, harvest or mowing cycles, ...)
+- more complex queries (e.g. automated post-classification change detection)
 
 # Discussion of Data
 
@@ -232,6 +244,8 @@ intercalibration with Landsat exist [@liIntercalibrationDMSPOLS2017]
 
 # Research Questions
 
+This thesis aims towards answering the following questions:
+
 ## Context
 
 - What are some ways that \ac{EO} contributes or can be envisioned as contributing towards spatially-explicit evidence for \acp{SDG} indicators?
@@ -239,12 +253,12 @@ intercalibration with Landsat exist [@liIntercalibrationDMSPOLS2017]
 
 ## Implementation
 
-- Is it possible to download Sentinel-2 data and to automatically enrich it semantically?
+- Is it possible to automatically download Sentinel-2 data and automatically enrich it semantically?
 - Can all Sentinel-2 data available for a region be automatically incorporated in a semantically enriched data cube?
-- Is the current hardware sufficient for such an automated workflow and queries?
-- Are semi-concepts sufficient for ad-hoc semi-automated monitoring of vegetation and water dynamics over time?
+- Is the available hardware sufficient for such an automated workflow and queries within a reasonable execution time?
 - Is the \ac{ODC} software conducive to handling relatively simple semantic queries based on semi-concepts?
-- Can information generated from querying vegetation or water semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
+- Are semi-concepts sufficient for ad-hoc semi-automated monitoring of vegetation and water dynamics over time?
+- Can information generated from querying vegetation-like or water-like semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
 - How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?
 - What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?
 
