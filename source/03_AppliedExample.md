@@ -182,7 +182,7 @@ Re-formatting each Sentinel-2 scene on the current set-up takes roughly 1 minute
 
 ### SIAM™: generating information layers
 
-A batch script to run \ac{SIAM}™ is automatically generated that contains commands to process all newly acquired, re-formatted scenes. Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. An older example of 61 semi-concepts with broad descriptions and pseudo-colour representation can be seen in \autoref{fig:siam_61}.
+A batch script to run \acs{SIAM}™ is automatically generated that contains commands to process all newly acquired, re-formatted scenes. Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. An older example of 61 semi-concepts with broad descriptions and pseudo-colour representation can be seen in \autoref{fig:siam_61}.
 
 ![Semi-concept example with a granularity of 61, represented by pseudo-colours [@baraldiSatelliteImageAutomatic2018] \label{fig:siam_61}](source/figures/siam61.png)
 
@@ -195,7 +195,7 @@ The additional information layers included in the applied example include a:
 
 \graffito{It takes ~4-5 minutes to process one scene.}
 
-Processing of each Sentinel-2 scene takes roughly 4-5 minutes on the current set-up. \ac{SIAM}™ in its current implementation runs on only one \ac{CPU}, which makes it great to have multiple instances running in parallel. The initial processing of 450 Sentinel-2 scenes in December 2017 was completed within one evening by having 10 different instances run simultaneously. Finding other ways to improve the performance of this software is outside the scope of this thesis.
+Processing of each Sentinel-2 scene takes roughly 4-5 minutes on the current set-up. \acs{SIAM}™ in its current implementation runs on only one \ac{CPU}, which makes it great to have multiple instances running in parallel. The initial processing of 450 Sentinel-2 scenes in December 2017 was completed within one evening by having 10 different instances run simultaneously. Finding other ways to improve the performance of this software is outside the scope of this thesis.
 
 
 ### ODC: indexing images and information layers
@@ -244,4 +244,4 @@ The Jupyter notebook used to query the cube and produce output is largely based 
 
 ![Screenshot of one of the Jupyter notebooks used, including some of the functions primarily developed by @ceos-seoDataCubeNotebooks2017. This shows the spatio-temporal extent of the data cube in the metadata report, as well as the spatial extent in the small map. Author's illustration. \label{fig:jupyter_screen}](source/figures/jupyter_screenshot.tiff)
 
-Within the notebook, it takes around 90 seconds to connect to the ingested \ac{SIAM}™ information layer product. Following that initial, one-time connection, it all depends on what the user would like to do with the data and information within the data cube in terms of how long processing may take.
+Within the notebook, it takes around 90 seconds to connect to the ingested \acs{SIAM}™ information layer product. Following that initial, one-time connection, it all depends on what the user would like to do with the data and information within the data cube in terms of how long processing may take.

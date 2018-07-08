@@ -19,8 +19,9 @@ Extracting information from \ac{EO}-time-series is a challenging task due to the
 . reorganise acronymns
 - fix figure short titles
 - adjust funding to bottom of statement page
-- make sure SIAM always has a [TM]
-- time-series or "time series" ?
+. make sure SIAM™ always has a [TM]
+. time-series not "time series"
+. Python not python
 
 - PAAV meeting entries
 
