@@ -3,48 +3,39 @@
 \cleardoublepage
 \chapter{Conclusion}\label{ch:conclusion}
 
-- absolute distillation of achievements in max. 2 pages
 
-Extracting information from \ac{EO}-time-series is a challenging task due to the volume, velocity and variety of \ac{EO} images. The largest benefit of the semantic data cube implemented here is that it fully automates data acquisition, semantic enrichment and access to data ready for analysis. The generic, application-independent semantic enrichment utilised enables queries and \ac{EO}-based indicator extraction for many thematic tasks. Since the information layers (i.e. basis for semantic queries and analysis) continue to exist in the data cube and are stable concepts, given solid documentation on methods applied to data cube output, reproducible results and repeatable analysis ought to be possible.
+Extracting information from \ac{EO}-time-series is a challenging task due to the volume, velocity and variety of \ac{EO} images. The largest benefit of the semantic data cube implemented here is that it fully automates data acquisition, a certain level of semantic enrichment and access to data ready for analysis. The generic, application-independent semantic enrichment utilised enables queries and \ac{EO}-based indicator extraction for many thematic tasks. Since the information layers (i.e. basis for semantic queries and analysis) continue to exist in the data cube and are stable concepts, given solid documentation on methods applied to data cube output, reproducible results and repeatable analysis ought to be possible. This could be particularly relevant for supporting global initiatives with information based on data collected independent of political borders and in a constant, unbiased way. Just because the data can be considered unbiased does not mean that the information generated from it is unbiased, or that it will be used in a way that it not misleading.
 
-- answer research questions?
+The contribution and innovation presented in this thesis is the automated set-up of a semantic data cube. This contrasts to most other existing implementations because it stores information and data together in an analysis-ready way, allowing ad-hoc multi-temporal, spatial and semantic queries and supporting reproducible results. However, it is not only the technical implementation, rather also an initial exploration of some of the challenges of working with dense time-series of \ac{EO} data over larger spatial areas. These challenges are posed by qualities characteristic of big Earth data, more broadly.
+
+Developing methods to extract reliable indicators from big \ac{EO} sources is one way to leverage the potential these data have to offer. The ad-hoc queries that can be conducted using this implementation can hopefully offer meaningful information to support international initiatives. They can hopefully produce information about visible land cover changes through or utilising time instead of controlling for it. Exploratory outputs exemplarily showing dynamics of surface water and vegetation based on water- and vegetation-like pixels, based on semi-concepts, are presented and situated in the scope of the \acp{SDG}.
 
 
 ##### TODO
-- update colour syntax for different languages
+- update colour syntax for different languages in listings
 - check all sources for formatting
   - especially news references in applied example
-- cite EO-compass
-- insert Sentinel-2 image in back
-- fix figure short titles
+- fix figure short titles, if possible in markdown
 - EO-Compass citation
 - GI_Forum citation
 - remove Uni logo from title page
+- add Sentinel-2 image before colophon
+- CHANGE TITLE
+
+- PAAV meeting entries
+- Prüfungspass
+
+- either finish or remove further research questions
+- finish conclusion
+- abstract
+- translate abstract
+
+
+##### DONE (but might need to be re-checked)
 . edit scripts for print
 . adjust funding to bottom of statement page
 . make sure SIAM™ always has a [TM]
 . time-series not "time series"
 . Python not python
 . fix water and veg 3yr map title
-. reorganise acronymns
-
-
-- PAAV meeting entries
-- Prüfungspass
-
-
-- discussion
-- conclusion
-- abstract
-- translate abstract
-
-
-## GI_Forum extract
-
-Data cubes are on the rise as a viable solution for remotely sensed big EO data storage and analysis. They allow users to access the same pre-processed data, supporting reproducible analysis, and facilitate analysis using dimensions beyond the spatial (e.g. time) as additional axes in the data cube.
-
-The innovation presented here is the set-up of a semantic data cube, which, in contrast to existing data cubes, stores information together with the data, thus allowing ad-hoc semantic queries. This is made possible via a fully automated workflow, including generic semantic enrichment of data to information layers, which adds this functionality to the ODC. Exemplarily shown is utilisation of the semantic data cube for a surface water dynamics extraction in a use case located in Syria. Due to the generic approach, the same pre-processed data can be queried without changes for other EO-based indicator extraction in a wide variety of thematic domains. This avoids application and data specific classification algorithms as commonly proposed in recent open data cube literature. With the availability of free and open spatially and temporally high resolution data, we are expecting a general movement away from bi-temporal change analysis to change through or utilising time rather than controlling for it, as has been seen in EO-data analysis up to now. This implementation enables multi-temporal queries and analysis.
-
-Indicator development based on dense EO time-series, or seasonal slices, is the next step to leveraging the potential of EO data, especially as data sources, such as Sentinel-2, are collected over more than just a few years’ time. Indicator extraction is necessary because the reflectance is only a proxy for detecting and identifying objects. This implementation can assist in detecting, monitoring, quantifying and even discovering new visible land cover dynamics and processes (e.g. meandering rivers, impermanent lakes, irrigated agriculture patterns, uncharacteristic vegetation removal), and offer evidence for supporting the requirements, actions and goals of multiple existing global initiatives.
-
-The exploitation of the value of Big Earth Data involves automation, pre-processing, on-demand querying and compelling visualisation of the results. Massive processing power in the cloud and fast network connection is required, but not sufficient. Automation of intelligent workflows leading to pre-processing of data are important drivers for on-demand and ad-hoc querying to extract information in real time. Semantically enriched data allow also unexperienced users to formulate queries by means a high-level declarative language. Instead of having to translate an algorithm into software code manually, the query will be evaluated by the system and transformed into optimised physical access patterns. This approach can be realised by automatic (application independent) semantic enrichment of \ac{EO} images in Big \ac{EO} image databases, which are therefore “prepared” and “ready” for application specific queries in distributed array databases (with a declarative query language and a query optimiser). This approach avoids redundancy in data handling and repeated data (pre-) processing. The feasibility of this approach has been proven by Tiede et. al. [2016].
+. alphabetise most acronymns (except units of measure)

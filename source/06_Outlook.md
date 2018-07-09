@@ -6,205 +6,75 @@
 \cleardoublepage
 \chapter{Outlook}\label{ch:outlook}
 
-- Outlook/further considerations/prospects – other indicators
+In the course of working on this thesis, many more questions were generated than could possibly be considered, explored or answered. If nothing else, the largest gift of having worked on this topic, beyond improving scripting skills, was waking a curiosity and interest about the distribution, variation, variability and uncertainty in multi-temporal \ac{EO} analysis and archives that cover relatively large spatial extents. In the era of big Earth data, it is increasingly important to have meaningful, comprehensive and standardised methods to characterise uneven distribution, uncertainty and variability and variation in data quality and spatio-temporal coverage for different \ac{EO} data sources and archives. Certain types of analysis and algorithms are not transferable to different geographic areas, sensors, moments in time, seasons, etc. This curiosity will likely shape any future work that I do, even if it is not the main focus.
 
 
-# Data
+# Data and Analysis
 
-- trend of free and open-access data
-- set-backs due to proprietary algorithms in "open" data
-- ARD
-- better spatial resolutions and more frequent observations
+The trend towards more free and open data has been steadily getting stronger. Methods exist for intercalibrating Sentinel-2 and Landsat data [@liIntercalibrationDMSPOLS2017], which may also expand possibilities for analysis over longer temporal extents and assessing relatively slower processes and trajectories. The challenges for using two different data sources with similar but not identical sensors will produce different levels of uncertainty, and different distributions of acquisitions through time that analysis is based on. These differences are only masked by proprietary algorithms that obscure what kinds of pre-processing have been conducted, and how that may differ through space and time based on the availability of auxiliary data or changes to processing baselines over time.
 
-- incorporation of additional cloud masks, such as Fmask [@zhuObjectbasedCloudCloud2012], as long as they work well with Sentinel-2 data, which lacks thermal bands.
+It will be interesting to see if a standardised baseline definition of \ac{ARD} is developed in the months or years to come. The concept of \ac{ARD} (*see* \autoref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined extents and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
 
-- incorporation of other sensors, such as Landsat
+We are likely to see finer spatial resolutions and more frequent observations, even if the data is not free and open (e.g. cubesats [@mccabeFutureEarthObservation2017]), which will open completely new possibilities. This influx of even more frequent, high- to very-high-resolution data will not solve most of the problems faced by \ac{EO} researchers, though. That challenge is still largely framed in turning data into meaningful information in an automated way so that this data deluge can be utilised rather than just stored somewhere.
 
-It would be fantastic to have automated workflows that provide a generic data cube containing all existing and up-to-date data ready for the analysis of defined indicators, but not limited to that purpose.
+Object-based image analysis may be one set of methods to turn higher-resolution images into meaningful information when paired with semantics. As seen in the output generated in {ch:proof}, recognisable structures are very clearly visible, but cannot be utilised in a machine-readable way in the current implementation. Incorporating some form of iterative, reproducible segmentation to output, or coding characteristics of the neighbourhood around a pixel into an array as an additional information layer, would allow for contextual, spatial information to be utilised (e.g. neighborhood, shape, size, texture). This would could be a step further in the direction of automated detection of specific land cover classes, where shape and context are important for making the distinction between some natural and human-made features. For example, methods could be developed to automatically detect and discern a certain definition of forest-like objects (as seen in (b) and (c) in \autoref{fig:3yr_veg_water_norm_close1}) from what are clearly agricultural fields in \autoref{fig:3yr_veg_norm_close1}).
 
-
-- intercalibration of Landsat and Sentinel-2 data for longer-term dynamics
-
-- Cubesats @mccabeFutureEarthObservation2017
-*The years have also seen the birth of constellation with tens of micro EO satellites able to capture images of the Earth at an unprecedented pace. One image per day and maybe more is no more a chimera like it was in the early 2000 years. Constellation like Planet and Terra Bella/SkyBox (now merged Planetto Acquire Terra Bella from Google, Sign Multi-Year Data Contract, <https://www.planet.com/pulse/planet-to-acquire-terra-bella-from-google/>)offers HR and VHR data commonly with a business model based on subscription which is exactly focused on monitoring purposes. As shown before in (Adam Van Etter, 2016), there are several efforts in order to exploit data coming from traditional VHR missions like DigitalGlobe ones and new space missions like Planet in order to extract automatically objects.*
-
-- \acs{L2A} \acf{SCM}
-
-
-It is important to find meaningful, comprehensive and standardised methods to characterise uneven distribution, variability and differences in data quality and spatio-temporal coverage for different \ac{EO} data sources and archives.
-
-
-# Reproducible EO-analysis
-
-transferability
-
-repeatability
-
-- spurious correlation in big earth data analysis -- archive characteristics, etc.
-
-
-# Data Cubes
-
-
-# Semantics
-
-
-# Privacy and monitoring
-
-- at least something about spatial resolution, temporal frequency and public vs. private sector
-- what is privacy in terms of regular global EO data collection?
-- maybe reference other kinds of big spatial data (e.g. Strava)
+Incorporation of additional cloud and cloud-shadow algorithms (e.g. Fmask [@zhuObjectbasedCloudCloud2012]) could be considered to include in an implementation like the one presented in this thesis. However, if Sentinel-2 is the main data source, a lack of thermal bands will continue to make this task a challenging one.
 
 
 # Energy Consumption
 
-There has been very little consideration concerning the computing power required for storage, handling and analysis of big Earth data, and where the energy comes to support such work. Some algorithms are considerably more computationally expensive, and the energy efficiency of different data centres is something that also is not taken into account [@whiteheadAssessingEnvironmentalImpact2014]. It is important to keep in mind that even if analysis is automated, happening in the cloud, on servers located somewhere else, that it is still consuming energy on infrastructure taking up physical space somewhere in the world. If the hope is to generate information to support initiatives such as the \acp{SDG}, looking more closely into the sustainability of various methods makes even more sense, perhaps even as a sort of metric to compare processes and algorithms that produce similar output.
+There has been very little consideration concerning the computing power required for storage, handling and analysis of big Earth data, and where the energy comes to support such work. Some algorithms are considerably more computationally expensive, and the energy efficiency of different data centres is something that also is not taken into account [@whiteheadAssessingEnvironmentalImpact2014]. It is important to keep in mind that even if analysis is automated, happening in the cloud, on servers located somewhere else, that it is still consuming energy on infrastructure taking up physical space somewhere in the world. Clouds are very much of this world. If the hope is to generate information to support initiatives such as the \acp{SDG}, looking more closely into the sustainability of various methods makes even more sense, perhaps even as a sort of metric to compare processes and algorithms that produce similar output.
 
-- optimising data used for anaylsis, e.g. selecting only relevant Sentinel-2 images and not the whole stack [@kempeneersOptimizingSentinel2Image2017]
-
-
-# Indicators
-
-- big Earth data and SDGs
-
--- using semi-concepts in other ways
-Many new applications exist or are being envisioned for EO data cubes. These applications range from creating custom mosaics or composites (i.e. most recent cloud free over a user defined time span, seasonal composites), to various time-series analyses. Much research has been invested in looking at the dynamics of water. Surface water is a feature that can be relatively well discerned from other types of land cover, whether using radar or optical data sources.
+Another possibility is to not get lost in an ocean of data, but rather to optimise data used for a given analysis by selecting only relevant Sentinel-2 images and not the whole stack [@kempeneersOptimizingSentinel2Image2017] -- perhaps some information is lost, but perhaps the trade-off for reduced computation time and resources is worth it, especially if the methods for choosing data can be documented and reproduced.
 
 
-## Livelihood-related Crisis Indicators \label{sec:livelihood}
+# Reproducible EO-analysis
 
-Further exploration into indicators for crisis, whether natural disasters or man-made conflicts, is an expanding field of research, including the development of automated methods for pro-longed monitoring of areas. Indicators based on high resolution data have been envisioned for detecting or monitoring burnt villages; informal urban growth; the development or growth of refugee or \ac{IDP} camps (Wang et al. 2015) and their impact on the surrounding environment; changes in activity (e.g. new infrastructures such as roads or air fields); illicit crop establishment and growth (e.g. opium cultivation in Afghanistan); environment degradation; flood assessment or visible changes to water bodies; changes or loss of agricultural areas; deforestation or reforestation; and visible climate change or extreme weather event artefacts.
+Some concepts of reproducibility were mentioned in \autoref{sec:reproducibility}, but how they specifically apply to \ac{EO}, especially in the era of big Earth data, is an area of continued research. Hopefully we will see in increase in reproducible computing environments used to access and process data. This will hopefully include not just language-spcecific virutal environments, but reproducible, containerised environments including all dependencies, such as Docker containers.
 
-
-- how can livelihood be addressed from an indicator perspective…
-- some non-\ac{EO} livelihood security indicators (existing or envisioned in literature)
-- existing or envisioned \ac{EO}-based livelihood indicators or sources of evidence
-- lack of definition for crisis -- links to emergency management in a changing climate or more immediate changes/impacts
-
-\ac{EO} data is not only useful for monitoring longer-term international goals, but also for generating spatially-explicit evidence for assessing the impact of events producing rapid change, such as flooding, deforestation, wildfires, damage to irrigation infrastructure in the dry season, etc.
-
-Free and open \ac{EO} data are a reliable and objective global data source that can also serve humanitarian organisations and initiatives in moments of emergency or crisis, however defined. A handful of research with the purpose of developing what are known as *crisis indicators* exists, utilising \ac{EO}-based information. The term "crisis" is, however, very loosely defined and quite subjective, since the definition is related to what is being affected and who or what it impacts. Connecting detectible changes in land cover or land use as being caused or related to a defined crisis requires a lot of inference, and various additional data sources for validation, which may not be available at the time of analysis due to limitations and restrictions to data collection, access, etc. associated with the identified crisis.
-
-Livelihood-specific Evidence
-
-1. economic size, growth and distribution (using luminosity)
-2. population size, growth and distribution
-3. differences in geographic endowments (water, farmland, natural resources, etc.) -- affect on supply of public goods
-4. size and growth of cities, their legal and illegal parts, slums, distribution of infrastructure and economic activity, etc.
-5. density and quality of road networks
-6. size, quality and change of land plots
-7. weather, climate, droughts, crop failures, food shortages, etc. potential disasters
-8. infrastructure that could prevent natural disasters
-9. forced displacement, razed villages, mass graves
-10. humanitarian responses to disasters and conflicts
-11. illegal crops (e.g. drugs)
-12. reconstruction activity after conflict (e.g. build up of infrastructure)
-
-Land degradation -- Long-term multi-temporal vegetation analyses (large scale analysis using Sentinel-2 data,
-Loss of agricultural areas -- Long-term multi-temporal vegetation analyses (Hot spot analysis using Sentinel-2 data
-Flood impact -- Long term probability of flooding impact on agriculture areas, accessibility
-Power shortage -- Night-time light detection.
+Not everyone that works with \ac{EO} data has the chops to configure reproducible computing environments, or work exclusively with open-source software, which sometimes requires users to be a bit more tech-savy by not hiding all functionality behind some sort of \ac{GUI}. However, everyone can produce better documentation. Initiatives such as Zenodo and \ac{OSF} are providing free and open online frameworks and tools to better document the entire research process, including conception, collaboration, coding, documentation, communication of results and publications with long(er)-term storage with persistent links. I have never been one to keep a journal, but getting into the habit of documenting what you do thoroughly and consistently in a public forum is a good habit for anyone to develop, especially in the service of improving the reproducibility of the methods and results you produce.
 
 
-- crop cycles (measure periods of seasonal stress -- low harvest)
-- contribute spatially explicit information to existing vulnerability/risk/hazard assessment methods
+# Data Cubes
+
+I am convinced that data cubes are going to increase in use in years to come. Bringing new people to using them in data storage, access and analysis will lead to innovation in methods and more. Currently data cubes are defined as massive multi-dimensional gridded arrays. What could happen if we moved beyond the restricting confines of pixels or regular grids? What could objects look like in a data cube implementation?
 
 
-Cropping intensity (FAO)
-Amount cultivated land/land ownership (HKI)
+# Privacy and monitoring
 
-pressures on natural Resources
-growing population
-environmental variability
+What does privacy look like in the context of regular, constant, global \ac{EO} data collection?
+
+How has the legal and policy world been dealing with issues surrounding optical \ac{EO} data with increasing spatial resolution and temporal frequency?
+
+Is there a code of ethics or conduct that exists for the use of free and open \ac{EO} data and the information derived from it? (Probably not, but would one make sense?)
+
+
+# Livelihood-related Crisis Indicators \label{sec:livelihood}
+
+The broad framing of the proof-of-concept examples was situated in the context of the \acp{SDG}. However, the scope of the \acp{SDG} may officially only reach until 2030, but the larger drive is longer-term. Due to the relatively high-frequency of acquisitions in comparison to what was available in the past, many new applications exist or are being envisioned for \ac{EO} data cubes. One of these is related to situational awareness and providing more immediate information for livelihood-related crisis indicators, whether related to natural disasters or man-made conflicts. \ac{EO} data is not only useful for monitoring longer-term international goals, but also for generating spatially-explicit evidence to better assessing the impact of events producing more rapid change, such as flooding, deforestation, wildfires, damage to irrigation infrastructure in the dry season, etc.
+
+A struggle with this line of research is that "crisis" is a very subjective, yet sometimes very tangible concept or state of being. The concept of "crisis" is related to what is being affected, who or what it impacts and who or what the actors are. People can speak of an "immigration crisis", but what does that mean? And if it means closing borders and keep those people who have left their homes to wait at the border of another country in a potentially longer-term state of crisis, I am not sure it matters what it means.
+
+Focusing on livelihood frames the very ambiguous concept of crisis in, perhaps, more tangible terms. The concept of "crisis" has a longer history connect to emergency management, but these are usually state-sponsored services with links to the military industrial complex. Free and open \ac{EO} data have offered a potential source of information that was previously limited to state and military actors.
+
+Free and open \ac{EO} data are a reliable and objective global data source that can also serve humanitarian organisations and initiatives in moments of emergency or crisis, however defined. A handful of research with the purpose of developing what are known as *crisis indicators* exists, utilising \ac{EO}-based information. Connecting detectible changes in land cover or land use as being caused or related to a defined crisis requires a lot of inference, and additional data sources and knowledge for validation, which may not be available at the time of analysis due to limitations and restrictions to data collection, access, etc. associated with the identified crisis. In this sense, an implementation like the one presented in this thesis might be useful, but could also generate information that is misleading in moments where reliable information is absolutely necessary. Further research is necessary to assess what kinds of indicators and information are most useful to humanitarian organisations, including the level of reliability is acceptable and that can be offered.
+
 
 # Further Research Questions
 
-- What are some ways that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?
 
-- What are existing methods that take into account the spatio-temporal complexity and variability in analysis, but more importantly, interpretation, based on the Vs of big data?
+*What are some ways that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?*
 
-For example, some methods do exist for looking at spatio-temporal accuracy (https://www.sciencedirect.com/science/article/pii/S0303243415000975#fig0015), but they still require producing a map for each time-step, which, in the case of big \acs{EO} could mean hundreds, if not thousands of scenes. It is also important to develop methods to characterise the overall archive from which data originates, so that other researchers can situate the analysis at hand within a larger context. Certain types of analysis and algorithms will not be transferable to different geographic areas, sensors, moments in time, seasons, etc.
+*What are some existing measures of spatio-temporal confidence for \ac{EO} analysis over dense time-series?
 
-- intercalibration with Landsat
-Sentinel-2 data is only available starting June 2015, so comparison to pre-conflict images are only available from Landsat, which is beyond the scope of this thesis, even if methods for intercalibration exist [@liIntercalibrationDMSPOLS2017]. However, as previously mentioned, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 definitely caused land cover change, but limits the ability to attribute changes to possibly being related to conflict.
+*What are existing methods that take into account the spatio-temporal complexity and variability in analysis, but more importantly, interpretation, based on the Vs of big data?*
 
-- contrast to results produced in the I3 project -- simple change between two images. These analysis methods open the door to being able to characterise temporal variability.
+For example, some methods do exist for looking at spatio-temporal accuracy (<https://www.sciencedirect.com/science/article/pii/S0303243415000975#fig0015>), but they still require producing a map for each time-step, which, in the case of big \acs{EO} could mean hundreds, if not thousands of scenes.
 
-- inclusion of some measure of confidence for observations []
-
-- important also to know "when" changes happen, especially over longer aggregated indices -- what was the longest duration of time a concept was observed as being stable (however defined), how frequently did the semi-concept change to a concept considered different for the intended analysis
-
-- output cannot be validated in big data domains -- validation of methods and source data.
 
 - is aggregated time-series output from different years or seasons comparable?
 - how could comparability be quantified, characterised or explored?
 - what spatio-temporal methods exist that could offer a way to test the statistical significance of changes or differences based on an aggregated time-series of scenes, like those generated for Afrin?
 - is big data too big for traditional statistical measures to have meaning?
-- What semi-concepts are difficult?
-- What doesn't work?
-
-
-the structure of objects that can be discerned using object-based image analysis methods could offer additional information that could be utilised, not only the aggregated normalised per-pixel value of semi-concept occurrence. Such techniques and methods could incorporate other spatial concepts (e.g. neighborhood, shape, size, texture) and move further in the direction of automated detection of specific land cover classes. For example, methods could be developed to automatically detect and discern a certain definition of forest-like objects (as seen in (b) and (c) in \autoref{fig:3yr_veg_water_norm_close1}) from what are clearly agricultural fields in \autoref{fig:3yr_veg_norm_close1}).
-
-## Pixel-based Analysis
-- pixel-based vs. OBIA
-
-In the other direction, pixels are also only representations of what a sensor captures. Moving beyond the constrictions related to pixels
-
-
-## Repeatability and Reproducibility
-- implementation
-- importance of keeping all data used
-- Queries and results
-- Python environments
-- Jupyter Notebooks
-- open documentation in a framework such as OSF
-
-[@corbaneMonitoringSyrianHumanitarian2016] conducted analysis using Google Earth Engine in order to ensure reproducibility. *Called GEE an open-source platform*
-
-
-The concept of \ac{ARD} (*see* \autoref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
-
-
-## Transferability
-- can similar evidence be generated in other parts of the world?
-- with other data/sensors?
-- other spatial resolutions or temporal acquisition frequencies?
-- other kinds of semantic enrichment?
-- knowledge-based vs. sample-based algorithms
-
-
-intercalibration with Landsat exist [@liIntercalibrationDMSPOLS2017]
-
-
-
-#### Taken from elsewhere...
-
-Lower spatial, but higher temporal and spectral resolution and the larger areas covered require a higher degree of automation in information extraction using automated-prior-knowledge based classification procedures ready for Big Earth Data as well as a shift from "direct" information extraction to indicator approaches
-
-Highly automated large-scale indicator extraction
-Combination of prior-knowledge based parameter free classification procedures in combination with automatic change detection methods – aiming for fully automated workflows ready for big data.
-
-With regards to Earth Observation, the “free, full and open data” policy promoted by Copernicus and GEOSS, has enabled the emergence of the “Big Earth Observation Data” era, whereby large volumes of data received each day from different sensors on-board satellites (especially Sentinel and Landsat constellations) can be exploited towards the delivery of timely information in support of decision making and operations for users requiring fast responses. The challenge in the case of this unprecedented opportunity is no longer related to accessing the data but rather to the effective and efficient extraction of the wealth of available information it offers.
-- supporting situational awareness for emergency responders and other actors on the ground;
-- analysing indirect impacts of global trends such as demographic changes, environmental degradation, climate change, and land issues related to conflicts;
-- monitoring the state and vulnerability of natural strategic assets and critical infrastructures as a given crisis develops;
-
-In such a way EO is now providing stacks of observations, providing persistent monitoring over a region (persistent meant as continuing in time with suitable sampling to detect variability patterns); such datasets represent a big challenge in terms of analysis, demanding for the application of automated analytic technologies to derive meaningful information (Big Space Data).
-
-Extracting information from time-series is difficult due to the volume, velocity and variety of EO images.
-
-Different sensors, different acquisition times or dates and the variety of characteristics of natural phenomena adds additional complexity.
-
-The development of new methods, which are going beyond traditional change detection, are on its way: Usually change detection is conducted as a pairwise comparison of EO images (Singh 1989, Petitjean et al. (2012), Guyet and Nicolas (2016)). In contrast, long EO image time-series analyses – needed for constant monitoring purposes - aim at classifying and analysing the trajectory of radiation at a location on the Earth (Petitjean et al. 2012). Both have in common that they require significant change of detectable radiance values between images that are due to real and actual changes on the Earth’s surface (Singh 1989). In addition, algorithms for big EO data analysis need near full automation to be applicable and usable on the large amount of data sets. Today techniques, methods, and tools, for automated data analysis are often insufficient for the automated analysis and information extraction from big EO data sources, but interesting approaches to tackle processing and new data storage solutions are proposed.
-
-Anyway, the paradigm of object-based image analysis (OBIA) extends the traditional per-pixel based image classification approaches that rely only on the spectral information per single pixel. OBIA enables the incorporation of geometry and expert knowledge on top of traditional spectral values and this allow to improve for example classification by using existing knowledge available for example as OSINT.
-
-One main point is the aspect that current high-resolution sensors “significantly increase the within-class spectral variability and, therefore, decrease the potential accuracy of a purely pixel-based approach to classification” (Blaschke et al., 2014, RD44). This point is even more valid for the task of analyzing large amounts of remotely sensed data incorporating information from a variety of other sources into the analysis which is the case of the study of migration where EO is not the only source of information. This issues can be mitigated by considering time-series as the starting point. In fact, time-series analysis and especially the detection of changes can be very useful as a source of information to be used in spatial analysis models used to detects possible hot spots from EO data especially from SAR time-series and VHR time series.
-
-Also HR multi-spectral imagery, particular indexes such as NDVI can be monitored over long time-series (using historical data) in various ways in order to assess food security at scales which can be useful to analyze local or small scale migration phenomena. This information can be added to common large scale reports provided normally by organisations like FAO (e.g. http://www.fao.org/hunger/en/).
-
-Change detection maps of an area of interest can be used to trigger further, more in-depth analysis. A first screening of potential anomalous changes is needed to focus more expensive and time-consuming actions, e.g. analysis with restricted-access data and in-situ monitoring. Based on optical data series, change detection in the scene can be still semi-automatically performed. In this case, robust approaches are needed for the modelling of the disturbance affecting the radiances/reflectances between different acquisition times due to calibration, residual solar contributions, surfaces not fully Lambertian, and geolocation or coregistration errors. Many of these disturbance can be overpassed by considering the new Sentinel-2 mission which guarantees the acquisition over a scene with similar illumination conditions and geometrical line lie of sight.
-
-improve situational awareness as well as regular, temporal monitoring and identification of changes.
-Data with lower spatial resolutions can be exploited by moving away from "direct" information extraction towards indicator-based approaches.
+- What semi-concepts are difficult or particularly semantically ambiguous even if they look alike?

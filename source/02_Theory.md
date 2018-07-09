@@ -119,7 +119,7 @@ Exactly what constitutes a data cube and related standards are currently under d
 @baumannDatacubeManifesto2017 claim that by following their identified requirements, massive, gridded, spatio-temporal data stored in data cubes becomes analysis-ready. In the case of \ac{EO} data, this also requires necessary pre-processing, as mentioned in \autoref{sec:ARD}. Data cubes might be increasingly common in the future of \ac{EO} data storage, access and analysis.
 
 
-## Reproducibility
+## Reproducibility \label{sec:reproducibility}
 
 Reproducibility is one of the fundamental meta-concepts in science, the basis of the scientific method. It is not just about reproducing an experiment or a result, but also increasing the transparency of processes leading to its outcome. At the time of writing, scientific reproducibility in \ac{EO} analytics has not been comprehensively studied.
 

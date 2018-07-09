@@ -107,7 +107,7 @@ Various challenges in interpreting the output were already mentioned, but here i
 
 # Discussion of Data
 
-The only data used in this implementation were Sentinel-2 \ac{L1C} data, and information layers generated from them. For detecting objects larger than 8 pixels (e.g 800\acs{m}²) the 10\acs{m} resolution is likely sufficient.
+The only data used in this implementation were Sentinel-2 \ac{L1C} data, and information layers generated from them. For detecting objects larger than 8 pixels (e.g 800\acs{m}²) the 10\acs{m} resolution is likely sufficient. It could be that output might not be able to be validated in big data domains, but that means that there is an even stronger need for proper validation of methods and source data.
 
 
 ## ESA Cloud-Masks
