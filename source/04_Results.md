@@ -112,7 +112,7 @@ These results took approximately 10 minutes for each year to cover Afrin, includ
 
 ---
 
-![(a): the spatial extent of the queried; (b,c and d): the number of acquisitions available from 1 May to June 15 in each of the years. 2018 has considerably more acquisitions because Sentinel-2B became operational in the months following June 2017.  \label{fig:afrin_valid_total}](source/figures/maps/afrin_valid_total.png)
+![(a): the spatial extent of the queried; (b, c and d): the number of acquisitions available from 1 May to June 15 in each of the years. 2018 has considerably more acquisitions because Sentinel-2B became operational in the months following June 2017.  \label{fig:afrin_valid_total}](source/figures/maps/afrin_valid_total.png)
 
 ![The number of clean pixels available for 1 May to 15 June in each year. Artefacts from cloud-like semi-concepts and surfaces with a higher reflectance can be seen, but also the overlapping swaths. The city of Aleppo is located in the lower right corner. \label{fig:afrin_veg_clean}](source/figures/maps/afrin_veg_clean.png)
 

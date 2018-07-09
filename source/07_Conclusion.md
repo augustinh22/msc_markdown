@@ -11,23 +11,28 @@ Extracting information from \ac{EO}-time-series is a challenging task due to the
 
 
 ##### TODO
-. edit scripts for print
 - update colour syntax for different languages
 - check all sources for formatting
   - especially news references in applied example
 - cite EO-compass
-. reorganise acronymns
+
 - fix figure short titles
-- adjust funding to bottom of statement page
+- EO-Compass citation
+- GI_Forum citation
+- remove Uni logo from title page
+. edit scripts for print
+. adjust funding to bottom of statement page
 . make sure SIAM™ always has a [TM]
 . time-series not "time series"
 . Python not python
+. fix water and veg 3yr map title
+. reorganise acronymns
+
 
 - PAAV meeting entries
+- Prüfungspass
 
 
-- generate maps
-- results
 - discussion
 - conclusion
 - abstract

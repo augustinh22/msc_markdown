@@ -121,8 +121,23 @@ environmental variability
 
 - What are some ways that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?
 
-- Development of methods that take into account the complexity for analysis, but more importantly, interpretation, based on the Vs of big data.
+- What are existing methods that take into account the spatio-temporal complexity and variability in analysis, but more importantly, interpretation, based on the Vs of big data?
 
+For example, some methods do exist for looking at spatio-temporal accuracy (https://www.sciencedirect.com/science/article/pii/S0303243415000975#fig0015), but they still require producing a map for each time-step, which, in the case of big \acs{EO} could mean hundreds, if not thousands of scenes. It is also important to develop methods to characterise the overall archive from which data originates, so that other researchers can situate the analysis at hand within a larger context. Certain types of analysis and algorithms will not be transferable to different geographic areas, sensors, moments in time, seasons, etc.
+
+- intercalibration with Landsat
+Sentinel-2 data is only available starting June 2015, so comparison to pre-conflict images are only available from Landsat, which is beyond the scope of this thesis, even if methods for intercalibration exist [@liIntercalibrationDMSPOLS2017]. However, as previously mentioned, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 definitely caused land cover change, but limits the ability to attribute changes to possibly being related to conflict.
+
+- contrast to results produced in the I3 project -- simple change between two images. These analysis methods open the door to being able to characterise temporal variability.
+
+- inclusion of some measure of confidence for observations []
+
+- important also to know "when" changes happen, especially over longer aggregated indices -- what was the longest duration of time a concept was observed as being stable (however defined), how frequently did the semi-concept change to a concept considered different for the intended analysis
+
+- output cannot be validated in big data domains -- validation of methods and source data.
+
+
+the structure of objects that can be discerned using object-based image analysis methods could offer additional information that could be utilised, not only the aggregated normalised per-pixel value of semi-concept occurrence. Such techniques and methods could incorporate other spatial concepts (e.g. neighborhood, shape, size, texture) and move further in the direction of automated detection of specific land cover classes. For example, methods could be developed to automatically detect and discern a certain definition of forest-like objects (as seen in (b) and (c) in \autoref{fig:3yr_veg_water_norm_close1}) from what are clearly agricultural fields in \autoref{fig:3yr_veg_norm_close1}).
 
 #### Taken from elsewhere...
 

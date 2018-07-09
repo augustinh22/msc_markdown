@@ -3,139 +3,76 @@
 \cleardoublepage
 \chapter{Discussion}\label{ch:discussion}
 
-This section looks more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discusses finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the original Sentinel-2 data and implementation methods.
+This section looks more closely at the proof-of-concept results provided in \autoref{ch:proof} derived exclusively from a dense time-series of automatically semantically enriched Sentinel-2 scenes. Finer details pertaining to the data, design decisions and methods used, including challenges faced along the way are explored. It is structured in a way that separates the output of the system from the original Sentinel-2 data and implementation methods.
 
 
 # Interpretation of Maps
 
-- Discuss relevance of results in context of validation/validity
+Interpreting aggregated time-series output from this implementation is not as easy as one might think. The aggregated time-series results can be visualised in one layer, but are just one representation of complex processes, events, etc. Spatial statistical methods exist for assessing variability in space, but the output here has a temporal dimensions as well as at least one semantic or thematic dimension. Finding ways to visualise and incorporate different temporal variability and distribution, as well as different levels of confidence in semi-concept fitness for a given query or application are points that need to be explored further, and are ultimately outside the scope of this thesis.
 
-- include all 4 maps (index of persistence, total clean, total valid, number of invalid) -- discuss this as a way to better interpret the complexity of the result.
+It is clear that not very much geospatial information open to the public, not to mention an English-speaking public, has been coming out of Syria over the past many years. That aside, there are very few datasets that exist anywhere in the world that can reasonably be used to check for validity or agreement of results that have a 10\acs{m} spatial resolution over 30,000\acs{km}², not to mention with a similar density or temporal frequency.
 
-- important also to know "when" changes happen, especially over longer aggregated indices -- what was the longest duration of time a concept was observed as being stable (however defined), how frequently did the semi-concept change to a concept considered different for the intended analysis
+Free and open vector datasets (e.g. OpenStreetMap data, national data) might be helpful when a query is about determining the extent of certain objects at moments in time, or on average (e.g. water bodies, national forests). However, when it comes to assessing the dynamics of a particular kind of land cover (e.g. surface water dynamics), there is very little that exists to rely on in much of the world. Not only the number of acquisitions that output is based on matters, but often it is incredibly important *when* the acquisitions with "clean" pixels were acquired.
 
-- inclusion of some measure of confidence for observations []
-
-- output cannot be validated in big data domains -- validation of methods and source data.
-
-- existing water indicator -- [http://eo4sdg.org/wp-content/uploads/2017/07/SDG6.6.1\_brief\_GEO\_Week\_2017-2.pdf]this implementation offers a way to use Sentinel-2 images to extract water extent at 10m spatial resolution and higher temporal frequencey, which may be necessary for certain applications in comparison to extraction with Landsat-8 imagery.
-
-is this relevant for monitoring/detecting spatially-explicit evidence of humanitarian crisis?
+That being said, the following exploratory outputs offer plenty of questions, some potential insights, and ideas for future work. A rough reference to existing monthly average rainfall is included in order to assist in contextualising vegetation and water dynamics (*see* Figures \ref{fig:akcakale_2015_2018} and \ref{fig:aleppo_2015_2018}). Temperature and other additional information would also likely be very useful, depending on the application. Existing vector information about irrigated areas could also be used to check plausibility of vegetation-like observations, as done by @tiedeAutomaticPostclassificationLand2014, but the resolution of such data is based on a 250\acs{m} by 250\acs{m} grid. The conflict in Syria has likely impacted the actual area of actively irrigated agricultural production significantly within the last 8 years, due to displacement of people and damage to irrigation infrastructure. Without employing some form of object-based image analysis to process the output here in an object-based way, the agreement of the output at 10\acs{m} spatial resolution is difficult to meaningfully assess. OpenStreetMap data has been included in some smaller insets to demonstrate that certain structures can be discerned based on the output from the data cube implementation in order to support establishing plausibility.
 
 
-Sentinel-2 data is only available starting June 2015, so comparison to pre-conflict images are only available from Landsat, which is beyond the scope of this thesis, even if methods for intercalibration exist [@liIntercalibrationDMSPOLS2017]. However, as previously mentioned, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 definitely caused land cover change, but limits the ability to attribute changes to possibly being related to conflict.
+## Entire Cube, June 2015-2018 \label{sec:ex_cube}
 
-- contrast to results produced in the I3 project -- simple change between two images. These analysis methods open the door to being able to characterise temporal variability.
+The multiple exploratory visualisations of different output covering data observed from 28 June 2015 to 22 June 2018 (*see* \autoref{sec:explore_1}) raise lots of interesting questions to be explored. The ability to compare information derived from 3 years of data with 10\acs{m} spatial resolution for an area of 30,000\acs{km}² overnight on the hardware and computing environment used here is something that likely would not have been possible a few years ago; it definitely was not possible with the same temporal density before Sentinel-2 existed.
 
+The heterogeneous spatial variability in the number of available acquisitions can be seen in \autoref{fig:3yr_valid_total}. Not only are differences in average cloud cover (e.g. higher in mountainous regions to the West) important, but the actual number of available acquisitions. The differences in average cloud cover are somewhat made visible in \autoref{fig:3yr_clean_discrete}, but also differences in the reflectivity of certain surfaces (e.g. what are very likely built-up surfaces, shallow water). \autoref{fig:3yr_clean_close1} is the same output of "clean" pixels as shown in \autoref{fig:3yr_clean_discrete}, but one can see that some built-up, urban structures in the city of Aleppo are made visible. It seems to fit well with structures depicted in the inset (c) of the same area containing OpenStreetMap data. These structures are visible due to having a relatively high surface reflectance that are often attributed to an unknown semi-concept category and thus excluded from analysis. Water bodies, especially the northern part of the traditionally seasonal saline lake, Jabbūl, can also be discerned, since pixels containing shallow water (e.g. shorelines) are also often attributed to the unknown semi-concept category. The same area of Aleppo can be seen in \autoref{fig:3yr_total_close1}, where the overlapping swaths are apparent. Perhaps calculating the percentage of "clean" pixels divided by the total number of possible pixels would offer a better idea of the spatial differences in available data an output is based on.
 
-The ability to compare information derived from 6+ weeks of data with 10\acs{m} spatial resolution from 3 different years for an area of 10,000\acs{km}² within 30 minutes is quite something.
+The total vegetation-like observations can be seen in \autoref{fig:3yr_veg_total}, which gives an idea of the possible absolute extent of vegetation over the three years, which, due to the very arid climate in the East, is strongly tied to precipitation events. It makes sense, then, that the number of total vegetation-like observations increases from East to West. The normalised values based on available "clean" pixels can be seen in \autoref{fig:3yr_veg_norm}, but only pixels with an observed occurrence over 12.5% of the 3 years of data are visible. These are calculated exactly as described in \autoref{fig:veg_index_diagram}.
 
+Two depictions of differences in the normalised index can be seen in Figures \ref{fig:3yr_veg_norm_close1} and \ref{fig:3yr_veg_norm_close2}, showing what is most likely irrigated agricultural land on each side of the Turkish-Syrian border. Some of the articles cited in \autoref{sec:ex_background} talked about damage to irrigation infrastructure or reduction in irrigation practices due to the displacement of people. These two figures might be considered as providing evidence supporting that claim in a spatially-explicit way. Without similar data prior to the start of the Syrian conflict, such an assertion based on this output is more than risky and could be due to other causes. However, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 in Syria definitely caused land cover change, but also limits the ability to attribute changes to possibly being related to conflict. Average monthly rainfall data for the duration of Sentinel-2 observations including 6 months before from the city of Akçakale, Turkey, shown in \autoref{fig:3yr_veg_norm_close1}, can be seen in \autoref{fig:akcakale_2015_2018}. This is not necessarily useful for interpreting output shown here, but might be useful if three different annual aggregations, or seasonal aggregations in different years are calculated, similar to what is done in \autoref{sec:ex_multitemp}.
 
-## Entire Cube, June 2015-2018
+![A rough idea of precipitation from December 2014 until May 2018 as recorded at Akçakale, Turkey, on the border to Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data provided by WorldWeatherOnline.com</a> \label{fig:akcakale_2015_2018}](source/figures/akcakale_2015_2018.png)
 
-The multiple exploratory visualisations of different output covering data from 28 June 2015 to 22 June 2018 raise lots of interesting questions to be explored (*see* \autoref{sec:explore_1}).
+While there are no metrics of confidence to offer here, water-like semi-concepts sometimes look very similar to areas with shadow, whether from clouds or terrain. It is important to make clear that even in an exploratory way, water-like semi-concepts move through relatively more uncertainty than looking at vegetation-like semi-concepts without incorporating any additional knowledge or information (e.g. \acs{DEM}, improved cloud and cloud-shadow masking). As becomes immediately evident when looking at \autoref{fig:3yr_water_total}, the more mountainous region in the West contains observed water-like semi-concepts in areas that are very likely mostly shadows from mountainous terrain (*see* \autoref{fig:3yr_veg_water_norm_close2} (c)). What are likely freshly irrigated (i.e. basically flooded) agricultural fields can also be assumed to be made visible based on their regular, rectangular shapes and very low counts of water-like observations (i.e. depicted in a yellowish tone).
 
-\autoref{fig:3yr_valid_total}
-The number of total pixels containing measured values not equal to 0 in the original Sentinel-2 data based on nearly 3 years of data. Values 0-125 are white (because there are none) and the lilac purple colour begins at value 126, the lowest number of acquisitions.
+The lack of a thermal band in Sentinel-2 imagery also makes dense clouds with relatively high reflectance difficult to discern as being cloud-like, especially when located over water bodies. Based on closer examination of the generated information layers, those pixels are often are attributed to a built-up semi-concept with very high reflectivity. This artefact can also be seen in the Mediterranean sea in Figures \ref{fig:3yr_water_total} and \autoref{fig:3yr_veg_water_norm_close2}, whereby the huge water body that ought to always be identified as looking like deep water has a range of total water-like observations despite having mostly the same number of available acquisitions (*see* \autoref{fig:3yr_valid_total}) and clean pixels (*see* \autoref{fig:3yr_clean_discrete}).
 
-\autoref{fig:3yr_total_close1}
-A closer look at the number of total pixels containing measured values not equal to 0 in the original Sentinel-2 data. Values 0-125 are white (because there are none) and the lilac purple colour begins at value 126, the lowest number of acquisitions. (c): same area as in (b), but with OpenStreetMap data for context.
-
-\autoref{fig:3yr_clean_discrete}
-The number of clean pixels based on nearly 3 years of data visualised using an equal interval legend using 10 classes with values ranging from 0 to 258.
-
-\autoref{fig:3yr_clean_close1}
-A closer look at the number of clean pixels based on nearly 3 years of data visualised using an equal interval legend using 10 classes with values ranging from 0 to 258. (c): same area as in (b), but with OpenStreetMap data for context.
-
-\autoref{fig:3yr_veg_total}
-The number of total vegetation-like pixels observed based on nearly 3 years of data visualised. This is just meant to illustrate pixels having more than 3 observations up to 177 of vegetation-like semi-concepts over 3 years.
-
-\autoref{fig:3yr_veg_norm}
-The normalised index of vegetation occurrence over nearly 3 years of data visualised using an equal interval legend using 8 classes. Values below or equal to 0.125, including values of 0 are coloured white.
-
-\autoref{fig:3yr_water_total}
-The number of total water-like pixels observed based on nearly 3 years of data visualised. This is just meant to illustrate pixels having more than 3 observations up to 158 of water-like semi-concepts over 3 years.
-
-\autoref{fig:3yr_water_norm}
-The normalised index of water occurrence over nearly 3 years of data visualised using an equal interval legend using 8 classes. Values below or equal to 0.125, including values of 0 are coloured white.
-
-\autoref{fig:3yr_veg_norm_close1}
-A closer look at the normalised index of vegetation occurrence along the border to Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with OpenStreetMap data for context.
-
-\autoref{fig:3yr_veg_norm_close2}
-Another closer look at the normalised index of vegetation occurrence along the border to Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with OpenStreetMap data for context.
-
-\autoref{fig:3yr_veg_water_norm_close1}
-A closer look at the normalised index of vegetation but also water occurrence in Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with water occurrence overlaid on top of vegetation occurrence.
-
-\autoref{fig:3yr_veg_water_norm_close2}
-Another closer look at the normalised index of vegetation but also water occurrence in Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with water occurrence. Here some artefacts from terrain shadows and clouds are visible.
+The normalised occurrence of water-like semi-concepts can be seen in \autoref{fig:3yr_water_norm}. Pixels with an average occurrence of observed water-like semi-concepts below 12.5%, including values of 0, are coloured white, which leaves only a few artefacts from terrain shadow, that could likely be identified using the aspect and slope of a \acs{DEM}. The changes in surface water extent can also be seen, again including lake Jabbūl in the South and in (c) of \autoref{fig:3yr_veg_water_norm_close1}. Because the spectral profile of pixels containing shallow water seem to sometimes be identified as an unknown semi-concept, ephemeral and seasonal likes may be made visible by this output, but requires further tests for agreement and validation with other methods and datasets before any real conclusions can be made.
 
 
-## Multi-temporal Springtime in Afrin
+## Multi-temporal Springtime in Afrin \label{sec:ex_multitemp}
 
-These exploratory visualisations of the same seasonal timeframe (1 May to 15 June) in 2016, 2017 and 2018 offer different insights than for output aggregated over longer timespans, but also bring different challenges (*see* \autoref{sec:explore_2}).
+These exploratory visualisations of the same seasonal timeframe (1 May to 15 June) in 2016, 2017 and 2018 (*see* \autoref{sec:explore_2}) offer different insights than for output aggregated over longer timespans, but also bring different challenges. The idea here is to explore a possible sort of method to move away from bi-temporal change detection and towards utilising temporally denser stacks of data to detect perhaps more meaningful change. Hopefully relying on data aggregated over time, or somehow otherwise including or accounting for time, removes some of the spuriousness that can sometimes occur when an image used in bi-temporal change detection is not actually representative of the process, event, etc. that the change detection is supposed to represent.
 
-\autoref{fig:afrin_valid_total}
-(a): the spatial extent of the queried; (b,c and d): the number of acquisitions available from 1 May to June 15 in each of the years. 2018 has considerably more acquisitions because Sentinel-2B became operational in the months following June 2017.
+Another issue that can arise with bi-temporal change detection is when multiple time-steps are supposed to be compared (e.g. months or years). Different climate factors (e.g. precipitation, temperature) in different climate zones impact land cover differently from season to season, year to year, whether by shifting the phenological cycle (e.g. vegetative peak, lull or periodicity), completely reducing vegetative cover (e.g. a drought) or surface water extent (e.g. a flood), etc. These changes are visible in the few example outputs, especially since a fixed time-frame was chosen in each year (e.g. 1 May to 15 June). For example, depending on the purpose, using a data cube implementation to detect a suitable time-frame including the vegetative peak (i.e. perhaps defined as the largest vegetated extent, or "greenest" semi-concepts using a semantic query) and using that result to detect vegetation changes between years could produce more comparable and meaningful results.
 
-\autoref{fig:afrin_veg_clean}
-The number of clean pixels available for 1 May to 15 June in each year. Artefacts from cloud-like semi-concepts and surfaces with a higher reflectance can be seen, but also the overlapping swaths. The city of Aleppo is located in the lower right corner.
+In this case, the area queried is over 10,000\acs{km}² and visible in the red box shown in (a) of \autoref{fig:afrin_valid_total}. This area covers what is known as Afrin, Syria. In that same figure, a substantial difference in the number of available acquisitions can be seen between years 2016 and 2017, before Sentinel-2B was launched and operational, and 2018, where almost twice as many acquisitions are available for parts of the queried area for the same duration of time (i.e. around 6 weeks). A similar pattern of acquisition distribution can also be seen in \autoref{fig:afrin_veg_clean}, where it is also clear that 2017 has a few more acquisitions than 2016 for the same time-frame, but also on fewer cloud-like pixels in the acquisitions available. The more mountainous region in the West also is visible, especially in in 2018, due to lower numbers of "clean" pixels likely attributable to higher average cloud cover, even though more total acquisitions are available. As mentioned in \autoref{sec:ex_cube}, the city of Aleppo is also visible in the lower right corner, especially once more acquisitions are incorporated, such as in 2018. This is similarly visible in \autoref{fig:3yr_clean_close1} over the entire 3 years of data, but is interesting to see the pattern emerge even with, at most, 17 acquisitions in 2018.
 
-\autoref{fig:afrin_veg_total}
-The total number of vegetation-like observations available for 1 May to 15 June in each year. Pixels with a value of 0 are white. Differences in the baseline total number of observations for each year is visible.
+![A rough idea of precipitation from September 2015 until May 2018 as recorded at the international airport in Aleppo, Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data provided by WorldWeatherOnline.com</a> \label{fig:aleppo_2015_2018}](source/figures/aleppo_2015_2018.png)
 
-\autoref{fig:afrin_veg_norm}
-The normalised occurrence of vegetation-like observations available for 1 May to 15 June in each year. Be wary when interpreting, since some areas only have 6 moments in time to even work with (i.e. two vegetation-like observations automatically can mean at least 33%, and if clouds were observed once, 40%!)
+Moving on to vegetation, in this case, it is important to take into account rainfall at this time of year, and the preceding months. \autoref{fig:aleppo_2015_2018} shows average monthly rainfall in Aleppo for the years 2016-2018. It is clear that the end of 2015 and beginning of 2016 received relatively less average rainfall than 2017 or 2018. There is a visible difference in the total number of vegetation-like pixels shown in \autoref{fig:afrin_veg_total}, not only because of the lower number of acquisitions in 2016, but likely also because there was less average rainfall.
 
-\autoref{fig:afrin_diff20172016}
-Difference between the normalised occurrence of vegetation-like observations from 1 May to 15 June between 2017 and 2016. The 2016 results are subtracted from 2017, meaning negative values had a higher observed vegetation occurrence in 2016 than in 2017 (reddish), values of 0 had no change, and positive values had higher observed vegetation occurrence in 2017 than 2016. Values ±0.111 are white.
+Once the normalised occurrence of observed vegetation-like pixels over time is calculated (*see* \autoref{fig:afrin_veg_norm}), this difference becomes less evident in the more persistently vegetated areas in the more mountainous regions, which likely receive more precipitation on average than Aleppo. Areas that are likely agricultural fields, however, are almost non-existent in the output of 2016. The lower number of acquisitions available in 2016 and 2017 compared to 2018 must be taken into account. Some areas in 2016 have only 6 moments in time to even work with (i.e. two vegetation-like observations automatically can mean at least 33%, and if clouds were observed once, 40%!). Also, cloud cover is important to consider, especially for shorter aggregated output. \autoref{fig:afrin_veg_clean_close1} shows areas in white where there are no valid data to work with from 1 May to 15 June in 2017, despite having 5 acquisitions covering that area.
 
-\autoref{fig:afrin_diff20182017}
-Difference between the normalised occurrence of vegetation-like observations from 1 May to 15 June between 2018 and 2017. The 2017 results are subtracted from 2018, meaning negative values had a higher observed vegetation occurrence in 2017 than in 2018 (reddish), values of 0 had no change, and positive values had higher observed vegetation occurrence in 2018 than 2017. Values ±0.111 are white.
+![A closer look at the number of "clean" pixels from 1 May to 15 June 2017, showing areas with no valid data in white due to cloud cover, despite having 5 acquisitions in the time frame for this specific area. \label{fig:afrin_veg_clean_close1}](source/figures/maps/afrin_veg_clean_close1.png)
 
-\autoref{fig:afrin_diff20172016_2}
+\autoref{fig:afrin_diff20172016} and \autoref{fig:afrin_diff20182017} look at differences in the normalised occurrence of observed vegetation-like semi-concepts of the same area, between 2017 and 2016, and 2018 and 2017, respectively. In this case, it is, again, important to know that, while 2016 experienced lower average rainfall during and preceding the queried temporal-extent in comparison to 2017 and 2018, there are also fewer "clean" observations for this area. For almost all pixels in this smaller spatial extent, there are only 2 "clean" pixels in the stack, to be exact. It would be useful to know if the "clean" pixels for this area occurred from the same 2 scenes, and whether or not they were acquired earlier or later in the temporal extent from 1 May to 15 June 2015. The same type of difference was calculated for another area in Figures \ref{fig:afrin_diff20172016_2} and \ref{fig:afrin_diff20182017_2}, also between 2017 and 2016, and 2018 and 2017, respectively.
 
-\autoref{fig:afrin_diff20182017_2}
+In retrospect, it would makes sense not to have difference values ±0.111 be white, but either only values of 0, or to mask results based on the combined vegetation-like extents detected in the two years being compared. Without such masking, only relatively larger changes in normalised occurrence can be discerned, and a difference between non-vegetated areas consistent in both temporal-extents versus vegetated areas that experienced no relative change cannot be made.
 
-
-
-# Checking plausibility
-
-- (FAO food security services, statistics from Syria…)
-
-https://ipad.fas.usda.gov/highlights/2018/05/syria/index.pdf (https://ipad.fas.usda.gov/) [@USDAFASInternational]
-
-- Irrigated Areas (GMIA or Irrmap)
-- Syria Refugee Sites (<https://data.humdata.org/dataset/syria-refugee-sites>)
-- Precipitation or drought data
-- mention acquisition/ingestion, etc. or reference below
-
-- INFORM, Index of Risk Management database
-- HDX, humanitarian data exchange <https://data.hdx.rwlabs.org>
-- Relief web
-- ACLED
-- GDELT
-
-world-weather.online.com
-unma.go
+A question also arises as to whether or not the aggregated normalised occurrence information is comparable between two different temporal extents with different base data. This is perhaps less trivial when comparing 2018 with 2017, whereby each vegetation-like pixel in the relatively shorter stack in 2017 has a relatively higher influence on the output than an observation in 2018, which generally has double the acquisitions. It might make sense to figure out guidelines or metrics to assess whether the number of valid acquisitions and "clean" pixels over a temporal-extent, but also taking their variability and distribution through time, as a way to better judge comparability from a statistical standpoint, or even somehow assess statistical significance of detected changes.
 
 
 ## Potential Connection to SDGs
 
-Aggregated time-series output was generated in the hopes of moving towards an automated workflow to supply information in the scope of the \acp{SDG} mentioned in \autoref{sec:framing}.
+Aggregated time-series output was generated in the hopes of moving towards an automated workflow to supply information in the scope of the \acp{SDG} mentioned in \autoref{sec:framing}. Surface water bodies and various types of vegetated land cover (e.g. agricultural fields, forests) cannot be explicitly identified with this output, but seem to be able to be made visible in some way using this implementation. It seems plausible, that similar automatically generated output from this generic semantic data cube could be integrated with additional data to offer spatially-explicit evidence to eventually support the \acp{SDG}, whether at 10\acs{m} spatial resolution or based on larger, meaningful objects.
 
-Detection of visible surface water based on water-like semi-concepts.
 
-Detection of vegetation based on vegetion-like semi-concepts, that, with more complex queries or additional analysis methods (e.g. object-based image analysis), might be automatically categorised as being related to agriculture or a certain definition of a forest.
-- SDGs
-- open data
-- big earth data
-- data cubes and ARD
-- Reproducibility
+
+
 
 
 The concept of \ac{ARD} (*see* \autoref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
+
+- existing water indicator -- [http://eo4sdg.org/wp-content/uploads/2017/07/SDG6.6.1\_brief\_GEO\_Week\_2017-2.pdf]this implementation offers a way to use Sentinel-2 images to extract water extent at 10m spatial resolution and higher temporal frequencey, which may be necessary for certain applications in comparison to extraction with Landsat-8 imagery.
+
+
 
 
 ## Challenges
