@@ -7,7 +7,7 @@
 \chapter{Implementation}\label{ch:implementation}
 
 
-This applied example implementation covers a highly automated workflow for transforming Sentinel-2 data into meaningful information. Some of its potential utility is framed in \autoref{sec:framing}, and preliminary ad-hoc proof-of-concept results for further discussion are provided in \autoref{ch:proof}.
+This applied example implementation covers a highly automated workflow for transforming Sentinel-2 data into meaningful information. Some of its potential utility is framed in \autoref{sec:framing}, and preliminary ad-hoc proof-of-concept results for further discussion are provided in \autoref{ch:proof}. This implementation was documented in less detail in **cite GI_Forum Paper**.
 
 
 # Use-Case Selection
@@ -52,7 +52,7 @@ Currently two Sentinel-2 satellites, known as Sentinel-2A and -2B, are continuou
 
 ### Data Used
 
-All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for these three granules are continuously included in the data cube, resulting in a dense time-series beginning 28 June 2015 until the most recent image. All of the data used were acquired using the download script as part of the automated workflow described in \autoref{sec:acquisition}. Including Sentinel-2 scenes, re-formatted Sentinel-2 data (which are redundant and could be deleted in the future after generating information layers) and the generated information layers, there is approximately 1.6\acs{TB} of data related to this implementation at the time of writing. The vast majority of this volume is comprised of the indexed and ingested data sources, but some data downloaded from the Copernicus Hub (e.g. \ac{ESA} quality information layers) are counted in the 1.6\acs{TB}, but not otherwise used in this implementation.
+All Sentinel-2 \ac{L1C} data available on the Copernicus Open Access Hub for these three granules are continuously included in the data cube, resulting in a dense time-series beginning 28 June 2015 until the most recent scene. All of the data used were acquired using the download script as part of the automated workflow described in \autoref{sec:acquisition}. Including Sentinel-2 scenes, re-formatted Sentinel-2 data (which are redundant and could be deleted in the future after generating information layers) and the generated information layers, there is approximately 1.6\acs{TB} of data related to this implementation at the time of writing. The vast majority of this volume is comprised of the indexed and ingested data sources, but some data downloaded from the Copernicus Hub (e.g. \ac{ESA} quality information layers) are counted in the 1.6\acs{TB}, but not otherwise used in this implementation.
 
 As of 22 June 2018, 591 Sentinel-2 granule-size scenes are incorporated in the data cube. This results in a range of approximately 127 to 258 observations at different moments in time throughout the study area for the temporal extent of all scenes [^3]. These granules are captured by two Sentinel-2 relative orbits (78 and 121), resulting in temporally denser data where the orbits overlap (*see* \autoref{fig:overview} for an estimation of the orbits). These three Sentinel-2 granules are provided by Copernicus in the same projection (\acs{UTM} zone 37N, \acs{EPSG}: 32637), which means that the data do not require re-projection for collective storage or analysis.
 
@@ -61,7 +61,7 @@ As of 22 June 2018, 591 Sentinel-2 granule-size scenes are incorporated in the d
 
 # Methods
 
-The workflow implemented here focuses on automation and big data, encompassing downloading Sentinel-2 data, re-formatting them, preliminarily classifying them with \acs{SIAM}™ (i.e. generating multiple information layers), indexing Sentinel-2 images and information layers into an implementation of the \ac{ODC} and ingesting information layers (\autoref{fig:workflow}). This process runs automatically every day for each of the three study area granules. The result is daily incorporation of the most recently available Sentinel-2 data, ready for analysis, including semantic queries. Queries are facilitated using Jupyter notebooks by accessing the ingested information layers produced by \acs{SIAM}™ via a Python \acs{API} for \ac{ODC} implementations.
+The workflow implemented here focuses on automation and big data, encompassing downloading Sentinel-2 data, re-formatting them, preliminarily classifying them with \acs{SIAM}™ (i.e. generating multiple information layers), indexing Sentinel-2 scenes and information layers into an implementation of the \ac{ODC} and ingesting information layers (\autoref{fig:workflow}). This process runs automatically every day for each of the three study area granules. The result is daily incorporation of the most recently available Sentinel-2 data, ready for analysis, including semantic queries. Queries are facilitated using Jupyter notebooks by accessing the ingested information layers produced by \acs{SIAM}™ via a Python \acs{API} for \ac{ODC} implementations.
 
 ![Automated workflow overview from download to queries and indicator extraction, which utilises the Python \acs{API}. Author's illustration. \label{fig:workflow}](source/figures/Workflow_helvetica.png)
 
@@ -147,7 +147,7 @@ A \ac{CLI} was implemented in Python to allow searching and downloading data fro
 
 \graffito{EO-Compass also uses a modified version of this script to harvest Sentinel-2 metadata.}
 
-The structure of products and metadata has seen a few modifications since the first images offered to the public in 2015, which requires some more complex handling in the script. Most notably, Sentinel-2 products were served in packages of multiple granules prior to 6 December 2016, with sizes sometimes exceeding 6\acs{GB}. The actual physical file structure has, however, remained mostly the same (*see* \autoref{fig:s2_structure}). In the case of older multiple-granule products, the product name might appear more than once in \autoref{tab:s2products}, but are saved in the appropriate granule-named directory in this implementation (i.e. a product could contain granules 37SBA and 37SCA, so is listed twice, but in each granule-specific directory, the product directory only contains the data extracted for that specific granule).
+The structure of products and metadata has seen a few modifications since the first scenes offered to the public in 2015, which requires some more complex handling in the script. Most notably, Sentinel-2 products were served in packages of multiple granules prior to 6 December 2016, with sizes sometimes exceeding 6\acs{GB}. The actual physical file structure has, however, remained mostly the same (*see* \autoref{fig:s2_structure}). In the case of older multiple-granule products, the product name might appear more than once in \autoref{tab:s2products}, but are saved in the appropriate granule-named directory in this implementation (i.e. a product could contain granules 37SBA and 37SCA, so is listed twice, but in each granule-specific directory, the product directory only contains the data extracted for that specific granule).
 
 ![The Sentinel-2 product physical format (Source: @europeanspaceagencySentinel2UserHandbook2015 accessed 26 January 2017) \label{fig:s2_structure}](source/figures/s2_structure.png)
 
@@ -182,9 +182,9 @@ Re-formatting each Sentinel-2 scene on the current set-up takes roughly 1 minute
 
 ### SIAM™: generating information layers
 
-A batch script to run \acs{SIAM}™ is automatically generated that contains commands to process all newly acquired, re-formatted scenes. Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. An older example of 61 semi-concepts with broad descriptions and pseudo-colour representation can be seen in \autoref{fig:siam_61} Those semi-concepts on the same line in \autoref{fig:siam_61} stem from the same parent spectral category within the \acs{SIAM}™ decision-tree.
+A batch script is required to run \acs{SIAM}™ is automatically generated that contains commands to process all newly acquired, re-formatted scenes. Four semi-concept granularities (i.e. 18, 33, 48 and 96 semi-concepts) and four additional information layers are automatically generated. An older example of 61 semi-concepts with broad descriptions and pseudo-colour representation can be seen in \autoref{fig:siam_61} Those semi-concepts on the same line in \autoref{fig:siam_61} stem from the same parent spectral category within the \acs{SIAM}™ decision-tree.
 
-![Semi-concept example with a granularity of 61, represented by pseudo-colours [@baraldiSatelliteImageAutomatic2018] \label{fig:siam_61}](source/figures/siam61.png)
+![Semi-concept example with a granularity of 61, sorted in rows by parent category and each represented by a pseudo-colour suitable to the semi-symbolic associated semantics [@baraldiSatelliteImageAutomatic2018] \label{fig:siam_61}](source/figures/siam61.png)
 
 The additional information layers included in the applied example include a:
 
@@ -198,7 +198,7 @@ The additional information layers included in the applied example include a:
 Processing of each Sentinel-2 scene takes roughly 4-5 minutes on the current set-up. \acs{SIAM}™ in its current implementation runs on only one \ac{CPU}, which makes it great to have multiple instances running in parallel. The initial processing of 450 Sentinel-2 scenes in December 2017 was completed within one evening by having 10 different instances run simultaneously. Finding other ways to improve the performance of this software is outside the scope of this thesis.
 
 
-### ODC: indexing images and information layers
+### ODC: indexing scenes and information layers
 
 Before getting into the specifics of indexing, the complete workflow for working with the \ac{ODC} software can be seen in \autoref{fig:ODC_workflow}. It offers a nice overview of all possible steps necessary to create an instance of a data cube within the \ac{ODC} software.
 

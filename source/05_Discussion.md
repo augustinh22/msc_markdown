@@ -3,7 +3,7 @@
 \cleardoublepage
 \chapter{Discussion}\label{ch:discussion}
 
-This section looks more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discusses finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the data and implementation methods.
+This section looks more closely at the proof-of-concept results provided in \autoref{ch:proof}, and discusses finer details pertaining to the data, design decisions and methods used, including challenges faced along the way. It is structured in a way that separates the output of the system from the original Sentinel-2 data and implementation methods.
 
 
 # Interpretation of Maps
@@ -31,7 +31,80 @@ Sentinel-2 data is only available starting June 2015, so comparison to pre-confl
 The ability to compare information derived from 6+ weeks of data with 10\acs{m} spatial resolution from 3 different years for an area of 10,000\acs{km}² within 30 minutes is quite something.
 
 
-## Auxiliary data
+## Entire Cube, June 2015-2018
+
+The multiple exploratory visualisations of different output covering data from 28 June 2015 to 22 June 2018 raise lots of interesting questions to be explored (*see* \autoref{sec:explore_1}).
+
+\autoref{fig:3yr_valid_total}
+The number of total pixels containing measured values not equal to 0 in the original Sentinel-2 data based on nearly 3 years of data. Values 0-125 are white (because there are none) and the lilac purple colour begins at value 126, the lowest number of acquisitions.
+
+\autoref{fig:3yr_total_close1}
+A closer look at the number of total pixels containing measured values not equal to 0 in the original Sentinel-2 data. Values 0-125 are white (because there are none) and the lilac purple colour begins at value 126, the lowest number of acquisitions. (c): same area as in (b), but with OpenStreetMap data for context.
+
+\autoref{fig:3yr_clean_discrete}
+The number of clean pixels based on nearly 3 years of data visualised using an equal interval legend using 10 classes with values ranging from 0 to 258.
+
+\autoref{fig:3yr_clean_close1}
+A closer look at the number of clean pixels based on nearly 3 years of data visualised using an equal interval legend using 10 classes with values ranging from 0 to 258. (c): same area as in (b), but with OpenStreetMap data for context.
+
+\autoref{fig:3yr_veg_total}
+The number of total vegetation-like pixels observed based on nearly 3 years of data visualised. This is just meant to illustrate pixels having more than 3 observations up to 177 of vegetation-like semi-concepts over 3 years.
+
+\autoref{fig:3yr_veg_norm}
+The normalised index of vegetation occurrence over nearly 3 years of data visualised using an equal interval legend using 8 classes. Values below or equal to 0.125, including values of 0 are coloured white.
+
+\autoref{fig:3yr_water_total}
+The number of total water-like pixels observed based on nearly 3 years of data visualised. This is just meant to illustrate pixels having more than 3 observations up to 158 of water-like semi-concepts over 3 years.
+
+\autoref{fig:3yr_water_norm}
+The normalised index of water occurrence over nearly 3 years of data visualised using an equal interval legend using 8 classes. Values below or equal to 0.125, including values of 0 are coloured white.
+
+\autoref{fig:3yr_veg_norm_close1}
+A closer look at the normalised index of vegetation occurrence along the border to Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with OpenStreetMap data for context.
+
+\autoref{fig:3yr_veg_norm_close2}
+Another closer look at the normalised index of vegetation occurrence along the border to Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with OpenStreetMap data for context.
+
+\autoref{fig:3yr_veg_water_norm_close1}
+A closer look at the normalised index of vegetation but also water occurrence in Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with water occurrence overlaid on top of vegetation occurrence.
+
+\autoref{fig:3yr_veg_water_norm_close2}
+Another closer look at the normalised index of vegetation but also water occurrence in Turkey. Values below or equal to 0.125, including values of 0 are coloured white. (c): same area as in (b), but with water occurrence. Here some artefacts from terrain shadows and clouds are visible.
+
+
+## Multi-temporal Springtime in Afrin
+
+These exploratory visualisations of the same seasonal timeframe (1 May to 15 June) in 2016, 2017 and 2018 offer different insights than for output aggregated over longer timespans, but also bring different challenges (*see* \autoref{sec:explore_2}).
+
+\autoref{fig:afrin_valid_total}
+(a): the spatial extent of the queried; (b,c and d): the number of acquisitions available from 1 May to June 15 in each of the years. 2018 has considerably more acquisitions because Sentinel-2B became operational in the months following June 2017.
+
+\autoref{fig:afrin_veg_clean}
+The number of clean pixels available for 1 May to 15 June in each year. Artefacts from cloud-like semi-concepts and surfaces with a higher reflectance can be seen, but also the overlapping swaths. The city of Aleppo is located in the lower right corner.
+
+\autoref{fig:afrin_veg_total}
+The total number of vegetation-like observations available for 1 May to 15 June in each year. Pixels with a value of 0 are white. Differences in the baseline total number of observations for each year is visible.
+
+\autoref{fig:afrin_veg_norm}
+The normalised occurrence of vegetation-like observations available for 1 May to 15 June in each year. Be wary when interpreting, since some areas only have 6 moments in time to even work with (i.e. two vegetation-like observations automatically can mean at least 33%, and if clouds were observed once, 40%!)
+
+\autoref{fig:afrin_diff20172016}
+Difference between the normalised occurrence of vegetation-like observations from 1 May to 15 June between 2017 and 2016. The 2016 results are subtracted from 2017, meaning negative values had a higher observed vegetation occurrence in 2016 than in 2017 (reddish), values of 0 had no change, and positive values had higher observed vegetation occurrence in 2017 than 2016. Values ±0.111 are white.
+
+\autoref{fig:afrin_diff20182017}
+Difference between the normalised occurrence of vegetation-like observations from 1 May to 15 June between 2018 and 2017. The 2017 results are subtracted from 2018, meaning negative values had a higher observed vegetation occurrence in 2017 than in 2018 (reddish), values of 0 had no change, and positive values had higher observed vegetation occurrence in 2018 than 2017. Values ±0.111 are white.
+
+\autoref{fig:afrin_diff20172016_2}
+
+\autoref{fig:afrin_diff20182017_2}
+
+
+
+# Checking plausibility
+
+- (FAO food security services, statistics from Syria…)
+
+https://ipad.fas.usda.gov/highlights/2018/05/syria/index.pdf (https://ipad.fas.usda.gov/) [@USDAFASInternational]
 
 - Irrigated Areas (GMIA or Irrmap)
 - Syria Refugee Sites (<https://data.humdata.org/dataset/syria-refugee-sites>)
