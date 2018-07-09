@@ -169,7 +169,7 @@ At the moment, this implementation uses a tiling scheme of 10\acs{km} by 10\acs{
 Tests on performance for different kinds of queries that prioritise different dimensions or different numbers of variables at once (e.g 33 semi-concepts, 96 semi-concepts, vegetation mask)
 
 
-### GridWorkflow
+### GridWorkflow \label{sec:gridworkflow}
 
 - issue with mosaicing
 
