@@ -136,8 +136,47 @@ Sentinel-2 data is only available starting June 2015, so comparison to pre-confl
 
 - output cannot be validated in big data domains -- validation of methods and source data.
 
+- is aggregated time-series output from different years or seasons comparable?
+- how could comparability be quantified, characterised or explored?
+- what spatio-temporal methods exist that could offer a way to test the statistical significance of changes or differences based on an aggregated time-series of scenes, like those generated for Afrin?
+- is big data too big for traditional statistical measures to have meaning?
+- What semi-concepts are difficult?
+- What doesn't work?
+
 
 the structure of objects that can be discerned using object-based image analysis methods could offer additional information that could be utilised, not only the aggregated normalised per-pixel value of semi-concept occurrence. Such techniques and methods could incorporate other spatial concepts (e.g. neighborhood, shape, size, texture) and move further in the direction of automated detection of specific land cover classes. For example, methods could be developed to automatically detect and discern a certain definition of forest-like objects (as seen in (b) and (c) in \autoref{fig:3yr_veg_water_norm_close1}) from what are clearly agricultural fields in \autoref{fig:3yr_veg_norm_close1}).
+
+## Pixel-based Analysis
+- pixel-based vs. OBIA
+
+In the other direction, pixels are also only representations of what a sensor captures. Moving beyond the constrictions related to pixels
+
+
+## Repeatability and Reproducibility
+- implementation
+- importance of keeping all data used
+- Queries and results
+- Python environments
+- Jupyter Notebooks
+- open documentation in a framework such as OSF
+
+[@corbaneMonitoringSyrianHumanitarian2016] conducted analysis using Google Earth Engine in order to ensure reproducibility. *Called GEE an open-source platform*
+
+
+The concept of \ac{ARD} (*see* \autoref{sec:ARD}) is relevant in the context of this thesis, since a data cube is provided allowing access to data with user-defined grids and generic semantic enrichment suitable for multiple kinds of analysis using semantic queries. Depending on how \ac{ARD} is defined, the created \ac{ODC} implementation could be considered as analysis-ready. Semi-concepts provide an automated semi-semantic layer that under current circumstances, could be considered as moving towards semantically enriched \ac{ARD}.
+
+
+## Transferability
+- can similar evidence be generated in other parts of the world?
+- with other data/sensors?
+- other spatial resolutions or temporal acquisition frequencies?
+- other kinds of semantic enrichment?
+- knowledge-based vs. sample-based algorithms
+
+
+intercalibration with Landsat exist [@liIntercalibrationDMSPOLS2017]
+
+
 
 #### Taken from elsewhere...
 

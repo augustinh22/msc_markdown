@@ -15,7 +15,7 @@ Extracting information from \ac{EO}-time-series is a challenging task due to the
 - check all sources for formatting
   - especially news references in applied example
 - cite EO-compass
-
+- insert Sentinel-2 image in back
 - fix figure short titles
 - EO-Compass citation
 - GI_Forum citation
