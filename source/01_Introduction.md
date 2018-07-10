@@ -44,24 +44,38 @@ This thesis was motivated by a few broad objectives. They can be summarised by t
 
 # Research Questions
 
-This thesis aims towards answering the following questions:
+This thesis aims towards answering the following three main research questions and related sub-questions:
 
-## Context
+---
+
+\spacedlowsmallcaps{Context}
+
+*How can \ac{EO} be used to generate indicators various domains?*
 
 - What are some ways that \ac{EO} contributes or can be envisioned as contributing towards spatially-explicit evidence for \acp{SDG} indicators?
 - What are some current examples of free and open \ac{EO}-based indicators or evidence for indicators?
 
-## Implementation
+---
+
+\spacedlowsmallcaps{Implementation}
+
+*Can optical \ac{EO} data be automatically transformed into information?*
 
 - Is it possible to automatically download Sentinel-2 data and automatically enrich it semantically?
 - Can all Sentinel-2 data available for a region be automatically incorporated in a semantically enriched data cube?
 - Is the available hardware sufficient for such an automated workflow and queries within a reasonable execution time?
 - Is the \ac{ODC} software conducive to handling relatively simple semantic queries based on semi-concepts?
+
+---
+
+\spacedlowsmallcaps{Results}
+
+*Are semantic queries of \ac{EO} data possible?*
+
 - Are semi-concepts sufficient for ad-hoc semi-automated monitoring of vegetation and water dynamics over time?
 - Can information generated from querying vegetation-like or water-like semi-concepts utilising time be used in a meaningful way in the context of existing indicators?
 - How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?
 - What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?
-
-## Results
-
 - Can differences in vegetation dynamics in agricultural areas be detected between Syria and Turkey using this implementation?
+
+---

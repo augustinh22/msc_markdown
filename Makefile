@@ -55,5 +55,21 @@ tex:
 	--csl="$(STYLEDIR)/apa.csl" \
 	--verbose
 
+test:
+	pandoc "$(INPUTDIR)"/01_Introduction.md \
+	-f markdown \
+	-o "$(OUTPUTDIR)/thesis.pdf" \
+	--template="$(STYLEDIR)/template_classicthesis.tex" \
+	--include-before-body "$(BEFOREDIR)"/00_00_coverpage.tex \
+	--include-before-body "$(BEFOREDIR)"/00_01_abstract.tex \
+	--include-before-body "$(BEFOREDIR)"/00_02_statements.tex \
+	--include-before-body "$(BEFOREDIR)"/00_03_acknowledgements.tex \
+	--include-before-body "$(BEFOREDIR)"/00_04_toc.tex \
+	--include-after-body "$(AFTERDIR)"/09_appendix.tex \
+	--include-after-body "$(AFTERDIR)"/10_colophon.tex \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl="$(STYLEDIR)/apa.csl" \
+	--verbose \
+	--latex-engine=pdflatex
 
 .PHONY: help pdf tex

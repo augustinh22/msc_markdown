@@ -5,36 +5,32 @@
 \cleardoublepage
 \pdfbookmark[1]{Abstract}{Abstract}
 \begingroup
-\let\clearpage\relax
+%\let\clearpage\relax
 \let\cleardoublepage\relax
 \let\cleardoublepage\relax
 
 \chapter*{Abstract}
 
-Areas exposed to events or processes such as armed conflict, natural disasters or even climate change generally lack up-to-date, accessible data due to a variety of barriers (e.g. security, politics, biased providers). Free and open-access Earth observation (EO) data are being increasingly generated with global coverage at higher spatial resolutions and temporal frequencies than ever before. High spatial resolution (5-30m) imagery enables monitoring of large-scale areas beneficial for monitoring such events or processes. This data requires automated workflows for handling, processing and analysis, including methods to convert data into valid information.
+Free and open-access \acf{EO} data with global coverage are being increasingly generated at higher spatial resolutions and temporal frequencies than ever before. Imagery with high spatial resolution (5-30\acs{m}) enables multi-temporal and persistent monitoring of large spatial extents for various applications. It does this in an unbiased, consistent way, independent of political borders. Free and open \acs{EO} is a growing collection of data that is one of the few globally consistent sources available for generating information in support of international initiatives. However, this data requires automated workflows for handling, processing and analysis, including methods to convert data into valid information. Because such optical \acs{EO} data does not allow direct measurements of most objects, processes or events on Earth, indicator extraction is one way to translate this data into meaningful information.
 
-Indicator extraction is one way to translate this data into meaningful information.
+This thesis presents an overview of the current state of open and free \acs{EO} data in a larger framework of international initiatives, such as the \acs{UN} \acp{SDG}, big Earth data and data cube technologies. Based on this information, a proof-of-concept implementation of a semantic \acs{EO} data cube was created that is automatically updated with the newest Sentinel-2 data on a daily basis, including generic semantic enrichment. It continuously incorporates all of the available data for Sentinel-2 granules located in north-western Syria, a country characterised by low average monthly cloud cover throughout the year, making it an ideal location for surface analysis using multi-spectral data. The output of semantic queries based on vegetation- and water-like semi-concepts from the generic semantic information layer are presented, including challenges faced in their interpretation. These outputs could be seen as documenting surface water and vegetation dynamics over time. Their intended purpose is to move in the direction of generating ad-hoc reproducible, repeatable and spatially-explicit information as indicators.
 
-because the spatial resolution does not allow direct measurements of most objects on Earth (i.e. mixed pixels).
-
-Improved situation assessment of areas where barriers to in-field data collection exist may be achieved by developing suitable indicators. In the case of events or processes that affect human populations, indicators of livelihood stability are vital to decision-makers. Due to the global and consistent nature of EO-data, they are ideal candidates for use in crisis indicators, combined or integrated with additional non-EO-data sources.  For example, night-time light EO-data integrated with the Joint Research Center’s Global Human Settlement Layer (GHSL) was used to estimate the size and location of the affected population in Syria. Such crisis indicators are envisioned to provide evidence-based knowledge to support crisis monitoring and impact assessment, but very few have been developed, applied and validated to date.
-
-This study reviews the state-of-the-art of existing and envisioned humanitarian crisis indicators utilizing EO-data with a focus on solutions concerned with livelihood security (e.g. changes in agricultural areas, droughts, floods, power shortages). Emphasis in this review is given to indicators that monitor larger-scale areas, apply semi-automated to fully-automated workflows and utilise Sentinel-1/2/3 data. The aim is to provide an overview of the current state of development of EO-based humanitarian crisis indicators, and to distill knowledge about the contributions high resolution multi-spectral images (e.g. Sentinel-2) may offer. Ideally, future developments in this field will offer more solutions that are integrated or combined with at least one non-EO data source and utilise increasingly automated workflows.
-
-A proof-of-concept implementation of a generic, semantic EO data cube with automated daily integration and semantic enrichment of Sentinel-2 data is presented and applied to Syria, a country with low annual cloud cover percentages beneficial for surface analysis using multi-spectral data. Using this implementation, surface water dynamics can be queried and analysed, and changes or losses to irrigated agricultural land over time are detected as a suggested indicator for instability. Challenges for analysis are posed not only by the identification of significant crisis indicators, requiring a combination of deductive and inductive methods, but also by the development of large-scale, automated (repeatable and reliable) methods for extracting indicators from relatively unwieldy big EO data. Analysis is applied along the entire Western and Northern borders of Syria, utilizing Sentinel-2 data, with a focus on the automation of information extraction and integration of derived information with at least one additional data source in a semi-automatic workflow. The idea is that such application-independent, semantic data cubes can facilitate reproducible and repeatable monitoring of land cover changes and the development of transferable, generic EO-based indicators to support international initiatives, such as the United Nations’ Sustainable Development Goals.
-
-\emph{Keywords:} remote sensing, big Earth data, data cube, semantic enrichment, reproducible research, crisis indicators, livelihood security
+\emph{Keywords:} remote sensing | big Earth data | data cube | semantic enrichment | reproducible research | sustainable development goals
 
 
 \vfill
 
+
+
 \begin{otherlanguage}{ngerman}
+\clearpage
 \pdfbookmark[1]{Zusammenfassung}{Zusammenfassung}
 \chapter*{Zusammenfassung}
 
-Kurze Zusammenfassung des Inhaltes in deutscher Sprache\dots
+Kostenlose und frei zugängliche \acs{EO}-Daten mit globaler Abdeckung werden zunehmend bei höheren räumlichen Auflösungen und zeitlichen Häufigkeiten als je zuvor erzeugt. Bilder mit hoher räumlicher Auflösung (5-30\acs{m}) ermöglichen die multi-temporale und dauerhafte Überwachung großer räumlicher Ausdehnung für verschiedene Anwendungen. Dies geschieht auf eine unvoreingenommene, konsistente Weise, unabhängig von politischen Grenzen. Solche \acs{EO} besteht aus eine wachsende Sammlung von Daten, die eine der wenigen konstante Quellen mit globaler Abdeckung ist, die zur Generierung von Informationen um internationaler Initiativen zu unterstützen verwendet werden kann. Diese Daten erfordern jedoch automatisierte Workflows zur Handhabung, Verarbeitung und Analyse, einschließlich Methoden um Daten in Informationen umzuwandeln. Da solche optischen \acs{EO}-Daten keine direkten Messungen der meisten Objekte, Prozesse oder Ereignisse auf der Erde erlauben, ist die Indikatorextraktion eine Möglichkeit, diese Daten in aussagekräftige Informationen zu übersetzen.
 
-\emph{Schlagwörter:}
+Diese Arbeit gibt einen Überblick über den aktuellen Stand der kostenlosen und frei zugänglichen optischen EO-Daten in einem größeren Rahmen internationaler Initiativen wie den \acs{UN} \acp{SDG}, \emph{big Earth data} und \emph{data cube} Technologien. Basierend auf diesen Informationen wurde eine Proof-of-Concept-Implementierung eines semantischen \acs{EO} \emph{data cubes} erstellt, der täglich automatisch mit den neuesten Sentinel-2-Daten aktualisiert wird, einschließlich generischer semantischer Anreicherung. Es enthält kontinuierlich alle verfügbaren Daten für Sentinel-2 Granules, die sich im Nordwesten Syriens befinden, einem Land, in dem das ganze Jahr hindurch nur eine geringe monatliche Wolkenbedeckung gibt. Damit ist es ein idealer Standort für die Analyse von Oberflächen mit optischen multispektralen Daten, wie Sentinel-2. Die Ausgabe von semantischen Abfragen, die auf vegetations- und wasserähnlichen Semi-Konzepten aus dem generischen semantischen Informationslayer basieren, wird vorgestellt, einschließlich der Herausforderungen, denen sie bei ihrer Interpretation gegenüberstehen. Diese Ergebnisse könnten als Dokumentation der Oberflächenwasser- und Vegetationsdynamik im Laufe der Zeit gesehen werden. Ihr beabsichtigter Zweck ist es, ad-hoc reproduzierbare, wiederholbare und räumlich-explizite Informationen als Indikatoren zu generieren.
+
 
 \end{otherlanguage}
 

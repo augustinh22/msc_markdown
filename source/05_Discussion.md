@@ -27,7 +27,7 @@ The total vegetation-like observations can be seen in \autoref{fig:3yr_veg_total
 
 Two depictions of differences in the normalised index can be seen in Figures \ref{fig:3yr_veg_norm_close1} and \ref{fig:3yr_veg_norm_close2}, showing what is most likely irrigated agricultural land on each side of the Turkish-Syrian border. Some of the articles cited in \autoref{sec:ex_background} talked about damage to irrigation infrastructure or reduction in irrigation practices due to the displacement of people. These two figures might be considered as providing evidence supporting that claim in a spatially-explicit way. Without similar data prior to the start of the Syrian conflict, such an assertion based on this output is more than risky and could be due to other causes. However, even if Sentinel-2 data was available before 2015, the presence of intense drought starting around 2007 in Syria definitely caused land cover change, but also limits the ability to attribute changes to possibly being related to conflict. Average monthly rainfall data for the duration of Sentinel-2 observations including 6 months before from the city of Akçakale, Turkey, shown in \autoref{fig:3yr_veg_norm_close1}, can be seen in \autoref{fig:akcakale_2015_2018}. This is not necessarily useful for interpreting output shown here, but might be useful if three different annual aggregations, or seasonal aggregations in different years are calculated, similar to what is done in \autoref{sec:ex_multitemp}.
 
-![A rough idea of precipitation from December 2014 until May 2018 as recorded at Akçakale, Turkey, on the border to Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data provided by WorldWeatherOnline.com</a> \label{fig:akcakale_2015_2018}](source/figures/akcakale_2015_2018.png)
+![A rough idea of precipitation from December 2014 until May 2018 as recorded at Akçakale, Turkey, on the border to Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data and visualisation provided by WorldWeatherOnline.com</a> \label{fig:akcakale_2015_2018}](source/figures/akcakale_2015_2018.png)
 
 While there are no metrics of statistically-based confidence to offer here, water-like semi-concepts sometimes look very similar to areas with shadow, whether from clouds or terrain. It is important to make clear that even in an exploratory way, water-like semi-concepts move through relatively more uncertainty than looking at vegetation-like semi-concepts without incorporating any additional knowledge or information (e.g. \acs{DEM}, improved cloud and cloud-shadow masking). As becomes immediately evident when looking at \autoref{fig:3yr_water_total}, the more mountainous region in the West contains observed water-like semi-concepts in areas that are very likely mostly shadows from mountainous terrain (*see* \autoref{fig:3yr_veg_water_norm_close2} (c)). What are likely freshly irrigated (i.e. basically flooded) agricultural fields can also be assumed to be made visible based on their regular, rectangular shapes and very low counts of water-like observations (i.e. depicted in a yellowish tone).
 
@@ -44,7 +44,7 @@ Another issue that can arise with bi-temporal change detection is when multiple 
 
 In this case, the area queried is over 10,000\acs{km}² and visible in the red box shown in (a) of \autoref{fig:afrin_valid_total}. This area covers what is known as Afrin, Syria. In that same figure, a substantial difference in the number of available acquisitions can be seen between years 2016 and 2017, before Sentinel-2B was launched and operational, and 2018, where almost twice as many acquisitions are available for parts of the queried area for the same duration of time (i.e. around 6 weeks). A similar pattern of acquisition distribution can also be seen in \autoref{fig:afrin_veg_clean}, where it is also clear that 2017 has a few more acquisitions than 2016 for the same time-frame, but also on fewer cloud-like pixels in the acquisitions available. The more mountainous region in the West also is visible, especially in in 2018, due to lower numbers of "clean" pixels likely attributable to higher average cloud cover, even though more total acquisitions are available. As mentioned in \autoref{sec:ex_cube}, the city of Aleppo is also visible in the lower right corner, especially once more acquisitions are incorporated, such as in 2018. This is similarly visible in \autoref{fig:3yr_clean_close1} over the entire 3 years of data, but is interesting to see the pattern emerge even with, at most, 17 acquisitions in 2018.
 
-![A rough idea of precipitation from September 2015 until May 2018 as recorded at the international airport in Aleppo, Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data provided by WorldWeatherOnline.com</a> \label{fig:aleppo_2015_2018}](source/figures/aleppo_2015_2018.png)
+![A rough idea of precipitation from September 2015 until May 2018 as recorded at the international airport in Aleppo, Syria. <a href='https://www.worldweatheronline.com/' title='Historical average weather'>Data and visualisation provided by WorldWeatherOnline.com</a> \label{fig:aleppo_2015_2018}](source/figures/aleppo_2015_2018.png)
 
 Moving on to vegetation, in this case, it is important to take into account rainfall at this time of year, and the preceding months. \autoref{fig:aleppo_2015_2018} shows average monthly rainfall in Aleppo for the years 2016-2018. It is clear that the end of 2015 and beginning of 2016 received relatively less average rainfall than 2017 or 2018. There is a visible difference in the total number of vegetation-like pixels shown in \autoref{fig:afrin_veg_total}, not only because of the lower number of acquisitions in 2016, but likely also because there was less average rainfall.
 
@@ -164,12 +164,14 @@ It might make sense to avoid downloading the original Sentinel-2 data entirely b
 
 This step in the automated workflow essentially produces redundant data that takes up more space on the server. These data are not used once the \acs{SIAM}™ information layers have been generated.  However, if changes occur to any of the Python packages used to generate these re-formatted layers, keeping them could be used to identify differences, and whether or not they produce comparable output for the task at hand.
 
-Methods also exist for improved resampling of lower resolution bands, that work a bit like pan sharpening based on characteristics of the available 10\ac{m} bands. Whether or not this would have an affect on resulting information layers, in what way and how much would be something to explore.
+Methods also exist for improved resampling of lower resolution bands, that work a bit like pan sharpening based on characteristics of the available 10\acs{m} bands. Whether or not this would have an affect on resulting information layers, in what way and how much would be something to explore.
 
 
 ### No-Data Mask Generation \label{sec:nodata_mask}
 
-It has been assumed that pixels with a measured value of 0 in any of the six re-formatted Sentinel-2 bands be excluded (i.e. masked), but this may be a fault assumption more often than I am aware. However, information on pixels not containing valid data for each band within a scene is not yet supplied with Sentinel-2 products. Even if the image footprint is supplied in the metadata, each band’s measurements at the edge of an orbit swath are most often not identical. Pixels with a measured value of 0 in any of the six bands are thus excluded from semantic enrichment. I found this assumption useful as a relatively simple way to drastically reduce faulty semi-concept assignment to pixels lacking valid data in any of the six bands within an image at a given time, as happens mostly at the edge of an orbit swath. However, this assumption may also occasionally exclude meaningful information (i.e. when a valid measurement has a value of 0).
+It has been assumed that pixels with a measured value of 0 in any of the six re-formatted Sentinel-2 bands be excluded (i.e. masked), but this may be a fault assumption more often than I am aware. However, information on pixels not containing valid data for each band within a scene is not yet supplied with Sentinel-2 products. Even if the image footprint is supplied in the metadata, each band’s measurements at the edge of an orbit swath are most often not identical. Pixels with a measured value of 0 in any of the six bands are thus excluded from semantic enrichment. I found this assumption useful as a relatively simple way to drastically reduce faulty semi-concept assignment to pixels lacking valid data in any of the six bands within an image at a given time, as happens mostly at the edge of an orbit swath. However, this assumption may also occasionally exclude meaningful information (i.e. when a valid measurement has a value of 0), as can be seen in \autoref{fig:3yr_nodata}.
+
+![A closer look at the number of total pixels containing measured values not equal to 0 in the original Sentinel-2 data based on nearly 3 years of data. Values 0-125 are white (because there are none) and the lilac purple colour begins at value 126, the lowest number of acquisitions. One can see a bit of a salt-and-pepper effect, assumed to be caused by this simplified no-data masking. \label{fig:3yr_nodata}](source/figures/maps/3yr_nodata.png)
 
 
 ## Pre-classification
@@ -200,7 +202,7 @@ At the moment, this implementation uses a tiling scheme of 10\acs{km} by 10\acs{
 
 One challenge is that processing using the Python \ac{API} occurs predominantly using in-memory data. This complicates implementation on the current hardware as it requires a user to load the complete dataset prior to analysis and is a limitation for smaller institutions. The *GridWorkflow* class offers tools to work on analysis in bite-sized chunks, but proves challenges for any analysis where the context that pixels are situated in needs to be taken into consideration (e.g. neighbours). This is a data dependency issue that needs further exploration within data cube technologies including the \ac{ODC}.
 
-An artefact from using *GridWorkflow* was noticed when loading individual chunked tiles, as well as the tiles mosaiced using \ac{GDAL} after processing. This artefact is 1 pixel (i.e. 10\ac{m}) wide along the edges of the tiling scheme. The *dask*[^6] chunks for processing were based on the tiling scheme. After speaking with someone at \ac{CSIRO} who knows the code base a bit better, it could stem from a registration error between different language libraries used in implementing the *GridWorkflow* class (i.e. a difference between indexing starting at 0 or 1). A planned update to the newest release of the \ac{ODC} software may solve this issue.
+An artefact from using *GridWorkflow* was noticed when loading individual chunked tiles, as well as the tiles mosaiced using \ac{GDAL} after processing. This artefact is 1 pixel (i.e. 10\acs{m}) wide along the edges of the tiling scheme. The *dask*[^6] chunks for processing were based on the tiling scheme. After speaking with someone at \ac{CSIRO} who knows the code base a bit better, it could stem from a registration error between different language libraries used in implementing the *GridWorkflow* class (i.e. a difference between indexing starting at 0 or 1). A planned update to the newest release of the \ac{ODC} software may solve this issue.
 
 [^6]: *Dask* is a Python package for scaling multi-dimensional data analysis using *Numpy* (another Python package) arrays, which is a bit more of what happens under the hood of the \ac{ODC}.
 
@@ -210,24 +212,24 @@ An artefact from using *GridWorkflow* was noticed when loading individual chunke
 This was a proof-of-concept implementation of a semantic data cube and was never intended to optimise or even evaluate the speed or efficiency of processes or workflows. However, the volume of data that will accumulate even over one more year of operation and the limitations on in-memory processing seem to be the largest hurdles in terms of future implementation of a similar system. Just to summarise, downloading data all the way up to ingestion of the generated information layers into an implementation of the \ac{ODC} takes the following tasks around so much time, given a bit of wiggle room:
 
   - download: 10 minutes
-  - prep for SIAM™: 1 minute
-  - SIAM™ processing: 5 minutes
+  - prep for \acs{SIAM}™: 1 minute
+  - \acs{SIAM}™ processing: 5 minutes
   - indexing: 10 seconds
   - ingestion: 1 minute
 
 \graffito{Conservatively estimated at 17 minutes per granule-sized scene.}
 
-This means that even with relatively slow downloads (e.g. often it only takes a few minutes), one granule can be processed and incorporated in around 17 minutes. Downloads can occur simultaneously, depending on a multitude of variables, and SIAM™ processing can easily be distributed among different cores. Just as an exercise of curiosity, an estimate of how long it would take to rebuild this implementation will be estimated. These values are based on the current existence of around 600 Sentinel-2 granules. There is also perhaps unreasonable assumptions of linear processing, that granule-based Sentinel-2 products are all the same size, and that no interruptions in Internet connectivity, Hub service, etc. occur. Based on these assumptions, it would take approximately so long for each step to rebuild the implementation in a linear way, including downloads, since everything has already been automated:
+This means that even with relatively slow downloads (e.g. often it only takes a few minutes), one granule can be processed and incorporated in around 17 minutes. Downloads can occur simultaneously, depending on a multitude of variables, and \acs{SIAM}™ processing can easily be distributed among different cores. Just as an exercise of curiosity, an estimate of how long it would take to rebuild this implementation will be estimated. These values are based on the current existence of around 600 Sentinel-2 granules. There is also perhaps unreasonable assumptions of linear processing, that granule-based Sentinel-2 products are all the same size, and that no interruptions in Internet connectivity, Hub service, etc. occur. Based on these assumptions, it would take approximately so long for each step to rebuild the implementation in a linear way, including downloads, since everything has already been automated:
 
   - download: (600 granules * 10 minutes) = 6,000 minutes
-  - prep for SIAM™: (600 * 1 minute) = 600 minutes
-  - SIAM™ processing: (600 * 5 minutes) = 3,000 minutes
+  - prep for \acs{SIAM}™: (600 * 1 minute) = 600 minutes
+  - \acs{SIAM}™ processing: (600 * 5 minutes) = 3,000 minutes
   - indexing: (600 * 10 seconds) = 100 minutes
   - ingestion: (600 * 1 minute) = 600 minutes
 
 \graffito{3.16 days}
 
-This results in 10,300 minutes, or 7.153 days of processing, assuming nothing runs in parallel. However, SIAM™, for example, was distributed among 12 \acp{CPU} when creating this implementation, and downloads occurred using at least 2 Copernicus Open Access Hub accounts. This results in the following fairly conservative estimation of 4,550 minutes (i.e. 75.83 hours, or 3.16 days).
+This results in 10,300 minutes, or 7.153 days of processing, assuming nothing runs in parallel. However, \acs{SIAM}™, for example, was distributed among 12 \acp{CPU} when creating this implementation, and downloads occurred using at least 2 Copernicus Open Access Hub accounts. This results in the following fairly conservative estimation of 4,550 minutes (i.e. 75.83 hours, or 3.16 days).
 
 
 ## Jupyter notebooks
@@ -248,11 +250,13 @@ This thesis aimed towards answering some specific lines of inquiry. Very brief r
 
 Free and open \ac{EO} data are one of the few global data sources independent of borders. *See* \autoref{sec:sdg_and_eo} and \autoref{sec:potential_sdg}
 
+---
 
 *What are some current examples of free and open \ac{EO}-based indicators or evidence for indicators?*
 
 There are many existing examples. See \autoref{sec:sota_eo_info} for a very small selection.
 
+---
 
 ## Implementation
 
@@ -260,37 +264,54 @@ There are many existing examples. See \autoref{sec:sota_eo_info} for a very smal
 
 Yes. Improving the level of the automatic semantic enrichment, what it can be used for and how is an on-going field of research blending domains of \ac{EO}, computer science, cognition, image understanding and more.
 
+---
+
 *Can all Sentinel-2 data available for a region be automatically incorporated in a semantically enriched data cube?*
 
 Yes, and this implementation can even be reasonably considered to scale-up to a few times larger in data volume using a similar implementation as here. See \autoref{sec:benchmarks} for a very rough idea of how long this could take.
+
+---
 
 *Is the available hardware sufficient for such an automated workflow and queries within a reasonable execution time?*
 
 It depends on the query. For the purposes of this thesis, most exploratory queries could be conducted in 30 minutes or less. Even processing all of the available ingested spatio-temporal extent only took around 4 hours for each relatively uncomplicated query. More complex queries (i.e. more array functions) years of data over large spatial extents ought to consider a hardware upgrade.
 
+---
+
 *Is the \ac{ODC} software conducive to handling relatively simple semantic queries based on semi-concepts?*
 
 Yes. The question is now whether simple semantic queries based on semi-concepts serve the applications they are intended to. See \autoref{ch:proof} for example query outputs.
+
+---
 
 *Are semi-concepts sufficient for ad-hoc, semi-automated monitoring of vegetation and water dynamics over time?*
 
 Considering they are ad-hoc not definitive, most certainly. However, before being used as the basis for decisions or actions that could have longer reaching consequences than curiosity, the utility, validity or agreement with existing data, limitations and challenges need to be assessed for different applications. See \autoref{sec:map_interpretation}.
 
+---
+
 *Can information generated from querying vegetation-like or water-like semi-concepts utilising time be used in a meaningful way in the context of existing indicators?*
 
 This is still unclear and requires further research, but the exploratory results are a promising start. See \autoref{sec:potential_sdg}.
+
+---
 
 *How does this information characterise changes to water and vegetation cover for the temporal extent of the implemented data cube?*
 
 It can characterise longer-term spatial extents (e.g. occurrence over multiple years, seasons, etc.) or shorter term monitoring (e.g. aggregations of a few weeks to changes detected using the newest semantically enriched information layer). Interpreting such output requires existing and perhaps new statistical methods, especially when it comes to characterising the distribution, variation, variability and uncertainty of observations through time, accounting for space. Metrics and methods exist to assess those aspects while accounting for time, but also not necessarily in the context of big data. See \autoref{sec:bigearthdata} and \autoref{sec:map_interpretation}.
 
+---
+
 *What sort of information is needed to better assess the quality and confidence of aggregated indicator-like results?*
 
 It is clear that having a better understanding of the larger archive data are a part of (i.e. global information), and also the data available for the study area (i.e. local information, if you will), are necessary to inform analysis and interpretation. If a selection of images is chosen, these two collections of information are also incredibly relevant, since the data being used is chosen for a specific set of criteria that could bias or influence analysis in some way. See \autoref{sec:map_interpretation} for some qualified efforts to interpret aggregated, indicator-like output.
 
+---
 
 ## Results
 
 *Can differences in vegetation dynamics in agricultural areas be detected between Syria and Turkey using this implementation?*
 
-This was not a topic not explicitly addressed in this thesis. However, without making a claim as to the cause, a clear difference over an aggregated 3 years of Sentinel-2 data, the border between the two countries is clearly visible and differences in vegetation, most probably irrigated agriculture, are also visible (Figures \ref{3yr_veg_norm_close1} and \ref{3yr_veg_norm_close2}).
+This was not a topic explicitly addressed in this thesis. However, without making a claim as to the cause, a clear difference over an aggregated 3 years of Sentinel-2 data, the border between the two countries is clearly visible and differences in vegetation, most probably irrigated agriculture, are also visible (Figures \ref{fig:3yr_veg_norm_close1} and \ref{fig:3yr_veg_norm_close2}).
+
+---

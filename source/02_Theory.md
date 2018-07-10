@@ -53,7 +53,7 @@ As of 7 November 2017, there are an estimated 1,738 active, operating satellites
 
 The Landsat-1 mission, launched in 1972, carried the first digital multi-spectral sensors intended for civilian use. Big \ac{EO} data is a subset of big Earth data that really came into existence through the \acs{USGS}'s decision to open the Landsat archive and all new Landsat data to the public in 2008 under a free and open policy [@wulderOpeningArchiveHow2012]. This presented new opportunities for many researchers to access and use Landsat data, stretching back until 1972. Before the archive was opened, a mere 53 Landsat scenes were downloaded on average per day, but now daily averages are around 5,700 scenes [@andersonEarthObservationService2017].
 
-![Estimates of annual data volumes from open and free data from Landsat, \acs{MODIS}'s Terra and Aqua units and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg){ width="100%" }
+![Estimates of annual data volumes from open and free data from Landsat, \acs{MODIS}'s Terra and Aqua units and the first three Sentinel missions [@soilleVersatileDataintensiveComputing2018] \label{fig:dataestimates}](source/figures/soille_data_estimates_2018.jpg){ width=\textwidth }
 
 The \acp{EC} Copernicus programme has decided to follow a similar free and open data policy and is now providing \ac{EO} data comprised of multiple Sentinel satellite missions operated by \ac{ESA} and *in situ* observations with global coverage. These data are being provided at an unprecedented frequency and spatial resolution for free, full and open data. There has never been so much \ac{EO} data freely and openly available to the public. Daily data volumes from the Sentinel missions alone are expected to exceed 10\acs{TB} (\autoref{fig:dataestimates}) [@soilleVersatileDataintensiveComputing2018].
 
@@ -216,7 +216,7 @@ In 2015, \ac{GEO} launched the initiative \ac{EO4SDG}. More generally, \acs{UN-G
 \ac{EO} data are highly complex, rapidly increasing in volume and variety, and are unfortunately underutilised in terms of extracting their information potential. A lack of data can no longer be considered a limiting factor to generating meaningful information, rather a lack of reproducible, reliable and transferable methods. There have been many strides in technology, methods and analysis towards better leveraging the potential of free and open big \ac{EO} data. They can offer long time-series with continuity, consistency and comparability that can be utilised complementarily with other existing, more traditional statistical methods.
 
 
-## Free and open EO-derived Information \label{sec:sota_eo_info}
+## Free and Open EO-derived Information \label{sec:sota_eo_info}
 
 Automated, repeatable and reliable \ac{EO} information extraction can theoretically be conducted over large areas and time-spans (assuming adequate hardware), but requires a combination of deductive (i.e. rule/expert-based) and inductive methods that are multi-dimensional and robust to redundant information. Many challenges exist beyond automatisation and improving processes (e.g. efficiency), including large data volumes, high repetition rates, and identifying significant indicators (e.g. advanced information extraction) for a given purpose.
 
@@ -269,7 +269,7 @@ Other studies have used the same prior-knowledge-based classification to detect 
 @tiedeImageQueryingEarthObservation2016 utilised pre-classification in a parameter free and fully automated workflow that allowed semantic queries as part of a prototypical image understanding system called \acf{IQ}. This system was used by @sudmannsAutomaticExpostFlood2017 to automatically extract surface water in an area in Somalia based on 78 Landsat-8 scenes. \ac{IQ} is based on a Rasdaman array database architecture with a Web-based \acs{GUI} that allows users to create ad-hoc semantic queries.
 
 
-## Relevant data cube implementations
+## Relevant Data Cube Implementations
 
 Currently existing \ac{EO} data cube implementations are geared towards providing access to \ac{ARD}, and recent developments for \ac{EO} data are numerous. Technical infrastructure implementations for instantiating data cubes employed in the \ac{EO} domain include the Rasdaman array database [@baumannMultidimensionalDatabaseSystem1998], SciDB array database [@stonebrakerSciDBDatabaseManagement2013], free and open software provided by the \ac{CEOS} \ac{ODC} initiative and a data cube infrastructure based on the \ac{JEODPP} [@nativiViewbasedModelDatacube2017]. What follows here does not intend to give a comprehensive review, but rather an idea of some of the \ac{EO} data cube solutions that exist.
 

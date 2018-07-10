@@ -63,18 +63,24 @@ Free and open \ac{EO} data are a reliable and objective global data source that 
 
 # Further Research Questions
 
+*What are some ways or methods that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?*
 
-*What are some ways that output from such a data cube implementation produced over large areas using dense \ac{EO} time-series can be validated, or better tested for agreement?*
+*What are some existing measures of spatio-temporal confidence for \ac{EO} analysis over dense time-series with big geospatial extents?*
 
-*What are some existing measures of spatio-temporal confidence for \ac{EO} analysis over dense time-series?
+*What are existing methods that take into account the spatio-temporal complexity and variability in \ac{EO} analysis, but more importantly, interpretation, based on the Vs of big data?*[^7]
 
-*What are existing methods that take into account the spatio-temporal complexity and variability in analysis, but more importantly, interpretation, based on the Vs of big data?*
+[^7]: For example, some methods do exist for looking at spatio-temporal accuracy (<https://www.sciencedirect.com/science/article/pii/S0303243415000975#fig0015>), but they still require producing a map for each time-step, which, in the case of big \acs{EO} could mean hundreds, if not thousands of scenes -- a task that ought not be done manually.
 
-For example, some methods do exist for looking at spatio-temporal accuracy (<https://www.sciencedirect.com/science/article/pii/S0303243415000975#fig0015>), but they still require producing a map for each time-step, which, in the case of big \acs{EO} could mean hundreds, if not thousands of scenes.
+*Is aggregated time-series output from different years or seasons comparable?*
 
+*How could comparability be established, quantified, characterised or explored?*
 
-- is aggregated time-series output from different years or seasons comparable?
-- how could comparability be quantified, characterised or explored?
-- what spatio-temporal methods exist that could offer a way to test the statistical significance of changes or differences based on an aggregated time-series of scenes, like those generated for Afrin?
-- is big data too big for traditional statistical measures to have meaning?
-- What semi-concepts are difficult or particularly semantically ambiguous even if they look alike?
+*What spatio-temporal methods exist that could offer a way to test the statistical significance of changes or differences based on an aggregated time-series of scenes, like those generated for Afrin?*
+
+*Is big data too big for traditional statistical measures to have meaning?*
+
+*What semi-concepts are particularly semantically ambiguous even if they look alike?*
+
+*What influence does this have on different semantic queries based on semi-concepts?*
+
+*What information, rule-sets, or knowledge would be necessary to remove at least some of this semantic ambiguity?*
