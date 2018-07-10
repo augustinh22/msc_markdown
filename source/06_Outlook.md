@@ -19,7 +19,7 @@ We are likely to see finer spatial resolutions and more frequent observations, e
 
 Object-based image analysis may be one set of methods to turn higher-resolution images into meaningful information when paired with semantics. As seen in the output generated in {ch:proof}, recognisable structures are very clearly visible, but cannot be utilised in a machine-readable way in the current implementation. Incorporating some form of iterative, reproducible segmentation to output, or coding characteristics of the neighbourhood around a pixel into an array as an additional information layer, would allow for contextual, spatial information to be utilised (e.g. neighborhood, shape, size, texture). This would could be a step further in the direction of automated detection of specific land cover classes, where shape and context are important for making the distinction between some natural and human-made features. For example, methods could be developed to automatically detect and discern a certain definition of forest-like objects (as seen in (b) and (c) in \autoref{fig:3yr_veg_water_norm_close1}) from what are clearly agricultural fields in \autoref{fig:3yr_veg_norm_close1}).
 
-Incorporation of additional cloud and cloud-shadow algorithms (e.g. Fmask [@zhuObjectbasedCloudCloud2012]) could be considered to include in an implementation like the one presented in this thesis. However, if Sentinel-2 is the main data source, a lack of thermal bands will continue to make this task a challenging one.
+Incorporation of additional cloud and cloud-shadow algorithms (e.g. Fmask  by @zhuObjectbasedCloudCloud2012) could be considered to include in an implementation like the one presented in this thesis. However, if Sentinel-2 is the main data source, a lack of thermal bands will continue to make this task a challenging one.
 
 
 # Energy Consumption
@@ -41,7 +41,7 @@ Not everyone that works with \ac{EO} data has the chops to configure reproducibl
 I am convinced that data cubes are going to increase in use in years to come. Bringing new people to using them in data storage, access and analysis will lead to innovation in methods and more. Currently data cubes are defined as massive multi-dimensional gridded arrays. What could happen if we moved beyond the restricting confines of pixels or regular grids? What could objects look like in a data cube implementation?
 
 
-# Privacy and monitoring
+# Privacy and Monitoring
 
 What does privacy look like in the context of regular, constant, global \ac{EO} data collection?
 

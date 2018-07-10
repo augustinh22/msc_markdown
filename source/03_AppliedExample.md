@@ -7,7 +7,7 @@
 \chapter{Implementation}\label{ch:implementation}
 
 
-This applied example implementation covers a highly automated workflow for transforming Sentinel-2 data into meaningful information. Some of its potential utility is framed in \autoref{sec:framing}, and preliminary ad-hoc proof-of-concept results for further discussion are provided in \autoref{ch:proof}. This implementation was documented in less detail in **cite GI_Forum Paper**.
+This applied example implementation covers a highly automated workflow for transforming Sentinel-2 data into meaningful information. Some of its potential utility is framed in \autoref{sec:framing}, and preliminary ad-hoc proof-of-concept results for further discussion are provided in \autoref{ch:proof}. This implementation was documented in less detail in @augustinSemanticEarthObservation2018.
 
 
 # Use-Case Selection
@@ -17,11 +17,11 @@ An area located in what is currently known as north-western Syria was chosen as 
 
 ## Background \label{sec:ex_background}
 
-The conflict in Syria has been going on since March-April 2011 [@SyriaCivilWar]. Tunisian and Egyptian uprisings in 2011, now referred to as the Arab Spring, inspired pro-democracy Syrian activists to organise protests. A harsh response to these protests by the Syrian government, led by Bashar al-Assad, resulted in hundreds of dead or imprisoned demonstrators. This violent response, paired with existing social unrest, motivated the establishment of the Free Syrian Army later in 2011, whose overall aim is to overthrow the Assad-led government. It was at this point that the conflict began shifting towards civil war.
+The conflict in Syria has been going on since March-April 2011 [@SyriaCivilWar2018]. Tunisian and Egyptian uprisings in 2011, now referred to as the Arab Spring, inspired pro-democracy Syrian activists to organise protests. A harsh response to these protests by the Syrian government, led by Bashar al-Assad, resulted in hundreds of dead or imprisoned demonstrators. This violent response, paired with existing social unrest, motivated the establishment of the Free Syrian Army later in 2011, whose overall aim is to overthrow the Assad-led government. It was at this point that the conflict began shifting towards civil war.
 
-Syria experienced a drought from around 2007 until at least 2010 [@SyriaCivilWar; @fountainResearchersLinkSyrian2018]. While by no means the cause of Syria's civil war, some claim that the drought contributed to social unrest, a loss of livelihood security and an increased number of internally displaced people, fueling the conflict. According to @cookSpatiotemporalDroughtVariability, there is a 98% likelihood that this drought was drier than any comparable period in the last 500 years, if not the last 900 years (89% likelihood). This drought event contributed to already existing water and agricultural insecurity, situated in a century-long trend towards drier, warmer conditions on average. It was a main factor in motivating some of the estimated 1.5 million Syrian people to relocate from rural areas to urban centres and peripheries [@kelleyClimateChangeFertile2015].
+Syria experienced a drought from around 2007 until at least 2010 [@SyriaCivilWar2018; @fountainResearchersLinkSyrian2018]. While by no means the cause of Syria's civil war, some claim that the drought contributed to social unrest, a loss of livelihood security and an increased number of internally displaced people, fueling the conflict. According to @cookSpatiotemporalDroughtVariability2016, there is a 98% likelihood that this drought was drier than any comparable period in the last 500 years, if not the last 900 years (89% likelihood). This drought event contributed to already existing water and agricultural insecurity, situated in a century-long trend towards drier, warmer conditions on average. It was a main factor in motivating some of the estimated 1.5 million Syrian people to relocate from rural areas to urban centres and peripheries [@kelleyClimateChangeFertile2015].
 
-As of December 2015, an estimated 11 million Syrians have been displaced by the on-going civil war or events leading up to it, where 4.6 million are refugees and 6.6 million internally displaced [@corbaneMonitoringSyrianHumanitarian2016]. The \ac{UNHCR} estimates from May 2018 identify around 5.6 million registered Syrian refugees and still 6.6 million internally displaced persons [@SituationSyriaRegional; @refugeesSyriaEmergency].
+As of December 2015, an estimated 11 million Syrians have been displaced by the on-going civil war or events leading up to it, where 4.6 million are refugees and 6.6 million internally displaced [@corbaneMonitoringSyrianHumanitarian2016]. The \ac{UNHCR} estimates from May 2018 identify around 5.6 million registered Syrian refugees and still 6.6 million internally displaced persons [@unhcrSituationSyriaRegional2018; @unhcrSyriaEmergency2018].
 
 \graffito{There are multiple application domains.}
 
@@ -34,7 +34,7 @@ This proof-of-concept implementation focuses on an area located in north-western
 
 ![Overview of study area with Sentinel-2 relative orbits based on simplified acquisition swaths, showing an approximate orbit overlap in purple. \label{fig:overview}](source/figures/study_area_edit.png)
 
-Data characteristics of the study area based on their collective metadata indicate suitability for optical time-series analyses, primarily due to the low average annual cloud-cover reflected in the Sentinel-2 archive for the area. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east [@peelUpdatedWorldMap2007]. The annual average cloud-cover percentage, extracted from \ac{ESA}’s \ac{L1C} metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud-cover percentage below 10%, while otherwise generally ranging between 20% and 40% from October to May. These summary metadata metrics were determined using the Sentinel-2 metadata analysis system developed at \acs{ZGIS}, called EO-Compass [**cite**].
+Data characteristics of the study area based on their collective metadata indicate suitability for optical time-series analyses, primarily due to the low average annual cloud-cover reflected in the Sentinel-2 archive for the area. According to the Köppen-Geiger classification, the climate is mostly warm Mediterranean (Csa) in the western part of the study area transitioning into warm and semi-arid (BSh) towards the east [@peelUpdatedWorldMap2007]. The annual average cloud-cover percentage, extracted from \ac{ESA}’s \ac{L1C} metadata, also decreases from west to east. The majority of scenes acquired from May to October have a cloud-cover percentage below 10%, while otherwise generally ranging between 20% and 40% from October to May. These summary metadata metrics were determined using the Sentinel-2 metadata analysis system developed at \acs{ZGIS}, called EO-Compass [@sudmannsEOCompass2018; @sudmannsSentinel2DashboardSpatiotemporal2017].
 
 
 # Data
@@ -95,7 +95,8 @@ The choice to work with Linux was a no-brainer, and a server with Red Hat Enterp
 
 #### Python, conda and virtualenv
 
-Three reproducible environments for Python are used in the workflow. The first and third environments described here are managed by conda, an open-source environment and package management system that was originally designed for working with Python, but has since been implemented to accommodate various programming languages on Windows, macOS and Linux [@anacondaincCondaCondaDocumentation2017]. It installs, runs and updates dependencies and packages for a defined version of a programming language based on specific commands or environment definitions. This theoretically makes computing environments using a specific language increasingly reproducible, and allows users to have multiple configured environments at their disposal, depending on the project or purpose. The second environment is implemented using a Python package called *virtualenv* for creating isolated Python environments.
+Three reproducible environments for Python are used in the workflow. The first and third environments described here are managed by conda, an open-source environment and package management system that was originally designed for working with Python, but has since been implemented to accommodate various programming languages on Windows, macOS and Linux [@anacondainc.CondaCondaDocumentation2017]. It installs, runs and updates dependencies and packages for a defined version of a programming language based on specific commands or environment definitions. This theoretically makes computing environments using a specific language increasingly reproducible, and allows users to have multiple configured environments at their disposal, depending on the project or purpose. The second environment is implemented using a Python package called *virtualenv* for creating isolated Python environments.
+
 
 \graffito{Never again hear: "Well, it works on my machine just fine..."}
 
@@ -116,7 +117,7 @@ While not of influence to the outcome of project development, the open-source ve
 This implementation uses the \ac{ODC} version 1.5.1, known as Purpler Unicorn (13 July 2017), with access to data provided by a Python \ac{API}. The \ac{ODC} was chosen because it functions within the data cube paradigm, has been proven to be robust and scalable, and allows for transferable approaches through its open-source license.
 
 The \acf{ODC} is much more than software. It is an international initiative based on software initially developed by \ac{AGDC}, now managed by \ac{CEOS}. The objective is to increase the impact of \ac{EO}, build a community of users, and provide free and open software as a means to store, manage and analyse large volumes of \ac{EO} data by providing an integrated gridded data
-analysis environment, including documentation [@ceosCEOSOpenData2017]. \ac{CEOS} is also aligned with overarching international agendas, including the \acp{SDG}, and has a mandate to improve the use of \ac{EO}-derived information.
+analysis environment, including documentation [@committeeonearthobservationsatellitesCEOSOpenData2017]. \ac{CEOS} is also aligned with overarching international agendas, including the \acp{SDG}, and has a mandate to improve the use of \ac{EO}-derived information.
 
 
 #### PostgreSQL
@@ -141,11 +142,12 @@ Various scripts were developed to automate this workflow. The majority of the fo
 
 ### Accessing and Acquiring Sentinel-2 data \label{sec:acquisition}
 
-A \ac{CLI} was implemented in Python to allow searching and downloading data from the Copernicus Open Access Hub's \acs{API}, similar to the work of Olivier Hagolle [@hagolleAutomatedDownloadSentinel22018]. It is intended to be used on Windows, Mac or Linux \acs{OS}. The temporal restraints for queries can be determined based on start and end times for data acquisition or ingestion to the hub. Spatial restraints can be set by defining a point, polygon or granule name. The last of those possibilities is facilitated by an in-house \ac{API} at \acs{ZGIS} developed by Martin Sudmanns that returns the centre point of any existing Sentinel-2 granule by name[^4]. If this option is used, only the identified granule is downloaded from any matching results. This is especially important for targeted extraction of specific granules from older, multiple granule products in the archive from before 6 December 2016. Downloaded scenes are automatically unzipped in a designated target directory (in this case, granule-based directories), and any products already located in the target directory are not downloaded again.
+A \ac{CLI} was implemented in Python to allow searching and downloading data from the Copernicus Open Access Hub's \acs{API}, similar to the work of @hagolleAutomatedDownloadSentinel22018. It is intended to be used on Windows, Mac or Linux \acs{OS}. The temporal restraints for queries can be determined based on start and end times for data acquisition or ingestion to the hub. Spatial restraints can be set by defining a point, polygon or granule name. The last of those possibilities is facilitated by an in-house \ac{API} at \acs{ZGIS} developed by Martin Sudmanns that returns the centre point of any existing Sentinel-2 granule by name[^4]. If this option is used, only the identified granule is downloaded from any matching results. This is especially important for targeted extraction of specific granules from older, multiple granule products in the archive from before 6 December 2016. Downloaded scenes are automatically unzipped in a designated target directory (in this case, granule-based directories), and any products already located in the target directory are not downloaded again.
+
 
 [^4]: In the current implementation of the Copernicus Open Access Hub's \acs{API}, using the centre point is the best way to limit results to a given granule rather than using the entire footprint extent of a granule. This is because each granule overlaps neighboring granules by at least 200\acs{m} on each side. Granule specific Sentinel-2 data retrieval at the time of writing is not a feature offered by the Copernicus Open Access Hub.
 
-\graffito{EO-Compass also uses a modified version of this script to harvest Sentinel-2 metadata.}
+\graffito{EO-Compass [@sudmannsEOCompass2018] also uses a modified version of this script to harvest Sentinel-2 metadata.}
 
 The structure of products and metadata has seen a few modifications since the first scenes offered to the public in 2015, which requires some more complex handling in the script. Most notably, Sentinel-2 products were served in packages of multiple granules prior to 6 December 2016, with sizes sometimes exceeding 6\acs{GB}. The actual physical file structure has, however, remained mostly the same (*see* \autoref{fig:s2_structure}). In the case of older multiple-granule products, the product name might appear more than once in \autoref{tab:s2products}, but are saved in the appropriate granule-named directory in this implementation (i.e. a product could contain granules 37SBA and 37SCA, so is listed twice, but in each granule-specific directory, the product directory only contains the data extracted for that specific granule).
 
@@ -215,7 +217,7 @@ Based on the initial ingestion of around 450 scenes in January 2018, it took on 
 
 ### ODC: ingesting information layers
 
-Data that has been indexed can also be ingested, resulting in automated tiling of an indexed product into netCDF files for more efficient access, creating a gridded time-series data cube [@geoscienceaustraliaIngestingDataOpen2017][^5]. The user needs to select a successfully indexed product (e.g. indexed \acs{SIAM}™ information layers), define the ingestion configuration and the \ac{ODC} software takes care of the rest. It automatically creates a new product description, re-projects the data if necessary, tiles them according to the configuration, creates the necessary metadata and indexes them, with automatic checks to avoid duplication. This ingestion command simply needs to be run whenever new data is added to an indexed product that ought to be ingested.
+Data that has been indexed can also be ingested, resulting in automated tiling of an indexed product into \acf{netCDF} files for more efficient access, creating a gridded time-series data cube [@geoscienceaustraliaIngestingDataOpen2017][^5]. The user needs to select a successfully indexed product (e.g. indexed \acs{SIAM}™ information layers), define the ingestion configuration and the \ac{ODC} software takes care of the rest. It automatically creates a new product description, re-projects the data if necessary, tiles them according to the configuration, creates the necessary metadata and indexes them, with automatic checks to avoid duplication. This ingestion command simply needs to be run whenever new data is added to an indexed product that ought to be ingested.
 
 [^5]: It is important to note that the logical view offered to the user is a multi-dimensional data cube regardless of whether or not a product has been indexed or ingested.
 
@@ -223,7 +225,7 @@ In this implementation, automated ingestion of information layers in 100\acs{km}
 
 \graffito{It takes around 1 minute to ingest one scene.}
 
-Ingestion takes more computing power and time than indexing, because a bunch of netCDF tiles need to be generated. Based on the ingestion of 450 scenes in January 2018, this process takes around 1 minute per scene.
+Ingestion takes more computing power and time than indexing, because a bunch of \acs{netCDF} tiles need to be generated. Based on the ingestion of 450 scenes in January 2018, this process takes around 1 minute per scene.
 
 
 ## Ad-hoc Queries
@@ -233,7 +235,7 @@ Querying the data cube occurs using a Python \ac{API}, which I have chosen to ac
 
 ### ODC: Python API
 
-Once data has been indexed and ingested, they can be accessed using a Python \ac{API} [@geoscienceaustraliaDataAccessAPI2017]. This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent and returns it to the user as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional (generally) in-memory array with dimension names, and is used for further analysis (e.g. in Jupyter notebooks). Indexed data sources can also be accessed using this same Python \ac{API} and with the same commands, but will almost definitely take longer if not save as netCDF files optimised for access (i.e. ingested).
+Once data has been indexed and ingested, they can be accessed using a Python \ac{API} [@geoscienceaustraliaDataAccessAPI2017]. This \ac{API} retrieves data from a given indexed or ingested product for a defined spatio-temporal extent and returns it to the user as a *Dataset* object from the *xarray* Python package. This Python object is a multi-dimensional, in-memory array with dimension names, and is used for further analysis (e.g. in Jupyter notebooks). Indexed data sources can also be accessed using this same Python \ac{API} and with the same commands, but will almost definitely take longer if not save as \acs{netCDF} files optimised for access (i.e. ingested).
 
 Any queries that might exceed memory ought to be run using the Gridworkflow class of the \ac{API} to access and process data in smaller chunks [@geoscienceaustraliaDatacubeApiGridWorkflow2017]. This may not be desirable or even possible for certain types of queries or processes.
 
