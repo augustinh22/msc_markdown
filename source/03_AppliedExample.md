@@ -147,7 +147,7 @@ A \ac{CLI} was implemented in Python to allow searching and downloading data fro
 
 [^4]: In the current implementation of the Copernicus Open Access Hub's \acs{API}, using the centre point is the best way to limit results to a given granule rather than using the entire footprint extent of a granule. This is because each granule overlaps neighboring granules by at least 200\acs{m} on each side. Granule specific Sentinel-2 data retrieval at the time of writing is not a feature offered by the Copernicus Open Access Hub.
 
-\graffito{EO-Compass [@sudmannsEOCompass2018] also uses a modified version of this script to harvest Sentinel-2 metadata.}
+\graffito{EO-Compass also uses a modified version of this script to harvest Sentinel-2 metadata.}
 
 The structure of products and metadata has seen a few modifications since the first scenes offered to the public in 2015, which requires some more complex handling in the script. Most notably, Sentinel-2 products were served in packages of multiple granules prior to 6 December 2016, with sizes sometimes exceeding 6\acs{GB}. The actual physical file structure has, however, remained mostly the same (*see* \autoref{fig:s2_structure}). In the case of older multiple-granule products, the product name might appear more than once in \autoref{tab:s2products}, but are saved in the appropriate granule-named directory in this implementation (i.e. a product could contain granules 37SBA and 37SCA, so is listed twice, but in each granule-specific directory, the product directory only contains the data extracted for that specific granule).
 
